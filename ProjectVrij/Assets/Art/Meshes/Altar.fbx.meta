@@ -4,12 +4,24 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Base
+    100004: StairLeft
+    100006: StairRight
     400000: //RootNode
+    400002: Base
+    400004: StairLeft
+    400006: StairRight
     2100000: lambert1
     2100002: Emissive
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Altar
+    2300000: Base
+    2300002: StairLeft
+    2300004: StairRight
+    3300000: Base
+    3300002: StairLeft
+    3300004: StairRight
+    4300000: StairRight
+    4300002: StairLeft
+    4300004: Base
   externalObjects: {}
   materials:
     importMaterials: 1
