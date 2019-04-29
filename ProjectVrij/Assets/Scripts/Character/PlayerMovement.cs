@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         col_size = GetComponent<CapsuleCollider>();
-        anim = GetComponent<Animator>();
+        anim = GetComponent<Animation>();
         isGrounded = true;
     }
 
@@ -56,6 +56,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void BasicAttack()
     {
-        anim.Play("isAttacking", true);
+        //anim.Play("isAttacking", true);
     }
 }
