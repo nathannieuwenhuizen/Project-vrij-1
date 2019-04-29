@@ -14,9 +14,13 @@ public class InputHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump" + controllerID))
+        if (Input.GetButtonDown("BasicAttack" + controllerID))
         {
-            pm.BasicAttack();
+            pm.BasicAttack(true);
+        }
+        else
+        {
+            pm.BasicAttack(false);
         }
 
         if (Input.GetButtonDown("Jump" + controllerID))
