@@ -23,11 +23,6 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Walking();
-    }
 
     public void Jump()
     {
@@ -40,9 +35,15 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Walking()
+    public void Walking(float h_input , float y_input)
     {
-        rb.velocity = new Vector3(Input.GetAxis("Horizontal") * speed, rb.velocity.y, Input.GetAxis("Vertical") * speed);
+        rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        rb.velocity += transform.right * h_input * speed;
+        rb.velocity += transform.forward * y_input * speed;
+    }
+    public void Rotate(float y_input)
+    {
+        transform.Rotate( new Vector3(0, y_input, 0));
     }
 
     void OnCollisionEnter()
