@@ -15,14 +15,14 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
     CapsuleCollider col_size;
 
-    private Animation anim;
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         col_size = GetComponent<CapsuleCollider>();
-        anim = GetComponent<Animation>();
+        //anim = GetComponent<Animation>();
         isGrounded = true;
     }
 
@@ -54,8 +54,15 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = true;
     }
 
-    public void BasicAttack()
+    public void BasicAttack(bool state)
     {
-        //anim.Play("isAttacking", true);
+        if(state == true)
+        {
+            anim.SetBool("isAttacking", true);
+        }
+        else
+        {
+            anim.SetBool("isAttacking", false);
+        }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Stats : BaseStats
+public class Character : Entity
 {
     [SerializeField]
     private PlayerUI ui;
