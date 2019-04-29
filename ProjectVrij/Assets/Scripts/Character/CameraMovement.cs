@@ -23,7 +23,7 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
-        CameraSpeed = new Vector2(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
+        CameraSpeed = new Vector2(Input.GetAxis("RotateVertical"), Input.GetAxis("RotateHorizontal"));
         UpdateCamera();
 
         if (Input.GetKeyDown(KeyCode.Space))
