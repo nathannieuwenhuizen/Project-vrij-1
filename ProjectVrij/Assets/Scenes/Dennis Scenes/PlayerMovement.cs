@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
     CapsuleCollider col_size;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -27,13 +26,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Jump();
         Walking();
     }
 
-    void Jump()
+    public void Jump()
     {
-        if (Input.GetKey(KeyCode.Space) && isGrounded == true)
+        if (isGrounded == true)
         {
             Vector3 jumpVelocity = rb.velocity;
             jumpVelocity.y = jumpHeight;
