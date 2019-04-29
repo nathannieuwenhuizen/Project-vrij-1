@@ -8,7 +8,7 @@ public class PlayerUI : MonoBehaviour
     Slider slider;
     Material material;
 
-    private Stats player;
+    private Character player;
     private void Start()
     {
         if(GetComponent<Image>() != null)
