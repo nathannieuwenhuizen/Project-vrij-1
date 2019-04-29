@@ -25,4 +25,12 @@ public class Stats : BaseStats
     {
         return (float)Health / (float)MaxHealth;
     }
+
+    public void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "Hitbox")
+        {
+            Health -= 50;
+        }
+    }
 }

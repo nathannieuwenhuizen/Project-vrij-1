@@ -16,6 +16,11 @@ public class InputHandler : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump" + controllerID))
         {
+            pm.BasicAttack();
+        }
+
+        if (Input.GetButtonDown("Jump" + controllerID))
+        {
             pm.Jump();
         }
         pm.Walking(Input.GetAxis("Horizontal" + controllerID), Input.GetAxis("Vertical" + controllerID));

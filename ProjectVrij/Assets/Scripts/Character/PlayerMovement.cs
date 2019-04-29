@@ -15,11 +15,14 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
     CapsuleCollider col_size;
 
+    private Animation anim;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         col_size = GetComponent<CapsuleCollider>();
+        anim = GetComponent<Animator>();
         isGrounded = true;
     }
 
@@ -49,5 +52,10 @@ public class PlayerMovement : MonoBehaviour
     void OnCollisionEnter()
     {
         isGrounded = true;
+    }
+
+    public void BasicAttack()
+    {
+        anim.Play("isAttacking", true);
     }
 }

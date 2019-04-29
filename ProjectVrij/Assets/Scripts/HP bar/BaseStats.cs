@@ -12,7 +12,7 @@ public class BaseStats : MonoBehaviour
     public void Start()
     {
         Debug.Log("base stats");
-        health = maxHealth - 50;
+        health = maxHealth;
     }
     public int Health
     {
