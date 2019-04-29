@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityStandardAssets.CrossPlatformInput;
 public class InputHandler : MonoBehaviour
 {
     [SerializeField]
@@ -14,22 +14,35 @@ public class InputHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("BasicAttack" + controllerID))
+
+        if (Input.GetKey(controllerID == "1" ? KeyCode.Joystick1Button3 : KeyCode.Joystick2Button3))
         {
             pm.BasicAttack(true);
-        }
-        else
+        } else
         {
             pm.BasicAttack(false);
         }
-
-        if (Input.GetButtonDown("Jump" + controllerID))
+        if (Input.GetKey(controllerID == "1" ? KeyCode.Joystick1Button1 : KeyCode.Joystick2Button1))
         {
             pm.Jump();
         }
-        pm.Walking(Input.GetAxis("Horizontal" + controllerID), Input.GetAxis("Vertical" + controllerID));
-        pm.Rotate(Input.GetAxis("RotateHorizontal" + controllerID));
 
-        cm.Rotate(Input.GetAxis("RotateVertical" + controllerID));
+        //if (Input.GetButtonDown("BasicAttack" + controllerID))
+        //{
+
+        //    pm.BasicAttack(true);
+        //}
+        //else
+        //{
+        //}
+
+        //if (Input.GetButtonDown("Jump" + controllerID))
+        //{
+        //    pm.Jump();
+        //}
+        pm.Walking(CrossPlatformInputManager.GetAxis("Vertical" + controllerID), -CrossPlatformInputManager.GetAxis("Horizontal" + controllerID));
+        pm.Rotate(CrossPlatformInputManager.GetAxis("RotateHorizontal" + controllerID));
+
+        cm.Rotate(CrossPlatformInputManager.GetAxis("RotateVertical" + controllerID));
     }
 }
