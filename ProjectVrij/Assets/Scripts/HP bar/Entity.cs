@@ -20,7 +20,7 @@ public class Entity : MonoBehaviour
         set
         {
             health = value;
-            if (health < 0)
+            if (health <= 0)
             {
                 health = 0;
                 Death();
@@ -35,9 +35,9 @@ public class Entity : MonoBehaviour
     {
         get { return maxHealth; }
     }
-    public void Death()
+    public virtual void Death()
     {
-        Debug.Log("I am dead");
+        //Debug.Log("I am dead");
     }
 
 

@@ -7,6 +7,9 @@ public class Character : Entity
 {
     [SerializeField]
     private PlayerUI ui;
+
+    [SerializeField]
+    private PlayerSpawner ps;
     // Start is called before the first frame update
     private void Start()
     {
@@ -30,7 +33,21 @@ public class Character : Entity
     {
         if (collision.gameObject.tag == "Hitbox")
         {
+            Debug.Log("damage");
             Health -= 50;
+            
         }
+    }
+    public override void Death()
+    {
+        base.Death();
+        Debug.Log("I am dead");
+        Respawn();
+    }
+    public void Respawn()
+    {
+        Debug.Log("respawn");
+        Health = MaxHealth;
+        ps.RespawnPlayer(this);
     }
 }

@@ -19,6 +19,10 @@ public class PlayerSpawner : MonoBehaviour
             RepositionPlayer(playerPoses[i], spawnPoses[i]);
         }
     }
+    public void RespawnPlayer(Character player)
+    {
+        RepositionPlayer(player.transform, GetFurthestPositionFromPlayers());
+    }
     void RepositionPlayer(Transform player, Transform position)
     {
         player.position = position.position;
