@@ -7,8 +7,6 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded;
     [Space]
     public float speed;
-    public float w_speed;
-    public float r_speed;
     [Space]
     public float jumpHeight;
 
@@ -31,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isGrounded == true)
         {
+            anim.SetBool("isJumpingUp", true);
             Vector3 jumpVelocity = rb.velocity;
             jumpVelocity.y = jumpHeight;
             rb.velocity = jumpVelocity;
@@ -43,6 +42,19 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector3(0, rb.velocity.y, 0);
         rb.velocity += transform.right * h_input * speed;
         rb.velocity += transform.forward * y_input * speed;
+
+
+        anim.SetBool("isWalkingForward", y_input > 0.1);
+        anim.SetBool("isWalkingBack", y_input < -0.1);
+        anim.SetBool("isWalkingSide", h_input < -0.1 || h_input > 0.1);
+        //else if(y_input < 0)
+        //{
+        //    anim.SetBool("isWalkingBack", true);
+        //}
+        //else if (h_input < 0 || h_input > 0)
+        //{
+        //    anim.SetBool("isWalkingSide", true);
+        //}
     }
     public void Rotate(float y_input)
     {
@@ -52,6 +64,8 @@ public class PlayerMovement : MonoBehaviour
     void OnCollisionEnter()
     {
         isGrounded = true;
+        anim.SetBool("isJumpingUp", false);
+
     }
 
     public void BasicAttack(bool state)
