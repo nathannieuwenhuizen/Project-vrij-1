@@ -8,6 +8,9 @@ public class Weapon : MonoBehaviour
     private GameObject projectilePrefab;
     [SerializeField]
     private Transform shootPosition;
+    [SerializeField]
+    private float reloadTime = 0.5f;
+    private bool reloading = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +19,16 @@ public class Weapon : MonoBehaviour
 
     public void Shoot()
     {
-        GameObject projectile = PoolManager.instance.ReuseObject(projectilePrefab, shootPosition.position, shootPosition.rotation);
+        if (reloading) { return; }
 
+        GameObject projectile = PoolManager.instance.ReuseObject(projectilePrefab, shootPosition.position, shootPosition.rotation);
+        StartCoroutine(Reloading());
+    }
+    IEnumerator Reloading()
+    {
+        reloading = true;
+        yield return new WaitForSeconds(reloadTime);
+        reloading = false;
     }
     // Update is called once per frame
     void Update()
