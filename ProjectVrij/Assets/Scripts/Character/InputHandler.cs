@@ -9,6 +9,8 @@ public class InputHandler : MonoBehaviour
     [SerializeField]
     private CameraMovement cm;
     [SerializeField]
+    private Weapon weapon;
+    [SerializeField]
     private string controllerID = "";
 
     // Update is called once per frame
@@ -25,6 +27,10 @@ public class InputHandler : MonoBehaviour
         if (Input.GetKey(controllerID == "1" ? KeyCode.Joystick1Button1 : KeyCode.Joystick2Button1))
         {
             pm.Jump();
+        }
+        if (Input.GetKey(controllerID == "1" ? KeyCode.Joystick1Button2 : KeyCode.Joystick2Button2))
+        {
+            weapon.Shoot();
         }
 
         //if (Input.GetButtonDown("BasicAttack" + controllerID))

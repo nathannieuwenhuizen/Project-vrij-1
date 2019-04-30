@@ -40,7 +40,17 @@ public class Character : Entity
             Debug.Log("damage");
             character = collision.gameObject.GetComponentInParent<Character>();
             Health -= 50;
-            
+
+        }
+    }
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Hitbox")
+        {
+            Debug.Log("damage");
+            character = collision.gameObject.GetComponentInParent<Character>();
+            Health -= 50;
+
         }
     }
     public override void Death()
