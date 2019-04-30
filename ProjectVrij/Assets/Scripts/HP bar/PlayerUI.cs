@@ -8,7 +8,7 @@ public class PlayerUI : MonoBehaviour
     Slider slider;
     Material material;
 
-    private Character player;
+    Text pointText;
     private void Start()
     {
         if(GetComponent<Image>() != null)
@@ -19,7 +19,8 @@ public class PlayerUI : MonoBehaviour
         {
             slider = GetComponent<Slider>();
         }
-        // GetComponent<Material>();
+
+        pointText = transform.GetComponentInChildren<Text>();
         
     }
    
@@ -33,5 +34,9 @@ public class PlayerUI : MonoBehaviour
         {
             slider.value = _amount;
         }
+    }
+    public void SetPointText(string val)
+    {
+        pointText.text = val;
     }
 }

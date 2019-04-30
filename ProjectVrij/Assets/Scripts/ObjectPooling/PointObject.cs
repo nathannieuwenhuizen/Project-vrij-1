@@ -18,13 +18,15 @@ public class PointObject : PoolObject
 
     public void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.GetComponent<PlayerMovement>() != null)
+        if (col.gameObject.GetComponent<Character>() != null)
         {
+            col.gameObject.GetComponent<Character>().Points++;
             //player gets score;
             this.Destroy();
 
             FindObjectsOfType<PointSpawner>()[0].SpawnPoint();
             myPos.IsVacant = true;
+
         }
     }
 }

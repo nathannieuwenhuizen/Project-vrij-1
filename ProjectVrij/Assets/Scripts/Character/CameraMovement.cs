@@ -36,7 +36,6 @@ public class CameraMovement : MonoBehaviour
             currentRotation.x = -360 + currentRotation.x; 
         }
 
-        Debug.Log(currentRotation.x);
 
         currentRotation.x = Mathf.Clamp(currentRotation.x, -maxUpAngle, maxDownAngle);
         transform.localRotation = Quaternion.Euler(currentRotation);
