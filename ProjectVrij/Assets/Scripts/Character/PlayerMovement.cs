@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
     CapsuleCollider col_size;
+    [SerializeField] CameraMovement cm;
 
     public Animator anim;
 
@@ -20,10 +21,10 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         col_size = GetComponent<CapsuleCollider>();
+        cm = GetComponentInChildren<CameraMovement>();
         //anim = GetComponent<Animation>();
         isGrounded = true;
     }
-
 
     public void Jump()
     {
@@ -58,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Rotate(float y_input)
     {
-        transform.Rotate( new Vector3(0, y_input, 0));
+        transform.Rotate(new Vector3(0, y_input * cm.rotationSpeedY, 0));
     }
 
     void OnCollisionEnter()

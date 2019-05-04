@@ -24,7 +24,7 @@ public class InputHandler : MonoBehaviour
         {
             pm.BasicAttack(false);
         }
-        if (Input.GetKey(controllerID == "1" ? KeyCode.Joystick1Button1 : KeyCode.Joystick2Button1))
+        if (Input.GetKey(controllerID == "1" ? KeyCode.Joystick1Button0 : KeyCode.Joystick2Button0))
         {
             pm.Jump();
         }
