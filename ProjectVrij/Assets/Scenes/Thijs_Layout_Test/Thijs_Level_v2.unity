@@ -16239,6 +16239,16 @@ PrefabInstance:
       propertyPath: ps
       value: 
       objectReference: {fileID: 967740676}
+    - target: {fileID: 5699277475300690070, guid: 3cdbd79fcc43bfa448b09be5d9552ce4,
+        type: 3}
+      propertyPath: rotationSpeedY
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699277475300690070, guid: 3cdbd79fcc43bfa448b09be5d9552ce4,
+        type: 3}
+      propertyPath: rotationSpeedX
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cdbd79fcc43bfa448b09be5d9552ce4, type: 3}
 --- !u!4 &1681891403 stripped
