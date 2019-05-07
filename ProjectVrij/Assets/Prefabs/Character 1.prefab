@@ -157,9 +157,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4323027220e92984685fb4c9c1df0deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeedY: 0
+  rotationSpeedX: 0
+  maxDownAngle: 45
+  maxUpAngle: 45
+  cameraPivot: {fileID: 0}
   isGrounded: 1
   speed: 12
   jumpHeight: 10
+  cm: {fileID: 0}
   anim: {fileID: 7488403331612977323}
 --- !u!114 &5699277474216052191
 MonoBehaviour:
@@ -174,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pm: {fileID: 5699277474216052190}
-  cm: {fileID: 5699277475300690070}
+  cm: {fileID: 0}
   weapon: {fileID: 1918555864}
   controllerID: 1
 --- !u!114 &5699277474216052176
@@ -191,7 +197,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   ui: {fileID: 0}
-  ps: {fileID: 0}
 --- !u!114 &1918555864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,7 +305,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5699277475300690069}
-  - component: {fileID: 5699277475300690070}
   m_Layer: 0
   m_Name: camera_pivot
   m_TagString: Untagged
@@ -323,21 +327,6 @@ Transform:
   m_Father: {fileID: 5699277474216052187}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5699277475300690070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5699277475300690071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77d2e56629130fe429b5196a5e442f53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: {x: 2, y: 2}
-  maxDownAngle: 45
-  maxUpAngle: 45
 --- !u!135 &228989216
 SphereCollider:
   m_ObjectHideFlags: 0

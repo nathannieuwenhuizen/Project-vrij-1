@@ -4,24 +4,52 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    /// <summary>
+    /// Camera movement variables
+    /// 
+    /// 
+    /// </summary>
+    [Header("Camera Rotation Sensetivity")]
+    [SerializeField]
+    private float rotationSpeedY = 10f;
+    [SerializeField]
+    private float rotationSpeedX = 10f;
+    [Space]
+    [SerializeField]
+    [Range(0f, 89f)]
+    private float maxDownAngle = 45f;
+    [SerializeField]
+    [Range(0f, 89f)]
+    private float maxUpAngle = 45f;
+    [SerializeField]
+    private Transform cameraPivot;
+
+    /// <summary>
+    /// Rest of the variables of movement
+    /// </summary>
+    [Space]
+    [Header("Character Movement")]
     public bool isGrounded;
     [Space]
     public float speed;
     [Space]
     public float jumpHeight;
 
+    /// <summary>
+    /// Overige variables
+    /// </summary>
     Rigidbody rb;
     CapsuleCollider col_size;
-    [SerializeField] CameraMovement cm;
 
     public Animator anim;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         col_size = GetComponent<CapsuleCollider>();
-        cm = GetComponentInChildren<CameraMovement>();
         //anim = GetComponent<Animation>();
         isGrounded = true;
     }
@@ -57,10 +85,6 @@ public class PlayerMovement : MonoBehaviour
         //    anim.SetBool("isWalkingSide", true);
         //}
     }
-    public void Rotate(float y_input)
-    {
-        transform.Rotate(new Vector3(0, y_input * cm.rotationSpeedY, 0));
-    }
 
     void OnCollisionEnter()
     {
@@ -80,4 +104,31 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isAttacking", false);
         }
     }
+
+    //rotates the view of the player
+    public void Rotate(float x_input, float y_input)
+    {
+        //rotates the body horizontally
+        transform.Rotate(new Vector3(0, x_input * rotationSpeedY, 0));
+
+        //rotates the camera vertically
+        RotateCameraVertical(y_input);
+    }
+
+    //rotates the camera vertical up to maxes and mins
+    private void RotateCameraVertical(float y_input)
+    {
+        //rotates the camera pivot
+        cameraPivot.Rotate(new Vector3(y_input * rotationSpeedX, 0, 0));
+
+        //this is all for capping the rotation.
+        Vector3 currentRotation = cameraPivot.localRotation.eulerAngles;
+        if (currentRotation.x > 180)
+        {
+            currentRotation.x = -360 + currentRotation.x;
+        }
+        currentRotation.x = Mathf.Clamp(currentRotation.x, -maxUpAngle, maxDownAngle);
+        cameraPivot.localRotation = Quaternion.Euler(currentRotation);
+    }
+
 }
