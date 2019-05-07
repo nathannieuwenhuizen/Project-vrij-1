@@ -10,7 +10,7 @@ public class Entity : MonoBehaviour
     [SerializeField]
     private int maxHealth = 100;
 
-    public void Start()
+    protected virtual void Start()
     {
         health = maxHealth;
     }

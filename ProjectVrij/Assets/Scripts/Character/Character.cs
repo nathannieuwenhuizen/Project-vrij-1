@@ -37,7 +37,7 @@ public class Character : Entity
     /// <summary>
     /// Overige variables
     /// </summary>
-    private Rigidbody rb;
+    protected Rigidbody rb;
     [SerializeField]
     private Animator anim;
 
@@ -50,17 +50,18 @@ public class Character : Entity
     private Character characterThatHitYou;
 
     // Start is called before the first frame update
-    private void Start()
+    protected override void Start()
     {
         base.Start();
 
         ps = Transform.FindObjectOfType<PlayerSpawner>();
         rb = GetComponent<Rigidbody>();
+        Debug.Log(rb);
         isGrounded = false;
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         ui.SetHealthAmount(GetHealthPct());
     }
@@ -97,7 +98,10 @@ public class Character : Entity
     public override void Death()
     {
         base.Death();
-        characterThatHitYou.Points += 1;
+        if (characterThatHitYou != null)
+        {
+            characterThatHitYou.Points += 1;
+        }
         Debug.Log("I am dead");
         Respawn();
     }
@@ -172,10 +176,11 @@ public class Character : Entity
     }
 
     /// <summary>
-    /// Jums the player by adding force to the rigidbody
+    /// Jumps the player by adding force to the rigidbody
     /// </summary>
-    public void Jump()
+    public virtual void Jump()
     {
+        Debug.Log(rb);
         if (isGrounded == true)
         {
             anim.SetBool("isJumpingUp", true);
@@ -184,6 +189,10 @@ public class Character : Entity
             rb.velocity = jumpVelocity;
             isGrounded = false;
         }
+    }
+    public virtual void SpecialAttack()
+    {
+        Debug.Log("special attack base");
     }
 
     /// <summary>
