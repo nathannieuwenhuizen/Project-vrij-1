@@ -28,19 +28,38 @@ public class Character : Entity
     /// Walk movement variables
     /// </summary>
     [Header("Character Movement")]
-    private bool isGrounded;
     [SerializeField]
     private float walkSpeed;
     [SerializeField]
     private float jumpForce;
 
+    private bool isGrounded;
+
+    [Header("Sounds")]
+    [SerializeField]
+    private AudioClip walkSound;
+    [SerializeField]
+    private AudioClip jumpSound;
+    [SerializeField]
+    private AudioClip landingSound;
+    [SerializeField]
+    private AudioClip gotHitSound;
+    [SerializeField]
+    private AudioClip deathSound;
+    [SerializeField]
+    private AudioClip wooshSound;
+
+    private float walkIndex;
+    protected AudioSource movementAudioSource;
+    protected AudioSource voiceAudioSource;
+
     /// <summary>
     /// Overige variables
     /// </summary>
     protected Rigidbody rb;
+    [Header("overige dingen")]
     [SerializeField]
     private Animator anim;
-
     [SerializeField]
     private PlayerUI ui;
 
@@ -56,14 +75,27 @@ public class Character : Entity
 
         ps = Transform.FindObjectOfType<PlayerSpawner>();
         rb = GetComponent<Rigidbody>();
-        Debug.Log(rb);
-        isGrounded = false;
+
+        movementAudioSource = gameObject.AddComponent<AudioSource>();
+        voiceAudioSource = gameObject.AddComponent<AudioSource>();
+
+        isGrounded = true;
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
         ui.SetHealthAmount(GetHealthPct());
+
+        if (isGrounded)
+        {
+            walkIndex += (Mathf.Max( Mathf.Abs(rb.velocity.x), Mathf.Abs(rb.velocity.z))) / 100;
+            if (walkIndex > 1)
+            {
+                walkIndex = 0;
+                PlaySound(movementAudioSource, walkSound, .5f);
+            }
+        }
     }
 
     public float GetHealthPct()
@@ -86,12 +118,14 @@ public class Character : Entity
         }
         else
         {
+            PlaySound(movementAudioSource, landingSound, 1f);
             isGrounded = true;
             anim.SetBool("isJumpingUp", false);
         }
     }
     private void  GotHit(Hitbox hit)
     {
+        PlaySound(voiceAudioSource, gotHitSound, 1f);
         characterThatHitYou = hit.Character;
         Health -= hit.Damage;
     }
@@ -103,7 +137,10 @@ public class Character : Entity
         {
             characterThatHitYou.Points += 1;
         }
-        Debug.Log("I am dead");
+        PlaySound(voiceAudioSource, deathSound);
+
+        //some time should wait between respawn
+
         Respawn();
     }
     public void Respawn()
@@ -189,6 +226,8 @@ public class Character : Entity
             jumpVelocity.y = jumpForce;
             rb.velocity = jumpVelocity;
             isGrounded = false;
+            PlaySound(movementAudioSource, jumpSound, 1f);
+
         }
     }
     public virtual void SpecialAttack()
@@ -204,11 +243,19 @@ public class Character : Entity
     {
         if (state == true)
         {
+            PlaySound(movementAudioSource, wooshSound);
             anim.SetBool("isAttacking", true);
         }
         else
         {
             anim.SetBool("isAttacking", false);
         }
+    }
+
+    public void PlaySound(AudioSource source, AudioClip clip, float volume = 1f)
+    {
+        source.clip = clip;
+        source.volume = volume;
+        source.Play();
     }
 }

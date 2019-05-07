@@ -126,6 +126,12 @@ MonoBehaviour:
   cameraPivot: {fileID: 2538581116282305849}
   walkSpeed: 5
   jumpForce: 5
+  walkSound: {fileID: 8300000, guid: 525d560bf7464be4893227a4e46a156c, type: 3}
+  jumpSound: {fileID: 8300000, guid: 65ba4c9e32593224a8d3b5787ec6968d, type: 3}
+  landingSound: {fileID: 8300000, guid: 6cab36ab01a35234e99cbf5a3d2465a6, type: 3}
+  gotHitSound: {fileID: 8300000, guid: 433b35c228f51e3489e8ebc020d98d6a, type: 3}
+  deathSound: {fileID: 8300000, guid: bcda2bda55489f64c9be1dfdd1979581, type: 3}
+  wooshSound: {fileID: 8300000, guid: fc93d4e008e659c498075e9d69c1b554, type: 3}
   anim: {fileID: 846988570501520647}
   ui: {fileID: 0}
 --- !u!1 &2538581116282305851

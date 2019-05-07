@@ -240,12 +240,20 @@ MonoBehaviour:
   cameraPivot: {fileID: 2834880695952720928}
   walkSpeed: 5
   jumpForce: 5
+  walkSound: {fileID: 8300000, guid: 525d560bf7464be4893227a4e46a156c, type: 3}
+  jumpSound: {fileID: 8300000, guid: 65ba4c9e32593224a8d3b5787ec6968d, type: 3}
+  landingSound: {fileID: 8300000, guid: 6cab36ab01a35234e99cbf5a3d2465a6, type: 3}
+  gotHitSound: {fileID: 8300000, guid: 433b35c228f51e3489e8ebc020d98d6a, type: 3}
+  deathSound: {fileID: 8300000, guid: bcda2bda55489f64c9be1dfdd1979581, type: 3}
+  wooshSound: {fileID: 8300000, guid: fc93d4e008e659c498075e9d69c1b554, type: 3}
   anim: {fileID: 1129353972471407646}
   ui: {fileID: 0}
   projectilePrefab: {fileID: 771861541888416937, guid: e223558a7bb200842b6ca0bd42c5fba7,
     type: 3}
   shootPosition: {fileID: 7512112291284414026}
   reloadTime: 0.5
+  projectileDamage: 30
+  shootSound: {fileID: 8300000, guid: 5391193f2c046204fa2267b76ecd313a, type: 3}
 --- !u!1 &7512112291284414027
 GameObject:
   m_ObjectHideFlags: 0

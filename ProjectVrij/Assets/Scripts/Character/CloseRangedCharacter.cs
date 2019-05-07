@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CloseRangedCharacter : Character
 {
+    [Header("Projectile Info")]
     [SerializeField]
     private GameObject projectilePrefab;
     [SerializeField]
@@ -13,6 +14,9 @@ public class CloseRangedCharacter : Character
     [SerializeField]
     private int projectileDamage = 30;
     private bool reloading = false;
+    [SerializeField]
+    private AudioClip shootSound;
+
 
     protected override void Start()
     {
@@ -37,6 +41,7 @@ public class CloseRangedCharacter : Character
     {
         if (reloading) { return; }
         reloading = true;
+        PlaySound(movementAudioSource, shootSound);
         GameObject projectile = PoolManager.instance.ReuseObject(projectilePrefab, shootPosition.position, shootPosition.rotation);
         projectile.GetComponent<Hitbox>().Character = this;
         projectile.GetComponent<Hitbox>().Damage = projectileDamage;

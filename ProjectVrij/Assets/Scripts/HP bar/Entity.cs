@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class Entity : MonoBehaviour
 {   
-    [Header("This is a menu header :)")]
-    private int health;
+    [Header("Health")]
     [SerializeField]
     private int maxHealth = 100;
+
+    private int health;
 
     protected virtual void Start()
     {
