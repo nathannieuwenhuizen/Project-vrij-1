@@ -4,29 +4,42 @@ using UnityEngine;
 
 public class PlayerSpawner : MonoBehaviour
 {
+    public delegate void SpawnAction();
+    public static event SpawnAction SpawningPlayer;
 
     [SerializeField]
     private Transform[] spawnPoses;
 
-    [SerializeField]
-    private Transform[] playerPoses;
+    private List<Transform> playerPoses;
 
-    // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < playerPoses.Length; i++)
+        //setup list
+        playerPoses = new List<Transform> { };
+
+        //playeposes is located based on finding their script (its used only once)
+        PlayerMovement[] players = Transform.FindObjectsOfType<PlayerMovement>();
+        for (int i = 0; i < players.Length; i++)
         {
+            playerPoses.Add(players[i].transform);
             RepositionPlayer(playerPoses[i], spawnPoses[i]);
         }
     }
+
+    //respawns the palyer at the furthest position
     public void RespawnPlayer(Character player)
     {
         RepositionPlayer(player.transform, GetFurthestPositionFromPlayers());
     }
+
+    //changes the position and rotation of the player towards the position
     void RepositionPlayer(Transform player, Transform position)
     {
         player.position = position.position;
+        player.rotation = position.rotation;
     }
+
+    //gets the firthest spawnpoint from the player
     Transform GetFurthestPositionFromPlayers()
     {
         float furthestDistance = 0;

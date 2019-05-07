@@ -4,8 +4,8 @@ using System.Collections;
 
 public class CountDownTimer : MonoBehaviour
 {
-    public delegate void ClickAction();
-    public static event ClickAction OnZero;
+    public delegate void Countaction();
+    public static event Countaction OnZero;
 
     [SerializeField] private Text _countDownText;
     public float timerCount;

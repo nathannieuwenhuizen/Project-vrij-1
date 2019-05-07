@@ -8,7 +8,6 @@ public class Character : Entity
     [SerializeField]
     private PlayerUI ui;
 
-    [SerializeField]
     private PlayerSpawner ps;
 
     private int points = 0;
@@ -17,14 +16,13 @@ public class Character : Entity
     // Start is called before the first frame update
     private void Start()
     {
+        ps = Transform.FindObjectOfType<PlayerSpawner>();
         base.Start();
-        //HealthSystem(health);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(GetHealthPct());
         ui.SetHealthAmount(GetHealthPct());
     }
 
