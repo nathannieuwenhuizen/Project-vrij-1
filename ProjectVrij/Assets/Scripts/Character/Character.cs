@@ -89,12 +89,18 @@ public class Character : Entity
 
         if (isGrounded)
         {
-            walkIndex += (Mathf.Max( Mathf.Abs(rb.velocity.x), Mathf.Abs(rb.velocity.z))) / 100;
+            float directionalSpeed = Mathf.Max(Mathf.Abs(rb.velocity.x), Mathf.Abs(rb.velocity.z));
+            walkIndex += directionalSpeed / 100;
             if (walkIndex > 1)
             {
                 walkIndex = 0;
                 PlaySound(movementAudioSource, walkSound, .5f);
             }
+
+            Vector3 currentRotation = cameraPivot.localRotation.eulerAngles;
+            currentRotation.z = Mathf.Sin(walkIndex * Mathf.PI * 2); 
+            cameraPivot.localRotation = Quaternion.Euler(currentRotation);
+
         }
     }
 
