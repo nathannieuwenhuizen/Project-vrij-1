@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3380306630148961720}
   - component: {fileID: 220055372157790917}
   - component: {fileID: 1475993974222323569}
+  - component: {fileID: 37741006927549385}
   m_Layer: 0
   m_Name: projectile
   m_TagString: Hitbox
@@ -105,3 +106,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae6342ef0912794ea981dfc69715f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0.8
+--- !u!114 &37741006927549385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771861541888416937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92cc077fbcda72f41b9dbb30772e5d04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
+  character: {fileID: 0}

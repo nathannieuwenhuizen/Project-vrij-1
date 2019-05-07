@@ -13,6 +13,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.2
   m_Center: {x: 0, y: 0.2, z: 0}
+--- !u!114 &6170055384627137404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846988570494136021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92cc077fbcda72f41b9dbb30772e5d04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
+  character: {fileID: 7794953298222388401}
 --- !u!1 &2538581115202121853
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6c60695c1b8ed448db86a065c2f7c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerID: 0
+  controllerID: 1
 --- !u!114 &7794953298222388401
 MonoBehaviour:
   m_ObjectHideFlags: 0

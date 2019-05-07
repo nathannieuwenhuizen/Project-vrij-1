@@ -10,6 +10,8 @@ public class CloseRangedCharacter : Character
     private Transform shootPosition;
     [SerializeField]
     private float reloadTime = 0.5f;
+    [SerializeField]
+    private int projectileDamage = 30;
     private bool reloading = false;
 
     protected override void Start()
@@ -36,6 +38,8 @@ public class CloseRangedCharacter : Character
         if (reloading) { return; }
         reloading = true;
         GameObject projectile = PoolManager.instance.ReuseObject(projectilePrefab, shootPosition.position, shootPosition.rotation);
+        projectile.GetComponent<Hitbox>().Character = this;
+        projectile.GetComponent<Hitbox>().Damage = projectileDamage;
         StartCoroutine(Reloading());
     }
     IEnumerator Reloading()

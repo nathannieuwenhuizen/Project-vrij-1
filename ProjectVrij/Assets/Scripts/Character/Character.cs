@@ -73,28 +73,29 @@ public class Character : Entity
 
     public void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Hitbox")
+        if (collision.gameObject.GetComponent<Hitbox>())
         {
-            Debug.Log("damage");
-            characterThatHitYou = collision.gameObject.GetComponentInParent<Character>();
-            Health -= 50;
-
+            GotHit(collision.gameObject.GetComponent<Hitbox>());
         }
     }
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Hitbox")
+        if (collision.gameObject.GetComponent<Hitbox>())
         {
-            Debug.Log("damage");
-            characterThatHitYou = collision.gameObject.GetComponentInParent<Character>();
-            Health -= 50;
-
-        } else
+            GotHit(collision.gameObject.GetComponent<Hitbox>());
+        }
+        else
         {
             isGrounded = true;
             anim.SetBool("isJumpingUp", false);
         }
     }
+    private void  GotHit(Hitbox hit)
+    {
+        characterThatHitYou = hit.Character;
+        Health -= hit.Damage;
+    }
+
     public override void Death()
     {
         base.Death();
