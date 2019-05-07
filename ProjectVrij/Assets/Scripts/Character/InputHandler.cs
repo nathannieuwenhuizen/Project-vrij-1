@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 public class InputHandler : MonoBehaviour
 {
-    [SerializeField]
-    private PlayerMovement pm;
+    private Character character;
+
     [SerializeField]
     private Weapon weapon;
+
     [SerializeField]
     private string controllerID = "";
 
@@ -19,6 +20,8 @@ public class InputHandler : MonoBehaviour
 
     private void Start()
     {
+        //finds the character script.
+        character = GetComponent<Character>();
 
         //controller identification for the buttons
         switch (controllerID)
@@ -56,14 +59,14 @@ public class InputHandler : MonoBehaviour
     {
         if (Input.GetKey(baseAttackCode))
         {
-            pm.BasicAttack(true);
+            character.BasicAttack(true);
         } else
         {
-            pm.BasicAttack(false);
+            character.BasicAttack(false);
         }
         if (Input.GetKey(jumpCode))
         {
-            pm.Jump();
+            character.Jump();
         }
         if (Input.GetKey(shootCode))
         {
@@ -71,13 +74,12 @@ public class InputHandler : MonoBehaviour
         }
 
         //player movement
-        pm.Walking(CrossPlatformInputManager.GetAxis("Vertical" + controllerID), -CrossPlatformInputManager.GetAxis("Horizontal" + controllerID));
+        character.Walking(CrossPlatformInputManager.GetAxis("Vertical" + controllerID), -CrossPlatformInputManager.GetAxis("Horizontal" + controllerID));
         //player view change
-        pm.Rotate(
+        character.Rotate(
             CrossPlatformInputManager.GetAxis("RotateHorizontal" + controllerID),
             CrossPlatformInputManager.GetAxis("RotateVertical" + controllerID)
             );
-
         //just for testing on keyboard...
         //pm.Rotate(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
     }

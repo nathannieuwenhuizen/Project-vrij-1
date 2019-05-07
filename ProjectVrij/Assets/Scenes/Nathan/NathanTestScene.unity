@@ -367,6 +367,26 @@ PrefabInstance:
       propertyPath: ps
       value: 
       objectReference: {fileID: 1161194220}
+    - target: {fileID: 5699277474216052176, guid: 3cdbd79fcc43bfa448b09be5d9552ce4,
+        type: 3}
+      propertyPath: cameraPivot
+      value: 
+      objectReference: {fileID: 243014803}
+    - target: {fileID: 5699277474216052176, guid: 3cdbd79fcc43bfa448b09be5d9552ce4,
+        type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 535301264}
+    - target: {fileID: 5699277474216052176, guid: 3cdbd79fcc43bfa448b09be5d9552ce4,
+        type: 3}
+      propertyPath: walkSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699277474216052176, guid: 3cdbd79fcc43bfa448b09be5d9552ce4,
+        type: 3}
+      propertyPath: jumpForce
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5699277474216052190, guid: 3cdbd79fcc43bfa448b09be5d9552ce4,
         type: 3}
       propertyPath: rotationSpeedY
@@ -382,12 +402,23 @@ PrefabInstance:
       propertyPath: cameraPivot
       value: 
       objectReference: {fileID: 243014803}
+    - target: {fileID: 5699277474216052190, guid: 3cdbd79fcc43bfa448b09be5d9552ce4,
+        type: 3}
+      propertyPath: walkSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699277474216052190, guid: 3cdbd79fcc43bfa448b09be5d9552ce4,
+        type: 3}
+      propertyPath: jumpForce
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5699277474216052191, guid: 3cdbd79fcc43bfa448b09be5d9552ce4,
         type: 3}
       propertyPath: controllerID
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5699277474216052190, guid: 3cdbd79fcc43bfa448b09be5d9552ce4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3cdbd79fcc43bfa448b09be5d9552ce4, type: 3}
 --- !u!1 &494403527
 GameObject:
@@ -480,6 +511,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494403527}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &516774703 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7488403331612977323, guid: 3cdbd79fcc43bfa448b09be5d9552ce4,
+    type: 3}
+  m_PrefabInstance: {fileID: 831641539}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &527171119
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,6 +604,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527171119}
   m_CullTransparentMesh: 0
+--- !u!95 &535301264 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7488403331612977323, guid: 3cdbd79fcc43bfa448b09be5d9552ce4,
+    type: 3}
+  m_PrefabInstance: {fileID: 465055349}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &556956726
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,7 +630,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &556956727
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -617,6 +660,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 200
+  rotationSpeedY: 10
+  rotationSpeedX: 10
+  maxDownAngle: 45
+  maxUpAngle: 45
+  cameraPivot: {fileID: 0}
+  walkSpeed: 0
+  jumpForce: 0
+  anim: {fileID: 0}
   ui: {fileID: 1546781842}
 --- !u!65 &556956729
 BoxCollider:
@@ -1043,6 +1094,26 @@ PrefabInstance:
       propertyPath: ps
       value: 
       objectReference: {fileID: 1161194220}
+    - target: {fileID: 5699277474216052176, guid: 3cdbd79fcc43bfa448b09be5d9552ce4,
+        type: 3}
+      propertyPath: walkSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699277474216052176, guid: 3cdbd79fcc43bfa448b09be5d9552ce4,
+        type: 3}
+      propertyPath: jumpForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699277474216052176, guid: 3cdbd79fcc43bfa448b09be5d9552ce4,
+        type: 3}
+      propertyPath: cameraPivot
+      value: 
+      objectReference: {fileID: 406289703}
+    - target: {fileID: 5699277474216052176, guid: 3cdbd79fcc43bfa448b09be5d9552ce4,
+        type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 516774703}
     - target: {fileID: 5699277474216052190, guid: 3cdbd79fcc43bfa448b09be5d9552ce4,
         type: 3}
       propertyPath: rotationSpeedY
@@ -1068,7 +1139,8 @@ PrefabInstance:
       propertyPath: m_NormalizedViewPortRect.x
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5699277474216052190, guid: 3cdbd79fcc43bfa448b09be5d9552ce4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3cdbd79fcc43bfa448b09be5d9552ce4, type: 3}
 --- !u!1 &837851644
 GameObject:
@@ -1615,12 +1687,12 @@ PrefabInstance:
     - target: {fileID: 130331350940428182, guid: bd78552c5a05deb40a99e50ff46b5cfa,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 130331350940428182, guid: bd78552c5a05deb40a99e50ff46b5cfa,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 130331350522697455, guid: bd78552c5a05deb40a99e50ff46b5cfa,
         type: 3}

@@ -8,11 +8,10 @@ public class Entity : MonoBehaviour
     [Header("This is a menu header :)")]
     private int health;
     [SerializeField]
-    private int maxHealth;
+    private int maxHealth = 100;
 
     public void Start()
     {
-        //Debug.Log("base stats");
         health = maxHealth;
     }
     public int Health

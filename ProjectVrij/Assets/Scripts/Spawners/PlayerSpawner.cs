@@ -18,8 +18,9 @@ public class PlayerSpawner : MonoBehaviour
         playerPoses = new List<Transform> { };
 
         //playeposes is located based on finding their script (its used only once)
-        PlayerMovement[] players = Transform.FindObjectsOfType<PlayerMovement>();
-        for (int i = 0; i < players.Length; i++)
+        Character[] players = Transform.FindObjectsOfType<Character>();
+        Debug.Log(players.Length);
+        for (int i = 0; i < players.Length- 1; i++)
         {
             playerPoses.Add(players[i].transform);
             RepositionPlayer(playerPoses[i], spawnPoses[i]);
