@@ -11,7 +11,7 @@ public class Character : Entity
     private PlayerSpawner ps;
 
     private int points = 0;
-    private Character character;
+    [SerializeField] private Character character;
 
     // Start is called before the first frame update
     private void Start()
@@ -41,14 +41,19 @@ public class Character : Entity
 
         }
     }
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collider)
     {
-        if (collision.gameObject.tag == "Hitbox")
+        if (collider.gameObject.tag == "Hitbox")
         {
-            Debug.Log("damage");
-            character = collision.gameObject.GetComponentInParent<Character>();
-            Health -= 50;
-
+            try
+            {
+                character = collider.gameObject.GetComponent<Projectile>().playerID;
+                Health -= 50;
+            }
+            catch
+            { 
+            }
+           
         }
     }
     public override void Death()
@@ -62,6 +67,7 @@ public class Character : Entity
     {
         Debug.Log("respawn");
         Health = MaxHealth;
+        character = null;
         ps.RespawnPlayer(this);
     }
     public int Points
