@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// A class that has a health variable and can die... sort of
+/// </summary>
 public class Entity : MonoBehaviour
 {   
     [Header("Health")]
@@ -13,9 +16,14 @@ public class Entity : MonoBehaviour
 
     protected virtual void Start()
     {
-        health = maxHealth;
+        //sets the health as maxHealth
+        Health = MaxHealth;
     }
-    public int Health
+
+    /// <summary>
+    /// The value of health that the entity has, if it reaches 0, the entity dies.
+    /// </summary>
+    public virtual int Health
     {
         get { return health; }
         set
@@ -36,6 +44,10 @@ public class Entity : MonoBehaviour
     {
         get { return maxHealth; }
     }
+
+    /// <summary>
+    /// Called hwne health reaches 0.
+    /// </summary>
     public virtual void Death()
     {
         //Debug.Log("I am dead");

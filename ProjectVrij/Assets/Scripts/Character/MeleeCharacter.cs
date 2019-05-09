@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// A special character that does melee combat
+/// </summary>
 public class MeleeCharacter : Character
 {
     protected override void Start()

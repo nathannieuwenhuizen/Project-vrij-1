@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
+/// <summary>
+/// Counts down a certain ammount and shows it via a UI text object. When it reaches 0, it fires an event.
+/// </summary>
 public class CountDownTimer : MonoBehaviour
 {
     public delegate void Countaction();
@@ -12,12 +15,13 @@ public class CountDownTimer : MonoBehaviour
 
     void Update ()
     {
+        //When timer reaches 0.
         if (timerCount <= 0)
         {
             //Hier stopt de game.
-            //Time.timeScale = 0;
             _countDownText.text = "0:00:00";
 
+            //fires the event
             OnZero?.Invoke();
         }
 
@@ -27,6 +31,9 @@ public class CountDownTimer : MonoBehaviour
         }
  }
 
+    /// <summary>
+    /// Updates the timer and shows it on the UI object.
+    /// </summary>
     private void Countdown()
     {
         timerCount -= Time.deltaTime;

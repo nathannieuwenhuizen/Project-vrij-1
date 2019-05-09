@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// A special character that fires addition projectiles on a short distance range.
+/// </summary>
 public class CloseRangedCharacter : Character
 {
     [Header("Projectile Info")]
@@ -31,12 +33,17 @@ public class CloseRangedCharacter : Character
     {
         base.Update();
     }
+
     public override void SpecialAttack()
     {
         base.SpecialAttack();
         Shoot();
 
     }
+
+    /// <summary>
+    /// Shoots a projectile
+    /// </summary>
     public void Shoot()
     {
         if (reloading) { return; }
@@ -47,6 +54,11 @@ public class CloseRangedCharacter : Character
         projectile.GetComponent<Hitbox>().Damage = projectileDamage;
         StartCoroutine(Reloading());
     }
+
+    /// <summary>
+    /// Reloads the weapon, making it not usable for reloadtime long.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator Reloading()
     {
         yield return new WaitForSeconds(reloadTime);

@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// The character is the base entity that the player plays as. (with camera and UI call) 
+/// This character will be the base that other special classes uses, such as the melee character or close ranged character.
+/// </summary>
 public class Character : Entity
 {
 
@@ -33,8 +37,10 @@ public class Character : Entity
     [SerializeField]
     private float jumpForce;
 
-    private bool isGrounded;
+    private bool isGrounded = true;
 
+
+    //sounds
     [Header("Sounds")]
     [SerializeField]
     private AudioClip walkSound;
@@ -53,9 +59,7 @@ public class Character : Entity
     protected AudioSource movementAudioSource;
     protected AudioSource voiceAudioSource;
 
-    /// <summary>
-    /// Overige variables
-    /// </summary>
+    // Overige variables
     protected Rigidbody rb;
     [Header("overige dingen")]
     [SerializeField]
@@ -73,22 +77,22 @@ public class Character : Entity
     {
         base.Start();
 
+        //components are defined
         ps = Transform.FindObjectOfType<PlayerSpawner>();
         rb = GetComponent<Rigidbody>();
 
+        //audiosources are added for the character
         movementAudioSource = gameObject.AddComponent<AudioSource>();
         voiceAudioSource = gameObject.AddComponent<AudioSource>();
-
-        isGrounded = true;
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
-        ui.SetHealthAmount(GetHealthPct());
-
+        //If grounded, play music and tilt the camera bit.
         if (isGrounded)
         {
+            //gets the max speed of the x-speed or z-speed
             float directionalSpeed = Mathf.Max(Mathf.Abs(rb.velocity.x), Mathf.Abs(rb.velocity.z));
             walkIndex += directionalSpeed / 100;
             if (walkIndex > 1)
@@ -97,6 +101,7 @@ public class Character : Entity
                 PlaySound(movementAudioSource, walkSound, .5f);
             }
 
+            //tilts the camera a bit
             Vector3 currentRotation = cameraPivot.localRotation.eulerAngles;
             currentRotation.z = Mathf.Sin(walkIndex * Mathf.PI * 2); 
             cameraPivot.localRotation = Quaternion.Euler(currentRotation);
@@ -104,6 +109,10 @@ public class Character : Entity
         }
     }
 
+    /// <summary>
+    /// Returns the precentage of the health from the max health
+    /// </summary>
+    /// <returns></returns>
     public float GetHealthPct()
     {
         return (float)Health / (float)MaxHealth;
@@ -111,17 +120,30 @@ public class Character : Entity
 
     public void OnTriggerEnter(Collider collision)
     {
+        //if its a hitbox class
         if (collision.gameObject.GetComponent<Hitbox>())
         {
-            GotHit(collision.gameObject.GetComponent<Hitbox>());
+            //if it doesnt come from the player itself
+            if (collision.gameObject.GetComponent<Hitbox>().Character != this)
+            {
+                //take damage
+                GotHit(collision.gameObject.GetComponent<Hitbox>());
+            }
         }
     }
     public void OnCollisionEnter(Collision collision)
     {
+        //if its a hitbox class
         if (collision.gameObject.GetComponent<Hitbox>())
         {
-            GotHit(collision.gameObject.GetComponent<Hitbox>());
+            //if it doesnt come from the player itself
+            if (collision.gameObject.GetComponent<Hitbox>().Character != this)
+            {
+                //take damage
+                GotHit(collision.gameObject.GetComponent<Hitbox>());
+            }
         }
+        //else its just ground
         else
         {
             PlaySound(movementAudioSource, landingSound, 1f);
@@ -129,6 +151,11 @@ public class Character : Entity
             anim.SetBool("isJumpingUp", false);
         }
     }
+
+    /// <summary>
+    /// Activated when something with a hitbox collider hitted the player
+    /// </summary>
+    /// <param name="hit"></param>
     private void  GotHit(Hitbox hit)
     {
         PlaySound(voiceAudioSource, gotHitSound, 1f);
@@ -136,19 +163,41 @@ public class Character : Entity
         Health -= hit.Damage;
     }
 
+    /// <summary>
+    /// Your death!
+    /// </summary>
     public override void Death()
     {
         base.Death();
+
+        //other player recieves point (MUST BE CHANGED LATER!)
         if (characterThatHitYou != null)
         {
             characterThatHitYou.Points += 1;
         }
+        //plays death sound
         PlaySound(voiceAudioSource, deathSound);
 
-        //some time should wait between respawn
+        //character falls back by changing the force of the rigidbody.
+        Vector3 fallBackForce = Vector3.Normalize(transform.position - characterThatHitYou.transform.position) * 10f;
+        fallBackForce.y = 5f;
+        rb.velocity = fallBackForce;
 
+        StartCoroutine(Respawning());
+    }
+
+    /// <summary>
+    /// Just to make the death animation a bit longer.
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator Respawning()
+    {
+        yield return new WaitForSeconds(1f);
         Respawn();
     }
+    /// <summary>
+    /// Revives and spawns the player somewhere on the map
+    /// </summary>
     public void Respawn()
     {
         Debug.Log("respawn");
@@ -156,11 +205,26 @@ public class Character : Entity
         characterThatHitYou = null;
         ps.RespawnPlayer(this);
     }
+
+    /// <summary>
+    /// A setter for the points integer, when a health is set, the ui updates automaticly.
+    /// </summary>
     public int Points
     {
         get { return points; }
         set { points = value;
             ui.SetPointText(points.ToString());
+        }
+    }
+
+    /// <summary>
+    /// A setter for the heath integer, when a health is set, the ui updates automaticly.
+    /// </summary>
+    public override int Health {
+        get => base.Health;
+        set {
+            base.Health = value;
+            ui.SetHealthAmount(GetHealthPct());
         }
     }
 
@@ -179,7 +243,9 @@ public class Character : Entity
         RotateCameraVertical(y_input);
     }
 
-    //rotates the camera vertical up to maxes and mins
+    /// <summary>
+    /// rotates the camera vertical up to maxes and mins
+    /// </summary>
     private void RotateCameraVertical(float y_input)
     {
         //rotates the camera pivot
@@ -202,6 +268,9 @@ public class Character : Entity
     /// <param name="y_input"></param>
     public void Walking(float h_input, float y_input)
     {
+        //if the character is dead, it shouldnt be able to move.
+        if (Health == 0) { return; }
+
         rb.velocity = new Vector3(0, rb.velocity.y, 0);
         rb.velocity += transform.right * h_input * walkSpeed;
         rb.velocity += transform.forward * y_input * walkSpeed;
@@ -229,21 +298,28 @@ public class Character : Entity
         if (isGrounded == true)
         {
             anim.SetBool("isJumpingUp", true);
+
+            //changes the y velocity
             Vector3 jumpVelocity = rb.velocity;
             jumpVelocity.y = jumpForce;
             rb.velocity = jumpVelocity;
+
             isGrounded = false;
             PlaySound(movementAudioSource, jumpSound, 1f);
 
         }
     }
+
+    /// <summary>
+    /// Here the special attack of the character is used.
+    /// </summary>
     public virtual void SpecialAttack()
     {
         Debug.Log("special attack base");
     }
 
     /// <summary>
-    /// Makes the animation do something
+    /// Makes the animation do a basic attack
     /// </summary>
     /// <param name="state"> The boolion that will determine whether the animation will do something</param>
     public void BasicAttack(bool state)
@@ -259,6 +335,13 @@ public class Character : Entity
         }
     }
 
+
+    /// <summary>
+    /// Plays a certain sound to the audioclip with a certain volume.
+    /// </summary>
+    /// <param name="source"></param>
+    /// <param name="clip"></param>
+    /// <param name="volume"></param>
     public void PlaySound(AudioSource source, AudioClip clip, float volume = 1f)
     {
         source.clip = clip;
