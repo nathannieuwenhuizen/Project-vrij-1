@@ -16,7 +16,7 @@ public class PointSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PoolManager.instance.CreatePool(pointPrefab, 30);
+        //PoolManager.instance.CreatePool(pointPrefab, 30);
         for(int i = 0; i < amountOfPointsActive; i++)
         {
             SpawnPoint();
@@ -26,8 +26,8 @@ public class PointSpawner : MonoBehaviour
     {
         SpawnPosition randomPos = getRandomActivePos();
         randomPos.IsVacant = false;
-        GameObject point = PoolManager.instance.ReuseObject(pointPrefab, randomPos.transform.position, Quaternion.identity);
-        point.GetComponent<PointObject>().myPos = randomPos;
+        //GameObject point = PoolManager.instance.ReuseObject(pointPrefab, randomPos.transform.position, Quaternion.identity);
+        //point.GetComponent<PointObject>().myPos = randomPos;
     }
     public SpawnPosition getRandomActivePos()
     {
