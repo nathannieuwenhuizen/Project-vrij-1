@@ -21,7 +21,7 @@ public class Projectile : PoolObject
         transform.Translate(Vector3.forward * speed);
 
         //probably changed later?
-        Destroy(this.gameObject, destroyTime);
+        //Destroy(this.gameObject, destroyTime);
     }
 
     public override void OnObjectReuse()
