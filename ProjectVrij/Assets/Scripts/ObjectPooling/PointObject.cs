@@ -9,6 +9,12 @@ public class PointObject : PoolObject
     //my spawnPosition, must be changed to private and a getter/setter must be made later.
     public SpawnPosition myPos;
 
+    [SerializeField]
+    private ParticleSystem collectedParticle;
+
+    [SerializeField]
+    private ParticleSystem spawnParticle;
+
     public void Update()
     {
         //a simple rotation flare to catch the players eye.
@@ -17,7 +23,31 @@ public class PointObject : PoolObject
 
     public override void OnObjectReuse()
     {
+    }
+    public void Spawn()
+    {
+        spawnParticle.Play();
+    }
 
+    public IEnumerator Collected()
+    {
+        collectedParticle.Play();
+        GetComponent<MeshRenderer>().enabled = false;
+
+        //waits for a time before respawning
+        yield return new WaitForSeconds(1f);
+
+
+        //returns to the poolmanager.
+        this.Destroy();
+
+        GetComponent<MeshRenderer>().enabled = true;
+
+        //pointspawner spawns a new point.
+        FindObjectsOfType<PointSpawner>()[0].SpawnPoint();
+
+        //the point own spawnposition becomes empty. (is called later to prevent the point being spawned on the same location twice)
+        myPos.IsVacant = true;
     }
 
     /// <summary>
@@ -33,14 +63,7 @@ public class PointObject : PoolObject
             //player gets score;
             col.gameObject.GetComponent<Character>().Points++;
 
-            //returns to the poolmanager.
-            this.Destroy();
-
-            //pointspawner spawns a new point.
-            FindObjectsOfType<PointSpawner>()[0].SpawnPoint();
-
-            //the point own spawnposition becomes empty. (is called later to prevent the point being spawned on the same location twice)
-            myPos.IsVacant = true;
+            StartCoroutine(Collected());
 
         }
     }
