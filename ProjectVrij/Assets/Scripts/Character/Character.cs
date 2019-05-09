@@ -116,7 +116,7 @@ public class Character : Entity
             GotHit(collision.gameObject.GetComponent<Hitbox>());
         }
     }
-    public void OnCollisionEnter(Collision collider)
+    public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.GetComponent<Hitbox>())
         {
@@ -153,7 +153,7 @@ public class Character : Entity
     {
         Debug.Log("respawn");
         Health = MaxHealth;
-        character = null;
+        characterThatHitYou = null;
         ps.RespawnPlayer(this);
     }
     public int Points
