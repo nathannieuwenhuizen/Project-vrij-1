@@ -30,11 +30,12 @@ public class PoolManager : MonoBehaviour {
 	public void CreatePool(GameObject prefab, int size) {
 		int key = prefab.GetInstanceID ();
 
-		GameObject group = new GameObject(prefab.name + " pool");
-		group.transform.parent = transform;
-
 		if (!poolDictionary.ContainsKey(key)) {
-			poolDictionary.Add(key, new Queue<ObjectInstance>());
+
+            GameObject group = new GameObject(prefab.name + " pool");
+            group.transform.parent = transform;
+
+            poolDictionary.Add(key, new Queue<ObjectInstance>());
 
 			for (int i = 0; i < size; i ++) {
 				ObjectInstance newObject = new ObjectInstance(Instantiate (prefab) as GameObject);
