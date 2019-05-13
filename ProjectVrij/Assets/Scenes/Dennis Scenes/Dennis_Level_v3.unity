@@ -16250,6 +16250,23 @@ PrefabInstance:
       propertyPath: rotationSpeedX
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5699277474216052191, guid: 3cdbd79fcc43bfa448b09be5d9552ce4,
+        type: 3}
+      propertyPath: controllerID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 124100893, guid: 3cdbd79fcc43bfa448b09be5d9552ce4, type: 3}
+      propertyPath: rotationSpeedY
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 124100893, guid: 3cdbd79fcc43bfa448b09be5d9552ce4, type: 3}
+      propertyPath: rotationSpeedX
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 124100893, guid: 3cdbd79fcc43bfa448b09be5d9552ce4, type: 3}
+      propertyPath: walkSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5699277475300690069, guid: 3cdbd79fcc43bfa448b09be5d9552ce4,
         type: 3}
       propertyPath: m_LocalRotation.y
@@ -16265,12 +16282,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5699277474216052191, guid: 3cdbd79fcc43bfa448b09be5d9552ce4,
-        type: 3}
-      propertyPath: controllerID
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1918555864, guid: 3cdbd79fcc43bfa448b09be5d9552ce4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3cdbd79fcc43bfa448b09be5d9552ce4, type: 3}
 --- !u!4 &1681891403 stripped
 Transform:
@@ -19407,7 +19420,20 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 124100893, guid: 3cdbd79fcc43bfa448b09be5d9552ce4, type: 3}
+      propertyPath: rotationSpeedY
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 124100893, guid: 3cdbd79fcc43bfa448b09be5d9552ce4, type: 3}
+      propertyPath: rotationSpeedX
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 124100893, guid: 3cdbd79fcc43bfa448b09be5d9552ce4, type: 3}
+      propertyPath: walkSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1918555864, guid: 3cdbd79fcc43bfa448b09be5d9552ce4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3cdbd79fcc43bfa448b09be5d9552ce4, type: 3}
 --- !u!4 &1908655519 stripped
 Transform:
