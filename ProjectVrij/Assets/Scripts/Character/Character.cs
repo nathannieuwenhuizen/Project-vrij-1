@@ -104,7 +104,7 @@ public class Character : Entity
             //tilts the camera a bit
             Vector3 currentRotation = cameraPivot.localRotation.eulerAngles;
             currentRotation.z = Mathf.Sin(walkIndex * Mathf.PI * 2); 
-            cameraPivot.localRotation = Quaternion.Euler(currentRotation);
+            //cameraPivot.localRotation = Quaternion.Euler(currentRotation);
 
         }
     }
@@ -173,8 +173,10 @@ public class Character : Entity
         //other player recieves point (MUST BE CHANGED LATER!)
         if (characterThatHitYou != null)
         {
-            characterThatHitYou.Points += 1;
+            characterThatHitYou.Points += Points + 1;
         }
+        Points = 0;
+
         //plays death sound
         PlaySound(voiceAudioSource, deathSound);
 

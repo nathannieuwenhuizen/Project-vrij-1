@@ -50,6 +50,8 @@ public class CloseRangedCharacter : Character
         reloading = true;
         PlaySound(movementAudioSource, shootSound);
         GameObject projectile = PoolManager.instance.ReuseObject(projectilePrefab, shootPosition.position, shootPosition.rotation);
+
+        projectile.GetComponent<Projectile>().Spawn();
         projectile.GetComponent<Hitbox>().Character = this;
         projectile.GetComponent<Hitbox>().Damage = projectileDamage;
         StartCoroutine(Reloading());
