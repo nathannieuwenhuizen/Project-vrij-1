@@ -33,6 +33,7 @@ public class PointObject : PoolObject
     {
         collectedParticle.Play();
         GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<BoxCollider>().enabled = false;
 
         //waits for a time before respawning
         yield return new WaitForSeconds(1f);
@@ -42,12 +43,13 @@ public class PointObject : PoolObject
         this.Destroy();
 
         GetComponent<MeshRenderer>().enabled = true;
+        GetComponent<BoxCollider>().enabled = true;
 
         //pointspawner spawns a new point.
         FindObjectsOfType<PointSpawner>()[0].SpawnPoint();
 
         //the point own spawnposition becomes empty. (is called later to prevent the point being spawned on the same location twice)
-        myPos.IsVacant = true;
+        myPos.IsEmpty = true;
     }
 
     /// <summary>

@@ -15,6 +15,8 @@ public class Character : Entity
     /// </summary>
     [Header("Camera Rotation Sensetivity")]
     [SerializeField]
+    private Camera camera;
+    [SerializeField]
     private float rotationSpeedY = 10f;
     [SerializeField]
     private float rotationSpeedX = 10f;
@@ -65,7 +67,7 @@ public class Character : Entity
     [SerializeField]
     private Animator anim;
     [SerializeField]
-    private PlayerUI ui;
+    public PlayerUI ui;
 
     private PlayerSpawner ps;
 
@@ -86,6 +88,60 @@ public class Character : Entity
         voiceAudioSource = gameObject.AddComponent<AudioSource>();
     }
 
+    //changes camera size and changes input according to the palyer id and how many players are playing
+    public void ApplyPlayerSetting(int playerID)
+    {
+        //controller
+        GetComponent<InputHandler>().ControllerID = playerID;
+        
+        Vector2 cameraSize = new Vector2(0.5f, 1f);
+        if (GameInformation.PLAYER_COUNT > 2)
+        {
+            cameraSize = new Vector2(.5f, .5f);
+        }
+        Vector2 cameraPos = new Vector2(0,0);
+        switch (playerID)
+        {
+            case 1:
+                cameraPos = new Vector2(0, .5f);
+                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, 80);
+                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 80);
+
+                break;
+            case 2:
+                cameraPos = new Vector2(.5f, .5f);
+                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, 80);
+                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 80);
+
+                break;
+            case 3:
+                cameraPos = new Vector2(0, 0);
+                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, 80);
+                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 0, 80);
+
+                break;
+            case 4:
+                cameraPos = new Vector2(.5f, 0);
+                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, 80);
+                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 0, 80);
+
+                break;
+            default:
+                cameraPos = new Vector2(0, .5f);
+                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, 80);
+                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 80);
+
+                break;
+        }
+        if (GameInformation.PLAYER_COUNT <= 2)
+        {
+            cameraPos.y = 0f;
+        }
+        camera.rect = new Rect(cameraPos, cameraSize);
+        Debug.Log("camera size" + cameraPos.y + " player count = " + GameInformation.PLAYER_COUNT);
+
+    }
+
     // Update is called once per frame
     protected virtual void Update()
     {
@@ -104,7 +160,7 @@ public class Character : Entity
             //tilts the camera a bit
             Vector3 currentRotation = cameraPivot.localRotation.eulerAngles;
             currentRotation.z = Mathf.Sin(walkIndex * Mathf.PI * 2); 
-            cameraPivot.localRotation = Quaternion.Euler(currentRotation);
+            //cameraPivot.localRotation = Quaternion.Euler(currentRotation);
 
         }
     }
@@ -173,8 +229,10 @@ public class Character : Entity
         //other player recieves point (MUST BE CHANGED LATER!)
         if (characterThatHitYou != null)
         {
-            characterThatHitYou.Points += 1;
+            characterThatHitYou.Points += Points + 1;
         }
+        Points = 0;
+
         //plays death sound
         PlaySound(voiceAudioSource, deathSound);
 

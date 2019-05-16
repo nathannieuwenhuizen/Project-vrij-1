@@ -4,5 +4,5 @@ using UnityEngine;
 
 public static class GameInformation
 {
-    public static int PLAYER_COUNT;
+    public static int PLAYER_COUNT = 2;
 }

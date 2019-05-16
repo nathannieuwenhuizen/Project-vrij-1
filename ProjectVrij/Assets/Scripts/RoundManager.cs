@@ -10,9 +10,53 @@ using UnityEngine.SceneManagement;
 public class RoundManager : MonoBehaviour
 {
     [SerializeField]
+    private GameObject CharacterPrefab;
+
+    [SerializeField]
+    private PlayerUI[] playerUis;
+
+    [SerializeField]
     private GameObject resultScreen;
     [SerializeField]
     private Text winningText;
+
+    private List<Character> characters;
+    public void Start()
+    {
+        InitializePlayers(GameInformation.PLAYER_COUNT);
+    }
+
+    void InitializePlayers(int amount)
+    {
+        GameObject group = new GameObject("Players");
+        //find existing players
+        Character[] chars = FindObjectsOfType<Character>();
+        characters = new List<Character>
+        {
+            chars[0],
+            chars[1]
+        };
+        
+        //spawn optional two additional players
+        for (int i = 2; i < amount; i++)
+        {
+            playerUis[i].gameObject.SetActive(true);
+
+            Character newCharacter = GameObject.Instantiate(CharacterPrefab, transform).GetComponent<Character>();
+
+            characters.Add(newCharacter);
+            Debug.Log("player: " + i);
+        }
+
+
+        //Setup controller setup and camera position
+        for (int i = 0; i < characters.Count; i++)
+        {
+            characters[i].ui = playerUis[i];
+            characters[i].transform.parent = group.transform;
+            characters[i].ApplyPlayerSetting(i + 1);
+        }
+    }
 
 
     //The enable/disable are needed for events, if a scene changes, the event will still be active, this prevents it from being active removing potential bugs.
