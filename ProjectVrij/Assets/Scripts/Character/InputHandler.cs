@@ -81,11 +81,25 @@ public class InputHandler : MonoBehaviour
 
     void Update()
     {
+        CheckInput();
+
+        //purely for testing on keyboard
+        if (ControllerID == 1)
+        {
+            ControllerID = 0;
+            CheckInput();
+            ControllerID = 1;
+        }
+
+    }
+    void CheckInput()
+    {
         //Checks whether a button is pressed down.
         if (Input.GetKeyDown(baseAttackCode))
         {
             character.BasicAttack(true);
-        } else
+        }
+        else
         {
             character.BasicAttack(false);
         }
