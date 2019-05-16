@@ -52,9 +52,9 @@ public class RoundManager : MonoBehaviour
         //Setup controller setup and camera position
         for (int i = 0; i < characters.Count; i++)
         {
-            characters[i].ui = playerUis[i];
+            //characters[i].ui = playerUis[i];
             characters[i].transform.parent = group.transform;
-            characters[i].ApplyPlayerSetting(i + 1);
+            //characters[i].ApplyPlayerSetting(i + 1);
         }
     }
 
@@ -103,7 +103,7 @@ public class RoundManager : MonoBehaviour
         Character winningChar = chars[0];
         for (int i = 0; i < chars.Length; i++)
         {
-            if (winningChar.Points < chars[i].Points)
+            if (winningChar.SavedPoints < chars[i].SavedPoints)
             {
                 winningChar = chars[i];
             }

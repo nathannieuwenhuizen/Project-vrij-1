@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 /// <summary>
 /// The character is the base entity that the player plays as. (with camera and UI call) 
@@ -14,8 +15,6 @@ public class Character : Entity
     /// Camera movement variables
     /// </summary>
     [Header("Camera Rotation Sensetivity")]
-    [SerializeField]
-    private Camera camera;
     [SerializeField]
     private float rotationSpeedY = 10f;
     [SerializeField]
@@ -67,12 +66,15 @@ public class Character : Entity
     [SerializeField]
     private Animator anim;
     [SerializeField]
-    public PlayerUI ui;
+    private PlayerUI ui;
+    [SerializeField]
+    private TextMeshProUGUI savePointsUI;
 
     private PlayerSpawner ps;
 
     [SerializeField]
     private int points = 0;
+    [SerializeField]
     private int savePoints = 0;
     private Character characterThatHitYou;
 
@@ -90,60 +92,6 @@ public class Character : Entity
         voiceAudioSource = gameObject.AddComponent<AudioSource>();
 
         ui.SetPointText(points.ToString());
-    }
-
-    //changes camera size and changes input according to the palyer id and how many players are playing
-    public void ApplyPlayerSetting(int playerID)
-    {
-        //controller
-        GetComponent<InputHandler>().ControllerID = playerID;
-        
-        Vector2 cameraSize = new Vector2(0.5f, 1f);
-        if (GameInformation.PLAYER_COUNT > 2)
-        {
-            cameraSize = new Vector2(.5f, .5f);
-        }
-        Vector2 cameraPos = new Vector2(0,0);
-        switch (playerID)
-        {
-            case 1:
-                cameraPos = new Vector2(0, .5f);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, 80);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 80);
-
-                break;
-            case 2:
-                cameraPos = new Vector2(.5f, .5f);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, 80);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 80);
-
-                break;
-            case 3:
-                cameraPos = new Vector2(0, 0);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, 80);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 0, 80);
-
-                break;
-            case 4:
-                cameraPos = new Vector2(.5f, 0);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, 80);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 0, 80);
-
-                break;
-            default:
-                cameraPos = new Vector2(0, .5f);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, 80);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 80);
-
-                break;
-        }
-        if (GameInformation.PLAYER_COUNT <= 2)
-        {
-            cameraPos.y = 0f;
-        }
-        camera.rect = new Rect(cameraPos, cameraSize);
-        Debug.Log("camera size" + cameraPos.y + " player count = " + GameInformation.PLAYER_COUNT);
-
     }
 
     // Update is called once per frame
@@ -189,6 +137,14 @@ public class Character : Entity
                 //take damage
                 GotHit(collision.gameObject.GetComponent<Hitbox>());
             }
+        }
+
+        if(collision.gameObject.tag == "PointAltar")
+        {
+            savePoints += Points;
+            Points = 0;
+            savePointsUI.text = savePoints + "";
+            ui.SetPointText(points.ToString());
         }
     }
     public void OnCollisionEnter(Collision collision)
@@ -277,6 +233,11 @@ public class Character : Entity
         set { points = value;
             ui.SetPointText(points.ToString());
         }
+    }
+
+    public int SavedPoints
+    {
+        get { return savePoints; }
     }
 
     /// <summary>
