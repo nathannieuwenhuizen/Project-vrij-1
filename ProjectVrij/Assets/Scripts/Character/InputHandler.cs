@@ -69,6 +69,16 @@ public class InputHandler : MonoBehaviour
         }
     }
 
+    public int ControllerID
+    {
+        get { return controllerID; }
+        set
+        {
+            controllerID = value;
+            ConfigureControlButtons();
+        }
+    }
+
     void Update()
     {
         //Checks whether a button is pressed down.
