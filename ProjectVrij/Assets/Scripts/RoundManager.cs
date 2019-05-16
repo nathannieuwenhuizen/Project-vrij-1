@@ -18,13 +18,20 @@ public class RoundManager : MonoBehaviour
     [SerializeField]
     private GameObject resultScreen;
     [SerializeField]
+    private GameObject pauseScreen;
+    [SerializeField]
     private Text winningText;
 
     private List<Character> characters;
     public void Start()
     {
+        instance = this;
         InitializePlayers(GameInformation.PLAYER_COUNT);
+        Pause(false);
     }
+
+    public static RoundManager instance;
+    
 
     void InitializePlayers(int amount)
     {
@@ -79,7 +86,6 @@ public class RoundManager : MonoBehaviour
 
         resultScreen.SetActive(true);
         winningText.text = (HighestScoredPlayer().transform.name + " wins!");
-        //Time.timeScale = 0;
     }
 
     /// <summary>
@@ -87,10 +93,26 @@ public class RoundManager : MonoBehaviour
     /// </summary>
     public void ReloadScene()
     {
-        //Time.timeScale = 1;
-
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
+    }
+    /// <summary>
+    /// Goes back to menu
+    /// </summary>
+    public void GoToMenu()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(0);
+    }
+
+    /// <summary>
+    /// Pauses the game or resumes it.
+    /// </summary>
+    /// <param name="paused"></param>
+    public void Pause(bool paused)
+    {
+        Time.timeScale = paused ? 0f : 1f;
+        pauseScreen.SetActive(paused);
     }
 
     /// <summary>
