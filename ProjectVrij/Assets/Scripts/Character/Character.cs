@@ -69,7 +69,9 @@ public class Character : Entity
 
     private PlayerSpawner ps;
 
+    [SerializeField]
     private int points = 0;
+    private int savePoints = 0;
     private Character characterThatHitYou;
 
     // Start is called before the first frame update
@@ -84,6 +86,8 @@ public class Character : Entity
         //audiosources are added for the character
         movementAudioSource = gameObject.AddComponent<AudioSource>();
         voiceAudioSource = gameObject.AddComponent<AudioSource>();
+
+        ui.SetPointText(points.ToString());
     }
 
     // Update is called once per frame
