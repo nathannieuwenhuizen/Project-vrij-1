@@ -42,24 +42,24 @@ public class InputHandler : MonoBehaviour
             case 1:
                 baseAttackCode = KeyCode.Joystick1Button3;
                 jumpCode = KeyCode.Joystick1Button0;
-                specialAttackCode = KeyCode.Joystick1Button2;
+                specialAttackCode = KeyCode.Joystick1Button5;
                 break;
             case 2:
                 baseAttackCode = KeyCode.Joystick2Button3;
                 jumpCode = KeyCode.Joystick2Button0;
-                specialAttackCode = KeyCode.Joystick2Button2;
+                specialAttackCode = KeyCode.Joystick2Button5;
 
                 break;
             case 3:
                 baseAttackCode = KeyCode.Joystick3Button3;
                 jumpCode = KeyCode.Joystick3Button0;
-                specialAttackCode = KeyCode.Joystick3Button2;
+                specialAttackCode = KeyCode.Joystick3Button5;
 
                 break;
             case 4:
                 baseAttackCode = KeyCode.Joystick4Button3;
                 jumpCode = KeyCode.Joystick4Button0;
-                specialAttackCode = KeyCode.Joystick4Button2;
+                specialAttackCode = KeyCode.Joystick4Button5;
                 break;
             default:
                 baseAttackCode = KeyCode.P;

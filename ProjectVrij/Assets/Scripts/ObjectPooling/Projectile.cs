@@ -15,7 +15,7 @@ public class Projectile : PoolObject
     private float destroyTime = 3f;
     public Character playerID;
 
-    public void Update()
+    public void FixedUpdate()
     {
         //goes forward with speed!
         transform.Translate(Vector3.forward * speed);
@@ -29,9 +29,19 @@ public class Projectile : PoolObject
 
     }
 
+    public void Spawn()
+    {
+        StartCoroutine(Destroying());
+        //GetComponent<Rigidbody>().AddForce(new Vector3(speed, 0, 0));
+    }
+    IEnumerator Destroying()
+    {
+        yield return new WaitForSeconds(destroyTime);
+        Destroy();
+    }
     //when it hits something.
     public void OnCollisionEnter(Collision col)
     {
-        Destroy(this.gameObject);
+        Destroy();
     }
 }

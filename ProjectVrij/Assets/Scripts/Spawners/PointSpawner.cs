@@ -35,7 +35,7 @@ public class PointSpawner : MonoBehaviour
     public void SpawnPoint()
     {
         SpawnPosition randomPos = getRandomActivePos();
-        randomPos.IsVacant = false;
+        randomPos.IsEmpty = false;
 
         //why is this commented?
         GameObject point = PoolManager.instance.ReuseObject(pointPrefab, randomPos.transform.position, Quaternion.identity);
@@ -59,7 +59,7 @@ public class PointSpawner : MonoBehaviour
         List<SpawnPosition> activePoses = new List<SpawnPosition> { };
         for (int i = 0; i < spawnPoses.Length; i++)
         {
-            if (spawnPoses[i].IsVacant)
+            if (spawnPoses[i].IsEmpty)
             {
                 activePoses.Add(spawnPoses[i]);
             }

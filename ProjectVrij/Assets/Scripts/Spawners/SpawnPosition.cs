@@ -6,11 +6,11 @@ using UnityEngine;
 /// </summary>
 public class SpawnPosition : MonoBehaviour
 {
-    private bool isVacant = true;
-    public bool IsVacant
+    private bool isEmpty = true;
+    public bool IsEmpty
     {
-        get { return isVacant; }
-        set { isVacant = value; }
+        get { return isEmpty; }
+        set { isEmpty = value; }
     }
     
 }
