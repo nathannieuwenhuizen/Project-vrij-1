@@ -81,16 +81,8 @@ public class InputHandler : MonoBehaviour
 
     void Update()
     {
+        ConfigureControlButtons();
         CheckInput();
-
-        //purely for testing on keyboard
-        if (ControllerID == 1)
-        {
-            ControllerID = 0;
-            CheckInput();
-            ControllerID = 1;
-        }
-
     }
     void CheckInput()
     {
