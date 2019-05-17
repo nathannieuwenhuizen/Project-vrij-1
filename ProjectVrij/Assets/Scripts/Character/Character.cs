@@ -341,6 +341,11 @@ public class Character : Entity
         Debug.Log("special attack base");
     }
 
+    public virtual void SpecialAttackRelease()
+    {
+        Debug.Log("release special attack");
+    }
+
     /// <summary>
     /// Makes the animation do a basic attack
     /// </summary>

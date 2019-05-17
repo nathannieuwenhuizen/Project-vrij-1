@@ -112,7 +112,10 @@ public class InputHandler : MonoBehaviour
         {
             character.SpecialAttack();
         }
-
+        if (Input.GetKeyUp(specialAttackCode))
+        {
+            character.SpecialAttackRelease();
+        }
         //the axises -----------------------------------------
 
         //player movement
