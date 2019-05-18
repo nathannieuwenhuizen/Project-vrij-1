@@ -13198,6 +13198,26 @@ PrefabInstance:
       propertyPath: savePointsUI
       value: 
       objectReference: {fileID: 1177178421}
+    - target: {fileID: 7794953298222388401, guid: 65b312e2c178e5d45b3d19751febe030,
+        type: 3}
+      propertyPath: chargeSpeed
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794953298222388401, guid: 65b312e2c178e5d45b3d19751febe030,
+        type: 3}
+      propertyPath: maxForceIncreaseDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794953298222388401, guid: 65b312e2c178e5d45b3d19751febe030,
+        type: 3}
+      propertyPath: maxChargeDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2538581115202121843, guid: 65b312e2c178e5d45b3d19751febe030,
+        type: 3}
+      propertyPath: controllerID
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65b312e2c178e5d45b3d19751febe030, type: 3}
 --- !u!4 &1318888388 stripped

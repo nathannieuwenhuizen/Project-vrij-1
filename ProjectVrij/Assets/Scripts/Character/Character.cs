@@ -298,7 +298,6 @@ public class Character : Entity
         rb.velocity += transform.right * h_input * walkSpeed;
         rb.velocity += transform.forward * y_input * walkSpeed;
 
-
         anim.SetBool("isWalkingForward", y_input > 0.1);
         anim.SetBool("isWalkingBack", y_input < -0.1);
         anim.SetBool("isWalkingSide", h_input < -0.1 || h_input > 0.1);
