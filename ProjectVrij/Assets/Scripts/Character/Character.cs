@@ -140,8 +140,9 @@ public class Character : Entity
             }
         }
 
-        if(collision.gameObject.tag == "PointAltar")
+        if(collision.gameObject.tag == "PointAltar" && Points != 0)
         {
+            collision.GetComponent<ParticleSystem>().Play();
             TransferPointsToAltar();
         }
     }
