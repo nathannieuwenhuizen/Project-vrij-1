@@ -59,9 +59,9 @@ public class RoundManager : MonoBehaviour
         //Setup controller setup and camera position
         for (int i = 0; i < characters.Count; i++)
         {
-            //characters[i].ui = playerUis[i];
+            characters[i].ui = playerUis[i];
             characters[i].transform.parent = group.transform;
-            //characters[i].ApplyPlayerSetting(i + 1);
+            characters[i].ApplyPlayerSetting(i + 1);
         }
     }
 
