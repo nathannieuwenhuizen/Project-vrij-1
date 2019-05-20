@@ -42,7 +42,7 @@ public class RoundManager : MonoBehaviour
         {
             playerUis[i].gameObject.SetActive(true);
 
-            Character newCharacter = GameObject.Instantiate(CharacterPrefab, transform).GetComponent<Character>();
+            Character newCharacter = GameObject.Instantiate(CharacterPrefab, group.transform).GetComponent<Character>();
 
             characters.Add(newCharacter);
             Debug.Log("player: " + i);
