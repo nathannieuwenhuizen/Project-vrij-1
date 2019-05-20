@@ -69,8 +69,6 @@ public class Character : Entity
     public PlayerUI ui;
     [SerializeField]
     private Camera camera;
-    [SerializeField]
-    private TextMeshProUGUI savePointsUI;
 
     private PlayerSpawner ps;
 
@@ -143,11 +141,14 @@ public class Character : Entity
 
         if(collision.gameObject.tag == "PointAltar")
         {
-            savePoints += Points;
-            Points = 0;
-            savePointsUI.text = savePoints + "";
-            ui.SetPointText(points.ToString());
+            TransferPointsToAltar();
         }
+    }
+    public void TransferPointsToAltar()
+    {
+        SavedPoints += Points;
+        Points = 0;
+        ui.SetPointText(points.ToString());
     }
     public void OnCollisionEnter(Collision collision)
     {
@@ -240,6 +241,10 @@ public class Character : Entity
     public int SavedPoints
     {
         get { return savePoints; }
+        set {
+            savePoints = value;
+            ui.SetSavedPointText(savePoints.ToString());
+        }
     }
 
     /// <summary>
@@ -391,36 +396,37 @@ public class Character : Entity
             cameraSize = new Vector2(.5f, .5f);
         }
         Vector2 cameraPos = new Vector2(0, 0);
+        float widthOffset = 90;
         switch (playerID)
         {
             case 1:
                 cameraPos = new Vector2(0, .5f);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, 80);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 80);
+                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, widthOffset);
+                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, widthOffset);
 
                 break;
             case 2:
                 cameraPos = new Vector2(.5f, .5f);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, 80);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 80);
+                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, widthOffset);
+                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, widthOffset);
 
                 break;
             case 3:
                 cameraPos = new Vector2(0, 0);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, 80);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 0, 80);
+                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, widthOffset);
+                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 0, widthOffset);
 
                 break;
             case 4:
                 cameraPos = new Vector2(.5f, 0);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, 80);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 0, 80);
+                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, widthOffset);
+                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 0, widthOffset);
 
                 break;
             default:
                 cameraPos = new Vector2(0, .5f);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, 80);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 80);
+                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, widthOffset);
+                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, widthOffset);
 
                 break;
         }
