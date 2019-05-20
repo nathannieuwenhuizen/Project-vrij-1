@@ -94,6 +94,7 @@ public class Character : Entity
         voiceAudioSource = gameObject.AddComponent<AudioSource>();
 
         ui.SetPointText(points.ToString());
+        //Application.targetFrameRate = 60;
     }
 
     // Update is called once per frame
