@@ -27,7 +27,7 @@ public class Character : Entity
     [Range(0f, 89f)]
     private float maxUpAngle = 45f;
     [SerializeField]
-    private Transform cameraPivot;
+    protected Transform cameraPivot;
 
     /// <summary>
     /// Walk movement variables
@@ -335,11 +335,22 @@ public class Character : Entity
     /// <summary>
     /// Here the special attack of the character is used.
     /// </summary>
+    public virtual void SecondSpecialAttack()
+    {
+        Debug.Log("second special attack base");
+    }
+
+    /// <summary>
+    /// Here the special attack of the character is used.
+    /// </summary>
     public virtual void SpecialAttack()
     {
         Debug.Log("special attack base");
     }
 
+    /// <summary>
+    /// Here the special attack release of the character is used.
+    /// </summary>
     public virtual void SpecialAttackRelease()
     {
         Debug.Log("release special attack");
