@@ -195,7 +195,6 @@ MonoBehaviour:
   anim: {fileID: 846988570501520647}
   ui: {fileID: 0}
   camera: {fileID: 2538581116323133367}
-  savePointsUI: {fileID: 0}
   points: 0
   savePoints: 0
   chargeSpeed: 100000
@@ -401,11 +400,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2538581115202121847}
     m_Modifications:
-    - target: {fileID: 2953166793327165753, guid: da651d509d0abae40a2ae3fd64f5597b,
-        type: 3}
-      propertyPath: m_Name
-      value: character_melee_V02
-      objectReference: {fileID: 0}
     - target: {fileID: 2953166793326812441, guid: da651d509d0abae40a2ae3fd64f5597b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -476,11 +470,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.2839
       objectReference: {fileID: 0}
+    - target: {fileID: 2953166793327165737, guid: da651d509d0abae40a2ae3fd64f5597b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hitbox
+      objectReference: {fileID: 0}
     - target: {fileID: 2953166793317790459, guid: da651d509d0abae40a2ae3fd64f5597b,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c345a63adf88cf344bb4ad8124053608, type: 2}
+    - target: {fileID: 2953166793327165753, guid: da651d509d0abae40a2ae3fd64f5597b,
+        type: 3}
+      propertyPath: m_Name
+      value: character_melee_V02
+      objectReference: {fileID: 0}
     - target: {fileID: 2953166793326812443, guid: da651d509d0abae40a2ae3fd64f5597b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1011,11 +1015,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 12.719346
       objectReference: {fileID: 0}
-    - target: {fileID: 2953166793327165737, guid: da651d509d0abae40a2ae3fd64f5597b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Hitbox
-      objectReference: {fileID: 0}
     - target: {fileID: 2953166793326812531, guid: da651d509d0abae40a2ae3fd64f5597b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1466,6 +1465,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.000011952829
       objectReference: {fileID: 0}
+    - target: {fileID: 2953166793321892923, guid: da651d509d0abae40a2ae3fd64f5597b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 165afc928be5b3c4ba7c631ccc500123, type: 2}
+    - target: {fileID: 2953166793321892923, guid: da651d509d0abae40a2ae3fd64f5597b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 165afc928be5b3c4ba7c631ccc500123, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da651d509d0abae40a2ae3fd64f5597b, type: 3}
 --- !u!4 &846988570493842149 stripped

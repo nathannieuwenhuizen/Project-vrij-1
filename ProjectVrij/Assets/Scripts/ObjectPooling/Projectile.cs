@@ -42,6 +42,10 @@ public class Projectile : PoolObject
     //when it hits something.
     public void OnCollisionEnter(Collision col)
     {
+        if (col.gameObject.GetComponent<Projectile>())
+        {
+            return;
+        }
         Destroy();
     }
 }
