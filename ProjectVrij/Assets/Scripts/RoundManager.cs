@@ -49,7 +49,7 @@ public class RoundManager : MonoBehaviour
         {
             playerUis[i].gameObject.SetActive(true);
 
-            Character newCharacter = GameObject.Instantiate(CharacterPrefab, transform).GetComponent<Character>();
+            Character newCharacter = GameObject.Instantiate(CharacterPrefab, group.transform).GetComponent<Character>();
 
             characters.Add(newCharacter);
             Debug.Log("player: " + i);
@@ -59,9 +59,10 @@ public class RoundManager : MonoBehaviour
         //Setup controller setup and camera position
         for (int i = 0; i < characters.Count; i++)
         {
-            //characters[i].ui = playerUis[i];
+            characters[i].name = "player " + (1 + i);
+            characters[i].ui = playerUis[i];
             characters[i].transform.parent = group.transform;
-            //characters[i].ApplyPlayerSetting(i + 1);
+            characters[i].ApplyPlayerSetting(i + 1);
         }
     }
 

@@ -12,7 +12,10 @@ public class PlayerUI : MonoBehaviour
     Slider slider;
     Material material;
 
+    [SerializeField]
     Text pointText;
+    [SerializeField]
+    private Text savedPointText;
     private void Start()
     {
         if(GetComponent<Image>() != null)
@@ -50,5 +53,13 @@ public class PlayerUI : MonoBehaviour
     public void SetPointText(string val)
     {
         pointText.text = val;
+    }
+    /// <summary>
+    /// Set the saved point text with a parameter val.
+    /// </summary>
+    /// <param name="val">the string</param>
+    public void SetSavedPointText(string val)
+    {
+        savedPointText.text = val;
     }
 }

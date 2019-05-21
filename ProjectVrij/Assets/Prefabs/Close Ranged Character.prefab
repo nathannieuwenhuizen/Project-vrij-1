@@ -248,6 +248,7 @@ MonoBehaviour:
   wooshSound: {fileID: 8300000, guid: fc93d4e008e659c498075e9d69c1b554, type: 3}
   anim: {fileID: 1129353972471407646}
   ui: {fileID: 0}
+  camera: {fileID: 2834880695915957934}
   savePointsUI: {fileID: 0}
   points: 5
   savePoints: 0
