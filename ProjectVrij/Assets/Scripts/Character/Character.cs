@@ -68,7 +68,7 @@ public class Character : Entity
     [SerializeField]
     public PlayerUI ui;
     [SerializeField]
-    private Camera camera;
+    public Camera camera;
 
     private PlayerSpawner ps;
 

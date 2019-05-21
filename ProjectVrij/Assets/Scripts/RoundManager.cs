@@ -14,6 +14,8 @@ public class RoundManager : MonoBehaviour
 
     [SerializeField]
     private PlayerUI[] playerUis;
+    [SerializeField]
+    private GameObject pointerGroup;
 
     [SerializeField]
     private GameObject resultScreen;
@@ -25,7 +27,9 @@ public class RoundManager : MonoBehaviour
     private List<Character> characters;
     public void Start()
     {
-        instance = this;
+        instance = this; 
+
+
         InitializePlayers(GameInformation.PLAYER_COUNT);
         Pause(false);
     }
@@ -59,10 +63,25 @@ public class RoundManager : MonoBehaviour
         //Setup controller setup and camera position
         for (int i = 0; i < characters.Count; i++)
         {
+            //setting up name and grouping it
             characters[i].name = "player " + (1 + i);
-            characters[i].ui = playerUis[i];
             characters[i].transform.parent = group.transform;
+
+            //ui setting
+            characters[i].ui = playerUis[i];
+
+            //setting up the controller for the player with the camera.
             characters[i].ApplyPlayerSetting(i + 1);
+
+            pointerGroup.transform.GetChild(i).gameObject.SetActive(true);
+            Debug.Log("player index: " + i);
+            Rect camrect = characters[i].camera.rect;
+            pointerGroup.transform.GetChild(i).GetComponent<RectTransform>().position =
+                new Vector2(
+                    (camrect.x + camrect.width / 2) * Screen.width,
+                    (camrect.y + camrect.height / 1.5f) * Screen.height);
+            //new Vector3(characters[i].camera.rect.width / 2f, characters[i].camera.rect.height / 2f);
+
         }
     }
 
