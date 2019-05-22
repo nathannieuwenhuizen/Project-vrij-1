@@ -251,6 +251,8 @@ MonoBehaviour:
   camera: {fileID: 2834880695915957934}
   points: 5
   savePoints: 0
+  deathParticle: {fileID: 3584387856923495834, guid: 097c1ece64b233d4ab6598dc9e7b4699,
+    type: 3}
   projectilePrefab: {fileID: 771861541888416937, guid: e223558a7bb200842b6ca0bd42c5fba7,
     type: 3}
   shootPosition: {fileID: 7512112291284414026}
@@ -347,6 +349,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2834880697019763054}
     m_Modifications:
+    - target: {fileID: 2953166793327165753, guid: da651d509d0abae40a2ae3fd64f5597b,
+        type: 3}
+      propertyPath: m_Name
+      value: character_melee_V02
+      objectReference: {fileID: 0}
     - target: {fileID: 2953166793326812441, guid: da651d509d0abae40a2ae3fd64f5597b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -417,21 +424,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.2839
       objectReference: {fileID: 0}
-    - target: {fileID: 2953166793327165737, guid: da651d509d0abae40a2ae3fd64f5597b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Hitbox
-      objectReference: {fileID: 0}
     - target: {fileID: 2953166793317790459, guid: da651d509d0abae40a2ae3fd64f5597b,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c345a63adf88cf344bb4ad8124053608, type: 2}
-    - target: {fileID: 2953166793327165753, guid: da651d509d0abae40a2ae3fd64f5597b,
-        type: 3}
-      propertyPath: m_Name
-      value: character_melee_V02
-      objectReference: {fileID: 0}
     - target: {fileID: 2953166793326812443, guid: da651d509d0abae40a2ae3fd64f5597b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -497,6 +494,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -162.5071
       objectReference: {fileID: 0}
+    - target: {fileID: 2953166793321892923, guid: da651d509d0abae40a2ae3fd64f5597b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b52745383b7b7a346855c438671450eb, type: 2}
+    - target: {fileID: 2953166793321892923, guid: da651d509d0abae40a2ae3fd64f5597b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: b52745383b7b7a346855c438671450eb, type: 2}
     - target: {fileID: 2953166793326812509, guid: da651d509d0abae40a2ae3fd64f5597b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -962,6 +969,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 12.719346
       objectReference: {fileID: 0}
+    - target: {fileID: 2953166793327165737, guid: da651d509d0abae40a2ae3fd64f5597b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hitbox
+      objectReference: {fileID: 0}
     - target: {fileID: 2953166793326812531, guid: da651d509d0abae40a2ae3fd64f5597b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1412,16 +1424,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.000011952829
       objectReference: {fileID: 0}
-    - target: {fileID: 2953166793321892923, guid: da651d509d0abae40a2ae3fd64f5597b,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b52745383b7b7a346855c438671450eb, type: 2}
-    - target: {fileID: 2953166793321892923, guid: da651d509d0abae40a2ae3fd64f5597b,
-        type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: b52745383b7b7a346855c438671450eb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da651d509d0abae40a2ae3fd64f5597b, type: 3}
 --- !u!4 &1129353972461816828 stripped

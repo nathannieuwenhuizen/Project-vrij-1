@@ -77,11 +77,16 @@ public class Character : Entity
     [SerializeField]
     private int savePoints = 0;
     private Character characterThatHitYou;
+    [SerializeField]
+    private GameObject deathParticle;
 
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
+
+        //poolmanager instantiates death particle;
+        PoolManager.instance.CreatePool(deathParticle, 4);
 
         //components are defined
         ps = Transform.FindObjectOfType<PlayerSpawner>();
@@ -197,6 +202,9 @@ public class Character : Entity
             characterThatHitYou.Points += Points + 1;
         }
         Points = 0;
+
+        //death particle at position and explode.
+        PoolManager.instance.ReuseObject(deathParticle, transform.position + new Vector3(0,1.5f,0), transform.rotation).GetComponent<ParticleExplosion>().Explode();
 
         //plays death sound
         PlaySound(voiceAudioSource, deathSound);
