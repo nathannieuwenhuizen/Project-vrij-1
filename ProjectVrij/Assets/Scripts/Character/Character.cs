@@ -69,6 +69,8 @@ public class Character : Entity
     public PlayerUI ui;
     [SerializeField]
     public Camera camera;
+    [SerializeField]
+    private GameObject pointPrefab;
 
     private PlayerSpawner ps;
 
@@ -77,8 +79,12 @@ public class Character : Entity
     [SerializeField]
     private int savePoints = 0;
     private Character characterThatHitYou;
+    [Space]
+    [Header("particles")]
     [SerializeField]
     private GameObject deathParticle;
+    [SerializeField]
+    private GameObject dustParticle;
 
     // Start is called before the first frame update
     protected override void Start()
@@ -87,6 +93,7 @@ public class Character : Entity
 
         //poolmanager instantiates death particle;
         PoolManager.instance.CreatePool(deathParticle, 4);
+        PoolManager.instance.CreatePool(dustParticle, 8);
 
         //components are defined
         ps = Transform.FindObjectOfType<PlayerSpawner>();
@@ -175,6 +182,8 @@ public class Character : Entity
             PlaySound(movementAudioSource, landingSound, 1f);
             isGrounded = true;
             anim.SetBool("isJumpingUp", false);
+            PoolManager.instance.ReuseObject(dustParticle, transform.position, transform.rotation).GetComponent<ParticleExplosion>().Explode();
+
         }
     }
 
@@ -200,8 +209,18 @@ public class Character : Entity
         if (characterThatHitYou != null)
         {
             characterThatHitYou.Points += Points + 1;
+            Points = 0;
         }
+        float spread = 100f;
+        for (int i = 0; i < Points; i++)
+        {
+            PointObject point = PoolManager.instance.ReuseObject(pointPrefab, transform.position + new Vector3(0, 2f, 0), Quaternion.identity).GetComponent<PointObject>();
+            point.myPos = null;
+            point.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-spread, spread), Random.Range(spread, spread * 2), Random.Range(-spread, spread)));
+        }
+
         Points = 0;
+
 
         //death particle at position and explode.
         PoolManager.instance.ReuseObject(deathParticle, transform.position + new Vector3(0,1.5f,0), transform.rotation).GetComponent<ParticleExplosion>().Explode();
@@ -345,6 +364,8 @@ public class Character : Entity
 
             isGrounded = false;
             PlaySound(movementAudioSource, jumpSound, 1f);
+
+            PoolManager.instance.ReuseObject(dustParticle, transform.position, transform.rotation).GetComponent<ParticleExplosion>().Explode();
 
         }
     }

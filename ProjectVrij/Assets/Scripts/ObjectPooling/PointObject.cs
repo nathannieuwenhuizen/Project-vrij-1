@@ -65,12 +65,15 @@ public class PointObject : PoolObject
         //if its a player
         if (col.gameObject.GetComponent<Character>() != null)
         {
+            Character character = col.gameObject.GetComponent<Character>();
+            //if it isn't dead by fallback;
+            if (character.Health != 0)
+            {
+                //player gets score;
+                character.Points++;
 
-            //player gets score;
-            col.gameObject.GetComponent<Character>().Points++;
-
-            StartCoroutine(Collected());
-
+                StartCoroutine(Collected());
+            }
         }
     }
 }

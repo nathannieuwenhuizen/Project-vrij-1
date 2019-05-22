@@ -90,7 +90,7 @@ public class CloseRangedCharacter : Character
     {
         Debug.Log("spread shoot");
         if (reloading) { return; }
-
+        reloading = true;
         cameraPivot.Rotate(new Vector3(0, -shootAngle, 0));
         for (int i = 0; i < amountOfSpreadProjectiles; i++)
         {
