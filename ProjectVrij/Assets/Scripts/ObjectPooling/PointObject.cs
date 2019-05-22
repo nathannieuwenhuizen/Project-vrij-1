@@ -45,11 +45,15 @@ public class PointObject : PoolObject
         GetComponent<MeshRenderer>().enabled = true;
         GetComponent<BoxCollider>().enabled = true;
 
-        //pointspawner spawns a new point.
-        FindObjectsOfType<PointSpawner>()[0].SpawnPoint();
+        //if its spawned at a spawn position.
+        if (myPos != null)
+        {
+            //pointspawner spawns a new point.
+            FindObjectsOfType<PointSpawner>()[0].SpawnPoint();
 
-        //the point own spawnposition becomes empty. (is called later to prevent the point being spawned on the same location twice)
-        myPos.IsEmpty = true;
+            //the point own spawnposition becomes empty. (is called later to prevent the point being spawned on the same location twice)
+            myPos.IsEmpty = true;
+        }
     }
 
     /// <summary>
