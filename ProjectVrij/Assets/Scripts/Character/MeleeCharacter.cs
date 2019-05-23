@@ -19,10 +19,31 @@ public class MeleeCharacter : Character
     [SerializeField]
     private float maxChargeDamage = 50f;
 
+    private bool isCharging = false;
+
     [SerializeField]
     private BoxCollider chargeHitbox;
 
-    private bool isCharging = false;
+    [Space]
+    [Header("Sowrd values")]
+    [Range(0, 180)]
+    [SerializeField]
+    private float swordStartAngle = 50f;
+    [Range(0, 180)]
+    [SerializeField]
+    private float swordEndAngle = 50f;
+
+    [SerializeField]
+    private float swordSpeed = 4f;
+    [SerializeField]
+    private int swordDamage = 80;
+    [SerializeField]
+    private Transform swordPivot;
+    [SerializeField]
+    private Hitbox swordHitBox;
+
+    private bool isAttackingWithSword;
+    
     private InputHandler inputHandlerScript;
 
 
@@ -32,6 +53,10 @@ public class MeleeCharacter : Character
         rb = GetComponent<Rigidbody>();
         inputHandlerScript = GetComponent<InputHandler>();
         chargeHitbox.enabled = false;
+
+        swordHitBox.Character = this;
+        swordHitBox.Damage = swordDamage;
+        swordHitBox.gameObject.SetActive(false);
         //KeyCode specialAttackCode = inputHandlerScript.specialAttackCode;
         base.Start();
     }
@@ -89,6 +114,34 @@ public class MeleeCharacter : Character
         isCharging = false;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         GetComponent<InputHandler>().enabled = true;
+    }
+
+    public override void SecondSpecialAttack()
+    {
+        base.SpecialAttack();
+        SwordAttack();
+
+    }
+    public void SwordAttack()
+    {
+        if (isAttackingWithSword) { return; }
+
+        StartCoroutine(SwordAttacking());
+    }
+    IEnumerator SwordAttacking()
+    {
+        isAttackingWithSword = true;
+        swordHitBox.gameObject.SetActive(true);
+
+        swordPivot.Rotate(new Vector3(0,-swordStartAngle, 0));
+        while (Mathf.Rad2Deg * swordPivot.localRotation.y < swordEndAngle)
+        {
+            swordPivot.Rotate(new Vector3(0, swordSpeed, 0));
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        swordPivot.Rotate(new Vector3(0, -swordStartAngle * 2, 0));
+        swordHitBox.gameObject.SetActive(false);
+        isAttackingWithSword = false;
     }
 
 }
