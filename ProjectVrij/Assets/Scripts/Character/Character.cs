@@ -208,8 +208,8 @@ public class Character : Entity
         //other player recieves point (MUST BE CHANGED LATER!)
         if (characterThatHitYou != null)
         {
-            characterThatHitYou.Points += Points + 1;
-            Points = 0;
+            //characterThatHitYou.Points += Points + 1;
+            //Points = 0;
         }
         float spread = 100f;
         for (int i = 0; i < Points; i++)
