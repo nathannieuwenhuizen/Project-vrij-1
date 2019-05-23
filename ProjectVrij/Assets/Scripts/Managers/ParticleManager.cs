@@ -31,6 +31,7 @@ public class ParticleManager : MonoBehaviour
     {
         PoolManager.instance.CreatePool(particle.particlePrefab, particle.amount);
     }
+
     public GameObject SpawnParticle(ParticleGroup particle, Vector3 spawnPosition, Quaternion spawnRotation)
     {
         GameObject obj = PoolManager.instance.ReuseObject(particle.particlePrefab, spawnPosition, spawnRotation);

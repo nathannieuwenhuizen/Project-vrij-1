@@ -77,8 +77,10 @@ public class MeleeCharacter : Character
 
     private IEnumerator IncreaseForce()
     {
+        camera.GetComponent<CameraShake>().Shake(60, 0.1f);
         while(forceDuration < maxForceIncreaseDuration)
         {
+            camera.GetComponent<CameraShake>().intensity = forceDuration * 10f;
             forceDuration += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
         }
@@ -94,6 +96,7 @@ public class MeleeCharacter : Character
         }
         base.SpecialAttackRelease();
         StopAllCoroutines();
+        camera.GetComponent<CameraShake>().StopShake();
         GetComponent<InputHandler>().enabled = false;
         Vector3 localForce = transform.forward * chargeSpeed;
         GetComponent<Rigidbody>().AddForce(localForce);
@@ -103,6 +106,7 @@ public class MeleeCharacter : Character
         chargeHitbox.GetComponent<Hitbox>().Damage = (int)(percentage * maxChargeDamage);
         StartCoroutine(Charging(percentage * maxChargeDuration));
         forceDuration = 0;
+
         Debug.Log("RELEEAASSEEE!");
     }
 

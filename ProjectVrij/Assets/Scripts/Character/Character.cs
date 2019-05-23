@@ -183,6 +183,7 @@ public class Character : Entity
     /// <param name="hit"></param>
     private void  GotHit(Hitbox hit)
     {
+        camera.GetComponent<CameraShake>().Shake(0.1f);
         PlaySound(voiceAudioSource, gotHitSound, 1f);
         characterThatHitYou = hit.Character;
         Health -= hit.Damage;
