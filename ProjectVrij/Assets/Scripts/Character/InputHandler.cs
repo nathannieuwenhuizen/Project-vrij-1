@@ -97,7 +97,7 @@ public class InputHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(startButton))
         {
-            RoundManager.instance.Pause(Time.timeScale == 1);
+            GameManager.instance.Pause(Time.timeScale == 1);
         }
 
         if (Time.timeScale == 0) { return; }

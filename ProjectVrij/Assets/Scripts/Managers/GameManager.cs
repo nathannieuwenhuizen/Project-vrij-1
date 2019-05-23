@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// The round manager keeps track on the timer and who wins at the end of each round.
 /// </summary>
-public class RoundManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject CharacterPrefab;
@@ -34,7 +34,7 @@ public class RoundManager : MonoBehaviour
         Pause(false);
     }
 
-    public static RoundManager instance;
+    public static GameManager instance;
     
 
     void InitializePlayers(int amount)
@@ -73,6 +73,8 @@ public class RoundManager : MonoBehaviour
             //setting up the controller for the player with the camera.
             characters[i].ApplyPlayerSetting(i + 1);
 
+            //purely for testing
+            characters[0].ApplyPlayerSetting(0);
             pointerGroup.transform.GetChild(i).gameObject.SetActive(true);
             Debug.Log("player index: " + i);
             Rect camrect = characters[i].camera.rect;

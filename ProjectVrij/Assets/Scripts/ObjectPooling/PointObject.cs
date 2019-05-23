@@ -9,12 +9,6 @@ public class PointObject : PoolObject
     //my spawnPosition, must be changed to private and a getter/setter must be made later.
     public SpawnPosition myPos;
 
-    [SerializeField]
-    private ParticleSystem collectedParticle;
-
-    [SerializeField]
-    private ParticleSystem spawnParticle;
-
     public void Update()
     {
         //a simple rotation flare to catch the players eye.
@@ -26,12 +20,12 @@ public class PointObject : PoolObject
     }
     public void Spawn()
     {
-        spawnParticle.Play();
+        ParticleManager.instance.SpawnParticle(ParticleManager.instance.spawnPointParticle, transform.position, transform.rotation);
     }
 
     public IEnumerator Collected()
     {
-        collectedParticle.Play();
+        ParticleManager.instance.SpawnParticle(ParticleManager.instance.collectPointParticle, transform.position, transform.rotation);
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<BoxCollider>().enabled = false;
 

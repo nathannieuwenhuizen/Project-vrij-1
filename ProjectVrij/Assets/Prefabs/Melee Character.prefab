@@ -109,7 +109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2034889275
 Transform:
   m_ObjectHideFlags: 0
@@ -473,10 +473,6 @@ MonoBehaviour:
     type: 3}
   points: 0
   savePoints: 0
-  deathParticle: {fileID: 3584387856923495834, guid: 097c1ece64b233d4ab6598dc9e7b4699,
-    type: 3}
-  dustParticle: {fileID: 6529552903562876723, guid: f397f769efa689b418a7c884c854128b,
-    type: 3}
   chargeSpeed: 100000
   maxChargeDuration: 0.5
   maxForceIncreaseDuration: 2
@@ -686,11 +682,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2538581115202121847}
     m_Modifications:
-    - target: {fileID: 2953166793327165753, guid: da651d509d0abae40a2ae3fd64f5597b,
-        type: 3}
-      propertyPath: m_Name
-      value: character_melee_V02
-      objectReference: {fileID: 0}
     - target: {fileID: 2953166793326812441, guid: da651d509d0abae40a2ae3fd64f5597b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -761,11 +752,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.2839
       objectReference: {fileID: 0}
+    - target: {fileID: 2953166793327165737, guid: da651d509d0abae40a2ae3fd64f5597b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hitbox
+      objectReference: {fileID: 0}
     - target: {fileID: 2953166793317790459, guid: da651d509d0abae40a2ae3fd64f5597b,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c345a63adf88cf344bb4ad8124053608, type: 2}
+    - target: {fileID: 2953166793327165753, guid: da651d509d0abae40a2ae3fd64f5597b,
+        type: 3}
+      propertyPath: m_Name
+      value: character_melee_V02
+      objectReference: {fileID: 0}
     - target: {fileID: 2953166793326812443, guid: da651d509d0abae40a2ae3fd64f5597b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1305,11 +1306,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 12.719346
-      objectReference: {fileID: 0}
-    - target: {fileID: 2953166793327165737, guid: da651d509d0abae40a2ae3fd64f5597b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Hitbox
       objectReference: {fileID: 0}
     - target: {fileID: 2953166793326812531, guid: da651d509d0abae40a2ae3fd64f5597b,
         type: 3}
