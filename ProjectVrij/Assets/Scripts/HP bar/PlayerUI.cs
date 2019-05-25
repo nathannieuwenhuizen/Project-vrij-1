@@ -16,6 +16,7 @@ public class PlayerUI : MonoBehaviour
     Text pointText;
     [SerializeField]
     private Text savedPointText;
+
     private void Start()
     {
         if(GetComponent<Image>() != null)
@@ -28,7 +29,6 @@ public class PlayerUI : MonoBehaviour
         }
 
         pointText = transform.GetComponentInChildren<Text>();
-        
     }
    
     /// <summary>
@@ -53,7 +53,19 @@ public class PlayerUI : MonoBehaviour
     public void SetPointText(string val)
     {
         pointText.text = val;
+
+        pointText.fontSize = 39 + 10;
+        StartCoroutine(DecreaseNumber(pointText, 39));
     }
+    IEnumerator DecreaseNumber(Text text, int number)
+    {
+        while (text.fontSize > number)
+        {
+            text.fontSize -= 1;
+            yield return new WaitForSeconds(.01f);
+        }
+    }
+
     /// <summary>
     /// Set the saved point text with a parameter val.
     /// </summary>
@@ -61,5 +73,8 @@ public class PlayerUI : MonoBehaviour
     public void SetSavedPointText(string val)
     {
         savedPointText.text = val;
+        savedPointText.fontSize = 25 + 10;
+        StartCoroutine(DecreaseNumber(savedPointText, 25));
+
     }
 }
