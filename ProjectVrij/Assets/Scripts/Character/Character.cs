@@ -74,6 +74,7 @@ public class Character : Entity
 
     private PlayerSpawner ps;
 
+    //point information
     [SerializeField]
     private int points = 0;
     [SerializeField]
@@ -366,7 +367,6 @@ public class Character : Entity
     /// </summary>
     public virtual void Jump()
     {
-        Debug.Log(rb);
         if (isGrounded == true)
         {
             anim.SetBool("isJumpingUp", true);
@@ -389,7 +389,7 @@ public class Character : Entity
     /// </summary>
     public virtual void SecondSpecialAttack()
     {
-        Debug.Log("second special attack base");
+        //Debug.Log("second special attack base");
     }
 
     /// <summary>
@@ -397,7 +397,7 @@ public class Character : Entity
     /// </summary>
     public virtual void SpecialAttack()
     {
-        Debug.Log("special attack base");
+        //Debug.Log("special attack base");
     }
 
     /// <summary>
@@ -405,7 +405,7 @@ public class Character : Entity
     /// </summary>
     public virtual void SpecialAttackRelease()
     {
-        Debug.Log("release special attack");
+        //Debug.Log("release special attack");
     }
 
     /// <summary>
@@ -425,7 +425,6 @@ public class Character : Entity
         }
     }
 
-
     /// <summary>
     /// Plays a certain sound to the audioclip with a certain volume.
     /// </summary>
@@ -439,8 +438,9 @@ public class Character : Entity
         source.Play();
     }
 
-
-    //changes camera size and changes input according to the palyer id and how many players are playing
+    /// <summary>
+    /// changes camera size and changes input according to the palyer id and how many players are playing
+    /// </summary>
     public void ApplyPlayerSetting(int playerID)
     {
         //controller
@@ -491,6 +491,5 @@ public class Character : Entity
             cameraPos.y = 0f;
         }
         camera.rect = new Rect(cameraPos, cameraSize);
-        Debug.Log("camera size" + cameraPos.y + " player count = " + GameInformation.PLAYER_COUNT);
     }
-    }
+}
