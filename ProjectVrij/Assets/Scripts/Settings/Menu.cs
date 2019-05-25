@@ -11,9 +11,14 @@ public class Menu : MonoBehaviour
 
     [SerializeField]
     private Text text;
+
+    private CameraFade camFade;
+    private bool starting = false;
+
     private void Start()
     {
         UpdatePlayerAmount();
+        camFade = FindObjectOfType<CameraFade>();
     }
     public void UpdatePlayerAmount()
     {
@@ -22,6 +27,21 @@ public class Menu : MonoBehaviour
     }
     public void StartGame()
     {
+        if (starting)
+        {
+            return;
+        }
+        starting = true;
+        if (camFade != null)
+        {
+            camFade.fadingOut = true;
+        }
+        StartCoroutine(FadingOut());
+    }
+    IEnumerator FadingOut()
+    {
+        yield return new WaitForSeconds(.5f);
         SceneManager.LoadScene(1);
+
     }
 }

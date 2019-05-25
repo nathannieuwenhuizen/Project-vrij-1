@@ -40,8 +40,8 @@ public class CountDownTimer : MonoBehaviour
 
         var minutes = timerCount / 60;
         var seconds = timerCount % 60;
-        var fraction = (timerCount * 100) % 100;
+        //var fraction = (timerCount * 100) % 100;
 
-        _countDownText.text = string.Format("{0:0}:{1:00}:{2:00}", Mathf.Floor(minutes), seconds, fraction); 
+        _countDownText.text = string.Format("{0:0}:{1:00}", Mathf.Floor(minutes), seconds); 
     }
 }

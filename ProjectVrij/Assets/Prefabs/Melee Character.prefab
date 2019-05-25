@@ -527,6 +527,7 @@ GameObject:
   - component: {fileID: 2538581116323133367}
   - component: {fileID: 2538581116323133360}
   - component: {fileID: 7166341294646501409}
+  - component: {fileID: 1841423686}
   m_Layer: 9
   m_Name: Camera
   m_TagString: Untagged
@@ -611,6 +612,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 960011649d0203a45818ad3d11a92454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  intensity: 0
+--- !u!114 &1841423686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2538581116323133362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3efecfe74023a764aa0de5fe4a7eae1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadingOut: 0
+  alphaFadeValue: 0
+  fadeSpeed: 1
+  fadingColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &7794953298024388434
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,6 +713,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2538581115202121847}
     m_Modifications:
+    - target: {fileID: 2953166793327165753, guid: da651d509d0abae40a2ae3fd64f5597b,
+        type: 3}
+      propertyPath: m_Name
+      value: character_melee_V02
+      objectReference: {fileID: 0}
     - target: {fileID: 2953166793326812441, guid: da651d509d0abae40a2ae3fd64f5597b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -765,21 +788,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.2839
       objectReference: {fileID: 0}
-    - target: {fileID: 2953166793327165737, guid: da651d509d0abae40a2ae3fd64f5597b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Hitbox
-      objectReference: {fileID: 0}
     - target: {fileID: 2953166793317790459, guid: da651d509d0abae40a2ae3fd64f5597b,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c345a63adf88cf344bb4ad8124053608, type: 2}
-    - target: {fileID: 2953166793327165753, guid: da651d509d0abae40a2ae3fd64f5597b,
-        type: 3}
-      propertyPath: m_Name
-      value: character_melee_V02
-      objectReference: {fileID: 0}
     - target: {fileID: 2953166793326812443, guid: da651d509d0abae40a2ae3fd64f5597b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1320,6 +1333,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 12.719346
       objectReference: {fileID: 0}
+    - target: {fileID: 2953166793327165737, guid: da651d509d0abae40a2ae3fd64f5597b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hitbox
+      objectReference: {fileID: 0}
     - target: {fileID: 2953166793326812531, guid: da651d509d0abae40a2ae3fd64f5597b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1772,6 +1790,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da651d509d0abae40a2ae3fd64f5597b, type: 3}
+--- !u!1 &846988570494136021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2953166793327165737, guid: da651d509d0abae40a2ae3fd64f5597b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2538581116317642748}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &846988570493842149 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2953166793326812441, guid: da651d509d0abae40a2ae3fd64f5597b,
@@ -1781,12 +1805,6 @@ Transform:
 --- !u!95 &846988570501520647 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2953166793317790459, guid: da651d509d0abae40a2ae3fd64f5597b,
-    type: 3}
-  m_PrefabInstance: {fileID: 2538581116317642748}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &846988570494136021 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2953166793327165737, guid: da651d509d0abae40a2ae3fd64f5597b,
     type: 3}
   m_PrefabInstance: {fileID: 2538581116317642748}
   m_PrefabAsset: {fileID: 0}

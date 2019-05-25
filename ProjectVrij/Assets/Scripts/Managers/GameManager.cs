@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
 
         InitializePlayers(GameInformation.PLAYER_COUNT);
         Pause(false);
+
+        Application.targetFrameRate = 60;
     }
 
     public static GameManager instance;

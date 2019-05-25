@@ -94,7 +94,7 @@ public class Character : Entity
         voiceAudioSource = gameObject.AddComponent<AudioSource>();
 
         ui.SetPointText(points.ToString());
-        //Application.targetFrameRate = 60;
+        CameraFadeFromBlack();
     }
 
     // Update is called once per frame
@@ -183,7 +183,14 @@ public class Character : Entity
     /// <param name="hit"></param>
     private void  GotHit(Hitbox hit)
     {
-        camera.GetComponent<CameraShake>().Shake(0.1f);
+        camera.GetComponent<CameraShake>().Shake(0.05f);
+
+        camera.GetComponent<CameraFade>().fadingColor = Color.red;
+        camera.GetComponent<CameraFade>().fadingOut = false;
+        camera.GetComponent<CameraFade>().alphaFadeValue = 0.3f;
+        camera.GetComponent<CameraFade>().fadeSpeed = 1f;
+
+
         PlaySound(voiceAudioSource, gotHitSound, 1f);
         characterThatHitYou = hit.Character;
         Health -= hit.Damage;
@@ -192,7 +199,7 @@ public class Character : Entity
     /// <summary>
     /// Your death!
     /// </summary>
-    public override void Death()
+    public override void Death() 
     {
         base.Death();
 
@@ -211,7 +218,6 @@ public class Character : Entity
         }
 
         Points = 0;
-
 
         //death particle at position and explode.
         ParticleManager.instance.SpawnParticle(ParticleManager.instance.deathParticle, transform.position + new Vector3(0,1.5f,0), transform.rotation);
@@ -233,7 +239,9 @@ public class Character : Entity
     /// <returns></returns>
     IEnumerator Respawning()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
+        CameraFadeToBlack();
+        yield return new WaitForSeconds(.5f);
         Respawn();
     }
     /// <summary>
@@ -241,10 +249,25 @@ public class Character : Entity
     /// </summary>
     public void Respawn()
     {
-        Debug.Log("respawn");
+        CameraFadeFromBlack();
         Health = MaxHealth;
         characterThatHitYou = null;
         ps.RespawnPlayer(this);
+
+    }
+    public void CameraFadeToBlack()
+    {
+        camera.GetComponent<CameraFade>().fadingColor = Color.black;
+        camera.GetComponent<CameraFade>().fadingOut = true;
+        camera.GetComponent<CameraFade>().alphaFadeValue = 0;
+        camera.GetComponent<CameraFade>().fadeSpeed = .5f;
+    }
+    public void CameraFadeFromBlack()
+    {
+        camera.GetComponent<CameraFade>().fadingColor = Color.black;
+        camera.GetComponent<CameraFade>().fadingOut = false;
+        camera.GetComponent<CameraFade>().alphaFadeValue = 1;
+        camera.GetComponent<CameraFade>().fadeSpeed = .5f;
     }
 
     /// <summary>
