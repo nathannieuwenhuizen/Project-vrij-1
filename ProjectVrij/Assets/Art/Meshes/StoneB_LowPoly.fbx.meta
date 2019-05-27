@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5dc9d925cebe4f14788d97da48a71d9c
+guid: 0b27e160b279be042b097abaf0266c5a
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -8,7 +8,7 @@ ModelImporter:
     2100000: No Name
     2300000: //RootNode
     3300000: //RootNode
-    4300000: stoneA.000
+    4300000: low_stoneB
   externalObjects: {}
   materials:
     importMaterials: 0
