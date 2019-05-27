@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: 5dc9d925cebe4f14788d97da48a71d9c
+guid: 0db9fbf8ec69eb141886c6c52a397940
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: No Name
+    2100000: Material
     2300000: //RootNode
     3300000: //RootNode
-    4300000: stoneA.000
+    4300000: Cube.022
   externalObjects: {}
   materials:
     importMaterials: 0
