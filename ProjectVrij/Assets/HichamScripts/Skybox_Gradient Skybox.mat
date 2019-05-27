@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Skybox_Gradient Skybox
+  m_Shader: {fileID: 4800000, guid: 1e5aba97be2592842a501cae6498747e, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Clouds:
+        m_Texture: {fileID: 2800000, guid: 292cc78e4d1ff2c4885368ad38209f0b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _CloudIntensity: 0
+    - _CloudSpeed: 0
+    - _Exponent: 0.647
+    - _Intensity: 1
+    - _SkyExponent1: 8.5
+    - _SkyExponent2: 3
+    - _SunAlpha: 239
+    - _SunBeta: 130
+    - _SunIntensity: 9
+    - _UpVectorPitch: 0
+    - _UpVectorYaw: 0
+    m_Colors:
+    - _CLCol: {r: 1, g: 0.83667165, b: 0.75, a: 0}
+    - _Color1: {r: 0.9843137, g: 0.7411765, b: 0.6509804, a: 0}
+    - _Color2: {r: 0.47267708, g: 0.54691523, b: 0.8867924, a: 1}
+    - _SkyColor1: {r: 0.36999997, g: 0.52, b: 0.73, a: 0}
+    - _SkyColor2: {r: 0.89, g: 0.96, b: 1, a: 0}
+    - _SkyColor3: {r: 0.89, g: 0.89, b: 0.89, a: 0}
+    - _SunColor: {r: 0.9012346, g: 1, b: 0, a: 1}
+    - _SunVector: {r: 0.02, g: 0.65, b: 0.76, a: 0}
+    - _UpVector: {r: 0, g: 1, b: 0, a: 0}
