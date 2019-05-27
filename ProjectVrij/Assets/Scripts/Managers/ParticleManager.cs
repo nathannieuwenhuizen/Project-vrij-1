@@ -13,6 +13,11 @@ public class ParticleManager : MonoBehaviour
     public ParticleGroup spawnPointParticle;
     public ParticleGroup collectPointParticle;
 
+    [Space]
+    [Header("projjectile particles")]
+    public ParticleGroup projectileHit;
+    public ParticleGroup projectileSpawn;
+
     public static ParticleManager instance;
     void Awake()
     {
@@ -25,6 +30,11 @@ public class ParticleManager : MonoBehaviour
 
         InitiatePool(spawnPointParticle);
         InitiatePool(collectPointParticle);
+
+        InitiatePool(projectileHit);
+        InitiatePool(projectileSpawn);
+
+
 
     }
     public void InitiatePool(ParticleGroup particle)

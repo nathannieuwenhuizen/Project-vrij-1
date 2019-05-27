@@ -68,6 +68,8 @@ public class CloseRangedCharacter : Character
         if (reloading) { return; }
 
         reloading = true;
+
+        ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileSpawn, shootPosition.position, transform.rotation);
         Shoot(projectilePrefab, projectileDamage);
         StartCoroutine(Reloading());
 
@@ -88,6 +90,8 @@ public class CloseRangedCharacter : Character
 
     public void SpreadShoot()
     {
+        ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileSpawn, shootPosition.position, transform.rotation);
+
         Debug.Log("spread shoot");
         if (reloading) { return; }
         reloading = true;

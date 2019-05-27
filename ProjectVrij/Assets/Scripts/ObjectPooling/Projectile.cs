@@ -26,9 +26,11 @@ public class Projectile : PoolObject
 
     public override void OnObjectReuse()
     {
-
     }
-
+    public override void Destroy()
+    {
+        base.Destroy();
+    }
     public void Spawn()
     {
         StartCoroutine(Destroying());
@@ -46,6 +48,7 @@ public class Projectile : PoolObject
         {
             return;
         }
+        ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileHit, transform.position, transform.rotation);
         Destroy();
     }
 }

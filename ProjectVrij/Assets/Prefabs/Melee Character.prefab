@@ -646,7 +646,7 @@ MonoBehaviour:
   cDistance: 0
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
 --- !u!1 &7794953298024388434
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,9 +9,12 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class GameManager : MonoBehaviour
 {
+    [Header("Character prefabs")]
     [SerializeField]
-    private GameObject CharacterPrefab;
+    private GameObject[] CharacterPrefabs;
 
+    [Space]
+    [Header("ui")]
     [SerializeField]
     private PlayerUI[] playerUis;
     [SerializeField]
@@ -49,18 +52,37 @@ public class GameManager : MonoBehaviour
             chars[0],
             chars[1]
         };
-        
-        //spawn optional two additional players
-        for (int i = 2; i < amount; i++)
+        if (GameInformation.FROM_MENU)
         {
-            playerUis[i].gameObject.SetActive(true);
+            for (int i = 0; i < characters.Count; i++)
+            {
+                Destroy(characters[i].gameObject);
+                characters[i] = null;
+            }
 
-            Character newCharacter = GameObject.Instantiate(CharacterPrefab, group.transform).GetComponent<Character>();
+            characters = new List<Character> { };
+            //spawn all the players based on the settings
+            for (int i = 0; i < amount; i++)
+            {
+                playerUis[i].gameObject.SetActive(true);
 
-            characters.Add(newCharacter);
-            Debug.Log("player: " + i);
+                Character newCharacter = GameObject.Instantiate(CharacterPrefabs[GameInformation.CHOSEN_CHARACTERS[i]], group.transform).GetComponent<Character>();
+                newCharacter.ui = playerUis[i];
+
+                characters.Add(newCharacter);
+            }
+
+        } else
+        {
+            //spawn optional two additional players
+            for (int i = 2; i < amount; i++)
+            {
+                playerUis[i].gameObject.SetActive(true);
+
+                Character newCharacter = GameObject.Instantiate(CharacterPrefabs[0], group.transform).GetComponent<Character>();
+                characters.Add(newCharacter);
+            }
         }
-
 
         //Setup controller setup and camera position
         for (int i = 0; i < characters.Count; i++)
@@ -69,8 +91,6 @@ public class GameManager : MonoBehaviour
             characters[i].name = "player " + (1 + i);
             characters[i].transform.parent = group.transform;
 
-            //ui setting
-            characters[i].ui = playerUis[i];
 
             //setting up the controller for the player with the camera.
             characters[i].ApplyPlayerSetting(i + 1);

@@ -433,9 +433,9 @@ public class Character : Entity
     /// <param name="volume"></param>
     public void PlaySound(AudioSource source, AudioClip clip, float volume = 1f)
     {
-        source.clip = clip;
-        source.volume = volume;
-        source.Play();
+        //source.clip = clip;
+        //source.volume = volume;
+        //source.Play();
     }
 
     /// <summary>
