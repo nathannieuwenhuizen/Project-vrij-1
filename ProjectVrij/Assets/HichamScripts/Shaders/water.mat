@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: water
   m_Shader: {fileID: 4800000, guid: d316c6756cfd20646b74f8d4eaac8fe7, type: 3}
-  m_ShaderKeywords: _DO_STUFF_ON
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -64,7 +64,7 @@ Material:
         m_Scale: {x: 1, y: 4}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Amount: 24.9
+    - _Amount: 8.4
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DepthMaxDistance: 1.52
@@ -75,14 +75,14 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Height: 0.136
+    - _Height: 0.103
     - _Metallic: 0
     - _Min: 15.2
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Size: -7.12
-    - _SmoothOn: 1
+    - _SmoothOn: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _Speed: 0.47
@@ -92,12 +92,12 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     - _ammount: 1
-    - _topWave: 0
+    - _topWave: 0.197
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DeepColor: {r: 0.29803923, g: 0.71207047, b: 0.9019608, a: 0.749}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FoamColor: {r: 0.86627805, g: 0.9554636, b: 0.9716981, a: 0}
+    - _FoamColor: {r: 0.86627805, g: 0.9554636, b: 0.9716981, a: 0.8117647}
     - _SurfaceColor: {r: 0.6132076, g: 0.52829844, b: 0.34420612, a: 0.7}
     - _SurfaceNoiseScroll: {r: 0.01, g: 0.03, b: 0, a: 0}
     - _WaveCol: {r: 0.4764151, g: 0.98919004, b: 1, a: 1}
