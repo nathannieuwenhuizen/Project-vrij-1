@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using FMOD;
 
 /// <summary>
 /// The character is the base entity that the player plays as. (with camera and UI call) 
@@ -43,18 +44,25 @@ public class Character : Entity
 
     //sounds
     [Header("Sounds")]
+    [FMODUnity.EventRef] public string walkSound;
+    [FMODUnity.EventRef] public string jumpSound;
+    [FMODUnity.EventRef] public string landingSound;
+    [FMODUnity.EventRef] public string gotHitSound;
+    [FMODUnity.EventRef] public string deathSound;
+    [FMODUnity.EventRef] public string wooshSound;
+
     [SerializeField]
-    private AudioClip walkSound;
+    private AudioClip walkSound2;
     [SerializeField]
-    private AudioClip jumpSound;
+    private AudioClip jumpSound2;
     [SerializeField]
-    private AudioClip landingSound;
+    private AudioClip landingSound2;
     [SerializeField]
-    private AudioClip gotHitSound;
+    private AudioClip gotHitSound2;
     [SerializeField]
-    private AudioClip deathSound;
+    private AudioClip deathSound2;
     [SerializeField]
-    private AudioClip wooshSound;
+    private AudioClip wooshSound2;
 
     private float walkIndex;
     protected AudioSource movementAudioSource;
@@ -110,7 +118,8 @@ public class Character : Entity
             if (walkIndex > 1)
             {
                 walkIndex = 0;
-                PlaySound(movementAudioSource, walkSound, .5f);
+                PlaySound(movementAudioSource, walkSound2, .5f);
+                FMODUnity.RuntimeManager.PlayOneShot(walkSound, transform.position);
             }
 
             //tilts the camera a bit
@@ -170,7 +179,8 @@ public class Character : Entity
         //else its just ground
         else
         {
-            PlaySound(movementAudioSource, landingSound, 1f);
+            PlaySound(movementAudioSource, landingSound2, 1f);
+            FMODUnity.RuntimeManager.PlayOneShot(landingSound, transform.position);
             isGrounded = true;
             anim.SetBool("isJumpingUp", false);
             ParticleManager.instance.SpawnParticle(ParticleManager.instance.landImpactParticle, transform.position, transform.rotation);
@@ -192,7 +202,8 @@ public class Character : Entity
         camera.GetComponent<CameraFade>().fadeSpeed = 1f;
 
 
-        PlaySound(voiceAudioSource, gotHitSound, 1f);
+        PlaySound(voiceAudioSource, gotHitSound2, 1f);
+        FMODUnity.RuntimeManager.PlayOneShot(gotHitSound, transform.position);
         characterThatHitYou = hit.Character;
         Health -= hit.Damage;
     }
@@ -224,7 +235,8 @@ public class Character : Entity
         ParticleManager.instance.SpawnParticle(ParticleManager.instance.deathParticle, transform.position + new Vector3(0,1.5f,0), transform.rotation);
 
         //plays death sound
-        PlaySound(voiceAudioSource, deathSound);
+        PlaySound(voiceAudioSource, deathSound2);
+        FMODUnity.RuntimeManager.PlayOneShot(deathSound, transform.position);
 
         //character falls back by changing the force of the rigidbody.
         Vector3 fallBackForce = Vector3.Normalize(transform.position - characterThatHitYou.transform.position) * 10f;
@@ -377,7 +389,8 @@ public class Character : Entity
             rb.velocity = jumpVelocity;
 
             isGrounded = false;
-            PlaySound(movementAudioSource, jumpSound, 1f);
+            PlaySound(movementAudioSource, jumpSound2, 1f);
+            FMODUnity.RuntimeManager.PlayOneShot(jumpSound, transform.position);
 
             ParticleManager.instance.SpawnParticle(ParticleManager.instance.landImpactParticle, transform.position, transform.rotation);
 
@@ -416,7 +429,8 @@ public class Character : Entity
     {
         if (state == true)
         {
-            PlaySound(movementAudioSource, wooshSound);
+            PlaySound(movementAudioSource, wooshSound2);
+            FMODUnity.RuntimeManager.PlayOneShot(wooshSound, transform.position);
             anim.SetBool("isAttacking", true);
         }
         else
