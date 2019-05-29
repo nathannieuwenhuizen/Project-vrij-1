@@ -364,6 +364,10 @@ public class Character : Entity
         anim.SetBool("isWalkingForward", y_input > 0.1);
         anim.SetBool("isWalkingBack", y_input < -0.1);
         anim.SetBool("isWalkingSide", h_input < -0.1 || h_input > 0.1);
+
+        anim.SetFloat("hMove", h_input);
+        anim.SetFloat("yMove", y_input);
+
         //else if(y_input < 0)
         //{
         //    anim.SetBool("isWalkingBack", true);
