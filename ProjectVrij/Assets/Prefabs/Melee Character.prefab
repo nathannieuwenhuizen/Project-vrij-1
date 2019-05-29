@@ -736,6 +736,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: character_melee_V02
       objectReference: {fileID: 0}
+    - target: {fileID: 2953166793327165753, guid: da651d509d0abae40a2ae3fd64f5597b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2953166793326812441, guid: da651d509d0abae40a2ae3fd64f5597b,
         type: 3}
       propertyPath: m_LocalPosition.x
