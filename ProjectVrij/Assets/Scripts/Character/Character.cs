@@ -214,6 +214,8 @@ public class Character : Entity
     public override void Death() 
     {
         base.Death();
+        anim.SetLayerWeight(1, 0);
+        anim.SetBool("dead", true);
 
         //other player recieves point (MUST BE CHANGED LATER!)
         if (characterThatHitYou != null)
@@ -252,9 +254,9 @@ public class Character : Entity
     /// <returns></returns>
     IEnumerator Respawning()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(2f);
         CameraFadeToBlack();
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.8f);
         Respawn();
     }
     /// <summary>
@@ -262,6 +264,9 @@ public class Character : Entity
     /// </summary>
     public void Respawn()
     {
+        anim.SetBool("dead", false);
+        anim.SetLayerWeight(1, 1);
+
         CameraFadeFromBlack();
         Health = MaxHealth;
         characterThatHitYou = null;

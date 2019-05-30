@@ -130,7 +130,7 @@ public class InputHandler : MonoBehaviour
         //the axises -----------------------------------------
 
         //player movement
-        character.Walking(CrossPlatformInputManager.GetAxis("Vertical" + controllerID), -CrossPlatformInputManager.GetAxis("Horizontal" + controllerID));
+        character.Walking(CrossPlatformInputManager.GetAxis("Horizontal" + controllerID), CrossPlatformInputManager.GetAxis("Vertical" + controllerID));
         //player view change
         character.Rotate(
             CrossPlatformInputManager.GetAxis("RotateHorizontal" + controllerID),
