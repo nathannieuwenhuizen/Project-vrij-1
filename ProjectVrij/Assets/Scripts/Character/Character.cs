@@ -72,7 +72,7 @@ public class Character : Entity
     protected Rigidbody rb;
     [Header("overige dingen")]
     [SerializeField]
-    private Animator anim;
+    protected Animator anim;
     [SerializeField]
     public PlayerUI ui;
     [SerializeField]
@@ -201,13 +201,20 @@ public class Character : Entity
         camera.GetComponent<CameraFade>().alphaFadeValue = 0.3f;
         camera.GetComponent<CameraFade>().fadeSpeed = 1f;
 
+        anim.SetBool("hitted", true);
+        StartCoroutine(SetanimationBoolFalse("hitted", 0.2f));
 
         PlaySound(voiceAudioSource, gotHitSound2, 1f);
         FMODUnity.RuntimeManager.PlayOneShot(gotHitSound, transform.position);
         characterThatHitYou = hit.Character;
         Health -= hit.Damage;
     }
+    IEnumerator SetanimationBoolFalse(string val, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        anim.SetBool(val, false);
 
+    }
     /// <summary>
     /// Your death!
     /// </summary>
@@ -366,21 +373,8 @@ public class Character : Entity
         rb.velocity += transform.right * h_input * walkSpeed;
         rb.velocity += transform.forward * y_input * walkSpeed;
 
-        anim.SetBool("isWalkingForward", y_input > 0.1);
-        anim.SetBool("isWalkingBack", y_input < -0.1);
-        anim.SetBool("isWalkingSide", h_input < -0.1 || h_input > 0.1);
-
         anim.SetFloat("hMove", h_input);
         anim.SetFloat("yMove", y_input);
-
-        //else if(y_input < 0)
-        //{
-        //    anim.SetBool("isWalkingBack", true);
-        //}
-        //else if (h_input < 0 || h_input > 0)
-        //{
-        //    anim.SetBool("isWalkingSide", true);
-        //}
     }
 
     /// <summary>
@@ -441,11 +435,10 @@ public class Character : Entity
             PlaySound(movementAudioSource, wooshSound2);
             FMODUnity.RuntimeManager.PlayOneShot(wooshSound, transform.position);
             anim.SetBool("isAttacking", true);
+            StartCoroutine(SetanimationBoolFalse("isAttacking", 0.5f));
+
         }
-        else
-        {
-            anim.SetBool("isAttacking", false);
-        }
+
     }
 
     /// <summary>
