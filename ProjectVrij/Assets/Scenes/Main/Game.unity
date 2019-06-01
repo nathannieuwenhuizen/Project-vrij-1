@@ -319,6 +319,11 @@ PrefabInstance:
       propertyPath: ui
       value: 
       objectReference: {fileID: 542154705}
+    - target: {fileID: 7794953298222388401, guid: 65b312e2c178e5d45b3d19751febe030,
+        type: 3}
+      propertyPath: chargeSpeed
+      value: 100000
+      objectReference: {fileID: 0}
     - target: {fileID: 846988570501520647, guid: 65b312e2c178e5d45b3d19751febe030,
         type: 3}
       propertyPath: m_Avatar
