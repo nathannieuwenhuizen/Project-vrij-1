@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using FMOD;
+//using FMOD;
 
 /// <summary>
 /// The character is the base entity that the player plays as. (with camera and UI call) 

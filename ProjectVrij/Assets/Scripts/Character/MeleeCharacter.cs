@@ -77,6 +77,7 @@ public class MeleeCharacter : Character
 
     private IEnumerator IncreaseForce()
     {
+        anim.SetBool("increasecharge", true);
         camera.GetComponent<CameraShake>().Shake(60, 0.1f);
         while(forceDuration < maxForceIncreaseDuration)
         {
@@ -94,10 +95,17 @@ public class MeleeCharacter : Character
         {
             return;
         }
+
+        anim.SetBool("increasecharge", false);
+        anim.SetBool("charging", true);
+        anim.SetLayerWeight(1, 0);
+
+
         base.SpecialAttackRelease();
         StopAllCoroutines();
         camera.GetComponent<CameraShake>().StopShake();
         GetComponent<InputHandler>().enabled = false;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
         Vector3 localForce = transform.forward * chargeSpeed;
         GetComponent<Rigidbody>().AddForce(localForce);
         
@@ -106,8 +114,6 @@ public class MeleeCharacter : Character
         chargeHitbox.GetComponent<Hitbox>().Damage = (int)(percentage * maxChargeDamage);
         StartCoroutine(Charging(percentage * maxChargeDuration));
         forceDuration = 0;
-
-        Debug.Log("RELEEAASSEEE!");
     }
 
     private IEnumerator Charging(float duration)
@@ -118,6 +124,16 @@ public class MeleeCharacter : Character
         isCharging = false;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         GetComponent<InputHandler>().enabled = true;
+
+        anim.SetBool("charging", false);
+
+        yield return new WaitForSeconds(0.5f);
+        while(anim.GetLayerWeight(1) < 1)
+        {
+            anim.SetLayerWeight(1, anim.GetLayerWeight(1) + 0.1f);
+            yield return new WaitForSeconds(0.1f);
+        }
+
     }
 
     public override void SecondSpecialAttack()

@@ -42,7 +42,7 @@ public class CloseRangedCharacter : Character
     protected override void Start()
     {
         PoolManager.instance.CreatePool(projectilePrefab, 10);
-        PoolManager.instance.CreatePool(spreadProjectilePrefab, amountOfSpreadProjectiles * 4);
+        PoolManager.instance.CreatePool(spreadProjectilePrefab, amountOfSpreadProjectiles * GameInformation.PLAYER_COUNT);
 
         Debug.Log("start child");
         rb = GetComponent<Rigidbody>();
