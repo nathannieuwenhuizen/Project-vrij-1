@@ -114,8 +114,6 @@ public class MeleeCharacter : Character
         chargeHitbox.GetComponent<Hitbox>().Damage = (int)(percentage * maxChargeDamage);
         StartCoroutine(Charging(percentage * maxChargeDuration));
         forceDuration = 0;
-
-        Debug.Log("RELEEAASSEEE!");
     }
 
     private IEnumerator Charging(float duration)

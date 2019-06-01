@@ -38,13 +38,17 @@ public class PoolManager : MonoBehaviour {
             poolDictionary.Add(key, new Queue<ObjectInstance>());
 
 			for (int i = 0; i < size; i ++) {
-				ObjectInstance newObject = new ObjectInstance(Instantiate (prefab) as GameObject);
-				poolDictionary[key].Enqueue(newObject);
-				newObject.SetParent(group.transform);
-			
+                CreateInstanceInPool(key, prefab, group);
 			}
 		}
 	}
+    public ObjectInstance CreateInstanceInPool(int key, GameObject prefab, GameObject group)
+    {
+        ObjectInstance newObject = new ObjectInstance(Instantiate(prefab) as GameObject);
+        poolDictionary[key].Enqueue(newObject);
+        newObject.SetParent(group.transform);
+        return newObject;
+    }
 
     /// <summary>
     /// Reuses the prefab from the object pool back into the field
@@ -59,6 +63,12 @@ public class PoolManager : MonoBehaviour {
 		if (poolDictionary.ContainsKey(key)) {
 			ObjectInstance obj = poolDictionary[key].Dequeue();
 			poolDictionary[key].Enqueue(obj);
+            if (obj.gameObject.activeSelf)
+            {
+                //if pool is full, it adds a new object to the pool
+                GameObject parent = obj.gameObject.transform.parent.gameObject;
+                obj = CreateInstanceInPool(key, prefab, parent);
+            }
 			obj.Reuse(pos, rot);
 			return obj.gameObject;
 		}
