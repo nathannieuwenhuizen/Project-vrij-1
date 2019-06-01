@@ -135,6 +135,9 @@ public class MeleeCharacter : Character
     IEnumerator SwordAttacking()
     {
         isAttackingWithSword = true;
+        anim.SetBool("slashing", true);
+        yield return new WaitForSeconds(0.3f);
+
         swordHitBox.gameObject.SetActive(true);
 
         swordPivot.Rotate(new Vector3(0,-swordStartAngle, 0));
@@ -143,6 +146,8 @@ public class MeleeCharacter : Character
             swordPivot.Rotate(new Vector3(0, swordSpeed, 0));
             yield return new WaitForSeconds(Time.deltaTime);
         }
+        anim.SetBool("slashing", false);
+
         swordPivot.Rotate(new Vector3(0, -swordStartAngle * 2, 0));
         swordHitBox.gameObject.SetActive(false);
         isAttackingWithSword = false;

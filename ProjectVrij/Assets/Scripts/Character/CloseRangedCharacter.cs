@@ -57,7 +57,13 @@ public class CloseRangedCharacter : Character
     public override void SecondSpecialAttack()
     {
         base.SpecialAttack();
-        SpreadShoot();
+
+        if (reloading) { return; }
+        reloading = true;
+
+        anim.SetBool("shooting", true);
+        StartCoroutine(SpreadShoot());
+
 
     }
 
@@ -66,19 +72,17 @@ public class CloseRangedCharacter : Character
         base.SpecialAttack();
 
         if (reloading) { return; }
-
         reloading = true;
 
-        ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileSpawn, shootPosition.position, transform.rotation);
-        Shoot(projectilePrefab, projectileDamage);
-        StartCoroutine(Reloading());
+        anim.SetBool("shooting", true);
+        StartCoroutine(NormalShoot());
 
     }
 
     /// <summary>
     /// Shoots a projectile
     /// </summary>
-    public void Shoot(GameObject obj, int damage)
+    public void InstantiateBullet(GameObject obj, int damage)
     {
         PlaySound(movementAudioSource, shootSound);
         GameObject projectile = PoolManager.instance.ReuseObject(obj, shootPosition.position, shootPosition.rotation);
@@ -88,17 +92,25 @@ public class CloseRangedCharacter : Character
         projectile.GetComponent<Hitbox>().Damage = damage;
     }
 
-    public void SpreadShoot()
+    public IEnumerator NormalShoot()
     {
+        yield return new WaitForSeconds(0.2f);
+        ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileSpawn, shootPosition.position, transform.rotation);
+        InstantiateBullet(projectilePrefab, projectileDamage);
+        StartCoroutine(Reloading());
+
+    }
+
+    public IEnumerator SpreadShoot()
+    {
+        yield return new WaitForSeconds(0.2f);
+
         ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileSpawn, shootPosition.position, transform.rotation);
 
-        Debug.Log("spread shoot");
-        if (reloading) { return; }
-        reloading = true;
         cameraPivot.Rotate(new Vector3(0, -shootAngle, 0));
         for (int i = 0; i < amountOfSpreadProjectiles; i++)
         {
-            Shoot(spreadProjectilePrefab, spreadDamage);
+            InstantiateBullet(spreadProjectilePrefab, spreadDamage);
             cameraPivot.Rotate(new Vector3(0, (shootAngle * 2) / amountOfSpreadProjectiles, 0));
         }
         cameraPivot.Rotate(new Vector3(0, -shootAngle, 0));
@@ -116,5 +128,7 @@ public class CloseRangedCharacter : Character
     {
         yield return new WaitForSeconds(reloadTime);
         reloading = false;
+        anim.SetBool("shooting", false);
+
     }
 }
