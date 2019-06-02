@@ -44,7 +44,6 @@ public class CloseRangedCharacter : Character
         PoolManager.instance.CreatePool(projectilePrefab, 10);
         PoolManager.instance.CreatePool(spreadProjectilePrefab, amountOfSpreadProjectiles * GameInformation.PLAYER_COUNT);
 
-        Debug.Log("start child");
         rb = GetComponent<Rigidbody>();
         base.Start();
     }
@@ -61,7 +60,7 @@ public class CloseRangedCharacter : Character
         if (reloading) { return; }
         reloading = true;
 
-        anim.SetBool("shooting", true);
+        SetAnimation("shooting", true);
         StartCoroutine(SpreadShoot());
 
 
@@ -74,7 +73,7 @@ public class CloseRangedCharacter : Character
         if (reloading) { return; }
         reloading = true;
 
-        anim.SetBool("shooting", true);
+        SetAnimation("shooting", true);
         StartCoroutine(NormalShoot());
 
     }
@@ -128,7 +127,7 @@ public class CloseRangedCharacter : Character
     {
         yield return new WaitForSeconds(reloadTime);
         reloading = false;
-        anim.SetBool("shooting", false);
+        SetAnimation("shooting", false);
 
     }
 }
