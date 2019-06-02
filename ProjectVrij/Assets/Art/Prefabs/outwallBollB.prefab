@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3137870834441469878}
   - component: {fileID: 3137870834438602646}
   - component: {fileID: 3137870834439568726}
-  - component: {fileID: 7893878942807573781}
+  - component: {fileID: 2288290177826274779}
   m_Layer: 0
   m_Name: outwallBollB
   m_TagString: Untagged
@@ -78,8 +78,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7893878942807573781
-BoxCollider:
+--- !u!64 &2288290177826274779
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -88,6 +88,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 16.207512, y: 9.014668, z: 6.646702}
-  m_Center: {x: -7.170763, y: 4.3417172, z: -0.22717893}
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: f2e2a9624f8196d48acc13a83909123e, type: 3}
