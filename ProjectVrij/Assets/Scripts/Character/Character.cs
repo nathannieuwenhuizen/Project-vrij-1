@@ -41,7 +41,8 @@ public class Character : Entity
 
     private bool isGrounded = true;
 
-
+    private bool doesNothing = false;
+    private Coroutine doingNothing = null;
     //sounds
     [Header("Sounds")]
     [FMODUnity.EventRef] public string walkSound;
@@ -201,7 +202,7 @@ public class Character : Entity
         camera.GetComponent<CameraFade>().alphaFadeValue = 0.3f;
         camera.GetComponent<CameraFade>().fadeSpeed = 1f;
 
-        anim.SetBool("hitted", true);
+        SetAnimation("hitted", true);
         StartCoroutine(SetanimationBoolFalse("hitted", 0.2f));
 
         PlaySound(voiceAudioSource, gotHitSound2, 1f);
@@ -222,7 +223,7 @@ public class Character : Entity
     {
         base.Death();
         anim.SetLayerWeight(1, 0);
-        anim.SetBool("dead", true);
+        SetAnimation("dead", true);
 
         //other player recieves point (MUST BE CHANGED LATER!)
         if (characterThatHitYou != null)
@@ -271,7 +272,7 @@ public class Character : Entity
     /// </summary>
     public void Respawn()
     {
-        anim.SetBool("dead", false);
+        SetAnimation("dead", false);
         anim.SetLayerWeight(1, 1);
 
         CameraFadeFromBlack();
@@ -375,6 +376,13 @@ public class Character : Entity
 
         anim.SetFloat("hMove", h_input);
         anim.SetFloat("yMove", y_input);
+        if (h_input == 0 && y_input == 0)
+        {
+            DoesNothing();
+        } else
+        {
+            DoesSomething();
+        }
     }
 
     /// <summary>
@@ -434,7 +442,7 @@ public class Character : Entity
         {
             PlaySound(movementAudioSource, wooshSound2);
             FMODUnity.RuntimeManager.PlayOneShot(wooshSound, transform.position);
-            anim.SetBool("isAttacking", true);
+            SetAnimation("isAttacking", true);
             StartCoroutine(SetanimationBoolFalse("isAttacking", 0.5f));
 
         }
@@ -507,5 +515,43 @@ public class Character : Entity
             cameraPos.y = 0f;
         }
         camera.rect = new Rect(cameraPos, cameraSize);
+    }
+
+    IEnumerator DoingNothing()
+    {
+        yield return new WaitForSeconds(30f + Random.value * 10);
+        anim.SetBool("yawning", true);
+        anim.SetLayerWeight(1, 0);
+
+        //yield return new WaitForSeconds(8.4f);
+        //anim.SetBool("yawning", false);
+        //anim.SetLayerWeight(1, 1);
+        //doesNothing = false;
+        //DoesNothing();
+
+    }
+    public void SetAnimation(string state, bool val)
+    {
+        DoesSomething();
+        anim.SetBool(state, val);
+    }
+    private void DoesNothing()
+    {
+        if (!doesNothing)
+        {
+            doesNothing = true;
+            doingNothing = StartCoroutine(DoingNothing());
+        }
+    }
+    private void DoesSomething()
+    {
+        if (doesNothing)
+        {
+            doesNothing = false;
+            StopCoroutine(doingNothing);
+            anim.SetBool("yawning", false);
+            anim.SetLayerWeight(1, 1);
+
+        }
     }
 }

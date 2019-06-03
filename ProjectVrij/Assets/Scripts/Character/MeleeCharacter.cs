@@ -77,7 +77,7 @@ public class MeleeCharacter : Character
 
     private IEnumerator IncreaseForce()
     {
-        anim.SetBool("increasecharge", true);
+        SetAnimation("increasecharge", true);
         camera.GetComponent<CameraShake>().Shake(60, 0.1f);
         while(forceDuration < maxForceIncreaseDuration)
         {
@@ -96,8 +96,8 @@ public class MeleeCharacter : Character
             return;
         }
 
-        anim.SetBool("increasecharge", false);
-        anim.SetBool("charging", true);
+        SetAnimation("increasecharge", false);
+        SetAnimation("charging", true);
         anim.SetLayerWeight(1, 0);
 
 
@@ -125,7 +125,7 @@ public class MeleeCharacter : Character
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         GetComponent<InputHandler>().enabled = true;
 
-        anim.SetBool("charging", false);
+        SetAnimation("charging", false);
 
         yield return new WaitForSeconds(0.5f);
         while(anim.GetLayerWeight(1) < 1)
@@ -151,7 +151,7 @@ public class MeleeCharacter : Character
     IEnumerator SwordAttacking()
     {
         isAttackingWithSword = true;
-        anim.SetBool("slashing", true);
+        SetAnimation("slashing", true);
         yield return new WaitForSeconds(0.3f);
 
         swordHitBox.gameObject.SetActive(true);
@@ -162,7 +162,7 @@ public class MeleeCharacter : Character
             swordPivot.Rotate(new Vector3(0, swordSpeed, 0));
             yield return new WaitForSeconds(Time.deltaTime);
         }
-        anim.SetBool("slashing", false);
+        SetAnimation("slashing", false);
 
         swordPivot.Rotate(new Vector3(0, -swordStartAngle * 2, 0));
         swordHitBox.gameObject.SetActive(false);
