@@ -64,7 +64,7 @@ Material:
         m_Scale: {x: 1, y: 4}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Amount: 24.9
+    - _Amount: 8.2
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DepthMaxDistance: 1.52
@@ -75,7 +75,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Height: 0.136
+    - _Height: 0.152
     - _Metallic: 0
     - _Min: 15.2
     - _Mode: 0
