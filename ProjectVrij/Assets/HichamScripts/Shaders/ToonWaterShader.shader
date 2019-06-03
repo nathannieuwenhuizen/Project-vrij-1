@@ -1,5 +1,4 @@
-﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
+﻿
 Shader "Custom/ToonWater"
 {
 	Properties
@@ -71,7 +70,6 @@ Shader "Custom/ToonWater"
 			{
 				float3 color = (top.rgb * top.a) + (bottom.rgb * (1 - top.a));
 				float alpha = top.a + bottom.a * (1 - top.a);
-
 				return float4(color, alpha);
 			}
 
@@ -81,7 +79,6 @@ Shader "Custom/ToonWater"
 				float4 vertex : POSITION;
 				float4 uv : TEXCOORD0;
 				float3 normal : NORMAL;
-				
 			};
 
 			sampler2D _SurfaceNoise, _SurfaceDistortion, _NoiseTex;
@@ -98,6 +95,7 @@ Shader "Custom/ToonWater"
 				float3 localVPos: TEXCOORD3;
 			};
 
+
 			v2f vert(appdata v)
 			{
 				v2f o;
@@ -111,9 +109,10 @@ Shader "Custom/ToonWater"
 				float4 worldPos = mul(unity_ObjectToWorld, v.vertex);
 				//o.worldpos = worldPos;
 				o.localVPos = v.vertex;
-			
+
 				return o;
 			}
+
 
 			float4 frag(v2f i) : SV_Target
 			{
@@ -123,21 +122,8 @@ Shader "Custom/ToonWater"
 
 			float waterDepthDiff1 = saturate(depthDiff / _DepthMaxDistance);
 			float4 waterColor = lerp(_SurfaceColor, _DeepColor, waterDepthDiff1);
-
-
-			#if defined(_DO_STUFF_ON)
-					
-			float4 topFoamCut = (smoothstep(_topWave, 1 , i.localVPos.y))* _Min;
-			
-					//float4 topFoamCut = saturate(i.localVPos.y + _topWave);
-			#else
-					float topFoamCut = i.localVPos.y > (_topWave * 0.34) ? 1 : 0;
-			#endif
-			
-		
-		//	float4 waterC = lerp(waterColor, _WaveCol, topFoamCut);
-
-			float2 distortSample = (tex2D(_SurfaceDistortion, i.distortUV).xy * 2 - 1) * _SurfaceDistortionAmount;
+	
+float2 distortSample = (tex2D(_SurfaceDistortion, i.distortUV).xy * 2 - 1) * _SurfaceDistortionAmount;
 			float2 noiseUV = float2((i.noiseUV.x + _Time.y * _SurfaceNoiseScroll.x) + distortSample.x, (i.noiseUV.y + _Time.y * _SurfaceNoiseScroll.y) + distortSample.y);
 			float surfaceNoiseSample = tex2D(_SurfaceNoise, noiseUV).r;
 
@@ -148,12 +134,21 @@ Shader "Custom/ToonWater"
 			float foamDepthDifference01 = saturate(depthDiff / foamDistance);
 			float foamWave = i.vertex;
 
-			float surfaceNoiseCutoff = foamDepthDifference01 * _SurfaceNoiseCutoff;
-			float surfaceNoise = smoothstep(surfaceNoiseCutoff - SMOOTHSTEP_AA, surfaceNoiseCutoff + SMOOTHSTEP_AA, surfaceNoiseSample);
+			#if defined(_DO_STUFF_ON)
+						
+						float surfaceNoise = saturate(surfaceNoiseSample - _SurfaceNoiseCutoff);
 
+						float4 topFoamCut = (smoothstep(_topWave, 1, i.localVPos.y))* _Min;
+					
+					
+			#else
+						float surfaceNoiseCutoff = foamDepthDifference01 * _SurfaceNoiseCutoff;
+						float surfaceNoise = smoothstep(surfaceNoiseCutoff - SMOOTHSTEP_AA, surfaceNoiseCutoff + SMOOTHSTEP_AA, surfaceNoiseSample);
+						float topFoamCut = i.localVPos.y > (_topWave * 0.34) ? 1 : 0;
+			#endif
+	
 			float4 surfaceNoiseColor = _FoamColor;
 			surfaceNoiseColor.a *= surfaceNoise;
-
 			float4 WaterEnd = lerp(surfaceNoiseColor, _WaveCol, topFoamCut);
 			
 			return alphaBlend(WaterEnd, waterColor);
