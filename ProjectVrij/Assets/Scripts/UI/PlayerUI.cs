@@ -9,8 +9,16 @@ using UnityEngine.UI;
 public class PlayerUI : MonoBehaviour
 {
 
-    Slider slider;
+    [SerializeField]
+    Image healthImageValue;
+
     Material material;
+
+    [SerializeField]
+    private Image ability1;
+    [SerializeField]
+    private Image ability2;
+
 
     [SerializeField]
     Text pointText;
@@ -19,15 +27,6 @@ public class PlayerUI : MonoBehaviour
 
     private void Start()
     {
-        if(GetComponent<Image>() != null)
-        {
-            material = GetComponent<Image>().material;
-        }
-        if (GetComponent<Slider>() != null)
-        {
-            slider = GetComponent<Slider>();
-        }
-
         pointText = transform.GetComponentInChildren<Text>();
     }
    
@@ -37,13 +36,9 @@ public class PlayerUI : MonoBehaviour
     /// <param name="_amount"> varies between 0 and 1.</param>
     public void SetHealthAmount(float _amount)
     {
-        if(material != null)
+        if (healthImageValue != null)
         {
-            material.SetFloat("_TimeAmmount", _amount);
-        }
-        if (slider != null)
-        {
-            slider.value = _amount;
+            healthImageValue.fillAmount = _amount;
         }
     }
     /// <summary>
@@ -54,8 +49,8 @@ public class PlayerUI : MonoBehaviour
     {
         pointText.text = val;
 
-        pointText.fontSize = 39 + 10;
-        StartCoroutine(DecreaseNumber(pointText, 39));
+        pointText.fontSize = 25 + 10;
+        StartCoroutine(DecreaseNumber(pointText, 25));
     }
     IEnumerator DecreaseNumber(Text text, int number)
     {
@@ -75,6 +70,33 @@ public class PlayerUI : MonoBehaviour
         savedPointText.text = val;
         savedPointText.fontSize = 25 + 10;
         StartCoroutine(DecreaseNumber(savedPointText, 25));
+
+    }
+
+    public void CoolDownAttack1(float duration)
+    {
+        SetReloadAbilityOn(ability1, duration);
+    }
+    public void CoolDownAttack2(float duration)
+    {
+        SetReloadAbilityOn(ability2, duration);
+    }
+
+    private void SetReloadAbilityOn(Image img, float duration)
+    {
+        StartCoroutine(ReloadingAbility(img, duration));
+    }
+    private IEnumerator ReloadingAbility(Image img, float duration)
+    {
+        float index = 0;
+        while (index < duration)
+        {
+            index += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+
+            img.fillAmount = index / duration;
+        }
+        img.fillAmount = 1;
 
     }
 }

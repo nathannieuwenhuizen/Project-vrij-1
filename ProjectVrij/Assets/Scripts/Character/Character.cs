@@ -476,43 +476,45 @@ public class Character : Entity
             cameraSize = new Vector2(.5f, .5f);
         }
         Vector2 cameraPos = new Vector2(0, 0);
-        float widthOffset = 90;
+        float widthOffset = 10;
+        float inset = 50;
+        if (playerID % 2 == 0 && playerID != 0)
+        {
+            ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, Screen.width / 2 + inset, widthOffset);
+        }
+        else
+        {
+            ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, widthOffset);
+        }
         switch (playerID)
         {
             case 1:
                 cameraPos = new Vector2(0, .5f);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, widthOffset);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, widthOffset);
-
                 break;
             case 2:
                 cameraPos = new Vector2(.5f, .5f);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, widthOffset);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, widthOffset);
-
                 break;
             case 3:
                 cameraPos = new Vector2(0, 0);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, widthOffset);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 0, widthOffset);
-
                 break;
             case 4:
                 cameraPos = new Vector2(.5f, 0);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, widthOffset);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 0, widthOffset);
-
                 break;
             default:
                 cameraPos = new Vector2(0, .5f);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, widthOffset);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, widthOffset);
-
                 break;
         }
+        ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 0, widthOffset);
+
         if (GameInformation.PLAYER_COUNT <= 2)
         {
             cameraPos.y = 0f;
+        } else
+        {
+            if (playerID < 3)
+            {
+                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, Screen.height / 2 + inset / 2, widthOffset);
+            }
         }
         camera.rect = new Rect(cameraPos, cameraSize);
     }

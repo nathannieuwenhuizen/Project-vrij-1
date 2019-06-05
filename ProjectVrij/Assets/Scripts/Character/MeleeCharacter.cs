@@ -20,12 +20,15 @@ public class MeleeCharacter : Character
     private float maxChargeDamage = 50f;
 
     private bool isCharging = false;
+    [SerializeField]
+    private float chargeCoolDown = 0.5f;
+    private bool canCharge = true;
 
     [SerializeField]
     private BoxCollider chargeHitbox;
 
     [Space]
-    [Header("Sowrd values")]
+    [Header("Sword values")]
     [Range(0, 180)]
     [SerializeField]
     private float swordStartAngle = 50f;
@@ -41,6 +44,9 @@ public class MeleeCharacter : Character
     private Transform swordPivot;
     [SerializeField]
     private Hitbox swordHitBox;
+    [SerializeField]
+    private float swordCoolDown = 0.5f;
+
 
     private bool isAttackingWithSword;
     
@@ -68,11 +74,11 @@ public class MeleeCharacter : Character
     public override void SpecialAttack()
     {
         base.SpecialAttack();
+
+        if (!canCharge) { return; }
+        canCharge = false;
+
         StartCoroutine(IncreaseForce());
-
-        //here comes the code for the charge
-        Debug.Log("CHAARGE!");
-
     }
 
     private IEnumerator IncreaseForce()
@@ -126,14 +132,19 @@ public class MeleeCharacter : Character
         GetComponent<InputHandler>().enabled = true;
 
         SetAnimation("charging", false);
-
+        StartCoroutine(ChargeCoolDown());
         yield return new WaitForSeconds(0.5f);
         while(anim.GetLayerWeight(1) < 1)
         {
             anim.SetLayerWeight(1, anim.GetLayerWeight(1) + 0.1f);
             yield return new WaitForSeconds(0.1f);
         }
-
+    }
+    private IEnumerator ChargeCoolDown()
+    {
+        ui.CoolDownAttack2(chargeCoolDown);
+        yield return new WaitForSeconds(chargeCoolDown);
+        canCharge = true;
     }
 
     public override void SecondSpecialAttack()
@@ -145,12 +156,12 @@ public class MeleeCharacter : Character
     public void SwordAttack()
     {
         if (isAttackingWithSword) { return; }
+        isAttackingWithSword = true;
 
         StartCoroutine(SwordAttacking());
     }
     IEnumerator SwordAttacking()
     {
-        isAttackingWithSword = true;
         SetAnimation("slashing", true);
         yield return new WaitForSeconds(0.3f);
 
@@ -166,6 +177,9 @@ public class MeleeCharacter : Character
 
         swordPivot.Rotate(new Vector3(0, -swordStartAngle * 2, 0));
         swordHitBox.gameObject.SetActive(false);
+
+        ui.CoolDownAttack1(swordCoolDown);
+        yield return new WaitForSeconds(swordCoolDown);
         isAttackingWithSword = false;
     }
 

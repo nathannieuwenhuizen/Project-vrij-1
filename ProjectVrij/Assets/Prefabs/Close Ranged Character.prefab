@@ -316,8 +316,8 @@ MonoBehaviour:
   spreadProjectilePrefab: {fileID: 2430454194037785748, guid: 09e77625aaacf2f41af27bc7f04648f4,
     type: 3}
   spreadDamage: 20
-  shootAngle: 50
-  amountOfSpreadProjectiles: 10
+  shootAngle: 35
+  amountOfSpreadProjectiles: 8
   reloadTime: 0.1
   shootSound: {fileID: 8300000, guid: 5391193f2c046204fa2267b76ecd313a, type: 3}
 --- !u!1 &7512112291284414027
