@@ -61,10 +61,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _SurfaceNoise:
         m_Texture: {fileID: 2800000, guid: 43a8fe747412eef48a10970fa0ac5625, type: 3}
-        m_Scale: {x: 1, y: 4}
+        m_Scale: {x: 2, y: 5}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Amount: 24.9
+    - _Amount: 8.2
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DepthMaxDistance: 1.52
@@ -75,7 +75,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Height: 0.136
+    - _Height: 0.152
     - _Metallic: 0
     - _Min: 15.2
     - _Mode: 0
