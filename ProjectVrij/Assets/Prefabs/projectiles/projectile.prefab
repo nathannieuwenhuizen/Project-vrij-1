@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8106569859504584443}
   - component: {fileID: 3380306630148961720}
   - component: {fileID: 220055372157790917}
+  - component: {fileID: 942774136028396704}
   - component: {fileID: 1475993974222323569}
   - component: {fileID: 37741006927549385}
-  - component: {fileID: 942774136028396704}
   - component: {fileID: 5749322771236262224}
   m_Layer: 0
   m_Name: projectile
@@ -96,35 +96,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &1475993974222323569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 771861541888416937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eae6342ef0912794ea981dfc69715f93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1.5
-  destroyTime: 3
-  playerID: {fileID: 0}
---- !u!114 &37741006927549385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 771861541888416937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92cc077fbcda72f41b9dbb30772e5d04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 50
-  character: {fileID: 0}
 --- !u!54 &942774136028396704
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -141,6 +112,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
+--- !u!114 &1475993974222323569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771861541888416937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae6342ef0912794ea981dfc69715f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1.5
+  destroyTime: 3
+  force: 1000
+  playerID: {fileID: 0}
+--- !u!114 &37741006927549385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771861541888416937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92cc077fbcda72f41b9dbb30772e5d04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
+  character: {fileID: 0}
 --- !u!96 &5749322771236262224
 TrailRenderer:
   serializedVersion: 2

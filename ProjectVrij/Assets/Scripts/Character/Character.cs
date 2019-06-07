@@ -226,12 +226,8 @@ public class Character : Entity
         SetAnimation("dead", true);
 
         //other player recieves point (MUST BE CHANGED LATER!)
-        if (characterThatHitYou != null)
-        {
-            //characterThatHitYou.Points += Points + 1;
-            //Points = 0;
-        }
         float spread = 100f;
+
         for (int i = 0; i < Points; i++)
         {
             PointObject point = PoolManager.instance.ReuseObject(pointPrefab, transform.position + new Vector3(0, 2f, 0), Quaternion.identity).GetComponent<PointObject>();
@@ -249,11 +245,21 @@ public class Character : Entity
         FMODUnity.RuntimeManager.PlayOneShot(deathSound, transform.position);
 
         //character falls back by changing the force of the rigidbody.
-        Vector3 fallBackForce = Vector3.Normalize(transform.position - characterThatHitYou.transform.position) * 10f;
-        fallBackForce.y = 5f;
-        rb.velocity = fallBackForce;
+        if (characterThatHitYou != null)
+        {
+            //characterThatHitYou.Points += Points + 1;
+            //Points = 0;
+            KnockBack(10f, 5f);
+        }
 
         StartCoroutine(Respawning());
+    }
+
+    public void KnockBack(float force, float forceY)
+    {
+        Vector3 fallBackForce = Vector3.Normalize(transform.position - characterThatHitYou.transform.position) * force;
+        fallBackForce.y = forceY;
+        rb.velocity = fallBackForce;
     }
 
     /// <summary>

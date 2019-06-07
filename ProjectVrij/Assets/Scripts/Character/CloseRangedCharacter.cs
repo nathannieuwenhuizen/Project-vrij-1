@@ -16,6 +16,7 @@ public class CloseRangedCharacter : Character
     private float shootSpeed;
     [SerializeField]
     private int projectileDamage = 30;
+    
 
     [Space]
     [Header("Spread Attack")]
@@ -74,7 +75,7 @@ public class CloseRangedCharacter : Character
         reloading = true;
 
         SetAnimation("shooting", true);
-        StartCoroutine(NormalShoot());
+        StartCoroutine(PushBack());
 
     }
 
@@ -89,9 +90,10 @@ public class CloseRangedCharacter : Character
         projectile.GetComponent<Projectile>().Spawn();
         projectile.GetComponent<Hitbox>().Character = this;
         projectile.GetComponent<Hitbox>().Damage = damage;
+        
     }
 
-    public IEnumerator NormalShoot()
+    public IEnumerator PushBack()
     {
         yield return new WaitForSeconds(0.2f);
         ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileSpawn, shootPosition.position, transform.rotation);

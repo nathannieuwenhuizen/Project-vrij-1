@@ -13,7 +13,15 @@ public class Projectile : PoolObject
     //when it destroys itself
     [SerializeField]
     private float destroyTime = 3f;
+    [SerializeField]
+    private float forceForward;
+    [SerializeField]
+    private float forceUp;
+
     public Character playerID;
+    private Character characterThatHitYou;
+
+    
 
     public void FixedUpdate()
     {
@@ -46,7 +54,13 @@ public class Projectile : PoolObject
     {
         if (col.gameObject.GetComponent<Projectile>())
         {
+            //projectile.GetComponent<Character>().KnockBack(forceForward, forceUp);
             return;
+        }
+        if (col.gameObject.tag == "Player")
+        {
+            Debug.Log("PUSH BAACCCKKK");
+            
         }
         ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileHit, transform.position, transform.rotation);
         Destroy();
