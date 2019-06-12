@@ -35,9 +35,12 @@ public class CloseRangedCharacter : Character
     [SerializeField]
     private float reloadTime = 0.5f;
     [SerializeField]
+    private float SpreadreloadTime = 0.5f;
+    [SerializeField]
     private AudioClip shootSound;
 
 
+    private bool Spreadreloading = false;
     private bool reloading = false;
 
     protected override void Start()
@@ -58,8 +61,8 @@ public class CloseRangedCharacter : Character
     {
         base.SpecialAttack();
 
-        if (reloading) { return; }
-        reloading = true;
+        if (Spreadreloading) { return; }
+        Spreadreloading = true;
 
         SetAnimation("shooting", true);
         StartCoroutine(SpreadShoot());
@@ -98,7 +101,10 @@ public class CloseRangedCharacter : Character
         yield return new WaitForSeconds(0.2f);
         ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileSpawn, shootPosition.position, transform.rotation);
         InstantiateBullet(projectilePrefab, projectileDamage);
-        StartCoroutine(Reloading());
+
+        ui.CoolDownAttack1(reloadTime);
+        yield return StartCoroutine(Reloading(reloadTime));
+        reloading = false;
 
     }
 
@@ -116,8 +122,9 @@ public class CloseRangedCharacter : Character
         }
         cameraPivot.Rotate(new Vector3(0, -shootAngle, 0));
 
-        StartCoroutine(Reloading());
-
+        ui.CoolDownAttack2(SpreadreloadTime);
+        yield return StartCoroutine(Reloading(SpreadreloadTime));
+        Spreadreloading = false;
     }
 
 
@@ -125,10 +132,9 @@ public class CloseRangedCharacter : Character
     /// Reloads the weapon, making it not usable for reloadtime long.
     /// </summary>
     /// <returns></returns>
-    IEnumerator Reloading()
+    IEnumerator Reloading(float duration)
     {
-        yield return new WaitForSeconds(reloadTime);
-        reloading = false;
+        yield return new WaitForSeconds(duration);
         SetAnimation("shooting", false);
 
     }
