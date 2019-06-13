@@ -193,7 +193,7 @@ public class Character : Entity
     }
     public void OnCollisionStay(Collision collision)
     {
-        IsGrounded = true;
+        //IsGrounded = true;
     }
     public void OnCollisionExit(Collision collision)
     {

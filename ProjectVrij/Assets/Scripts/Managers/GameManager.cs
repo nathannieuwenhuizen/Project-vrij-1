@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour
     private PlayerUI[] playerUis;
     [SerializeField]
     private GameObject pointerGroup;
+    [SerializeField]
+    private GameObject horizontalLine;
+    [SerializeField]
+    private GameObject blackCornerImage;
 
     [SerializeField]
     private GameObject resultScreen;
@@ -58,6 +62,15 @@ public class GameManager : MonoBehaviour
             {
                 Destroy(characters[i].gameObject);
                 characters[i] = null;
+            }
+
+            if (amount > 2)
+            {
+                horizontalLine.SetActive(true);
+                if (amount < 4)
+                {
+                    blackCornerImage.SetActive(true);
+                }
             }
 
             characters = new List<Character> { };

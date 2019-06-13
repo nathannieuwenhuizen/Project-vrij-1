@@ -26,7 +26,8 @@ public class PointObject : PoolObject
     public IEnumerator Collected()
     {
         ParticleManager.instance.SpawnParticle(ParticleManager.instance.collectPointParticle, transform.position, transform.rotation);
-        GetComponent<MeshRenderer>().enabled = false;
+
+        transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
         GetComponent<BoxCollider>().enabled = false;
 
         //waits for a time before respawning
@@ -36,7 +37,7 @@ public class PointObject : PoolObject
         //returns to the poolmanager.
         this.Destroy();
 
-        GetComponent<MeshRenderer>().enabled = true;
+        transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
         GetComponent<BoxCollider>().enabled = true;
 
         //if its spawned at a spawn position.
