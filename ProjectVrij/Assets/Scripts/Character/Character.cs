@@ -80,6 +80,7 @@ public class Character : Entity
     public Camera camera;
     [SerializeField]
     private GameObject pointPrefab;
+    private bool knocked = false;
 
     private PlayerSpawner ps;
 
@@ -180,6 +181,7 @@ public class Character : Entity
         //else its just ground
         else
         {
+            knocked = false;
             PlaySound(movementAudioSource, landingSound2, 1f);
             FMODUnity.RuntimeManager.PlayOneShot(landingSound, transform.position);
             isGrounded = true;
@@ -249,15 +251,16 @@ public class Character : Entity
         {
             //characterThatHitYou.Points += Points + 1;
             //Points = 0;
-            KnockBack(10f, 5f);
+            KnockBack(10f, 5f, characterThatHitYou.transform.position);
         }
 
         StartCoroutine(Respawning());
     }
 
-    public void KnockBack(float force, float forceY)
+    public void KnockBack(float force, float forceY, Vector3 hitBoxPos)
     {
-        Vector3 fallBackForce = Vector3.Normalize(transform.position - characterThatHitYou.transform.position) * force;
+        knocked = true;
+        Vector3 fallBackForce = Vector3.Normalize(transform.position - hitBoxPos) * force;
         fallBackForce.y = forceY;
         rb.velocity = fallBackForce;
     }
@@ -374,7 +377,7 @@ public class Character : Entity
     public void Walking(float h_input, float y_input)
     {
         //if the character is dead, it shouldnt be able to move.
-        if (Health == 0) { return; }
+        if (Health == 0 || knocked) { return; }
 
         rb.velocity = new Vector3(0, rb.velocity.y, 0);
         rb.velocity += transform.right * h_input * walkSpeed;

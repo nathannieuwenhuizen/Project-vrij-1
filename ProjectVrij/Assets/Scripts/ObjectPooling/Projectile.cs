@@ -18,6 +18,9 @@ public class Projectile : PoolObject
     [SerializeField]
     private float forceUp;
 
+    [SerializeField]
+    private bool pushesPlayerBack = false;
+
     public Character playerID;
     private Character characterThatHitYou;
 
@@ -57,9 +60,10 @@ public class Projectile : PoolObject
             //projectile.GetComponent<Character>().KnockBack(forceForward, forceUp);
             return;
         }
-        if (col.gameObject.tag == "Player")
+        if (col.gameObject.GetComponent<Character>() && pushesPlayerBack)
         {
             Debug.Log("PUSH BAACCCKKK");
+            col.gameObject.GetComponent<MeleeCharacter>().KnockBack(10f, 10f, transform.position);
             
         }
         ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileHit, transform.position, transform.rotation);

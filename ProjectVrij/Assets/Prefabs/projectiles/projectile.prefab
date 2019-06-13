@@ -129,6 +129,7 @@ MonoBehaviour:
   destroyTime: 3
   forceForward: 0
   forceUp: 0
+  pushesPlayerBack: 1
   playerID: {fileID: 0}
 --- !u!114 &37741006927549385
 MonoBehaviour:
@@ -255,11 +256,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3370596863787047204}
     m_Modifications:
-    - target: {fileID: 130465428190451490, guid: b43995311126afc4da8d20bbf817ac8c,
-        type: 3}
-      propertyPath: m_Name
-      value: projectile_1
-      objectReference: {fileID: 0}
     - target: {fileID: 130465428190612226, guid: b43995311126afc4da8d20bbf817ac8c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -329,6 +325,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 130465428190451490, guid: b43995311126afc4da8d20bbf817ac8c,
+        type: 3}
+      propertyPath: m_Name
+      value: projectile_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b43995311126afc4da8d20bbf817ac8c, type: 3}
