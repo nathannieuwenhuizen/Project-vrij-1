@@ -106,13 +106,15 @@ public class Character : Entity
 
         ui.SetPointText(points.ToString());
         CameraFadeFromBlack();
+
+        IsGrounded = false;
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
         //If grounded, play music and tilt the camera bit.
-        if (isGrounded)
+        if (IsGrounded)
         {
             //gets the max speed of the x-speed or z-speed
             float directionalSpeed = Mathf.Max(Mathf.Abs(rb.velocity.x), Mathf.Abs(rb.velocity.z));
@@ -184,10 +186,36 @@ public class Character : Entity
             knocked = false;
             PlaySound(movementAudioSource, landingSound2, 1f);
             FMODUnity.RuntimeManager.PlayOneShot(landingSound, transform.position);
-            isGrounded = true;
-            anim.SetBool("isJumpingUp", false);
+            IsGrounded = true;
             ParticleManager.instance.SpawnParticle(ParticleManager.instance.landImpactParticle, transform.position, transform.rotation);
 
+        }
+    }
+    public void OnCollisionStay(Collision collision)
+    {
+        IsGrounded = true;
+    }
+    public void OnCollisionExit(Collision collision)
+    {
+        if (isGrounded)
+        {
+            isGrounded = false;
+            StartCoroutine(IsJustInTheAir());
+        }
+    }
+    IEnumerator IsJustInTheAir()
+    {
+        float duration = 0.3f;
+        float index = 0;
+        while (!isGrounded)
+        {
+            index += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+            if (index > duration)
+            {
+                IsGrounded = false;
+                break;
+            }
         }
     }
 
@@ -399,16 +427,15 @@ public class Character : Entity
     /// </summary>
     public virtual void Jump()
     {
-        if (isGrounded == true)
+        if (IsGrounded == true)
         {
-            anim.SetBool("isJumpingUp", true);
 
             //changes the y velocity
             Vector3 jumpVelocity = rb.velocity;
             jumpVelocity.y = jumpForce;
             rb.velocity = jumpVelocity;
 
-            isGrounded = false;
+            IsGrounded = false;
             PlaySound(movementAudioSource, jumpSound2, 1f);
             FMODUnity.RuntimeManager.PlayOneShot(jumpSound, transform.position);
 
@@ -539,7 +566,15 @@ public class Character : Entity
         //anim.SetLayerWeight(1, 1);
         //doesNothing = false;
         //DoesNothing();
+    }
 
+    private bool IsGrounded
+    {
+        get { return isGrounded; }
+        set {
+            isGrounded = value;
+            anim.SetBool("isJumpingUp", !isGrounded);
+        }
     }
     public void SetAnimation(string state, bool val)
     {
