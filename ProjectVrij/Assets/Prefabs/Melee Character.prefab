@@ -482,8 +482,9 @@ MonoBehaviour:
   savePoints: 0
   chargeSpeed: 70000
   maxChargeDuration: 0.5
-  maxForceIncreaseDuration: 1
+  maxForceIncreaseDuration: 1.1
   maxChargeDamage: 50
+  chargeCoolDown: 0.5
   chargeHitbox: {fileID: 326991150}
   swordStartAngle: 50
   swordEndAngle: 40
@@ -491,6 +492,7 @@ MonoBehaviour:
   swordDamage: 30
   swordPivot: {fileID: 622388376}
   swordHitBox: {fileID: 2034889271}
+  swordCoolDown: 0.5
 --- !u!114 &6111700257971908398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,6 +552,9 @@ GameObject:
   - component: {fileID: 7166341294646501409}
   - component: {fileID: 1841423686}
   - component: {fileID: 1774183780}
+  - component: {fileID: 564838973}
+  - component: {fileID: 564838974}
+  - component: {fileID: 564838981}
   m_Layer: 9
   m_Name: Camera
   m_TagString: Untagged
@@ -609,7 +614,7 @@ Camera:
   m_HDR: 1
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
+  m_ForceIntoRT: 1
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
@@ -667,6 +672,92 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1
+--- !u!114 &564838973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2538581116323133362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f4f88b45e00f74095616bb7376811a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  depthTextureMode: 1
+--- !u!114 &564838974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2538581116323133362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da90b20f24b38e4e81588d31a5a01f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalsShader: {fileID: 4800000, guid: fff0a901e5d2ea74a9d6971de790fec0, type: 3}
+--- !u!114 &564838981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2538581116323133362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 2538581116323133361}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 1
+  antialiasingMode: 1
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 1
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &7794953298024388434
 GameObject:
   m_ObjectHideFlags: 0
@@ -1833,9 +1924,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da651d509d0abae40a2ae3fd64f5597b, type: 3}
---- !u!1 &846988570494136021 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2953166793327165737, guid: da651d509d0abae40a2ae3fd64f5597b,
+--- !u!4 &846988570493842149 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2953166793326812441, guid: da651d509d0abae40a2ae3fd64f5597b,
     type: 3}
   m_PrefabInstance: {fileID: 2538581116317642748}
   m_PrefabAsset: {fileID: 0}
@@ -1845,9 +1936,9 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 2538581116317642748}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &846988570493842149 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2953166793326812441, guid: da651d509d0abae40a2ae3fd64f5597b,
+--- !u!1 &846988570494136021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2953166793327165737, guid: da651d509d0abae40a2ae3fd64f5597b,
     type: 3}
   m_PrefabInstance: {fileID: 2538581116317642748}
   m_PrefabAsset: {fileID: 0}
