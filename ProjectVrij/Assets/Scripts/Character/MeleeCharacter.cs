@@ -64,6 +64,8 @@ public class MeleeCharacter : Character
         swordHitBox.Damage = swordDamage;
         swordHitBox.gameObject.SetActive(false);
         //KeyCode specialAttackCode = inputHandlerScript.specialAttackCode;
+        ui.SetCharacterType(0);
+
         base.Start();
     }
 

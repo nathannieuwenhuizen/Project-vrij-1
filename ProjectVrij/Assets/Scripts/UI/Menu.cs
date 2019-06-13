@@ -17,6 +17,7 @@ public class Menu : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         UpdatePlayerAmount();
         camFade = FindObjectOfType<CameraFade>();
     }
@@ -41,6 +42,7 @@ public class Menu : MonoBehaviour
     IEnumerator FadingOut()
     {
         yield return new WaitForSeconds(.5f);
+        starting = false;
         SceneManager.LoadScene(1);
 
     }
