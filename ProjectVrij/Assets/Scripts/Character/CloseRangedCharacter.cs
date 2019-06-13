@@ -49,6 +49,7 @@ public class CloseRangedCharacter : Character
         PoolManager.instance.CreatePool(spreadProjectilePrefab, amountOfSpreadProjectiles * GameInformation.PLAYER_COUNT);
 
         rb = GetComponent<Rigidbody>();
+        ui.SetCharacterType(1);
         base.Start();
     }
 
@@ -102,7 +103,7 @@ public class CloseRangedCharacter : Character
         ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileSpawn, shootPosition.position, transform.rotation);
         InstantiateBullet(projectilePrefab, projectileDamage);
 
-        ui.CoolDownAttack1(reloadTime);
+        ui.CoolDownAttack2(reloadTime);
         yield return StartCoroutine(Reloading(reloadTime));
         reloading = false;
 
@@ -122,7 +123,7 @@ public class CloseRangedCharacter : Character
         }
         cameraPivot.Rotate(new Vector3(0, -shootAngle, 0));
 
-        ui.CoolDownAttack2(SpreadreloadTime);
+        ui.CoolDownAttack1(SpreadreloadTime);
         yield return StartCoroutine(Reloading(SpreadreloadTime));
         Spreadreloading = false;
     }

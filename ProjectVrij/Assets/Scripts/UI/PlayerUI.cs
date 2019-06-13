@@ -25,6 +25,15 @@ public class PlayerUI : MonoBehaviour
     [SerializeField]
     private Text savedPointText;
 
+    [Space]
+    [Header("abilities")]
+    [SerializeField]
+    private AiblityImages meleeAbilitieSprites;
+
+    [SerializeField]
+    private AiblityImages rangeAbilitieSprites;
+
+
     private void Start()
     {
         pointText = transform.GetComponentInChildren<Text>();
@@ -73,6 +82,21 @@ public class PlayerUI : MonoBehaviour
 
     }
 
+    //changes the ability icons to match the abilities of the player.
+    public void SetCharacterType(int playerType)
+    {
+        if (playerType == 0)
+        {
+            ability1.sprite = meleeAbilitieSprites.ability1;
+            ability2.sprite = meleeAbilitieSprites.ability2;
+        }
+        else
+        {
+            ability1.sprite = rangeAbilitieSprites.ability1;
+            ability2.sprite = rangeAbilitieSprites.ability2;
+        }
+    }
+
     public void CoolDownAttack1(float duration)
     {
         SetReloadAbilityOn(ability1, duration);
@@ -99,4 +123,10 @@ public class PlayerUI : MonoBehaviour
         img.fillAmount = 1;
 
     }
+}
+[System.Serializable]
+public class AiblityImages : System.Object
+{
+    public Sprite ability1;
+    public Sprite ability2;
 }

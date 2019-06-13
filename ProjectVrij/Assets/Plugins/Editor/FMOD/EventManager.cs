@@ -618,7 +618,7 @@ namespace FMODUnity
                 if (!isValid)
                 {
                     Debug.LogError("FMOD Studio: " + validateMessage);
-                }
+                } 
                 firstUpdate = false;
                 lastCheckTime = Time.realtimeSinceStartup;
             }
