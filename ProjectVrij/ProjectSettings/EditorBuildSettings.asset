@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Main/Game.unity
     guid: 0a4e3a9d5b917404aba8918cdc1259ae
   - enabled: 0
-    path: Assets/Scenes/Thijs_Layout_Test/Thijs_Level_v3.unity
+    path: Assets/Scenes/Thijs_Layout_Test/Thijs_FINAL.unity
     guid: 287cdc0185f2be54c9cb9c3828034c9e
   m_configObjects: {}
