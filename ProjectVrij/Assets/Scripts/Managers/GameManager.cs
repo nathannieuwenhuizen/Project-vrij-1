@@ -170,6 +170,7 @@ public class GameManager : MonoBehaviour
     public void ReloadScene()
     {
         Scene scene = SceneManager.GetActiveScene();
+        Time.timeScale = 1;
         SceneManager.LoadScene(scene.name);
     }
     /// <summary>

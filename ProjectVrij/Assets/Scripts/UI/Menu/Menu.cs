@@ -18,6 +18,9 @@ public class Menu : MonoBehaviour
     [SerializeField]
     private Text playText;
 
+    [SerializeField]
+    private LoadingScreenController loadScreen;
+
     private void Start()
     {
         Time.timeScale = 1;
@@ -39,9 +42,10 @@ public class Menu : MonoBehaviour
         starting = true;
         if (camFade != null)
         {
-            camFade.fadingOut = true;
+            //camFade.fadingOut = true;
         }
-        StartCoroutine(FadingOut());
+        loadScreen.LoadScene(1);
+        //StartCoroutine(FadingOut());
     }
     IEnumerator FadingOut()
     {
