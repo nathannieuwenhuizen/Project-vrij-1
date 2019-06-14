@@ -15,6 +15,9 @@ public class Menu : MonoBehaviour
     private CameraFade camFade;
     private bool starting = false;
 
+    [SerializeField]
+    private Text playText;
+
     private void Start()
     {
         Time.timeScale = 1;
@@ -32,6 +35,7 @@ public class Menu : MonoBehaviour
         {
             return;
         }
+        playText.text = "loading";
         starting = true;
         if (camFade != null)
         {
@@ -42,8 +46,7 @@ public class Menu : MonoBehaviour
     IEnumerator FadingOut()
     {
         yield return new WaitForSeconds(.5f);
-        starting = false;
         SceneManager.LoadScene(1);
-
+        starting = false;
     }
 }

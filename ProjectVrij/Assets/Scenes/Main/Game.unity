@@ -1331,6 +1331,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.00000019648934
       objectReference: {fileID: 0}
+    - target: {fileID: 2538581116323133367, guid: 65b312e2c178e5d45b3d19751febe030,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2538581116323133367, guid: 65b312e2c178e5d45b3d19751febe030,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2538581116323133367, guid: 65b312e2c178e5d45b3d19751febe030,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841423686, guid: 65b312e2c178e5d45b3d19751febe030, type: 3}
+      propertyPath: fadingOut
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841423686, guid: 65b312e2c178e5d45b3d19751febe030, type: 3}
+      propertyPath: alphaFadeValue
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65b312e2c178e5d45b3d19751febe030, type: 3}
 --- !u!1001 &202358756
@@ -3448,6 +3471,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393293151063007163, guid: 60876ab1b9191e74e8d681204a27867d,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60876ab1b9191e74e8d681204a27867d, type: 3}

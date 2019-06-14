@@ -193,27 +193,31 @@ public class Character : Entity
     }
     public void OnCollisionStay(Collision collision)
     {
-        //IsGrounded = true;
+        if (!isGrounded)
+        {
+            isGrounded = true;
+            StartCoroutine(ChangeIsGroundedWhenValStays(.05f, true));
+        }
     }
     public void OnCollisionExit(Collision collision)
     {
         if (isGrounded)
         {
             isGrounded = false;
-            StartCoroutine(IsJustInTheAir());
+            StartCoroutine(ChangeIsGroundedWhenValStays(.3f, false));
         }
     }
-    IEnumerator IsJustInTheAir()
+
+    IEnumerator ChangeIsGroundedWhenValStays(float duration, bool val)
     {
-        float duration = 0.3f;
         float index = 0;
-        while (!isGrounded)
+        while (isGrounded == val)
         {
             index += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
             if (index > duration)
             {
-                IsGrounded = false;
+                IsGrounded = val;
                 break;
             }
         }
@@ -512,16 +516,7 @@ public class Character : Entity
             cameraSize = new Vector2(.5f, .5f);
         }
         Vector2 cameraPos = new Vector2(0, 0);
-        float widthOffset = 10;
-        float inset = 50;
-        if (playerID % 2 == 0 && playerID != 0)
-        {
-            ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, Screen.width / 2 + inset, widthOffset);
-        }
-        else
-        {
-            ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, widthOffset);
-        }
+
         switch (playerID)
         {
             case 1:
@@ -540,18 +535,11 @@ public class Character : Entity
                 cameraPos = new Vector2(0, .5f);
                 break;
         }
-        ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 0, widthOffset);
 
         if (GameInformation.PLAYER_COUNT <= 2)
         {
             cameraPos.y = 0f;
-        } else
-        {
-            if (playerID < 3)
-            {
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, Screen.height / 2 + inset / 2, widthOffset);
-            }
-        }
+        } 
         camera.rect = new Rect(cameraPos, cameraSize);
     }
 
@@ -573,7 +561,8 @@ public class Character : Entity
         get { return isGrounded; }
         set {
             isGrounded = value;
-            anim.SetBool("isJumpingUp", !isGrounded);
+
+            SetAnimation("isJumpingUp", !isGrounded);
         }
     }
     public void SetAnimation(string state, bool val)
