@@ -69,9 +69,9 @@ MonoBehaviour:
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 1
   m_FillAmount: 1
-  m_FillClockwise: 1
+  m_FillClockwise: 0
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
 --- !u!1 &500150668026328643
@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 1
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -332,7 +332,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 108.2, y: 18.8}
+  m_AnchoredPosition: {x: 152.8, y: 9.799982}
   m_SizeDelta: {x: 228.82, y: 50.39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1978720773356190451
@@ -677,7 +677,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 163.5, y: 18.7}
+  m_AnchoredPosition: {x: 208.1, y: 9.699987}
   m_SizeDelta: {x: 228.82, y: 50.39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7842752917064318898
@@ -764,7 +764,7 @@ RectTransform:
   m_GameObject: {fileID: 6918120306138914848}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5906417, y: 1.5906417, z: 1.5906417}
+  m_LocalScale: {x: 2.4462955, y: 2.4462955, z: 2.4462955}
   m_Children:
   - {fileID: 6344433257429938658}
   - {fileID: 4047520409059586478}
@@ -773,8 +773,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 74.4, y: -20.4}
-  m_SizeDelta: {x: 100, y: 33.5}
+  m_AnchoredPosition: {x: 124.2, y: -12.3}
+  m_SizeDelta: {x: 100, y: 83.43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4707303944563720213
 CanvasRenderer:
@@ -804,7 +804,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 63feb24ca2db6384699ccd3e185d4e23, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 88ee7fa3186d24641ba91225a4c76201, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

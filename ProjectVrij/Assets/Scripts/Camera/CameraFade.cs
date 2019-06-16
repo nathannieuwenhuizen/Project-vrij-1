@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System;
 
@@ -12,18 +13,34 @@ public class CameraFade : MonoBehaviour
     public float fadeSpeed = 1;
     public Color fadingColor = Color.black;
     private Camera camera;
+    private float yPos;
 
+    //[SerializeField]
+    //private GameObject fadeImage;
     void Start()
     {
         camera = GetComponent<Camera>();
+
+
+        //GameObject.Instantiate(fadeImage);
+        //fadeImage.transform.parent = Transform.FindObjectOfType<Canvas>().transform;
+        //fadeImage.GetComponent<RectTransform>().position = camera.rect.position;
+        //fadeImage.GetComponent<RectTransform>().sizeDelta = camera.rect.size;
+
         if (Fade == null)
         {
             Fade = new Texture2D(1, 1);
             Fade.SetPixel(0, 0, new Color(1, 1, 1, 1));
 
         }
+        if (camera.rect.height != 1)
+        {
+            yPos = (camera.rect.y == 0 ? 0.5f : 0);
+        } else
+        {
+            yPos = camera.rect.y;
+        }
     }
-
 
     void Update()
     {
@@ -44,11 +61,12 @@ public class CameraFade : MonoBehaviour
         //{
         //    print("You clicked the button!");
         //}
+        GUI.depth = 1;
         if (camera != null)
         {
             Rect camRect = camera.rect;
             if (alphaFadeValue != 0 && Event.current.type == EventType.Repaint)
-                GUI.DrawTexture(new Rect(camRect.x * Screen.width, camRect.y * Screen.height, camRect.width * Screen.width, camRect.height * Screen.height), Fade);
+                GUI.DrawTexture(new Rect(camRect.x * Screen.width, yPos * Screen.height, camRect.width * Screen.width, camRect.height * Screen.height), Fade);
         }
         else
         {

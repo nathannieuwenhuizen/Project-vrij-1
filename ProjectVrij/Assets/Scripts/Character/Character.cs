@@ -106,13 +106,15 @@ public class Character : Entity
 
         ui.SetPointText(points.ToString());
         CameraFadeFromBlack();
+
+        IsGrounded = false;
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
         //If grounded, play music and tilt the camera bit.
-        if (isGrounded)
+        if (IsGrounded)
         {
             //gets the max speed of the x-speed or z-speed
             float directionalSpeed = Mathf.Max(Mathf.Abs(rb.velocity.x), Mathf.Abs(rb.velocity.z));
@@ -184,10 +186,40 @@ public class Character : Entity
             knocked = false;
             PlaySound(movementAudioSource, landingSound2, 1f);
             FMODUnity.RuntimeManager.PlayOneShot(landingSound, transform.position);
-            isGrounded = true;
-            anim.SetBool("isJumpingUp", false);
+            IsGrounded = true;
             ParticleManager.instance.SpawnParticle(ParticleManager.instance.landImpactParticle, transform.position, transform.rotation);
 
+        }
+    }
+    public void OnCollisionStay(Collision collision)
+    {
+        if (!isGrounded)
+        {
+            isGrounded = true;
+            StartCoroutine(ChangeIsGroundedWhenValStays(.05f, true));
+        }
+    }
+    public void OnCollisionExit(Collision collision)
+    {
+        if (isGrounded)
+        {
+            isGrounded = false;
+            StartCoroutine(ChangeIsGroundedWhenValStays(.3f, false));
+        }
+    }
+
+    IEnumerator ChangeIsGroundedWhenValStays(float duration, bool val)
+    {
+        float index = 0;
+        while (isGrounded == val)
+        {
+            index += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+            if (index > duration)
+            {
+                IsGrounded = val;
+                break;
+            }
         }
     }
 
@@ -400,16 +432,15 @@ public class Character : Entity
     /// </summary>
     public virtual void Jump()
     {
-        if (isGrounded == true)
+        if (IsGrounded == true)
         {
-            anim.SetBool("isJumpingUp", true);
 
             //changes the y velocity
             Vector3 jumpVelocity = rb.velocity;
             jumpVelocity.y = jumpForce;
             rb.velocity = jumpVelocity;
 
-            isGrounded = false;
+            IsGrounded = false;
             PlaySound(movementAudioSource, jumpSound2, 1f);
             FMODUnity.RuntimeManager.PlayOneShot(jumpSound, transform.position);
 
@@ -486,16 +517,7 @@ public class Character : Entity
             cameraSize = new Vector2(.5f, .5f);
         }
         Vector2 cameraPos = new Vector2(0, 0);
-        float widthOffset = 10;
-        float inset = 50;
-        if (playerID % 2 == 0 && playerID != 0)
-        {
-            ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, Screen.width / 2 + inset, widthOffset);
-        }
-        else
-        {
-            ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, widthOffset);
-        }
+
         switch (playerID)
         {
             case 1:
@@ -514,18 +536,11 @@ public class Character : Entity
                 cameraPos = new Vector2(0, .5f);
                 break;
         }
-        ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 0, widthOffset);
 
         if (GameInformation.PLAYER_COUNT <= 2)
         {
             cameraPos.y = 0f;
-        } else
-        {
-            if (playerID < 3)
-            {
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, Screen.height / 2 + inset / 2, widthOffset);
-            }
-        }
+        } 
         camera.rect = new Rect(cameraPos, cameraSize);
     }
 
@@ -540,7 +555,16 @@ public class Character : Entity
         //anim.SetLayerWeight(1, 1);
         //doesNothing = false;
         //DoesNothing();
+    }
 
+    private bool IsGrounded
+    {
+        get { return isGrounded; }
+        set {
+            isGrounded = value;
+
+            SetAnimation("isJumpingUp", !isGrounded);
+        }
     }
     public void SetAnimation(string state, bool val)
     {

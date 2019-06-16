@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour
     private PlayerUI[] playerUis;
     [SerializeField]
     private GameObject pointerGroup;
+    [SerializeField]
+    private GameObject horizontalLine;
+    [SerializeField]
+    private GameObject blackCornerImage;
 
     [SerializeField]
     private GameObject resultScreen;
@@ -56,20 +60,46 @@ public class GameManager : MonoBehaviour
         {
             for (int i = 0; i < characters.Count; i++)
             {
+                characters[i].ui.gameObject.SetActive(false);
                 Destroy(characters[i].gameObject);
                 characters[i] = null;
+            }
+
+            if (amount > 2)
+            {
+                horizontalLine.SetActive(true);
+                if (amount < 4)
+                {
+                    blackCornerImage.SetActive(true);
+                }
             }
 
             characters = new List<Character> { };
             //spawn all the players based on the settings
             for (int i = 0; i < amount; i++)
             {
-                playerUis[i].gameObject.SetActive(true);
+                int uiIndex = 0;
+                if (amount == 2)
+                {
+                    uiIndex = i;
+                }
+                else
+                {
+                    if (i < 2)
+                    {
+                        uiIndex = i + 2;
+                    } else
+                    {
+                        uiIndex = i - 2;
+                    }
+                }
+
+                playerUis[uiIndex].gameObject.SetActive(true);
 
                 Character newCharacter = GameObject.Instantiate(CharacterPrefabs[GameInformation.CHOSEN_CHARACTERS[i]], group.transform).GetComponent<Character>();
-                newCharacter.ui = playerUis[i];
-
                 characters.Add(newCharacter);
+
+                newCharacter.ui = playerUis[uiIndex];
             }
 
         } else
@@ -77,7 +107,7 @@ public class GameManager : MonoBehaviour
             //spawn optional two additional players
             for (int i = 2; i < amount; i++)
             {
-                playerUis[i].gameObject.SetActive(true);
+                //playerUis[i].gameObject.SetActive(true);
 
                 Character newCharacter = GameObject.Instantiate(CharacterPrefabs[0], group.transform).GetComponent<Character>();
                 characters.Add(newCharacter);
@@ -107,6 +137,8 @@ public class GameManager : MonoBehaviour
             //new Vector3(characters[i].camera.rect.width / 2f, characters[i].camera.rect.height / 2f);
 
         }
+        Transform.FindObjectOfType<PlayerSpawner>().PositionAllPlayers();
+
     }
 
 
@@ -138,6 +170,7 @@ public class GameManager : MonoBehaviour
     public void ReloadScene()
     {
         Scene scene = SceneManager.GetActiveScene();
+        Time.timeScale = 1;
         SceneManager.LoadScene(scene.name);
     }
     /// <summary>

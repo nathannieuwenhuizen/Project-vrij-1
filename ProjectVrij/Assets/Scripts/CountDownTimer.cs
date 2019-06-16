@@ -19,12 +19,11 @@ public class CountDownTimer : MonoBehaviour
         if (timerCount <= 0)
         {
             //Hier stopt de game.
-            _countDownText.text = "0:00:00";
+            _countDownText.text = "00:00";
 
             //fires the event
             OnZero?.Invoke();
         }
-
         else
         {
             Countdown();
