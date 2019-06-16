@@ -229,6 +229,7 @@ public class Character : Entity
     /// <param name="hit"></param>
     private void  GotHit(Hitbox hit)
     {
+        ParticleManager.instance.SpawnParticle(ParticleManager.instance.hitParticle, transform.position + transform.up, transform.rotation);
         camera.GetComponent<CameraShake>().Shake(0.05f);
 
         camera.GetComponent<CameraFade>().fadingColor = Color.red;

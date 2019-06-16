@@ -7,6 +7,8 @@ public class ParticleManager : MonoBehaviour
     public ParticleGroup landImpactParticle;
     public ParticleGroup hitParticle;
     public ParticleGroup spawnParticle;
+    public ParticleGroup chargeParticles;
+    public ParticleGroup chargeTrailParticles;
 
     [Space]
     [Header("point particles")]
@@ -25,8 +27,10 @@ public class ParticleManager : MonoBehaviour
 
         InitiatePool(deathParticle);
         InitiatePool(landImpactParticle);
-        //InitiatePool(hitParticle);
+        InitiatePool(hitParticle);
         //InitiatePool(spawnParticle);
+        InitiatePool(chargeParticles);
+        InitiatePool(chargeTrailParticles);
 
         InitiatePool(spawnPointParticle);
         InitiatePool(collectPointParticle);
