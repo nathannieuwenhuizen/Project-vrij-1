@@ -24,6 +24,9 @@ public class MeleeCharacter : Character
     private float chargeCoolDown = 0.5f;
     private bool canCharge = true;
 
+    [SerializeField] private ParticleSystem chargeParticles;
+    [SerializeField] private ParticleSystem chargeTrailParticles;
+
     [SerializeField]
     private BoxCollider chargeHitbox;
 
@@ -86,6 +89,7 @@ public class MeleeCharacter : Character
     private IEnumerator IncreaseForce()
     {
         SetAnimation("increasecharge", true);
+        chargeParticles.Play();
         camera.GetComponent<CameraShake>().Shake(60, 0.1f);
         while(forceDuration < maxForceIncreaseDuration)
         {
@@ -93,6 +97,7 @@ public class MeleeCharacter : Character
             forceDuration += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
         }
+        
         forceDuration = maxForceIncreaseDuration;
         SpecialAttackRelease();
     }
@@ -103,6 +108,9 @@ public class MeleeCharacter : Character
         {
             return;
         }
+
+        
+        ParticleManager.instance.SpawnParticle(ParticleManager.instance.chargeParticles, transform.position + transform.forward, transform.rotation);
 
         SetAnimation("increasecharge", false);
         SetAnimation("charging", true);
@@ -126,13 +134,15 @@ public class MeleeCharacter : Character
 
     private IEnumerator Charging(float duration)
     {
+        
+        chargeTrailParticles.Play();
         chargeHitbox.enabled = true;
         yield return new WaitForSeconds(duration);
         chargeHitbox.enabled = false;
         isCharging = false;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         GetComponent<InputHandler>().enabled = true;
-
+        chargeTrailParticles.Stop();
         SetAnimation("charging", false);
         StartCoroutine(ChargeCoolDown());
         yield return new WaitForSeconds(0.5f);
@@ -142,6 +152,7 @@ public class MeleeCharacter : Character
             yield return new WaitForSeconds(0.1f);
         }
     }
+
     private IEnumerator ChargeCoolDown()
     {
         ui.CoolDownAttack2(chargeCoolDown);
