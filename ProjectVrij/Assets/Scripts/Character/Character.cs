@@ -149,10 +149,14 @@ public class Character : Entity
         if (collision.gameObject.GetComponent<Hitbox>())
         {
             //if it doesnt come from the player itself
-            if (collision.gameObject.GetComponent<Hitbox>().Character != this)
+            if (collision.gameObject.GetComponent<Hitbox>().Character)
             {
-                //take damage
-                GotHit(collision.gameObject.GetComponent<Hitbox>());
+                //if it doesnt come from the player itself
+                if (collision.gameObject.GetComponent<Hitbox>().Character != this)
+                {
+                    //take damage
+                    GotHit(collision.gameObject.GetComponent<Hitbox>());
+                }
             }
         }
 
