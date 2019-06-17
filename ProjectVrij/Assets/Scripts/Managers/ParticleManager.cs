@@ -30,7 +30,7 @@ public class ParticleManager : MonoBehaviour
         InitiatePool(hitParticle);
         //InitiatePool(spawnParticle);
         InitiatePool(chargeParticles);
-        InitiatePool(chargeTrailParticles);
+        //InitiatePool(chargeTrailParticles);
 
         InitiatePool(spawnPointParticle);
         InitiatePool(collectPointParticle);
@@ -49,7 +49,9 @@ public class ParticleManager : MonoBehaviour
     public GameObject SpawnParticle(ParticleGroup particle, Vector3 spawnPosition, Quaternion spawnRotation)
     {
         GameObject obj = PoolManager.instance.ReuseObject(particle.particlePrefab, spawnPosition, spawnRotation);
-        if (obj.GetComponent<ParticleExplosion>())
+        Debug.Log(obj);
+        Debug.Log(obj.GetComponent<ParticleExplosion>());
+        if (obj.GetComponent<ParticleExplosion>() != null)
         {
             obj.GetComponent<ParticleExplosion>().Explode();
         }

@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5769006981631214421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5769006981631214427}
+  - component: {fileID: 5769006981631214420}
+  m_Layer: 0
+  m_Name: particlemanager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5769006981631214427
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5769006981631214421}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5769006981631214420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5769006981631214421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d6eb07bac9d238488efe09a47cb0228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathParticle:
+    particlePrefab: {fileID: 710076174635422386, guid: 697fb93a07a703c4a8422813073f217c,
+      type: 3}
+    amount: 4
+  landImpactParticle:
+    particlePrefab: {fileID: 6529552903562876723, guid: f397f769efa689b418a7c884c854128b,
+      type: 3}
+    amount: 4
+  hitParticle:
+    particlePrefab: {fileID: 4775286501488895075, guid: fffb34fce76b2ae4cbef0791a13aec0b,
+      type: 3}
+    amount: 20
+  spawnParticle:
+    particlePrefab: {fileID: 0}
+    amount: 0
+  chargeParticles:
+    particlePrefab: {fileID: 2042404250214813075, guid: 686425db62e8d944b9b6a22341262787,
+      type: 3}
+    amount: 10
+  chargeTrailParticles:
+    particlePrefab: {fileID: 0}
+    amount: 0
+  spawnPointParticle:
+    particlePrefab: {fileID: 3397187423719792841, guid: f2782907473b79d4cb07c18cbda03340,
+      type: 3}
+    amount: 5
+  collectPointParticle:
+    particlePrefab: {fileID: 8819308920026463339, guid: 906bc282b74561d4190d165277a86da5,
+      type: 3}
+    amount: 20
+  projectileHit:
+    particlePrefab: {fileID: 2563894378452002440, guid: 12be719da59b1d240ab097266ec6c78f,
+      type: 3}
+    amount: 10
+  projectileSpawn:
+    particlePrefab: {fileID: 8088044194274645080, guid: 5dd9d36680a055541ba290cb0cb16114,
+      type: 3}
+    amount: 5

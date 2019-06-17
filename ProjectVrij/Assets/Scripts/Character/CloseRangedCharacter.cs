@@ -100,7 +100,7 @@ public class CloseRangedCharacter : Character
     public IEnumerator PushBack()
     {
         yield return new WaitForSeconds(0.2f);
-        ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileSpawn, shootPosition.position, transform.rotation);
+        //ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileSpawn, shootPosition.position, transform.rotation);
         InstantiateBullet(projectilePrefab, projectileDamage);
 
         ui.CoolDownAttack2(reloadTime);
