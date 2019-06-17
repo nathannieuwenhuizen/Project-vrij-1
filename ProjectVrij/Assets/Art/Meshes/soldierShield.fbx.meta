@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: 9fa63d55751a7dc40aa771a664e677a1
+guid: 8dae11212239f1e42a17546417573f70
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: sword
+    2100000: shield
     2300000: //RootNode
     3300000: //RootNode
-    4300000: sword texture
+    4300000: shield texture
   externalObjects: {}
   materials:
     importMaterials: 1
