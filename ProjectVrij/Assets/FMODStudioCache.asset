@@ -16,16 +16,17 @@ MonoBehaviour:
   - {fileID: 114425799704628164}
   - {fileID: 114623402564296368}
   EditorEvents:
-  - {fileID: 114757430290948390}
-  - {fileID: 114609216316975566}
-  - {fileID: 114718005323269536}
-  - {fileID: 114820518863897236}
-  - {fileID: 114023540665285894}
+  - {fileID: 114256861224423980}
+  - {fileID: 114171137753663518}
+  - {fileID: 114960375684012362}
+  - {fileID: 114877902692338362}
+  - {fileID: 114977036102527744}
+  - {fileID: 114489063112788418}
   MasterBanks:
   - {fileID: 114623402564296368}
   StringsBanks:
   - {fileID: 114425799704628164}
-  stringsBankWriteTime: 636936242267005930
+  stringsBankWriteTime: 636965602040237432
   cacheVersion: 3
 --- !u!114 &114023540665285894
 MonoBehaviour:
@@ -41,8 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Ambient/Wind_02
   guid: 4ce9c0bc3c195442ac1d5290b752137f
-  Banks:
-  - {fileID: 114623402564296368}
+  Banks: []
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -50,6 +50,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 136784
+--- !u!114 &114171137753663518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Old/Ambient/Coyote
+  guid: 72bd58b5d6aa8d4a880007b5a7bdcc3c
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 60
+  Length: 5000
 --- !u!114 &114206934991441648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +95,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 10109
+--- !u!114 &114256861224423980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Old/Ambient/Wind_02
+  guid: 4ce9c0bc3c195442ac1d5290b752137f
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 136784
 --- !u!114 &114425799704628164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,12 +131,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\HkuGames\Project Vrij\FMOD_VRIJ\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636936242267005930
+  lastModified: 636965602040237432
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 920
+    Value: 986
   Exists: 1
+--- !u!114 &114489063112788418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/MainMenuMusic
+  guid: 209da84d0572274289fd1c979f1c74ec
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 232000
+--- !u!114 &114523829254622954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Kevhulat Anthem-1
+  guid: 209da84d0572274289fd1c979f1c74ec
+  Banks: []
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 232000
 --- !u!114 &114609216316975566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,8 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Ambient/Chimes
   guid: 8756f67765a17e47a05b53e15e3a7ea5
-  Banks:
-  - {fileID: 114623402564296368}
+  Banks: []
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -127,11 +217,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\HkuGames\Project Vrij\FMOD_VRIJ\Build\Desktop\Master Bank.bank
-  lastModified: 636936242266946104
+  lastModified: 636965602040187429
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 5180480
+    Value: 7778464
   Exists: 1
 --- !u!114 &114718005323269536
 MonoBehaviour:
@@ -147,8 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Ambient/Wind_01
   guid: 994eb0aea292ec49a4dd69222152dffb
-  Banks:
-  - {fileID: 114623402564296368}
+  Banks: []
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -170,8 +259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Ambient/Coyote
   guid: 72bd58b5d6aa8d4a880007b5a7bdcc3c
-  Banks:
-  - {fileID: 114623402564296368}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -193,8 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Music/Music
   guid: bc36eeb0836977478110b467d5da3097
-  Banks:
-  - {fileID: 114623402564296368}
+  Banks: []
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -202,3 +289,72 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 40676
+--- !u!114 &114877902692338362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Old/Ambient/Wind_01
+  guid: 994eb0aea292ec49a4dd69222152dffb
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 132784
+--- !u!114 &114960375684012362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Old/Ambient/Chimes
+  guid: 8756f67765a17e47a05b53e15e3a7ea5
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 26232
+--- !u!114 &114977036102527744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Old/Music/Music
+  guid: bc36eeb0836977478110b467d5da3097
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
