@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.10.00">
     <object class="AudioFile" id="{38bf00ab-46e5-4c95-b779-252516b6d93a}">
         <property name="assetPath">
-            <value>Desert_Battle_Ambient_01.flac</value>
+            <value>Old/Ambient/Desert_Battle_Ambient_01.flac</value>
         </property>
         <property name="isStreaming">
             <value>true</value>
