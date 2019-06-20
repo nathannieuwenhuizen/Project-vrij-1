@@ -30,8 +30,14 @@ public class CharacterSelectPanel : MonoBehaviour
     }
     private void OnDisable()
     {
-        charactermodels[0].SetActive(false);
-        charactermodels[1].SetActive(false);
+        if (charactermodels[0])
+        {
+            charactermodels[0].SetActive(false);
+        }
+        if (charactermodels[1])
+        {
+            charactermodels[1].SetActive(false);
+        }
     }
 
 }

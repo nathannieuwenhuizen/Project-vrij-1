@@ -21,6 +21,8 @@ public class Projectile : PoolObject
     [SerializeField]
     private bool pushesPlayerBack = false;
 
+    public ParticleSystem trailParticle;
+
     public Character playerID;
     private Character characterThatHitYou;
 
@@ -70,6 +72,7 @@ public class Projectile : PoolObject
             FMODUnity.RuntimeManager.PlayOneShot(iceHit, transform.position);
             
         }
+
         ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileHit, transform.position, transform.rotation);
         Destroy();
     }
