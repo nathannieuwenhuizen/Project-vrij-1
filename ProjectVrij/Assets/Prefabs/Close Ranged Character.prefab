@@ -266,13 +266,13 @@ MonoBehaviour:
   cameraPivot: {fileID: 2834880695952720928}
   walkSpeed: 20
   jumpForce: 10
-  walkSound: 
+  walkSound: event:/Interaction/FootSteps
   jumpSound: 
-  landingSound: 
-  gotHitSound: 
-  deathSound: 
-  wooshSound: 
-  CrystalOffer: 
+  landingSound: event:/PlaceHolder/SandLand
+  gotHitSound: event:/PlaceHolder/PainHit
+  deathSound: event:/Interaction/Death
+  punchSound: event:/PlaceHolder/Punch
+  CrystalOffer: event:/Interaction/CrystalOffer
   walkSound2: {fileID: 8300000, guid: 525d560bf7464be4893227a4e46a156c, type: 3}
   jumpSound2: {fileID: 8300000, guid: 65ba4c9e32593224a8d3b5787ec6968d, type: 3}
   landingSound2: {fileID: 8300000, guid: 6cab36ab01a35234e99cbf5a3d2465a6, type: 3}
@@ -305,6 +305,7 @@ MonoBehaviour:
   reloadTime: 0.1
   SpreadreloadTime: 0.5
   shootSound: {fileID: 8300000, guid: 5391193f2c046204fa2267b76ecd313a, type: 3}
+  iceShot: event:/Interaction/IceShoot
 --- !u!114 &4932237300317104834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -710,6 +711,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2834880697019763054}
     m_Modifications:
+    - target: {fileID: 100002, guid: 698bd3845f43c4e4f80846f8bd23c647, type: 3}
+      propertyPath: m_Name
+      value: character_melee_V06
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 698bd3845f43c4e4f80846f8bd23c647, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 698bd3845f43c4e4f80846f8bd23c647, type: 3}
       propertyPath: m_Controller
       value: 
@@ -758,14 +767,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 698bd3845f43c4e4f80846f8bd23c647, type: 3}
-      propertyPath: m_Name
-      value: character_melee_V06
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 698bd3845f43c4e4f80846f8bd23c647, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: 698bd3845f43c4e4f80846f8bd23c647, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -809,10 +810,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2834880697019763054}
     m_Modifications:
-    - target: {fileID: 9500000, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 1769dcc6ff477264899574f00be432f8, type: 2}
     - target: {fileID: 100002, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
       propertyPath: m_Name
       value: burstMage
@@ -861,6 +858,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1769dcc6ff477264899574f00be432f8, type: 2}
     - target: {fileID: 13700000, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

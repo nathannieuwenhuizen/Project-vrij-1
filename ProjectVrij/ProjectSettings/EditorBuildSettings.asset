@@ -10,8 +10,5 @@ EditorBuildSettings:
     guid: 5830d63062fc4b44c9750e46fe9a3644
   - enabled: 1
     path: Assets/Scenes/Main/Game.unity
-    guid: 0a4e3a9d5b917404aba8918cdc1259ae
-  - enabled: 0
-    path: Assets/Scenes/Thijs_Layout_Test/Thijs_FINAL.unity
-    guid: 287cdc0185f2be54c9cb9c3828034c9e
+    guid: ce1e5592d2ed9754ca92c9032a6cb925
   m_configObjects: {}
