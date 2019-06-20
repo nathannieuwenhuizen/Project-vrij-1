@@ -16,17 +16,22 @@ MonoBehaviour:
   - {fileID: 114425799704628164}
   - {fileID: 114623402564296368}
   EditorEvents:
-  - {fileID: 114256861224423980}
-  - {fileID: 114171137753663518}
-  - {fileID: 114960375684012362}
-  - {fileID: 114877902692338362}
-  - {fileID: 114977036102527744}
   - {fileID: 114489063112788418}
+  - {fileID: 114643037936526158}
+  - {fileID: 114783065399701902}
+  - {fileID: 114658150136582800}
+  - {fileID: 114757740314398326}
+  - {fileID: 114557741748941124}
+  - {fileID: 114701111626564832}
+  - {fileID: 114382928748157912}
+  - {fileID: 114653526276011376}
+  - {fileID: 114448508382291836}
+  - {fileID: 114688272937384558}
   MasterBanks:
   - {fileID: 114623402564296368}
   StringsBanks:
   - {fileID: 114425799704628164}
-  stringsBankWriteTime: 636965602040237432
+  stringsBankWriteTime: 636966326270196352
   cacheVersion: 3
 --- !u!114 &114023540665285894
 MonoBehaviour:
@@ -118,6 +123,51 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 136784
+--- !u!114 &114382928748157912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/_Old/Music/Music
+  guid: bc36eeb0836977478110b467d5da3097
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &114395684846351666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Interaction/Footsteps
+  guid: e9c3ca2ca56da84fa60d35a18fc477f7
+  Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 380
 --- !u!114 &114425799704628164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,12 +181,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\HkuGames\Project Vrij\FMOD_VRIJ\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636965602040237432
+  lastModified: 636966326270196352
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 986
+    Value: 1256
   Exists: 1
+--- !u!114 &114448508382291836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Interaction/CrystalOffer
+  guid: 17b01b9524a72e43a7edbbb02026068c
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3428
 --- !u!114 &114489063112788418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +255,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 232000
+--- !u!114 &114557741748941124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/_Old/Ambient/Chimes
+  guid: 8756f67765a17e47a05b53e15e3a7ea5
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 26232
 --- !u!114 &114609216316975566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,12 +313,127 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\HkuGames\Project Vrij\FMOD_VRIJ\Build\Desktop\Master Bank.bank
-  lastModified: 636965602040187429
+  lastModified: 636966326270143297
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 7778464
+    Value: 11063968
   Exists: 1
+--- !u!114 &114643037936526158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ambient/ClothWindLoop
+  guid: 0351086355027047a92142116e3eaf7c
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 54000
+--- !u!114 &114653526276011376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Interaction/CrystalPickUp
+  guid: b5c11432bbe89447b8d31fd6d7cfbc70
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2142
+--- !u!114 &114658150136582800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/_Old/Ambient/Coyote
+  guid: 72bd58b5d6aa8d4a880007b5a7bdcc3c
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 60
+  Length: 5000
+--- !u!114 &114688272937384558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Interaction/FootSteps
+  guid: b99716c098abc24d8c6691e2a71adeff
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 400
+--- !u!114 &114701111626564832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/_Old/Ambient/Wind_01
+  guid: 994eb0aea292ec49a4dd69222152dffb
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 132784
 --- !u!114 &114718005323269536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +478,75 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 60
   Length: 5000
+--- !u!114 &114757740314398326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ambient/DesertAmbientLoop
+  guid: 830765edeb26b24791f667bcebb71646
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 198857
+--- !u!114 &114768024923879612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Interaction/CrystalOffer
+  guid: 5a2f6e59636da24ca1a7ecd8de0b193e
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3428
+--- !u!114 &114783065399701902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/_Old/Ambient/Wind_02
+  guid: 4ce9c0bc3c195442ac1d5290b752137f
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 136784
 --- !u!114 &114820518863897236
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,6 +9,9 @@ public class PointObject : PoolObject
     //my spawnPosition, must be changed to private and a getter/setter must be made later.
     public SpawnPosition myPos;
 
+    //FMOD
+    [FMODUnity.EventRef] public string PointCollect;
+
     public void Update()
     {
         //a simple rotation flare to catch the players eye.
@@ -66,6 +69,8 @@ public class PointObject : PoolObject
             {
                 //player gets score;
                 character.Points++;
+
+                FMODUnity.RuntimeManager.PlayOneShot(PointCollect, this.transform.position);
 
                 StartCoroutine(Collected());
             }
