@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.10.00">
     <object class="AudioFile" id="{42990cb3-4c03-430d-9480-c26e5eea3ac2}">
         <property name="assetPath">
-            <value>crystal pick up.wav</value>
+            <value>Interaction/crystal pick up.wav</value>
         </property>
         <property name="frequencyInKHz">
             <value>44.0999985</value>
