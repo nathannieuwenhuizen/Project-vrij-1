@@ -52,6 +52,7 @@ public class CloseRangedCharacter : Character
 
         rb = GetComponent<Rigidbody>();
         ui.SetCharacterType(1);
+        SavedPoints = 20;
         base.Start();
     }
 

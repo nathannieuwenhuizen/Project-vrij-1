@@ -30436,7 +30436,7 @@ PrefabInstance:
     - target: {fileID: 9500000, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 6d810d68021552249af05e15c66a039e, type: 2}
+      objectReference: {fileID: 9100000, guid: 9cfbafe2a0bd86342babf8b53031da2c, type: 2}
     - target: {fileID: 100002, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
       propertyPath: m_Name
       value: burstMage (1)
@@ -30785,6 +30785,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.13310689
       objectReference: {fileID: 0}
+    - target: {fileID: 400034, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00000012370784
+      objectReference: {fileID: 0}
+    - target: {fileID: 400034, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.027020603
+      objectReference: {fileID: 0}
     - target: {fileID: 400036, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -0.0000005899574
@@ -30892,6 +30900,14 @@ PrefabInstance:
     - target: {fileID: 400080, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 13.959192
+      objectReference: {fileID: 0}
+    - target: {fileID: 400080, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.023437664
+      objectReference: {fileID: 0}
+    - target: {fileID: 400080, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.022171658
       objectReference: {fileID: 0}
     - target: {fileID: 400112, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -28,6 +28,10 @@ public class CharacterSelectPanel : MonoBehaviour
         charactermodels[1].SetActive(false);
         charactermodels[index].SetActive(true);
     }
+    private void OnEnable()
+    {
+        ApplyName();
+    }
     private void OnDisable()
     {
         if (charactermodels[0])
@@ -39,5 +43,6 @@ public class CharacterSelectPanel : MonoBehaviour
             charactermodels[1].SetActive(false);
         }
     }
+
 
 }

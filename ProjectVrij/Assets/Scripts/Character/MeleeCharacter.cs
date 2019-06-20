@@ -60,7 +60,6 @@ public class MeleeCharacter : Character
 
     protected override void Start()
     {
-        Debug.Log("start child");
         rb = GetComponent<Rigidbody>();
         inputHandlerScript = GetComponent<InputHandler>();
         chargeHitbox.enabled = false;
@@ -70,6 +69,7 @@ public class MeleeCharacter : Character
         swordHitBox.gameObject.SetActive(false);
         //KeyCode specialAttackCode = inputHandlerScript.specialAttackCode;
         ui.SetCharacterType(0);
+        SavedPoints = 30;
 
         base.Start();
     }

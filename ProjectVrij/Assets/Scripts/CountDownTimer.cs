@@ -16,6 +16,7 @@ public class CountDownTimer : MonoBehaviour
     public float timerCount;
 
     public bool paused = false;
+    private bool stopped = false;
 
     [FMODUnity.EventRef] public string lastMinuteMusic;
 
@@ -28,14 +29,14 @@ public class CountDownTimer : MonoBehaviour
 
     void Update ()
     {
-        if (paused) { return; }
+        if (paused || stopped) { return; }
 
         //When timer reaches 0.
         if (timerCount <= 0)
         {
             //Hier stopt de game.
             _countDownText.text = "00:00";
-
+            stopped = true;
             //fires the event
             OnZero?.Invoke();
         }

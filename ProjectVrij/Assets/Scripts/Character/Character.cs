@@ -53,11 +53,34 @@ public class Character : Entity
     [FMODUnity.EventRef] public string punchSound;
     [FMODUnity.EventRef] public string CrystalOffer;
 
+    [SerializeField]
+    private AudioClip walkSound2;
+    [SerializeField]
+    private AudioClip jumpSound2;
+    [SerializeField]
+    private AudioClip landingSound2;
+    [SerializeField]
+    private AudioClip gotHitSound2;
+    [SerializeField]
+    private AudioClip deathSound2;
+    [SerializeField]
+    private AudioClip wooshSound2;
+
+    [SerializeField]
+    private ParticleSystem respawnParticles;
+
     [SerializeField] private float walkIndex;
     [SerializeField] private float footstepSoundSpeed = 700;
     protected AudioSource movementAudioSource;
     protected AudioSource voiceAudioSource;
     private bool playerMoving;
+
+    [Space]
+    [Header("result UI")]
+    [SerializeField]
+    private TextMesh resultScoreText;
+    [SerializeField]
+    private SpriteRenderer crownSprite;
 
     // Overige variables
     protected Rigidbody rb;
@@ -321,6 +344,7 @@ public class Character : Entity
         characterThatHitYou = null;
         ps.RespawnPlayer(this);
 
+        respawnParticles.Play();
     }
     public void CameraFadeToBlack()
     {
@@ -586,5 +610,26 @@ public class Character : Entity
             anim.SetLayerWeight(1, 1);
 
         }
+    }
+    public void SetupCameraForResultScreen()
+    {
+        CameraFadeFromBlack();
+        anim.SetLayerWeight(1, 0);
+        cameraPivot.Rotate(new Vector3(20, 180, 0));
+    }
+    public void Result(bool win)
+    {
+        if (win)
+        {
+            anim.SetBool("win", true);
+            crownSprite.enabled = true;
+        } else
+        {
+            anim.SetBool("lose", true);
+        }
+    }
+    public void UpdateResultScoreText(int number)
+    {
+        resultScoreText.text = number.ToString();
     }
 }
