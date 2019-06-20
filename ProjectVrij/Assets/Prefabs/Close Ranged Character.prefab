@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4558372750947174845}
   - component: {fileID: 1168792749}
   - component: {fileID: 2031672911}
-  - component: {fileID: 2017492634789661627}
   m_Layer: 9
   m_Name: Camera
   m_TagString: Untagged
@@ -132,19 +131,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1
---- !u!114 &2017492634789661627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2834880695915957931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ListenerNumber: 0
 --- !u!1 &2834880695952720930
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,30 +264,23 @@ MonoBehaviour:
   cameraPivot: {fileID: 2834880695952720928}
   walkSpeed: 20
   jumpForce: 10
-  walkSound: event:/Interaction/FootSteps
+  walkSound: 
   jumpSound: 
   landingSound: 
   gotHitSound: 
   deathSound: 
   wooshSound: 
-  CrystalOffer: event:/Interaction/CrystalOffer
   walkSound2: {fileID: 8300000, guid: 525d560bf7464be4893227a4e46a156c, type: 3}
   jumpSound2: {fileID: 8300000, guid: 65ba4c9e32593224a8d3b5787ec6968d, type: 3}
   landingSound2: {fileID: 8300000, guid: 6cab36ab01a35234e99cbf5a3d2465a6, type: 3}
   gotHitSound2: {fileID: 8300000, guid: 433b35c228f51e3489e8ebc020d98d6a, type: 3}
   deathSound2: {fileID: 8300000, guid: bcda2bda55489f64c9be1dfdd1979581, type: 3}
   wooshSound2: {fileID: 8300000, guid: fc93d4e008e659c498075e9d69c1b554, type: 3}
-<<<<<<< HEAD
-  walkIndex: 1
-  anim: {fileID: 2670834835610256249}
-=======
   anim: {fileID: 7637078191550656519}
->>>>>>> 491ca82fd40331b306d39bde92fcdb92b9b31c88
   ui: {fileID: 0}
   camera: {fileID: 2834880695915957934}
   pointPrefab: {fileID: 3936667629786671433, guid: 6d0d39a8c272b9c4ba4bf4c59068132e,
     type: 3}
-  walkingSoundSpeed: 0.5
   points: 5
   savePoints: 0
   projectilePrefab: {fileID: 771861541888416937, guid: e223558a7bb200842b6ca0bd42c5fba7,
@@ -414,98 +393,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2834880697019763054}
     m_Modifications:
-<<<<<<< HEAD
-    - target: {fileID: 100002, guid: 086f90beb33d2ee4bbc12184115856dc, type: 3}
-      propertyPath: m_Name
-      value: burstMage
-      objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 086f90beb33d2ee4bbc12184115856dc, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 0db952b37023863418ecac2627c074d8, type: 2}
-    - target: {fileID: 400002, guid: 086f90beb33d2ee4bbc12184115856dc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 086f90beb33d2ee4bbc12184115856dc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 086f90beb33d2ee4bbc12184115856dc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 086f90beb33d2ee4bbc12184115856dc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 086f90beb33d2ee4bbc12184115856dc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 086f90beb33d2ee4bbc12184115856dc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 086f90beb33d2ee4bbc12184115856dc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 086f90beb33d2ee4bbc12184115856dc, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 086f90beb33d2ee4bbc12184115856dc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 086f90beb33d2ee4bbc12184115856dc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 086f90beb33d2ee4bbc12184115856dc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 13700000, guid: 086f90beb33d2ee4bbc12184115856dc, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 105c4d0995ad5c84d961c1fd058c54e9, type: 2}
-    - target: {fileID: 13700000, guid: 086f90beb33d2ee4bbc12184115856dc, type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: a93aabecd3667f3478d5bd86056d48a8, type: 2}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 086f90beb33d2ee4bbc12184115856dc, type: 3}
---- !u!4 &2670834835620048027 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400002, guid: 086f90beb33d2ee4bbc12184115856dc,
-    type: 3}
-  m_PrefabInstance: {fileID: 2670834835619657241}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &2670834835610256249 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9500000, guid: 086f90beb33d2ee4bbc12184115856dc,
-    type: 3}
-  m_PrefabInstance: {fileID: 2670834835619657241}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &6480495301246365506
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2834880697019763054}
-    m_Modifications:
     - target: {fileID: 100002, guid: 698bd3845f43c4e4f80846f8bd23c647, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-=======
-    - target: {fileID: 100002, guid: 698bd3845f43c4e4f80846f8bd23c647, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
->>>>>>> 491ca82fd40331b306d39bde92fcdb92b9b31c88
     - target: {fileID: 9500000, guid: 698bd3845f43c4e4f80846f8bd23c647, type: 3}
       propertyPath: m_Controller
       value: 
