@@ -66,6 +66,9 @@ public class Character : Entity
     [SerializeField]
     private AudioClip wooshSound2;
 
+    [SerializeField]
+    private ParticleSystem respawnParticles;
+
     [SerializeField] private float walkIndex;
     [SerializeField] private float footstepSoundSpeed = 100;
     protected AudioSource movementAudioSource;
@@ -336,6 +339,7 @@ public class Character : Entity
         characterThatHitYou = null;
         ps.RespawnPlayer(this);
 
+        respawnParticles.Play();
     }
     public void CameraFadeToBlack()
     {

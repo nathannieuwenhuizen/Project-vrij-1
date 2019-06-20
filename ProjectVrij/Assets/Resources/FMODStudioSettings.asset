@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: D:\HkuGames\Project Vrij\FMOD_VRIJ\FMOD_VRIJ.fspro
-  SourceProjectPathUnformatted: D:\HkuGames\Project Vrij\FMOD_VRIJ\FMOD_VRIJ.fspro
-  SourceBankPathUnformatted: D:\HkuGames\Project Vrij\FMOD_VRIJ\Build
+  sourceProjectPath: D:\HKU bestanden\blok 4\vak - Project vrij\Battle Arena\FMOD_VRIJ\FMOD_VRIJ.fspro
+  SourceProjectPathUnformatted: D:\HKU bestanden\blok 4\vak - Project vrij\Battle
+    Arena\FMOD_VRIJ\FMOD_VRIJ.fspro
+  SourceBankPathUnformatted: D:\HKU bestanden\blok 4\vak - Project vrij\Battle Arena\FMOD_VRIJ\Build
   AutomaticEventLoading: 1
   AutomaticSampleLoading: 0
   ImportType: 0
