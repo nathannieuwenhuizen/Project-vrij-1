@@ -9,6 +9,7 @@ public class InputHandler : MonoBehaviour
     [SerializeField]
     private int controllerID = 0;
 
+    private bool canOnlyMoveCamera = false;
 
     //buttons
     private KeyCode baseAttackCode;
@@ -70,10 +71,10 @@ public class InputHandler : MonoBehaviour
                 break;
             default:
                 baseAttackCode = KeyCode.P;
-                jumpCode = KeyCode.L;
+                jumpCode = KeyCode.Space;
                 specialAttackCode = KeyCode.M;
                 specialAttack2Code = KeyCode.K;
-                startButton = KeyCode.Space;
+                startButton = KeyCode.Escape;
                 break;
         }
     }
@@ -85,6 +86,14 @@ public class InputHandler : MonoBehaviour
         {
             controllerID = value;
             ConfigureControlButtons();
+        }
+    }
+    public bool CanOnlyMoveCamera
+    {
+        get { return canOnlyMoveCamera; }
+        set
+        {
+            canOnlyMoveCamera = value;
         }
     }
 
@@ -101,6 +110,14 @@ public class InputHandler : MonoBehaviour
         }
 
         if (Time.timeScale == 0) { return; }
+        //player view change
+        character.Rotate(
+            CrossPlatformInputManager.GetAxis("RotateHorizontal" + controllerID),
+            CrossPlatformInputManager.GetAxis("RotateVertical" + controllerID)
+            );
+
+        if (canOnlyMoveCamera) { return; }
+
         //Checks whether a button is pressed down.
         if (Input.GetKeyDown(baseAttackCode))
         {
@@ -131,10 +148,5 @@ public class InputHandler : MonoBehaviour
 
         //player movement
         character.Walking(CrossPlatformInputManager.GetAxis("Vertical" + controllerID), -CrossPlatformInputManager.GetAxis("Horizontal" + controllerID));
-        //player view change
-        character.Rotate(
-            CrossPlatformInputManager.GetAxis("RotateHorizontal" + controllerID),
-            CrossPlatformInputManager.GetAxis("RotateVertical" + controllerID)
-            );
     }
 }

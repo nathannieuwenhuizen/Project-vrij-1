@@ -10,11 +10,22 @@ public class CountDownTimer : MonoBehaviour
     public delegate void Countaction();
     public static event Countaction OnZero;
 
+    private Color alarmColor = new Color(100, 0, 0);
+
     [SerializeField] private Text _countDownText;
     public float timerCount;
 
+    public bool paused = false;
+
+    void Start()
+    {
+        Countdown();
+    }
+
     void Update ()
     {
+        if (paused) { return; }
+
         //When timer reaches 0.
         if (timerCount <= 0)
         {
@@ -42,5 +53,9 @@ public class CountDownTimer : MonoBehaviour
         //var fraction = (timerCount * 100) % 100;
 
         _countDownText.text = string.Format("{0:0}:{1:00}", Mathf.Floor(minutes), seconds); 
+        if (timerCount < 10)
+        {
+            _countDownText.color = alarmColor;
+        }
     }
 }
