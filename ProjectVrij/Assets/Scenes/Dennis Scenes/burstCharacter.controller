@@ -1361,7 +1361,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400024, guid: 698bd3845f43c4e4f80846f8bd23c647, type: 3}
+  m_Motion: {fileID: 7400038, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1591,7 +1591,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GetHitAnimation
-  m_Speed: 2
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101725716272857982}
@@ -1604,7 +1604,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400026, guid: 698bd3845f43c4e4f80846f8bd23c647, type: 3}
+  m_Motion: {fileID: 7400046, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1736,7 +1736,7 @@ AnimatorStateMachine:
     m_Position: {x: 336, y: -300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102837569243321476}
-    m_Position: {x: 84, y: -276, z: 0}
+    m_Position: {x: 96, y: -276, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102513148119236446}
     m_Position: {x: 84, y: -156, z: 0}
