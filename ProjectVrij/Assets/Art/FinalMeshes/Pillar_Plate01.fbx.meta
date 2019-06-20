@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 015352890f09ac742a6cc71676e0f6a9
+guid: fdc32f905b6403245b69692e3532ed47
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -8,7 +8,7 @@ ModelImporter:
     2100000: lambert1
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Stone01
+    4300000: Pillar_Plate01
   externalObjects: {}
   materials:
     importMaterials: 1
