@@ -155,7 +155,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2834880695952720930}
   m_LocalRotation: {x: 0, y: -0.08715578, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalPosition: {x: 0, y: 1.17, z: 0}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_Children:
   - {fileID: 7512112291284414026}
@@ -264,23 +264,21 @@ MonoBehaviour:
   cameraPivot: {fileID: 2834880695952720928}
   walkSpeed: 20
   jumpForce: 10
-  walkSound: 
+  walkSound: event:/Interaction/FootSteps
   jumpSound: 
   landingSound: 
   gotHitSound: 
-  deathSound: 
-  wooshSound: 
-  walkSound2: {fileID: 8300000, guid: 525d560bf7464be4893227a4e46a156c, type: 3}
-  jumpSound2: {fileID: 8300000, guid: 65ba4c9e32593224a8d3b5787ec6968d, type: 3}
-  landingSound2: {fileID: 8300000, guid: 6cab36ab01a35234e99cbf5a3d2465a6, type: 3}
-  gotHitSound2: {fileID: 8300000, guid: 433b35c228f51e3489e8ebc020d98d6a, type: 3}
-  deathSound2: {fileID: 8300000, guid: bcda2bda55489f64c9be1dfdd1979581, type: 3}
-  wooshSound2: {fileID: 8300000, guid: fc93d4e008e659c498075e9d69c1b554, type: 3}
+  deathSound: event:/Interaction/Death
+  punchSound: 
+  CrystalOffer: event:/Interaction/CrystalOffer
+  walkIndex: 0
+  footstepSoundSpeed: 250
   anim: {fileID: 7637078191550656519}
   ui: {fileID: 0}
   camera: {fileID: 2834880695915957934}
   pointPrefab: {fileID: 3936667629786671433, guid: 6d0d39a8c272b9c4ba4bf4c59068132e,
     type: 3}
+  walkingSoundSpeed: 0.4
   points: 5
   savePoints: 0
   projectilePrefab: {fileID: 771861541888416937, guid: e223558a7bb200842b6ca0bd42c5fba7,
@@ -296,6 +294,7 @@ MonoBehaviour:
   reloadTime: 0.1
   SpreadreloadTime: 0.5
   shootSound: {fileID: 8300000, guid: 5391193f2c046204fa2267b76ecd313a, type: 3}
+  iceShot: event:/Interaction/IceShoot
 --- !u!114 &4932237300317104834
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -29,11 +29,13 @@ MonoBehaviour:
   - {fileID: 114688272937384558}
   - {fileID: 114116655770640706}
   - {fileID: 114946997650236060}
+  - {fileID: 114454013692830776}
+  - {fileID: 114256547894729722}
   MasterBanks:
   - {fileID: 114623402564296368}
   StringsBanks:
   - {fileID: 114425799704628164}
-  stringsBankWriteTime: 636966366007142308
+  stringsBankWriteTime: 636966404246370859
   cacheVersion: 3
 --- !u!114 &114023540665285894
 MonoBehaviour:
@@ -125,6 +127,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 10109
+--- !u!114 &114256547894729722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Interaction/IceShoot
+  guid: 405e61c25853864696dafacf65844487
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 800
 --- !u!114 &114256861224423980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,11 +231,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\HkuGames\Project Vrij\FMOD_VRIJ\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636966366007142308
+  lastModified: 636966404246370859
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1332
+    Value: 1418
   Exists: 1
 --- !u!114 &114448508382291836
 MonoBehaviour:
@@ -235,6 +260,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 3428
+--- !u!114 &114454013692830776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Interaction/IceHit
+  guid: 09f6d3995dd9264fbb611f347cf7c156
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1178
 --- !u!114 &114489063112788418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,11 +386,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\HkuGames\Project Vrij\FMOD_VRIJ\Build\Desktop\Master Bank.bank
-  lastModified: 636966366007102410
+  lastModified: 636966404246301363
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 11180448
+    Value: 11244192
   Exists: 1
 --- !u!114 &114643037936526158
 MonoBehaviour:

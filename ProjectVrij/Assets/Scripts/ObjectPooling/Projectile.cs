@@ -24,7 +24,10 @@ public class Projectile : PoolObject
     public Character playerID;
     private Character characterThatHitYou;
 
-    
+    [FMODUnity.EventRef] public string iceHit;
+
+
+
 
     public void FixedUpdate()
     {
@@ -64,6 +67,7 @@ public class Projectile : PoolObject
         {
             Debug.Log("PUSH BAACCCKKK");
             col.gameObject.GetComponent<MeleeCharacter>().KnockBack(10f, 10f, transform.position);
+            FMODUnity.RuntimeManager.PlayOneShot(iceHit, transform.position);
             
         }
         ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileHit, transform.position, transform.rotation);

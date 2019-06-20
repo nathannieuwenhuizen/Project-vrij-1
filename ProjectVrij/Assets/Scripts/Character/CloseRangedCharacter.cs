@@ -39,6 +39,8 @@ public class CloseRangedCharacter : Character
     [SerializeField]
     private AudioClip shootSound;
 
+    [FMODUnity.EventRef] public string iceShot;
+
 
     private bool Spreadreloading = false;
     private bool reloading = false;
@@ -80,6 +82,8 @@ public class CloseRangedCharacter : Character
 
         SetAnimation("shooting", true);
         StartCoroutine(PushBack());
+
+        FMODUnity.RuntimeManager.PlayOneShot(iceShot, transform.position);
 
     }
 

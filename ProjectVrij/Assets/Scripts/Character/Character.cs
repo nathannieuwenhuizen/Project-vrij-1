@@ -54,7 +54,7 @@ public class Character : Entity
     [FMODUnity.EventRef] public string CrystalOffer;
 
     [SerializeField] private float walkIndex;
-    [SerializeField] private float footstepSoundSpeed = 100;
+    [SerializeField] private float footstepSoundSpeed = 700;
     protected AudioSource movementAudioSource;
     protected AudioSource voiceAudioSource;
     private bool playerMoving;
