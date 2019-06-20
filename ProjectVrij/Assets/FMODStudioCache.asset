@@ -39,11 +39,12 @@ MonoBehaviour:
   - {fileID: 114633623515938542}
   - {fileID: 114531618166098862}
   - {fileID: 114769907362984182}
+  - {fileID: 114871886953222072}
   MasterBanks:
   - {fileID: 114623402564296368}
   StringsBanks:
   - {fileID: 114425799704628164}
-  stringsBankWriteTime: 636966454162384523
+  stringsBankWriteTime: 636966473559217974
   cacheVersion: 3
 --- !u!114 &114021268898773000
 MonoBehaviour:
@@ -67,7 +68,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 500
+  Length: 415
 --- !u!114 &114023540665285894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,7 +136,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 700
+  Length: 650
 --- !u!114 &114171137753663518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,11 +309,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\HkuGames\Project Vrij\FMOD_VRIJ\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636966454162384523
+  lastModified: 636966473559217974
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1790
+    Value: 1836
   Exists: 1
 --- !u!114 &114448508382291836
 MonoBehaviour:
@@ -509,11 +510,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\HkuGames\Project Vrij\FMOD_VRIJ\Build\Desktop\Master Bank.bank
-  lastModified: 636966454162334663
+  lastModified: 636966473559158134
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 12525856
+    Value: 12526464
   Exists: 1
 --- !u!114 &114633623515938542
 MonoBehaviour:
@@ -537,7 +538,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 1150
+  Length: 1110
 --- !u!114 &114643037936526158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -856,6 +857,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 53706
+--- !u!114 &114871886953222072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/PlaceHolder/LastMinuteMusic
+  guid: d07f9b05ef849c4d9d691db365eba9bc
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &114877902692338362
 MonoBehaviour:
   m_ObjectHideFlags: 0

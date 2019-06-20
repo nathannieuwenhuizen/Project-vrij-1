@@ -17,6 +17,10 @@ public class CountDownTimer : MonoBehaviour
 
     public bool paused = false;
 
+    [FMODUnity.EventRef] public string lastMinuteMusic;
+
+    private bool started;
+
     void Start()
     {
         Countdown();
@@ -53,6 +57,15 @@ public class CountDownTimer : MonoBehaviour
         //var fraction = (timerCount * 100) % 100;
 
         _countDownText.text = string.Format("{0:0}:{1:00}", Mathf.Floor(minutes), seconds); 
+        if(timerCount < 60)
+        {
+            if (!started)
+            {
+                FMODUnity.RuntimeManager.PlayOneShot(lastMinuteMusic, transform.position);
+                started = true;
+            }
+            
+        }
         if (timerCount < 10)
         {
             _countDownText.color = alarmColor;
