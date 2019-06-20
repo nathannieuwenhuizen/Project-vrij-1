@@ -88,7 +88,7 @@ Material:
     - _Speed: 0.47
     - _SrcBlend: 1
     - _SurfaceDistortionAmount: 0.124
-    - _SurfaceNoiseCutoff: 0.437
+    - _SurfaceNoiseCutoff: 0.662
     - _UVSec: 0
     - _ZWrite: 1
     - _ammount: 1
