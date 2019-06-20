@@ -239,6 +239,7 @@ public class Character : Entity
 
         SetAnimation("hitted", true);
         StartCoroutine(SetanimationBoolFalse("hitted", 0.2f));
+        Debug.Log("GOT HIT");
 
         FMODUnity.RuntimeManager.PlayOneShot(gotHitSound, transform.position);
         characterThatHitYou = hit.Character;

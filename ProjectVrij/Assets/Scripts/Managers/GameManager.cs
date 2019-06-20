@@ -43,6 +43,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private CountDownTimer timer;
 
+    [FMODUnity.EventRef] public string beginGame;
+    [SerializeField] private GameObject countdownSound;
+
     private List<Character> characters;
     public void Start()
     {
@@ -256,6 +259,9 @@ public class GameManager : MonoBehaviour
     {
         countDownText.text = "go!";
         timer.paused = false;
+
+        FMODUnity.RuntimeManager.PlayOneShot(beginGame, transform.position);
+        countdownSound.SetActive(false);
 
         foreach (Character character in characters)
         {
