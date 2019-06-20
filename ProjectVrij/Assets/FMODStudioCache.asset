@@ -27,11 +27,13 @@ MonoBehaviour:
   - {fileID: 114653526276011376}
   - {fileID: 114448508382291836}
   - {fileID: 114688272937384558}
+  - {fileID: 114116655770640706}
+  - {fileID: 114946997650236060}
   MasterBanks:
   - {fileID: 114623402564296368}
   StringsBanks:
   - {fileID: 114425799704628164}
-  stringsBankWriteTime: 636966326270196352
+  stringsBankWriteTime: 636966366007142308
   cacheVersion: 3
 --- !u!114 &114023540665285894
 MonoBehaviour:
@@ -55,6 +57,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 136784
+--- !u!114 &114116655770640706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Interaction/SwordSwing
+  guid: 00bf246506cd1444866c6284a8030858
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
 --- !u!114 &114171137753663518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,11 +206,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\HkuGames\Project Vrij\FMOD_VRIJ\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636966326270196352
+  lastModified: 636966366007142308
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1256
+    Value: 1332
   Exists: 1
 --- !u!114 &114448508382291836
 MonoBehaviour:
@@ -313,11 +338,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\HkuGames\Project Vrij\FMOD_VRIJ\Build\Desktop\Master Bank.bank
-  lastModified: 636966326270143297
+  lastModified: 636966366007102410
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 11063968
+    Value: 11180448
   Exists: 1
 --- !u!114 &114643037936526158
 MonoBehaviour:
@@ -592,6 +617,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 132784
+--- !u!114 &114946997650236060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Interaction/Death
+  guid: e7f153dbcd9be04983b8b9f47ae1a17d
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 10020
 --- !u!114 &114960375684012362
 MonoBehaviour:
   m_ObjectHideFlags: 0

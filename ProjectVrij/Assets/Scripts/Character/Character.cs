@@ -50,21 +50,8 @@ public class Character : Entity
     [FMODUnity.EventRef] public string landingSound;
     [FMODUnity.EventRef] public string gotHitSound;
     [FMODUnity.EventRef] public string deathSound;
-    [FMODUnity.EventRef] public string wooshSound;
+    [FMODUnity.EventRef] public string punchSound;
     [FMODUnity.EventRef] public string CrystalOffer;
-
-    [SerializeField]
-    private AudioClip walkSound2;
-    [SerializeField]
-    private AudioClip jumpSound2;
-    [SerializeField]
-    private AudioClip landingSound2;
-    [SerializeField]
-    private AudioClip gotHitSound2;
-    [SerializeField]
-    private AudioClip deathSound2;
-    [SerializeField]
-    private AudioClip wooshSound2;
 
     [SerializeField] private float walkIndex;
     [SerializeField] private float footstepSoundSpeed = 100;
@@ -198,7 +185,6 @@ public class Character : Entity
         else
         {
             knocked = false;
-            PlaySound(movementAudioSource, landingSound2, 1f);
             FMODUnity.RuntimeManager.PlayOneShot(landingSound, transform.position);
             IsGrounded = true;
             ParticleManager.instance.SpawnParticle(ParticleManager.instance.landImpactParticle, transform.position, transform.rotation);
@@ -254,7 +240,6 @@ public class Character : Entity
         SetAnimation("hitted", true);
         StartCoroutine(SetanimationBoolFalse("hitted", 0.2f));
 
-        PlaySound(voiceAudioSource, gotHitSound2, 1f);
         FMODUnity.RuntimeManager.PlayOneShot(gotHitSound, transform.position);
         characterThatHitYou = hit.Character;
         Health -= hit.Damage;
@@ -290,7 +275,6 @@ public class Character : Entity
         ParticleManager.instance.SpawnParticle(ParticleManager.instance.deathParticle, transform.position + new Vector3(0,1.5f,0), transform.rotation);
 
         //plays death sound
-        PlaySound(voiceAudioSource, deathSound2);
         FMODUnity.RuntimeManager.PlayOneShot(deathSound, transform.position);
 
         //character falls back by changing the force of the rigidbody.
@@ -455,7 +439,6 @@ public class Character : Entity
             rb.velocity = jumpVelocity;
 
             IsGrounded = false;
-            PlaySound(movementAudioSource, jumpSound2, 1f);
             FMODUnity.RuntimeManager.PlayOneShot(jumpSound, transform.position);
 
             ParticleManager.instance.SpawnParticle(ParticleManager.instance.landImpactParticle, transform.position, transform.rotation);
@@ -495,8 +478,7 @@ public class Character : Entity
     {
         if (state == true)
         {
-            PlaySound(movementAudioSource, wooshSound2);
-            FMODUnity.RuntimeManager.PlayOneShot(wooshSound, transform.position);
+            FMODUnity.RuntimeManager.PlayOneShot(punchSound, transform.position);
             SetAnimation("isAttacking", true);
             StartCoroutine(SetanimationBoolFalse("isAttacking", 0.5f));
 
