@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myPos: {fileID: 0}
+  PointCollect: event:/Interaction/CrystalPickUp
 --- !u!54 &4835192718409778835
 Rigidbody:
   m_ObjectHideFlags: 0
