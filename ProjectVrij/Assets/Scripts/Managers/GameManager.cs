@@ -31,6 +31,18 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Text winningText;
 
+    [SerializeField]
+    private GameObject countDownObject;
+    [SerializeField]
+    private Image countDownImage;
+    [SerializeField]
+    private Text countDownText;
+    [SerializeField]
+    private float countDownDurationInSeconds = 1f;
+
+    [SerializeField]
+    private CountDownTimer timer;
+
     private List<Character> characters;
     public void Start()
     {
@@ -39,6 +51,7 @@ public class GameManager : MonoBehaviour
 
         InitializePlayers(GameInformation.PLAYER_COUNT);
         Pause(false);
+        CountDowStart();
 
         Application.targetFrameRate = 60;
     }
@@ -210,4 +223,45 @@ public class GameManager : MonoBehaviour
         return winningChar;
     }
 
+    public void CountDowStart()
+    {
+        countDownObject.SetActive(true);
+        timer.paused = true;
+        foreach(Character character in characters)
+        {
+            character.GetComponent<InputHandler>().CanOnlyMoveCamera = true;
+        }
+        StartCoroutine(CountDowning(3));
+    }
+    IEnumerator CountDowning(int number)
+    {
+        countDownText.text = number.ToString();
+        float index = 0;
+        while(index < countDownDurationInSeconds)
+        {
+            countDownImage.fillAmount = (countDownDurationInSeconds - index) / countDownDurationInSeconds;
+            index += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        countDownImage.fillAmount = 0;
+        if (number <= 1)
+        {
+            StartCoroutine(CountDownEnd());
+        } else
+        {
+            StartCoroutine(CountDowning(number - 1));
+        }
+    }
+    IEnumerator CountDownEnd()
+    {
+        countDownText.text = "go!";
+        timer.paused = false;
+
+        foreach (Character character in characters)
+        {
+            character.GetComponent<InputHandler>().CanOnlyMoveCamera = false;
+        }
+        yield return new WaitForSeconds(countDownDurationInSeconds);
+        countDownObject.SetActive(false);
+    }
 }
