@@ -27,12 +27,48 @@ MonoBehaviour:
   - {fileID: 114653526276011376}
   - {fileID: 114448508382291836}
   - {fileID: 114688272937384558}
+  - {fileID: 114116655770640706}
+  - {fileID: 114946997650236060}
+  - {fileID: 114454013692830776}
+  - {fileID: 114256547894729722}
+  - {fileID: 114858346412341820}
+  - {fileID: 114390089873369314}
+  - {fileID: 114021268898773000}
+  - {fileID: 114148000735457538}
+  - {fileID: 114465186256858330}
+  - {fileID: 114633623515938542}
+  - {fileID: 114531618166098862}
+  - {fileID: 114769907362984182}
+  - {fileID: 114871886953222072}
   MasterBanks:
   - {fileID: 114623402564296368}
   StringsBanks:
   - {fileID: 114425799704628164}
-  stringsBankWriteTime: 636966326270196352
+  stringsBankWriteTime: 636966473559217974
   cacheVersion: 3
+--- !u!114 &114021268898773000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/PlaceHolder/SandLand
+  guid: 86440bc6977e8c4d81d2cf0b42b3369e
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 415
 --- !u!114 &114023540665285894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,6 +91,52 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 136784
+--- !u!114 &114116655770640706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Interaction/SwordSwing
+  guid: 00bf246506cd1444866c6284a8030858
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
+--- !u!114 &114148000735457538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/PlaceHolder/PainHit
+  guid: 1673cef9687eeb4cb771ad8ac6e9d662
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 650
 --- !u!114 &114171137753663518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,6 +182,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 10109
+--- !u!114 &114256547894729722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Interaction/IceShoot
+  guid: 405e61c25853864696dafacf65844487
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 800
 --- !u!114 &114256861224423980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +251,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &114390089873369314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Duduk
+  guid: 12c3fce3cc6baf44bd8368ed89b6b82c
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 30209
 --- !u!114 &114395684846351666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,11 +309,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\HkuGames\Project Vrij\FMOD_VRIJ\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636966326270196352
+  lastModified: 636966473559217974
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1256
+    Value: 1836
   Exists: 1
 --- !u!114 &114448508382291836
 MonoBehaviour:
@@ -210,6 +338,52 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 3428
+--- !u!114 &114454013692830776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Interaction/IceHit
+  guid: 09f6d3995dd9264fbb611f347cf7c156
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1178
+--- !u!114 &114465186256858330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/PlaceHolder/Respawn
+  guid: 648eb79946566742a3a4e7fc666c5ec5
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
 --- !u!114 &114489063112788418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +429,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 232000
+--- !u!114 &114531618166098862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/PlaceHolder/FireballShoot
+  guid: 3103f2d1e177f94b84841a84110a5118
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1081
 --- !u!114 &114557741748941124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,12 +510,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\HkuGames\Project Vrij\FMOD_VRIJ\Build\Desktop\Master Bank.bank
-  lastModified: 636966326270143297
+  lastModified: 636966473559158134
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 11063968
+    Value: 12526464
   Exists: 1
+--- !u!114 &114633623515938542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/PlaceHolder/Punch
+  guid: 104d0335bffb5747b538f1aea4dd8920
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1110
 --- !u!114 &114643037936526158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,6 +744,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3428
+--- !u!114 &114769907362984182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/PlaceHolder/FireballHit
+  guid: 4368fb7f7144cd4980794612de6dafda
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 978
 --- !u!114 &114783065399701902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,6 +812,74 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 40676
+--- !u!114 &114824189489946018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/PlaceHolder/SandFall
+  guid: 86440bc6977e8c4d81d2cf0b42b3369e
+  Banks: []
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 500
+--- !u!114 &114858346412341820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/MainDrums
+  guid: 1c4d3e6e2c80d143b3960728dcbf7b52
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 53706
+--- !u!114 &114871886953222072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/PlaceHolder/LastMinuteMusic
+  guid: d07f9b05ef849c4d9d691db365eba9bc
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &114877902692338362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,6 +903,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 132784
+--- !u!114 &114946997650236060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Interaction/Death
+  guid: e7f153dbcd9be04983b8b9f47ae1a17d
+  Banks:
+  - {fileID: 114623402564296368}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 10020
 --- !u!114 &114960375684012362
 MonoBehaviour:
   m_ObjectHideFlags: 0

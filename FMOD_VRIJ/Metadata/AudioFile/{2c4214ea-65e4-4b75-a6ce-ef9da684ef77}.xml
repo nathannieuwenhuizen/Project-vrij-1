@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.10.00">
     <object class="AudioFile" id="{2c4214ea-65e4-4b75-a6ce-ef9da684ef77}">
         <property name="assetPath">
-            <value>crystal offer to altar.wav</value>
+            <value>Interaction/crystal offer to altar.wav</value>
         </property>
         <property name="frequencyInKHz">
             <value>44.0999985</value>

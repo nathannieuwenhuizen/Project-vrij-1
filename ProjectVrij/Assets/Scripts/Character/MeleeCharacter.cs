@@ -28,6 +28,8 @@ public class MeleeCharacter : Character
     [SerializeField] private ParticleSystem chargeTrailParticles;
     [SerializeField] private GameObject indicationLine;
 
+    [FMODUnity.EventRef] public string swordSound;
+
     [SerializeField]
     private BoxCollider chargeHitbox;
 
@@ -167,12 +169,13 @@ public class MeleeCharacter : Character
         base.SpecialAttack();
         SwordAttack();
 
+
     }
     public void SwordAttack()
     {
         if (isAttackingWithSword) { return; }
         isAttackingWithSword = true;
-
+        FMODUnity.RuntimeManager.PlayOneShot(swordSound, transform.position);
         StartCoroutine(SwordAttacking());
     }
     IEnumerator SwordAttacking()
