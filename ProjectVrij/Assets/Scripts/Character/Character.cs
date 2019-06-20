@@ -75,6 +75,13 @@ public class Character : Entity
     protected AudioSource voiceAudioSource;
     private bool playerMoving;
 
+    [Space]
+    [Header("result UI")]
+    [SerializeField]
+    private TextMesh resultScoreText;
+    [SerializeField]
+    private SpriteRenderer crownSprite;
+
     // Overige variables
     protected Rigidbody rb;
     [Header("overige dingen")]
@@ -607,5 +614,26 @@ public class Character : Entity
             anim.SetLayerWeight(1, 1);
 
         }
+    }
+    public void SetupCameraForResultScreen()
+    {
+        CameraFadeFromBlack();
+        anim.SetLayerWeight(1, 0);
+        cameraPivot.Rotate(new Vector3(20, 180, 0));
+    }
+    public void Result(bool win)
+    {
+        if (win)
+        {
+            anim.SetBool("win", true);
+            crownSprite.enabled = true;
+        } else
+        {
+            anim.SetBool("lose", true);
+        }
+    }
+    public void UpdateResultScoreText(int number)
+    {
+        resultScoreText.text = number.ToString();
     }
 }
