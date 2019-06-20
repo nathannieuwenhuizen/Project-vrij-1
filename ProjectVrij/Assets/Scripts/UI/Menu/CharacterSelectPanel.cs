@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class CharacterSelectPanel : MonoBehaviour
 {
+
     [SerializeField]
-    private Text characterText; //can be a mesh/image or something else
+    private GameObject[] charactermodels;
 
     public int index = 0;
     private void Start()
@@ -23,7 +24,14 @@ public class CharacterSelectPanel : MonoBehaviour
     }
     private void ApplyName()
     {
-        characterText.text = GameInformation.CHARACTER_NAMES[index];
+        charactermodels[0].SetActive(false);
+        charactermodels[1].SetActive(false);
+        charactermodels[index].SetActive(true);
+    }
+    private void OnDisable()
+    {
+        charactermodels[0].SetActive(false);
+        charactermodels[1].SetActive(false);
     }
 
 }

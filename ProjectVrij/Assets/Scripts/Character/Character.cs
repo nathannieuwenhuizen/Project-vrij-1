@@ -51,6 +51,7 @@ public class Character : Entity
     [FMODUnity.EventRef] public string gotHitSound;
     [FMODUnity.EventRef] public string deathSound;
     [FMODUnity.EventRef] public string wooshSound;
+    [FMODUnity.EventRef] public string CrystalOffer;
 
     [SerializeField]
     private AudioClip walkSound2;
@@ -65,9 +66,11 @@ public class Character : Entity
     [SerializeField]
     private AudioClip wooshSound2;
 
-    private float walkIndex;
+    [SerializeField] private float walkIndex;
+    [SerializeField] private float footstepSoundSpeed = 100;
     protected AudioSource movementAudioSource;
     protected AudioSource voiceAudioSource;
+    private bool playerMoving;
 
     // Overige variables
     protected Rigidbody rb;
@@ -80,7 +83,10 @@ public class Character : Entity
     public Camera camera;
     [SerializeField]
     private GameObject pointPrefab;
+    [SerializeField]
+    private float walkingSoundSpeed = 0.4f;
     private bool knocked = false;
+
 
     private PlayerSpawner ps;
 
@@ -90,6 +96,8 @@ public class Character : Entity
     [SerializeField]
     private int savePoints = 0;
     private Character characterThatHitYou;
+
+
 
     // Start is called before the first frame update
     protected override void Start()
@@ -108,6 +116,7 @@ public class Character : Entity
         CameraFadeFromBlack();
 
         IsGrounded = false;
+
     }
 
     // Update is called once per frame
@@ -118,19 +127,18 @@ public class Character : Entity
         {
             //gets the max speed of the x-speed or z-speed
             float directionalSpeed = Mathf.Max(Mathf.Abs(rb.velocity.x), Mathf.Abs(rb.velocity.z));
-            walkIndex += directionalSpeed / 100;
+            walkIndex += directionalSpeed / footstepSoundSpeed;
             if (walkIndex > 1)
             {
                 walkIndex = 0;
-                PlaySound(movementAudioSource, walkSound2, .5f);
                 FMODUnity.RuntimeManager.PlayOneShot(walkSound, transform.position);
+
             }
 
             //tilts the camera a bit
             Vector3 currentRotation = cameraPivot.localRotation.eulerAngles;
-            currentRotation.z = Mathf.Sin(walkIndex * Mathf.PI * 2); 
+            currentRotation.z = Mathf.Sin(walkIndex * Mathf.PI * 2);
             //cameraPivot.localRotation = Quaternion.Euler(currentRotation);
-
         }
     }
 
@@ -164,6 +172,8 @@ public class Character : Entity
         {
             collision.GetComponent<ParticleSystem>().Play();
             TransferPointsToAltar();
+            //Play Sound
+            FMODUnity.RuntimeManager.PlayOneShot(CrystalOffer, collision.gameObject.transform.position);
         }
     }
     public void TransferPointsToAltar()

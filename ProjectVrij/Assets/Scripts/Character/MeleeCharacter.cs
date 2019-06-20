@@ -56,7 +56,6 @@ public class MeleeCharacter : Character
     
     private InputHandler inputHandlerScript;
 
-
     protected override void Start()
     {
         Debug.Log("start child");
