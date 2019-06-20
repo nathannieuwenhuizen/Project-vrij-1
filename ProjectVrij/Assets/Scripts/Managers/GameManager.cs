@@ -28,8 +28,6 @@ public class GameManager : MonoBehaviour
     private GameObject resultScreen;
     [SerializeField]
     private GameObject pauseScreen;
-    [SerializeField]
-    private Text winningText;
 
     [SerializeField]
     private GameObject countDownObject;
@@ -40,8 +38,13 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float countDownDurationInSeconds = 1f;
 
-    [SerializeField]
+    [SerializeField] 
     private CountDownTimer timer;
+    [SerializeField]
+    private GameObject timerObject;
+
+    [SerializeField]
+    private GameObject playerUIs;
 
     private List<Character> characters;
     public void Start()
@@ -172,11 +175,57 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void GameOver()
     {
+        foreach (Character character in characters)
+        {
+            character.GetComponent<InputHandler>().enabled = false;
+            character.Walking(0, 0);
+        }
+        countDownObject.SetActive(true);
+        countDownText.text = "Time's up!";
 
-        resultScreen.SetActive(true);
-        winningText.text = (HighestScoredPlayer().transform.name + " wins!");
+        playerUIs.SetActive(false);
+        timerObject.SetActive(false);
+        pointerGroup.SetActive(false);
+
+        StartCoroutine(GameOvering());
     }
+    IEnumerator GameOvering()
+    {
+        yield return new WaitForSeconds(0.5f);
+        foreach (Character character in characters)
+        {
+            character.CameraFadeToBlack();
+        }
+        yield return new WaitForSeconds(0.5f);
 
+        foreach (Character character in characters)
+        {
+            character.SetupCameraForResultScreen();
+        }
+        countDownText.text = "Counting points...";
+
+        int countScore = 0;
+        while (countScore <= HighestScoredPlayer().SavedPoints)
+        {
+            foreach (Character character in characters)
+            {
+                if (character.SavedPoints >= countScore)
+                {
+                    character.UpdateResultScoreText(countScore);
+                }
+            }
+            yield return new WaitForSeconds(1f / HighestScoredPlayer().SavedPoints);
+
+            countScore++;
+        }
+        countDownText.text = (HighestScoredPlayer().transform.name + " wins!");
+        resultScreen.SetActive(true);
+
+        foreach (Character character in characters)
+        {
+            character.Result(character == HighestScoredPlayer());
+        }
+    }
     /// <summary>
     /// Reloads the active scene, will maybe be put in a seperate scene manager class...
     /// </summary>
