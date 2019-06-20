@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
             characters[i].ApplyPlayerSetting(i + 1);
 
             //purely for testing
-            characters[0].ApplyPlayerSetting(0);
+            //characters[0].ApplyPlayerSetting(0);
             pointerGroup.transform.GetChild(i).gameObject.SetActive(true);
             Debug.Log("player index: " + i);
             Rect camrect = characters[i].camera.rect;
