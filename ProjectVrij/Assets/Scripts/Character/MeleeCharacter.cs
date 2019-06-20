@@ -26,6 +26,7 @@ public class MeleeCharacter : Character
 
     [SerializeField] private ParticleSystem chargeParticles;
     [SerializeField] private ParticleSystem chargeTrailParticles;
+    [SerializeField] private GameObject indicationLine;
 
     [SerializeField]
     private BoxCollider chargeHitbox;
@@ -90,6 +91,7 @@ public class MeleeCharacter : Character
     {
         SetAnimation("increasecharge", true);
         chargeParticles.Play();
+        indicationLine.SetActive(true);
         camera.GetComponent<CameraShake>().Shake(60, 0.1f);
         while(forceDuration < maxForceIncreaseDuration)
         {
@@ -111,6 +113,7 @@ public class MeleeCharacter : Character
 
         
         ParticleManager.instance.SpawnParticle(ParticleManager.instance.chargeParticles, transform.position + transform.forward, transform.rotation);
+        indicationLine.SetActive(false);
 
         SetAnimation("increasecharge", false);
         SetAnimation("charging", true);
