@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &5530501965507228999
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056814791560198516}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.062933, y: 0.6064087, z: 4.0519695}
+  m_Center: {x: -0.00000011920929, y: -0.00000022351742, z: 0.00000011920929}
 --- !u!1 &6280152501018494211
 GameObject:
   m_ObjectHideFlags: 0
@@ -46,6 +59,7 @@ GameObject:
   - component: {fileID: 6280152501018335529}
   - component: {fileID: 6280152501015468297}
   - component: {fileID: 6280152501016566729}
+  - component: {fileID: 3829595437636993165}
   m_Layer: 0
   m_Name: Pillar_Plate01
   m_TagString: Untagged
@@ -112,6 +126,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &3829595437636993165
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6280152501018494217}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.062931, y: 0.6064091, z: 4.0519695}
+  m_Center: {x: 39.996635, y: 10.164095, z: -0.0019649267}
 --- !u!1 &6280152501018494219
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,6 +150,7 @@ GameObject:
   - component: {fileID: 6280152501018335531}
   - component: {fileID: 6280152501015468299}
   - component: {fileID: 6280152501016566731}
+  - component: {fileID: 5137999658416764000}
   m_Layer: 0
   m_Name: Pillar_middle
   m_TagString: Untagged
@@ -189,6 +217,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &5137999658416764000
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6280152501018494219}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.6301444, y: 8.688832, z: 2.6598334}
+  m_Center: {x: -1.3021084, y: 4.334451, z: 1.3197014}
 --- !u!1 &6280152501018494221
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,6 +241,7 @@ GameObject:
   - component: {fileID: 6280152501018335533}
   - component: {fileID: 6280152501015468301}
   - component: {fileID: 6280152501016566733}
+  - component: {fileID: 1850960732849639018}
   m_Layer: 0
   m_Name: Pillar_Plate03
   m_TagString: Untagged
@@ -266,6 +308,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1850960732849639018
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6280152501018494221}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.2270937, y: 0.5214631, z: 3.219393}
+  m_Center: {x: -0.003553331, y: -0.024393171, z: -0.0030565262}
 --- !u!1 &6280152501018494223
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,6 +332,7 @@ GameObject:
   - component: {fileID: 6280152501018335535}
   - component: {fileID: 6280152501015468303}
   - component: {fileID: 6280152501016566735}
+  - component: {fileID: 328987264425269674}
   m_Layer: 0
   m_Name: Pillar_Plate02
   m_TagString: Untagged
@@ -343,6 +399,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &328987264425269674
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6280152501018494223}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1931763, y: 0.47354412, z: 3.1953104}
+  m_Center: {x: 39.997612, y: 9.633177, z: -0.0002862215}
 --- !u!1001 &8194662616032902829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -412,6 +481,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23302e6698e4bfa409a0963b69c2a1a3, type: 3}
+--- !u!1 &2056814791560198516 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7868364816076146649, guid: 23302e6698e4bfa409a0963b69c2a1a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 8194662616032902829}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2056814791559832916 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7868364816075791353, guid: 23302e6698e4bfa409a0963b69c2a1a3,

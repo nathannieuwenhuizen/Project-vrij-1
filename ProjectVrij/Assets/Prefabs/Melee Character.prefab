@@ -615,8 +615,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  rotationSpeedY: 3
-  rotationSpeedX: 2
+  rotationSpeedY: 8
+  rotationSpeedX: 6
   maxDownAngle: 45
   maxUpAngle: 45
   cameraPivot: {fileID: 2538581116282305849}
@@ -664,7 +664,7 @@ MonoBehaviour:
   swordDamage: 30
   swordPivot: {fileID: 622388376}
   swordHitBox: {fileID: 2034889271}
-  swordCoolDown: 0.5
+  swordCoolDown: 0.3
 --- !u!114 &6111700257971908398
 MonoBehaviour:
   m_ObjectHideFlags: 0
