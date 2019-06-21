@@ -340,9 +340,9 @@ MonoBehaviour:
   gotHitSound2: {fileID: 8300000, guid: 433b35c228f51e3489e8ebc020d98d6a, type: 3}
   deathSound2: {fileID: 8300000, guid: bcda2bda55489f64c9be1dfdd1979581, type: 3}
   wooshSound2: {fileID: 8300000, guid: fc93d4e008e659c498075e9d69c1b554, type: 3}
-  respawnParticles: {fileID: 0}
+  respawnParticles: {fileID: 8331674605904865059}
   walkIndex: 0
-  footstepSoundSpeed: 100
+  footstepSoundSpeed: 250
   resultScoreText: {fileID: 6207408483655117631}
   crownSprite: {fileID: 2728113844277355892}
   anim: {fileID: 7637078191550656519}
@@ -765,6 +765,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5373808742985529193}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &8331674605904865059 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4121804650146975818, guid: efae243b46b18c4498c0a5b1a99f25aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 5373808742985529193}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6480495301246365506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -772,6 +778,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2834880697019763054}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 100002, guid: 698bd3845f43c4e4f80846f8bd23c647, type: 3}
       propertyPath: m_Name
       value: character_melee_V06
@@ -780,6 +787,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+=======
+>>>>>>> origin/dev
     - target: {fileID: 9500000, guid: 698bd3845f43c4e4f80846f8bd23c647, type: 3}
       propertyPath: m_Controller
       value: 
@@ -828,10 +837,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 13700000, guid: 698bd3845f43c4e4f80846f8bd23c647, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 165afc928be5b3c4ba7c631ccc500123, type: 2}
+=======
+    - target: {fileID: 100002, guid: 698bd3845f43c4e4f80846f8bd23c647, type: 3}
+      propertyPath: m_Name
+      value: character_melee_V06
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 698bd3845f43c4e4f80846f8bd23c647, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400030, guid: 698bd3845f43c4e4f80846f8bd23c647, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.011852017
+      objectReference: {fileID: 0}
+    - target: {fileID: 400030, guid: 698bd3845f43c4e4f80846f8bd23c647, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.07620647
+      objectReference: {fileID: 0}
+>>>>>>> origin/dev
     - target: {fileID: 400040, guid: 698bd3845f43c4e4f80846f8bd23c647, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0.009930663
@@ -856,6 +884,13 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.059736926
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 13700000, guid: 698bd3845f43c4e4f80846f8bd23c647, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 165afc928be5b3c4ba7c631ccc500123, type: 2}
+>>>>>>> origin/dev
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 698bd3845f43c4e4f80846f8bd23c647, type: 3}
 --- !u!4 &6480495301246760384 stripped
@@ -871,6 +906,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2834880697019763054}
     m_Modifications:
+    - target: {fileID: 9500000, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1769dcc6ff477264899574f00be432f8, type: 2}
     - target: {fileID: 100002, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
       propertyPath: m_Name
       value: burstMage
