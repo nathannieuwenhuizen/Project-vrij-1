@@ -620,7 +620,7 @@ MonoBehaviour:
   maxDownAngle: 45
   maxUpAngle: 45
   cameraPivot: {fileID: 2538581116282305849}
-  walkSpeed: 14
+  walkSpeed: 15
   jumpForce: 10
   walkSound: event:/Interaction/FootSteps
   jumpSound: 
