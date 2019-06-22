@@ -40,11 +40,19 @@ MonoBehaviour:
   - {fileID: 114476734342563722}
   - {fileID: 114180055312555410}
   - {fileID: 114565650899784022}
+  - {fileID: 114366371143955812}
+  - {fileID: 114579590385099520}
+  - {fileID: 114283921138758828}
+  - {fileID: 114098977832086622}
+  - {fileID: 114665113130559308}
+  - {fileID: 114823573103423094}
+  - {fileID: 114928605639805028}
+  - {fileID: 114359722889229912}
   MasterBanks:
   - {fileID: 114019470430868980}
   StringsBanks:
   - {fileID: 114873381230119202}
-  stringsBankWriteTime: 636966473559217974
+  stringsBankWriteTime: 636967978535917420
   cacheVersion: 3
 --- !u!114 &114019470430868980
 MonoBehaviour:
@@ -59,11 +67,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\HkuGames\Project Vrij\FMOD_VRIJ\Build\Desktop\Master Bank.bank
-  lastModified: 636966473559158134
+  lastModified: 636967978535877434
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 12526464
+    Value: 14217120
   Exists: 1
 --- !u!114 &114019857891466256
 MonoBehaviour:
@@ -87,7 +95,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 1110
+  Length: 1140
 --- !u!114 &114021268898773000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,6 +141,22 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 136784
+--- !u!114 &114046168443459178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114066064957114992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,6 +180,22 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 136784
+--- !u!114 &114072491726850770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114081269180775828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,10 +215,50 @@ MonoBehaviour:
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
-  Parameters: []
+  Parameters:
+  - {fileID: 114905629481688024}
   MinDistance: 0
   MaxDistance: 0
   Length: 53706
+--- !u!114 &114098977832086622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Interaction/FireBallShoot
+  guid: c0a8893c18b2974a9b44a1d51e0d6691
+  Banks:
+  - {fileID: 114019470430868980}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1360
+--- !u!114 &114108312819865630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114116655770640706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +282,38 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2000
+--- !u!114 &114131755583710414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114145217003551356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114148000735457538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +406,22 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 60
   Length: 5000
+--- !u!114 &114175277286616908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114180055312555410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,6 +467,22 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 10109
+--- !u!114 &114228098728154616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114256547894729722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,6 +529,45 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 136784
+--- !u!114 &114272826112589928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114283921138758828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Interaction/FireBallHit
+  guid: 4a1e2fdc27a1464fbc091a714c3f166c
+  Banks:
+  - {fileID: 114019470430868980}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 730
 --- !u!114 &114289843763728328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,6 +637,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 132784
+--- !u!114 &114359722889229912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Interaction/ChargeAttack
+  guid: b71f6d0731613f40a87852a82e38bf68
+  Banks:
+  - {fileID: 114019470430868980}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1500
 --- !u!114 &114361065182989318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,6 +683,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 26232
+--- !u!114 &114366371143955812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/FastDrum2
+  guid: 0a8e31a68b5a984985ef24c2c38ce64e
+  Banks:
+  - {fileID: 114019470430868980}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114145217003551356}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 53706
 --- !u!114 &114382928748157912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,6 +775,22 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 380
+--- !u!114 &114404319081016872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114424474095917848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -656,6 +902,22 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1178
+--- !u!114 &114456291668493486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114465186256858330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,6 +1010,22 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 232000
+--- !u!114 &114493641484696642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114523829254622954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -793,6 +1071,38 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1081
+--- !u!114 &114533109330545490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114533147948280786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114534874120744346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -816,6 +1126,22 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 198857
+--- !u!114 &114540705157301706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114554084802314020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -908,6 +1234,46 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 10020
+--- !u!114 &114576133747791936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114579590385099520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/FastDrum1
+  guid: 5cdb01ef062bf7488a7c04d00e6f7935
+  Banks:
+  - {fileID: 114019470430868980}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114175277286616908}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 53706
 --- !u!114 &114609216316975566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1018,6 +1384,38 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 54000
+--- !u!114 &114646907632053668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114650938910918158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114653526276011376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1087,6 +1485,77 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 400
+--- !u!114 &114665113130559308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/CountDownSound2
+  guid: d052e285dc1d5d47a91c8404581e3b47
+  Banks:
+  - {fileID: 114019470430868980}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &114669403970193280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114673439893077862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114680480419152080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114688272937384558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1133,6 +1602,38 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 132784
+--- !u!114 &114703117015861932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114708543027731248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114718005323269536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1269,6 +1770,38 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 978
+--- !u!114 &114776614620710624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114776721600838872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114783065399701902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1337,6 +1870,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 40676
+--- !u!114 &114823573103423094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/CountDownSound1
+  guid: e2cc8baecb1c0c4081c1a90549501ff8
+  Banks:
+  - {fileID: 114019470430868980}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &114824189489946018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1359,6 +1915,22 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 500
+--- !u!114 &114826849959763122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114858346412341820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1382,6 +1954,22 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 53706
+--- !u!114 &114861375314887690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114871886953222072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1418,11 +2006,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\HkuGames\Project Vrij\FMOD_VRIJ\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636966473559217974
+  lastModified: 636967978535917420
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1836
+    Value: 2206
   Exists: 1
 --- !u!114 &114877902692338362
 MonoBehaviour:
@@ -1447,6 +2035,22 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 132784
+--- !u!114 &114905629481688024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114918623362132752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1470,6 +2074,45 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 650
+--- !u!114 &114920013214669028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114928605639805028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Interaction/Charge
+  guid: 7377af5e092d1f43864288bac52b67ec
+  Banks:
+  - {fileID: 114019470430868980}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1728
 --- !u!114 &114931276679640626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1516,6 +2159,22 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 10020
+--- !u!114 &114951846438941690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114960375684012362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1539,6 +2198,22 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 26232
+--- !u!114 &114967107368503112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114977036102527744
 MonoBehaviour:
   m_ObjectHideFlags: 0

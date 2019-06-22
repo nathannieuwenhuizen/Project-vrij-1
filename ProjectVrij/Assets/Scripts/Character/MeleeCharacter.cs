@@ -28,7 +28,10 @@ public class MeleeCharacter : Character
     [SerializeField] private ParticleSystem chargeTrailParticles;
     [SerializeField] private GameObject indicationLine;
 
+    FMOD.Studio.EventInstance instChargeSound;
     [FMODUnity.EventRef] public string swordSound;
+    [FMODUnity.EventRef] public string chargeSound;
+    [FMODUnity.EventRef] public string chargeAttack;
 
     [SerializeField]
     private BoxCollider chargeHitbox;
@@ -70,6 +73,8 @@ public class MeleeCharacter : Character
         //KeyCode specialAttackCode = inputHandlerScript.specialAttackCode;
         ui.SetCharacterType(0);
         SavedPoints = 30;
+        instChargeSound = FMODUnity.RuntimeManager.CreateInstance(chargeSound);
+
 
         base.Start();
     }
@@ -93,6 +98,7 @@ public class MeleeCharacter : Character
         SetAnimation("increasecharge", true);
         chargeParticles.Play();
         indicationLine.SetActive(true);
+        instChargeSound.start();
         camera.GetComponent<CameraShake>().Shake(60, 0.1f);
         while(forceDuration < maxForceIncreaseDuration)
         {
@@ -111,8 +117,8 @@ public class MeleeCharacter : Character
         {
             return;
         }
-
-        
+        instChargeSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        FMODUnity.RuntimeManager.PlayOneShot(chargeAttack); 
         ParticleManager.instance.SpawnParticle(ParticleManager.instance.chargeParticles, transform.position + transform.forward, transform.rotation);
         indicationLine.SetActive(false);
 

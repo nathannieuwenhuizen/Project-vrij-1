@@ -67,7 +67,9 @@ MonoBehaviour:
   forceForward: 0
   forceUp: 0
   pushesPlayerBack: 0
+  trailParticle: {fileID: 0}
   playerID: {fileID: 0}
+  iceHit: event:/Interaction/FireBallHit
 --- !u!114 &3137482763059432436
 MonoBehaviour:
   m_ObjectHideFlags: 0

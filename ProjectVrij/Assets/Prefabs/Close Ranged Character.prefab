@@ -367,6 +367,7 @@ MonoBehaviour:
   SpreadreloadTime: 0.5
   shootSound: {fileID: 8300000, guid: 5391193f2c046204fa2267b76ecd313a, type: 3}
   iceShot: event:/Interaction/IceShoot
+  fireShot: event:/Interaction/FireBallShoot
 --- !u!114 &4932237300317104834
 MonoBehaviour:
   m_ObjectHideFlags: 0

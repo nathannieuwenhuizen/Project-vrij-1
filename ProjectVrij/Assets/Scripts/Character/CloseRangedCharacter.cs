@@ -40,6 +40,8 @@ public class CloseRangedCharacter : Character
     private AudioClip shootSound;
 
     [FMODUnity.EventRef] public string iceShot;
+    [FMODUnity.EventRef] public string fireShot;
+   
 
 
     private bool Spreadreloading = false;
@@ -116,6 +118,7 @@ public class CloseRangedCharacter : Character
 
     public IEnumerator SpreadShoot()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(fireShot);
         yield return new WaitForSeconds(0.2f);
 
         ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileSpawn, shootPosition.position, transform.rotation);
