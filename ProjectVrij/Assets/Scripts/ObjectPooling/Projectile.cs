@@ -13,7 +13,25 @@ public class Projectile : PoolObject
     //when it destroys itself
     [SerializeField]
     private float destroyTime = 3f;
+    [SerializeField]
+    private float forceForward;
+    [SerializeField]
+    private float forceUp;
+
+    [SerializeField]
+    private bool pushesPlayerBack = false;
+    [SerializeField]
+    private bool isSpreadAttack = false;
+
+    public ParticleSystem trailParticle;
+
     public Character playerID;
+    private Character characterThatHitYou;
+
+    [FMODUnity.EventRef] public string iceHit;
+
+
+
 
     public void FixedUpdate()
     {
@@ -26,9 +44,11 @@ public class Projectile : PoolObject
 
     public override void OnObjectReuse()
     {
-
     }
-
+    public override void Destroy()
+    {
+        base.Destroy();
+    }
     public void Spawn()
     {
         StartCoroutine(Destroying());
@@ -44,8 +64,25 @@ public class Projectile : PoolObject
     {
         if (col.gameObject.GetComponent<Projectile>())
         {
+            //projectile.GetComponent<Character>().KnockBack(forceForward, forceUp);
             return;
         }
+        if (col.gameObject.GetComponent<Character>() && pushesPlayerBack)
+        {
+            Debug.Log("PUSH BAACCCKKK");
+            col.gameObject.GetComponent<MeleeCharacter>().KnockBack(10f, 10f, transform.position);
+            FMODUnity.RuntimeManager.PlayOneShot(iceHit, transform.position);
+        }
+
+        if (isSpreadAttack)
+        {
+            ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileHitFire, transform.position, transform.rotation);
+        }
+        else
+        {
+            ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileHitIce, transform.position, transform.rotation);
+        }
+
         Destroy();
     }
 }

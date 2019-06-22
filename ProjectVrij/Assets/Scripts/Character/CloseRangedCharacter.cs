@@ -16,6 +16,7 @@ public class CloseRangedCharacter : Character
     private float shootSpeed;
     [SerializeField]
     private int projectileDamage = 30;
+    
 
     [Space]
     [Header("Spread Attack")]
@@ -34,18 +35,26 @@ public class CloseRangedCharacter : Character
     [SerializeField]
     private float reloadTime = 0.5f;
     [SerializeField]
+    private float SpreadreloadTime = 0.5f;
+    [SerializeField]
     private AudioClip shootSound;
 
+    [FMODUnity.EventRef] public string iceShot;
+    [FMODUnity.EventRef] public string fireShot;
+   
 
+
+    private bool Spreadreloading = false;
     private bool reloading = false;
 
     protected override void Start()
     {
         PoolManager.instance.CreatePool(projectilePrefab, 10);
-        PoolManager.instance.CreatePool(spreadProjectilePrefab, amountOfSpreadProjectiles * 4);
+        PoolManager.instance.CreatePool(spreadProjectilePrefab, amountOfSpreadProjectiles * GameInformation.PLAYER_COUNT);
 
-        Debug.Log("start child");
         rb = GetComponent<Rigidbody>();
+        ui.SetCharacterType(1);
+        SavedPoints = 20;
         base.Start();
     }
 
@@ -57,7 +66,13 @@ public class CloseRangedCharacter : Character
     public override void SecondSpecialAttack()
     {
         base.SpecialAttack();
-        SpreadShoot();
+
+        if (Spreadreloading) { return; }
+        Spreadreloading = true;
+
+        SetAnimation("shooting", true);
+        StartCoroutine(SpreadShoot());
+
 
     }
 
@@ -66,17 +81,19 @@ public class CloseRangedCharacter : Character
         base.SpecialAttack();
 
         if (reloading) { return; }
-
         reloading = true;
-        Shoot(projectilePrefab, projectileDamage);
-        StartCoroutine(Reloading());
+
+        SetAnimation("shooting", true);
+        StartCoroutine(PushBack());
+
+        FMODUnity.RuntimeManager.PlayOneShot(iceShot, transform.position);
 
     }
 
     /// <summary>
     /// Shoots a projectile
     /// </summary>
-    public void Shoot(GameObject obj, int damage)
+    public void InstantiateBullet(GameObject obj, int damage)
     {
         PlaySound(movementAudioSource, shootSound);
         GameObject projectile = PoolManager.instance.ReuseObject(obj, shootPosition.position, shootPosition.rotation);
@@ -84,23 +101,39 @@ public class CloseRangedCharacter : Character
         projectile.GetComponent<Projectile>().Spawn();
         projectile.GetComponent<Hitbox>().Character = this;
         projectile.GetComponent<Hitbox>().Damage = damage;
+        
     }
 
-    public void SpreadShoot()
+    public IEnumerator PushBack()
     {
-        Debug.Log("spread shoot");
-        if (reloading) { return; }
-        reloading = true;
+        yield return new WaitForSeconds(0.2f);
+        //ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileSpawn, shootPosition.position, transform.rotation);
+        InstantiateBullet(projectilePrefab, projectileDamage);
+
+        ui.CoolDownAttack2(reloadTime);
+        yield return StartCoroutine(Reloading(reloadTime));
+        reloading = false;
+
+    }
+
+    public IEnumerator SpreadShoot()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(fireShot);
+        yield return new WaitForSeconds(0.2f);
+
+        ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileSpawn, shootPosition.position, transform.rotation);
+
         cameraPivot.Rotate(new Vector3(0, -shootAngle, 0));
         for (int i = 0; i < amountOfSpreadProjectiles; i++)
         {
-            Shoot(spreadProjectilePrefab, spreadDamage);
+            InstantiateBullet(spreadProjectilePrefab, spreadDamage);
             cameraPivot.Rotate(new Vector3(0, (shootAngle * 2) / amountOfSpreadProjectiles, 0));
         }
         cameraPivot.Rotate(new Vector3(0, -shootAngle, 0));
 
-        StartCoroutine(Reloading());
-
+        ui.CoolDownAttack1(SpreadreloadTime);
+        yield return StartCoroutine(Reloading(SpreadreloadTime));
+        Spreadreloading = false;
     }
 
 
@@ -108,9 +141,10 @@ public class CloseRangedCharacter : Character
     /// Reloads the weapon, making it not usable for reloadtime long.
     /// </summary>
     /// <returns></returns>
-    IEnumerator Reloading()
+    IEnumerator Reloading(float duration)
     {
-        yield return new WaitForSeconds(reloadTime);
-        reloading = false;
+        yield return new WaitForSeconds(duration);
+        SetAnimation("shooting", false);
+
     }
 }

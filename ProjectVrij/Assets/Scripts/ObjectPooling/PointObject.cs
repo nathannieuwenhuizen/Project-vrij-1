@@ -9,11 +9,8 @@ public class PointObject : PoolObject
     //my spawnPosition, must be changed to private and a getter/setter must be made later.
     public SpawnPosition myPos;
 
-    [SerializeField]
-    private ParticleSystem collectedParticle;
-
-    [SerializeField]
-    private ParticleSystem spawnParticle;
+    //FMOD
+    [FMODUnity.EventRef] public string PointCollect;
 
     public void Update()
     {
@@ -26,13 +23,14 @@ public class PointObject : PoolObject
     }
     public void Spawn()
     {
-        spawnParticle.Play();
+        ParticleManager.instance.SpawnParticle(ParticleManager.instance.spawnPointParticle, transform.position, transform.rotation);
     }
 
     public IEnumerator Collected()
     {
-        collectedParticle.Play();
-        GetComponent<MeshRenderer>().enabled = false;
+        ParticleManager.instance.SpawnParticle(ParticleManager.instance.collectPointParticle, transform.position, transform.rotation);
+
+        transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
         GetComponent<BoxCollider>().enabled = false;
 
         //waits for a time before respawning
@@ -42,7 +40,7 @@ public class PointObject : PoolObject
         //returns to the poolmanager.
         this.Destroy();
 
-        GetComponent<MeshRenderer>().enabled = true;
+        transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
         GetComponent<BoxCollider>().enabled = true;
 
         //if its spawned at a spawn position.
@@ -71,6 +69,8 @@ public class PointObject : PoolObject
             {
                 //player gets score;
                 character.Points++;
+
+                FMODUnity.RuntimeManager.PlayOneShot(PointCollect, this.transform.position);
 
                 StartCoroutine(Collected());
             }

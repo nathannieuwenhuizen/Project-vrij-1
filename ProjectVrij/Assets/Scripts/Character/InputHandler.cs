@@ -9,6 +9,7 @@ public class InputHandler : MonoBehaviour
     [SerializeField]
     private int controllerID = 0;
 
+    private bool canOnlyMoveCamera = false;
 
     //buttons
     private KeyCode baseAttackCode;
@@ -43,37 +44,37 @@ public class InputHandler : MonoBehaviour
             case 1:
                 baseAttackCode = KeyCode.Joystick1Button3;
                 jumpCode = KeyCode.Joystick1Button0;
-                specialAttackCode = KeyCode.Joystick1Button5;
-                specialAttack2Code = KeyCode.Joystick1Button1;
+                specialAttackCode = KeyCode.Joystick1Button4;
+                specialAttack2Code = KeyCode.Joystick1Button5;
                 startButton = KeyCode.Joystick1Button7;
                 break;
             case 2:
                 baseAttackCode = KeyCode.Joystick2Button3;
                 jumpCode = KeyCode.Joystick2Button0;
-                specialAttackCode = KeyCode.Joystick2Button5;
-                specialAttack2Code = KeyCode.Joystick2Button1;
+                specialAttackCode = KeyCode.Joystick2Button4;
+                specialAttack2Code = KeyCode.Joystick2Button5;
                 startButton = KeyCode.Joystick2Button7;
                 break;
             case 3:
                 baseAttackCode = KeyCode.Joystick3Button3;
                 jumpCode = KeyCode.Joystick3Button0;
-                specialAttackCode = KeyCode.Joystick3Button5;
-                specialAttack2Code = KeyCode.Joystick3Button1;
+                specialAttackCode = KeyCode.Joystick3Button4;
+                specialAttack2Code = KeyCode.Joystick3Button5;
                 startButton = KeyCode.Joystick3Button7;
                 break;
             case 4:
                 baseAttackCode = KeyCode.Joystick4Button3;
                 jumpCode = KeyCode.Joystick4Button0;
-                specialAttackCode = KeyCode.Joystick4Button5;
-                specialAttack2Code = KeyCode.Joystick4Button1;
+                specialAttackCode = KeyCode.Joystick4Button4;
+                specialAttack2Code = KeyCode.Joystick4Button5;
                 startButton = KeyCode.Joystick4Button7;
                 break;
             default:
                 baseAttackCode = KeyCode.P;
-                jumpCode = KeyCode.L;
+                jumpCode = KeyCode.Space;
                 specialAttackCode = KeyCode.M;
                 specialAttack2Code = KeyCode.K;
-                startButton = KeyCode.Space;
+                startButton = KeyCode.Escape;
                 break;
         }
     }
@@ -87,6 +88,14 @@ public class InputHandler : MonoBehaviour
             ConfigureControlButtons();
         }
     }
+    public bool CanOnlyMoveCamera
+    {
+        get { return canOnlyMoveCamera; }
+        set
+        {
+            canOnlyMoveCamera = value;
+        }
+    }
 
     void Update()
     {
@@ -97,10 +106,18 @@ public class InputHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(startButton))
         {
-            RoundManager.instance.Pause(Time.timeScale == 1);
+            GameManager.instance.Pause(Time.timeScale == 1);
         }
 
         if (Time.timeScale == 0) { return; }
+        //player view change
+        character.Rotate(
+            CrossPlatformInputManager.GetAxis("RotateHorizontal" + controllerID),
+            CrossPlatformInputManager.GetAxis("RotateVertical" + controllerID)
+            );
+
+        if (canOnlyMoveCamera) { return; }
+
         //Checks whether a button is pressed down.
         if (Input.GetKeyDown(baseAttackCode))
         {
@@ -131,10 +148,5 @@ public class InputHandler : MonoBehaviour
 
         //player movement
         character.Walking(CrossPlatformInputManager.GetAxis("Vertical" + controllerID), -CrossPlatformInputManager.GetAxis("Horizontal" + controllerID));
-        //player view change
-        character.Rotate(
-            CrossPlatformInputManager.GetAxis("RotateHorizontal" + controllerID),
-            CrossPlatformInputManager.GetAxis("RotateVertical" + controllerID)
-            );
     }
 }

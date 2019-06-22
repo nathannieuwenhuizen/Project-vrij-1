@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+//using FMOD;
 
 /// <summary>
 /// The character is the base entity that the player plays as. (with camera and UI call) 
@@ -40,60 +41,78 @@ public class Character : Entity
 
     private bool isGrounded = true;
 
-
+    private bool doesNothing = false;
+    private Coroutine doingNothing = null;
     //sounds
     [Header("Sounds")]
-    [SerializeField]
-    private AudioClip walkSound;
-    [SerializeField]
-    private AudioClip jumpSound;
-    [SerializeField]
-    private AudioClip landingSound;
-    [SerializeField]
-    private AudioClip gotHitSound;
-    [SerializeField]
-    private AudioClip deathSound;
-    [SerializeField]
-    private AudioClip wooshSound;
+    [FMODUnity.EventRef] public string walkSound;
+    [FMODUnity.EventRef] public string jumpSound;
+    [FMODUnity.EventRef] public string landingSound;
+    [FMODUnity.EventRef] public string gotHitSound;
+    [FMODUnity.EventRef] public string deathSound;
+    [FMODUnity.EventRef] public string punchSound;
+    [FMODUnity.EventRef] public string CrystalOffer;
 
-    private float walkIndex;
+    [SerializeField]
+    private AudioClip walkSound2;
+    [SerializeField]
+    private AudioClip jumpSound2;
+    [SerializeField]
+    private AudioClip landingSound2;
+    [SerializeField]
+    private AudioClip gotHitSound2;
+    [SerializeField]
+    private AudioClip deathSound2;
+    [SerializeField]
+    private AudioClip wooshSound2;
+
+    [SerializeField]
+    private ParticleSystem respawnParticles;
+
+    [SerializeField] private float walkIndex;
+    [SerializeField] private float footstepSoundSpeed = 700;
     protected AudioSource movementAudioSource;
     protected AudioSource voiceAudioSource;
+    private bool playerMoving;
+
+    [Space]
+    [Header("result UI")]
+    [SerializeField]
+    private TextMesh resultScoreText;
+    [SerializeField]
+    private SpriteRenderer crownSprite;
 
     // Overige variables
     protected Rigidbody rb;
     [Header("overige dingen")]
     [SerializeField]
-    private Animator anim;
+    protected Animator anim;
     [SerializeField]
     public PlayerUI ui;
     [SerializeField]
     public Camera camera;
     [SerializeField]
     private GameObject pointPrefab;
+    [SerializeField]
+    private float walkingSoundSpeed = 0.4f;
+    private bool knocked = false;
+
 
     private PlayerSpawner ps;
 
+    //point information
     [SerializeField]
     private int points = 0;
     [SerializeField]
     private int savePoints = 0;
     private Character characterThatHitYou;
-    [Space]
-    [Header("particles")]
-    [SerializeField]
-    private GameObject deathParticle;
-    [SerializeField]
-    private GameObject dustParticle;
+
+
 
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
-
-        //poolmanager instantiates death particle;
-        PoolManager.instance.CreatePool(deathParticle, 4);
-        PoolManager.instance.CreatePool(dustParticle, 8);
 
         //components are defined
         ps = Transform.FindObjectOfType<PlayerSpawner>();
@@ -104,29 +123,32 @@ public class Character : Entity
         voiceAudioSource = gameObject.AddComponent<AudioSource>();
 
         ui.SetPointText(points.ToString());
-        //Application.targetFrameRate = 60;
+        CameraFadeFromBlack();
+
+        IsGrounded = false;
+
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
         //If grounded, play music and tilt the camera bit.
-        if (isGrounded)
+        if (IsGrounded)
         {
             //gets the max speed of the x-speed or z-speed
             float directionalSpeed = Mathf.Max(Mathf.Abs(rb.velocity.x), Mathf.Abs(rb.velocity.z));
-            walkIndex += directionalSpeed / 100;
+            walkIndex += directionalSpeed / footstepSoundSpeed;
             if (walkIndex > 1)
             {
                 walkIndex = 0;
-                PlaySound(movementAudioSource, walkSound, .5f);
+                FMODUnity.RuntimeManager.PlayOneShot(walkSound, transform.position);
+
             }
 
             //tilts the camera a bit
             Vector3 currentRotation = cameraPivot.localRotation.eulerAngles;
-            currentRotation.z = Mathf.Sin(walkIndex * Mathf.PI * 2); 
+            currentRotation.z = Mathf.Sin(walkIndex * Mathf.PI * 2);
             //cameraPivot.localRotation = Quaternion.Euler(currentRotation);
-
         }
     }
 
@@ -145,10 +167,14 @@ public class Character : Entity
         if (collision.gameObject.GetComponent<Hitbox>())
         {
             //if it doesnt come from the player itself
-            if (collision.gameObject.GetComponent<Hitbox>().Character != this)
+            if (collision.gameObject.GetComponent<Hitbox>().Character)
             {
-                //take damage
-                GotHit(collision.gameObject.GetComponent<Hitbox>());
+                //if it doesnt come from the player itself
+                if (collision.gameObject.GetComponent<Hitbox>().Character != this)
+                {
+                    //take damage
+                    GotHit(collision.gameObject.GetComponent<Hitbox>());
+                }
             }
         }
 
@@ -156,6 +182,8 @@ public class Character : Entity
         {
             collision.GetComponent<ParticleSystem>().Play();
             TransferPointsToAltar();
+            //Play Sound
+            FMODUnity.RuntimeManager.PlayOneShot(CrystalOffer, collision.gameObject.transform.position);
         }
     }
     public void TransferPointsToAltar()
@@ -179,11 +207,42 @@ public class Character : Entity
         //else its just ground
         else
         {
-            PlaySound(movementAudioSource, landingSound, 1f);
-            isGrounded = true;
-            anim.SetBool("isJumpingUp", false);
-            PoolManager.instance.ReuseObject(dustParticle, transform.position, transform.rotation).GetComponent<ParticleExplosion>().Explode();
+            knocked = false;
+            FMODUnity.RuntimeManager.PlayOneShot(landingSound, transform.position);
+            IsGrounded = true;
+            ParticleManager.instance.SpawnParticle(ParticleManager.instance.landImpactParticle, transform.position, transform.rotation);
 
+        }
+    }
+    public void OnCollisionStay(Collision collision)
+    {
+        if (!isGrounded)
+        {
+            isGrounded = true;
+            StartCoroutine(ChangeIsGroundedWhenValStays(.05f, true));
+        }
+    }
+    public void OnCollisionExit(Collision collision)
+    {
+        if (isGrounded)
+        {
+            isGrounded = false;
+            StartCoroutine(ChangeIsGroundedWhenValStays(.3f, false));
+        }
+    }
+
+    IEnumerator ChangeIsGroundedWhenValStays(float duration, bool val)
+    {
+        float index = 0;
+        while (isGrounded == val)
+        {
+            index += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+            if (index > duration)
+            {
+                IsGrounded = val;
+                break;
+            }
         }
     }
 
@@ -193,25 +252,40 @@ public class Character : Entity
     /// <param name="hit"></param>
     private void  GotHit(Hitbox hit)
     {
-        PlaySound(voiceAudioSource, gotHitSound, 1f);
+        ParticleManager.instance.SpawnParticle(ParticleManager.instance.hitParticle, transform.position + transform.up, transform.rotation);
+        camera.GetComponent<CameraShake>().Shake(0.05f);
+
+        camera.GetComponent<CameraFade>().fadingColor = Color.red;
+        camera.GetComponent<CameraFade>().fadingOut = false;
+        camera.GetComponent<CameraFade>().alphaFadeValue = 0.3f;
+        camera.GetComponent<CameraFade>().fadeSpeed = 1f;
+
+        SetAnimation("hitted", true);
+        StartCoroutine(SetanimationBoolFalse("hitted", 0.2f));
+        Debug.Log("GOT HIT");
+
+        FMODUnity.RuntimeManager.PlayOneShot(gotHitSound, transform.position);
         characterThatHitYou = hit.Character;
         Health -= hit.Damage;
     }
+    IEnumerator SetanimationBoolFalse(string val, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        anim.SetBool(val, false);
 
+    }
     /// <summary>
     /// Your death!
     /// </summary>
-    public override void Death()
+    public override void Death() 
     {
         base.Death();
+        anim.SetLayerWeight(1, 0);
+        SetAnimation("dead", true);
 
         //other player recieves point (MUST BE CHANGED LATER!)
-        if (characterThatHitYou != null)
-        {
-            //characterThatHitYou.Points += Points + 1;
-            //Points = 0;
-        }
         float spread = 100f;
+        characterThatHitYou.Points += 1;
         for (int i = 0; i < Points; i++)
         {
             PointObject point = PoolManager.instance.ReuseObject(pointPrefab, transform.position + new Vector3(0, 2f, 0), Quaternion.identity).GetComponent<PointObject>();
@@ -221,19 +295,29 @@ public class Character : Entity
 
         Points = 0;
 
-
         //death particle at position and explode.
-        PoolManager.instance.ReuseObject(deathParticle, transform.position + new Vector3(0,1.5f,0), transform.rotation).GetComponent<ParticleExplosion>().Explode();
+        ParticleManager.instance.SpawnParticle(ParticleManager.instance.deathParticle, transform.position + new Vector3(0,1.5f,0), transform.rotation);
 
         //plays death sound
-        PlaySound(voiceAudioSource, deathSound);
+        FMODUnity.RuntimeManager.PlayOneShot(deathSound, transform.position);
 
         //character falls back by changing the force of the rigidbody.
-        Vector3 fallBackForce = Vector3.Normalize(transform.position - characterThatHitYou.transform.position) * 10f;
-        fallBackForce.y = 5f;
-        rb.velocity = fallBackForce;
+        if (characterThatHitYou != null)
+        {
+            //characterThatHitYou.Points += Points + 1;
+            //Points = 0;
+            KnockBack(10f, 5f, characterThatHitYou.transform.position);
+        }
 
         StartCoroutine(Respawning());
+    }
+
+    public void KnockBack(float force, float forceY, Vector3 hitBoxPos)
+    {
+        knocked = true;
+        Vector3 fallBackForce = Vector3.Normalize(transform.position - hitBoxPos) * force;
+        fallBackForce.y = forceY;
+        rb.velocity = fallBackForce;
     }
 
     /// <summary>
@@ -242,7 +326,9 @@ public class Character : Entity
     /// <returns></returns>
     IEnumerator Respawning()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
+        CameraFadeToBlack();
+        yield return new WaitForSeconds(.8f);
         Respawn();
     }
     /// <summary>
@@ -250,10 +336,29 @@ public class Character : Entity
     /// </summary>
     public void Respawn()
     {
-        Debug.Log("respawn");
+        SetAnimation("dead", false);
+        anim.SetLayerWeight(1, 1);
+
+        CameraFadeFromBlack();
         Health = MaxHealth;
         characterThatHitYou = null;
         ps.RespawnPlayer(this);
+
+        respawnParticles.Play();
+    }
+    public void CameraFadeToBlack()
+    {
+        camera.GetComponent<CameraFade>().fadingColor = Color.black;
+        camera.GetComponent<CameraFade>().fadingOut = true;
+        camera.GetComponent<CameraFade>().alphaFadeValue = 0;
+        camera.GetComponent<CameraFade>().fadeSpeed = .5f;
+    }
+    public void CameraFadeFromBlack()
+    {
+        camera.GetComponent<CameraFade>().fadingColor = Color.black;
+        camera.GetComponent<CameraFade>().fadingOut = false;
+        camera.GetComponent<CameraFade>().alphaFadeValue = 1;
+        camera.GetComponent<CameraFade>().fadeSpeed = .5f;
     }
 
     /// <summary>
@@ -328,23 +433,21 @@ public class Character : Entity
     public void Walking(float h_input, float y_input)
     {
         //if the character is dead, it shouldnt be able to move.
-        if (Health == 0) { return; }
+        if (Health == 0 || knocked) { return; }
 
         rb.velocity = new Vector3(0, rb.velocity.y, 0);
         rb.velocity += transform.right * h_input * walkSpeed;
         rb.velocity += transform.forward * y_input * walkSpeed;
 
-        anim.SetBool("isWalkingForward", y_input > 0.1);
-        anim.SetBool("isWalkingBack", y_input < -0.1);
-        anim.SetBool("isWalkingSide", h_input < -0.1 || h_input > 0.1);
-        //else if(y_input < 0)
-        //{
-        //    anim.SetBool("isWalkingBack", true);
-        //}
-        //else if (h_input < 0 || h_input > 0)
-        //{
-        //    anim.SetBool("isWalkingSide", true);
-        //}
+        anim.SetFloat("hMove", h_input);
+        anim.SetFloat("yMove", y_input);
+        if (h_input == 0 && y_input == 0)
+        {
+            DoesNothing();
+        } else
+        {
+            DoesSomething();
+        }
     }
 
     /// <summary>
@@ -352,20 +455,18 @@ public class Character : Entity
     /// </summary>
     public virtual void Jump()
     {
-        Debug.Log(rb);
-        if (isGrounded == true)
+        if (IsGrounded == true)
         {
-            anim.SetBool("isJumpingUp", true);
 
             //changes the y velocity
             Vector3 jumpVelocity = rb.velocity;
             jumpVelocity.y = jumpForce;
             rb.velocity = jumpVelocity;
 
-            isGrounded = false;
-            PlaySound(movementAudioSource, jumpSound, 1f);
+            IsGrounded = false;
+            FMODUnity.RuntimeManager.PlayOneShot(jumpSound, transform.position);
 
-            PoolManager.instance.ReuseObject(dustParticle, transform.position, transform.rotation).GetComponent<ParticleExplosion>().Explode();
+            ParticleManager.instance.SpawnParticle(ParticleManager.instance.landImpactParticle, transform.position, transform.rotation);
 
         }
     }
@@ -375,7 +476,7 @@ public class Character : Entity
     /// </summary>
     public virtual void SecondSpecialAttack()
     {
-        Debug.Log("second special attack base");
+        //Debug.Log("second special attack base");
     }
 
     /// <summary>
@@ -383,7 +484,7 @@ public class Character : Entity
     /// </summary>
     public virtual void SpecialAttack()
     {
-        Debug.Log("special attack base");
+        //Debug.Log("special attack base");
     }
 
     /// <summary>
@@ -391,7 +492,7 @@ public class Character : Entity
     /// </summary>
     public virtual void SpecialAttackRelease()
     {
-        Debug.Log("release special attack");
+        //Debug.Log("release special attack");
     }
 
     /// <summary>
@@ -402,15 +503,13 @@ public class Character : Entity
     {
         if (state == true)
         {
-            PlaySound(movementAudioSource, wooshSound);
-            anim.SetBool("isAttacking", true);
-        }
-        else
-        {
-            anim.SetBool("isAttacking", false);
-        }
-    }
+            FMODUnity.RuntimeManager.PlayOneShot(punchSound, transform.position);
+            SetAnimation("isAttacking", true);
+            StartCoroutine(SetanimationBoolFalse("isAttacking", 0.5f));
 
+        }
+
+    }
 
     /// <summary>
     /// Plays a certain sound to the audioclip with a certain volume.
@@ -420,13 +519,14 @@ public class Character : Entity
     /// <param name="volume"></param>
     public void PlaySound(AudioSource source, AudioClip clip, float volume = 1f)
     {
-        source.clip = clip;
-        source.volume = volume;
-        source.Play();
+        //source.clip = clip;
+        //source.volume = volume;
+        //source.Play();
     }
 
-
-    //changes camera size and changes input according to the palyer id and how many players are playing
+    /// <summary>
+    /// changes camera size and changes input according to the palyer id and how many players are playing
+    /// </summary>
     public void ApplyPlayerSetting(int playerID)
     {
         //controller
@@ -438,45 +538,98 @@ public class Character : Entity
             cameraSize = new Vector2(.5f, .5f);
         }
         Vector2 cameraPos = new Vector2(0, 0);
-        float widthOffset = 90;
+
         switch (playerID)
         {
             case 1:
                 cameraPos = new Vector2(0, .5f);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, widthOffset);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, widthOffset);
-
                 break;
             case 2:
                 cameraPos = new Vector2(.5f, .5f);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, widthOffset);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, widthOffset);
-
                 break;
             case 3:
                 cameraPos = new Vector2(0, 0);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, widthOffset);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 0, widthOffset);
-
                 break;
             case 4:
                 cameraPos = new Vector2(.5f, 0);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, widthOffset);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 0, widthOffset);
-
                 break;
             default:
                 cameraPos = new Vector2(0, .5f);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, widthOffset);
-                ui.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, widthOffset);
-
                 break;
         }
+
         if (GameInformation.PLAYER_COUNT <= 2)
         {
             cameraPos.y = 0f;
-        }
+        } 
         camera.rect = new Rect(cameraPos, cameraSize);
-        Debug.Log("camera size" + cameraPos.y + " player count = " + GameInformation.PLAYER_COUNT);
     }
+
+    IEnumerator DoingNothing()
+    {
+        yield return new WaitForSeconds(30f + Random.value * 10);
+        anim.SetBool("yawning", true);
+        anim.SetLayerWeight(1, 0);
+
+        //yield return new WaitForSeconds(8.4f);
+        //anim.SetBool("yawning", false);
+        //anim.SetLayerWeight(1, 1);
+        //doesNothing = false;
+        //DoesNothing();
     }
+
+    private bool IsGrounded
+    {
+        get { return isGrounded; }
+        set {
+            isGrounded = value;
+
+            SetAnimation("isJumpingUp", !isGrounded);
+        }
+    }
+    public void SetAnimation(string state, bool val)
+    {
+        DoesSomething();
+        anim.SetBool(state, val);
+    }
+    private void DoesNothing()
+    {
+        if (!doesNothing)
+        {
+            doesNothing = true;
+            doingNothing = StartCoroutine(DoingNothing());
+        }
+    }
+    private void DoesSomething()
+    {
+        if (doesNothing)
+        {
+            doesNothing = false;
+            StopCoroutine(doingNothing);
+            anim.SetBool("yawning", false);
+            anim.SetLayerWeight(1, 1);
+
+        }
+    }
+    public void SetupCameraForResultScreen()
+    {
+        CameraFadeFromBlack();
+        anim.SetLayerWeight(1, 0);
+        cameraPivot.Rotate(new Vector3(20, 180, 0));
+    }
+    public void Result(bool win)
+    {
+        if (win)
+        {
+            anim.SetBool("win", true);
+            crownSprite.enabled = true;
+        } else
+        {
+            anim.SetBool("lose", true);
+        }
+    }
+    public void UpdateResultScoreText(int number)
+    {
+        resultScoreText.text = number.ToString();
+    }
+}

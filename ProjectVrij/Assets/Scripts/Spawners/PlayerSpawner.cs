@@ -19,6 +19,11 @@ public class PlayerSpawner : MonoBehaviour
 
     void Start()
     {
+        
+    }
+
+    public void PositionAllPlayers()
+    {
         //setup list
         playerPoses = new List<Transform> { };
 

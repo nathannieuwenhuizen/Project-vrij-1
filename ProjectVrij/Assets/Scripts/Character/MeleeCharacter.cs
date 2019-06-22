@@ -20,12 +20,24 @@ public class MeleeCharacter : Character
     private float maxChargeDamage = 50f;
 
     private bool isCharging = false;
+    [SerializeField]
+    private float chargeCoolDown = 0.5f;
+    private bool canCharge = true;
+
+    [SerializeField] private ParticleSystem chargeParticles;
+    [SerializeField] private ParticleSystem chargeTrailParticles;
+    [SerializeField] private GameObject indicationLine;
+
+    FMOD.Studio.EventInstance instChargeSound;
+    [FMODUnity.EventRef] public string swordSound;
+    [FMODUnity.EventRef] public string chargeSound;
+    [FMODUnity.EventRef] public string chargeAttack;
 
     [SerializeField]
     private BoxCollider chargeHitbox;
 
     [Space]
-    [Header("Sowrd values")]
+    [Header("Sword values")]
     [Range(0, 180)]
     [SerializeField]
     private float swordStartAngle = 50f;
@@ -41,15 +53,16 @@ public class MeleeCharacter : Character
     private Transform swordPivot;
     [SerializeField]
     private Hitbox swordHitBox;
+    [SerializeField]
+    private float swordCoolDown = 0.5f;
+
 
     private bool isAttackingWithSword;
     
     private InputHandler inputHandlerScript;
 
-
     protected override void Start()
     {
-        Debug.Log("start child");
         rb = GetComponent<Rigidbody>();
         inputHandlerScript = GetComponent<InputHandler>();
         chargeHitbox.enabled = false;
@@ -58,6 +71,11 @@ public class MeleeCharacter : Character
         swordHitBox.Damage = swordDamage;
         swordHitBox.gameObject.SetActive(false);
         //KeyCode specialAttackCode = inputHandlerScript.specialAttackCode;
+        ui.SetCharacterType(0);
+        SavedPoints = 30;
+        instChargeSound = FMODUnity.RuntimeManager.CreateInstance(chargeSound);
+
+
         base.Start();
     }
 
@@ -68,20 +86,27 @@ public class MeleeCharacter : Character
     public override void SpecialAttack()
     {
         base.SpecialAttack();
+
+        if (!canCharge) { return; }
+        canCharge = false;
+
         StartCoroutine(IncreaseForce());
-
-        //here comes the code for the charge
-        Debug.Log("CHAARGE!");
-
     }
 
     private IEnumerator IncreaseForce()
     {
+        SetAnimation("increasecharge", true);
+        chargeParticles.Play();
+        indicationLine.SetActive(true);
+        instChargeSound.start();
+        camera.GetComponent<CameraShake>().Shake(60, 0.1f);
         while(forceDuration < maxForceIncreaseDuration)
         {
+            camera.GetComponent<CameraShake>().intensity = forceDuration * 10f;
             forceDuration += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
         }
+        
         forceDuration = maxForceIncreaseDuration;
         SpecialAttackRelease();
     }
@@ -92,9 +117,21 @@ public class MeleeCharacter : Character
         {
             return;
         }
+        instChargeSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        FMODUnity.RuntimeManager.PlayOneShot(chargeAttack); 
+        ParticleManager.instance.SpawnParticle(ParticleManager.instance.chargeParticles, transform.position + transform.forward, transform.rotation);
+        indicationLine.SetActive(false);
+
+        SetAnimation("increasecharge", false);
+        SetAnimation("charging", true);
+        anim.SetLayerWeight(1, 0);
+
+
         base.SpecialAttackRelease();
         StopAllCoroutines();
+        camera.GetComponent<CameraShake>().StopShake();
         GetComponent<InputHandler>().enabled = false;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
         Vector3 localForce = transform.forward * chargeSpeed;
         GetComponent<Rigidbody>().AddForce(localForce);
         
@@ -103,17 +140,34 @@ public class MeleeCharacter : Character
         chargeHitbox.GetComponent<Hitbox>().Damage = (int)(percentage * maxChargeDamage);
         StartCoroutine(Charging(percentage * maxChargeDuration));
         forceDuration = 0;
-        Debug.Log("RELEEAASSEEE!");
     }
 
     private IEnumerator Charging(float duration)
     {
+        
+        chargeTrailParticles.Play();
         chargeHitbox.enabled = true;
         yield return new WaitForSeconds(duration);
         chargeHitbox.enabled = false;
         isCharging = false;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         GetComponent<InputHandler>().enabled = true;
+        chargeTrailParticles.Stop();
+        SetAnimation("charging", false);
+        StartCoroutine(ChargeCoolDown());
+        yield return new WaitForSeconds(0.5f);
+        while(anim.GetLayerWeight(1) < 1)
+        {
+            anim.SetLayerWeight(1, anim.GetLayerWeight(1) + 0.1f);
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    private IEnumerator ChargeCoolDown()
+    {
+        ui.CoolDownAttack2(chargeCoolDown);
+        yield return new WaitForSeconds(chargeCoolDown);
+        canCharge = true;
     }
 
     public override void SecondSpecialAttack()
@@ -121,16 +175,20 @@ public class MeleeCharacter : Character
         base.SpecialAttack();
         SwordAttack();
 
+
     }
     public void SwordAttack()
     {
         if (isAttackingWithSword) { return; }
-
+        isAttackingWithSword = true;
+        FMODUnity.RuntimeManager.PlayOneShot(swordSound, transform.position);
         StartCoroutine(SwordAttacking());
     }
     IEnumerator SwordAttacking()
     {
-        isAttackingWithSword = true;
+        SetAnimation("slashing", true);
+        yield return new WaitForSeconds(0.3f);
+
         swordHitBox.gameObject.SetActive(true);
 
         swordPivot.Rotate(new Vector3(0,-swordStartAngle, 0));
@@ -139,8 +197,13 @@ public class MeleeCharacter : Character
             swordPivot.Rotate(new Vector3(0, swordSpeed, 0));
             yield return new WaitForSeconds(Time.deltaTime);
         }
+        SetAnimation("slashing", false);
+
         swordPivot.Rotate(new Vector3(0, -swordStartAngle * 2, 0));
         swordHitBox.gameObject.SetActive(false);
+
+        ui.CoolDownAttack1(swordCoolDown);
+        yield return new WaitForSeconds(swordCoolDown);
         isAttackingWithSword = false;
     }
 

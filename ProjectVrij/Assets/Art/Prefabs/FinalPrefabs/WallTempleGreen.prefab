@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6410885952273870194}
   - component: {fileID: 6410885952275164498}
   - component: {fileID: 6410885952276164498}
+  - component: {fileID: 8845480656750125889}
   m_Layer: 0
   m_Name: WallTempleGreen
   m_TagString: Untagged
@@ -77,3 +78,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8845480656750125889
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6410885952273969490}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.012004, y: 3.5279987, z: 0.548164}
+  m_Center: {x: 0.00000059604645, y: 1.721656, z: 0}
