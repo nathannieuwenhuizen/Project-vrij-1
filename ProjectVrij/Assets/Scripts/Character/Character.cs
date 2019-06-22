@@ -433,20 +433,26 @@ public class Character : Entity
     public void Walking(float h_input, float y_input)
     {
         //if the character is dead, it shouldnt be able to move.
-        if (Health == 0 || knocked) { return; }
 
-        rb.velocity = new Vector3(0, rb.velocity.y, 0);
-        rb.velocity += transform.right * h_input * walkSpeed;
-        rb.velocity += transform.forward * y_input * walkSpeed;
+        if (Health != 0 || !knocked)
+        {
 
-        anim.SetFloat("hMove", h_input);
-        anim.SetFloat("yMove", y_input);
-        if (h_input == 0 && y_input == 0)
-        {
-            DoesNothing();
-        } else
-        {
-            DoesSomething();
+            Debug.Log("walking");
+            rb.velocity = new Vector3(0, rb.velocity.y, 0);
+            rb.velocity += transform.right * h_input * walkSpeed;
+            rb.velocity += transform.forward * y_input * walkSpeed;
+            Debug.Log(rb.velocity);
+
+            anim.SetFloat("hMove", h_input);
+            anim.SetFloat("yMove", y_input);
+            if (h_input == 0 && y_input == 0)
+            {
+                DoesNothing();
+            }
+            else
+            {
+                DoesSomething();
+            }
         }
     }
 

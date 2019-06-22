@@ -279,7 +279,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!136 &2834880697019763048
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6c60695c1b8ed448db86a065c2f7c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerID: 0
+  controllerID: 2
 --- !u!114 &8887644919453631777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,7 +340,7 @@ MonoBehaviour:
   gotHitSound2: {fileID: 8300000, guid: 433b35c228f51e3489e8ebc020d98d6a, type: 3}
   deathSound2: {fileID: 8300000, guid: bcda2bda55489f64c9be1dfdd1979581, type: 3}
   wooshSound2: {fileID: 8300000, guid: fc93d4e008e659c498075e9d69c1b554, type: 3}
-  respawnParticles: {fileID: 0}
+  respawnParticles: {fileID: 8331674605904865059}
   walkIndex: 0
   footstepSoundSpeed: 250
   resultScoreText: {fileID: 6207408483655117631}
@@ -766,6 +766,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5373808742985529193}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &8331674605904865059 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4121804650146975818, guid: efae243b46b18c4498c0a5b1a99f25aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 5373808742985529193}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6480495301246365506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -876,10 +882,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: burstMage
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 1769dcc6ff477264899574f00be432f8, type: 2}
     - target: {fileID: 9500000, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
       propertyPath: m_Controller
       value: 

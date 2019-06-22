@@ -53,17 +53,15 @@ public class GameManager : MonoBehaviour
     private List<Character> characters;
     public void Start()
     {
-        instCountDownSound = FMODUnity.RuntimeManager.CreateInstance(countDownSound);
-        instCountDownSound.start();
-
         instance = this; 
-
 
         InitializePlayers(GameInformation.PLAYER_COUNT);
         Pause(false);
         CountDowStart();
-
         Application.targetFrameRate = 60;
+
+        instCountDownSound = FMODUnity.RuntimeManager.CreateInstance(countDownSound);
+        instCountDownSound.start();
     }
 
     public static GameManager instance;
