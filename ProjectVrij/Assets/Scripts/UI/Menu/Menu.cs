@@ -53,4 +53,8 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(1);
         starting = false;
     }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
