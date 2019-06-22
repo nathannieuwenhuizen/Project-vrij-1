@@ -123,6 +123,7 @@ public class Character : Entity
         voiceAudioSource = gameObject.AddComponent<AudioSource>();
 
         ui.SetPointText(points.ToString());
+        Respawn();
         CameraFadeFromBlack();
 
         IsGrounded = false;
@@ -437,11 +438,11 @@ public class Character : Entity
         if (Health != 0 || !knocked)
         {
 
-            Debug.Log("walking");
+            //Debug.Log("walking");
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
             rb.velocity += transform.right * h_input * walkSpeed;
             rb.velocity += transform.forward * y_input * walkSpeed;
-            Debug.Log(rb.velocity);
+            //Debug.Log(rb.velocity);
 
             anim.SetFloat("hMove", h_input);
             anim.SetFloat("yMove", y_input);

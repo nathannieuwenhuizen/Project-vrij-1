@@ -72,16 +72,15 @@ public class MeleeCharacter : Character
         swordHitBox.gameObject.SetActive(false);
         //KeyCode specialAttackCode = inputHandlerScript.specialAttackCode;
         ui.SetCharacterType(0);
-        SavedPoints = 30;
-        instChargeSound = FMODUnity.RuntimeManager.CreateInstance(chargeSound);
-
-
         base.Start();
+        instChargeSound = FMODUnity.RuntimeManager.CreateInstance(chargeSound);
     }
+
 
     protected override void Update()
     {
         base.Update();
+
     }
     public override void SpecialAttack()
     {
