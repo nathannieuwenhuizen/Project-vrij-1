@@ -113,37 +113,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!1 &276098481745983648
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5950300716492864619}
-  m_Layer: 0
-  m_Name: Audio
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5950300716492864619
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 276098481745983648}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -139.42387, y: -246.97218, z: 150.09192}
-  m_LocalScale: {x: 0.883721, y: 0.883721, z: 0.883721}
-  m_Children:
-  - {fileID: 7934075593942870651}
-  m_Father: {fileID: 4393293151688773405}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &401530010021590177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,6 +989,7 @@ MonoBehaviour:
   timerCount: 300
   paused: 0
   lastMinuteMusic: 
+  gameMusic: 
 --- !u!114 &4393293151317831457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1062,8 +1032,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 180.70999, z: 0}
   m_LocalScale: {x: 1.5037594, y: 1.5037594, z: 1.5037594}
-  m_Children:
-  - {fileID: 5950300716492864619}
+  m_Children: []
   m_Father: {fileID: 4393293151063007166}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1100,7 +1069,7 @@ MonoBehaviour:
   timerObject: {fileID: 493693482831477787}
   playerUIs: {fileID: 6083763670546309750}
   beginGame: 
-  countdownSound: {fileID: 8924100951167209360}
+  countdownSound: {fileID: 0}
 --- !u!1 &4644010096255059549
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,60 +1241,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!1 &5541989521546128089
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6440858024148312858}
-  - component: {fileID: 8550179005010988527}
-  m_Layer: 0
-  m_Name: DesertAmbient
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6440858024148312858
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5541989521546128089}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 53.8, y: 53.8, z: 85.6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7934075593942870651}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8550179005010988527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5541989521546128089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: event:/Ambient/DesertAmbientLoop
-  PlayEvent: 1
-  StopEvent: 0
-  CollisionTag: 
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
 --- !u!1 &6083763670546309750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1513,60 +1428,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!1 &6534971942022322020
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3587896757078112116}
-  - component: {fileID: 942700482489309801}
-  m_Layer: 0
-  m_Name: Drums
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3587896757078112116
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6534971942022322020}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 53.8, y: 53.8, z: 85.6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7934075593942870651}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &942700482489309801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6534971942022322020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: event:/Music/MainDrums
-  PlayEvent: 1
-  StopEvent: 0
-  CollisionTag: 
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
 --- !u!1 &6912367435512673482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1641,39 +1502,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!1 &7318347638404817166
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7934075593942870651}
-  m_Layer: 0
-  m_Name: AmbientSounds
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7934075593942870651
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7318347638404817166}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.219849, y: -7.3810005, z: -34.91153}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 6440858024148312858}
-  - {fileID: 3587896757078112116}
-  - {fileID: 6491332674063257493}
-  m_Father: {fileID: 5950300716492864619}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7818363533626234438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1822,60 +1650,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!1 &8924100951167209360
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6491332674063257493}
-  - component: {fileID: 1241920468551912750}
-  m_Layer: 0
-  m_Name: Duduk
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6491332674063257493
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8924100951167209360}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 53.8, y: 53.8, z: 85.6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7934075593942870651}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1241920468551912750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8924100951167209360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: event:/Music/Duduk
-  PlayEvent: 1
-  StopEvent: 12
-  CollisionTag: 
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
 --- !u!1001 &25765792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2434,6 +2208,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77c63b63172bf27458d60c5a4b942fc5, type: 3}
+--- !u!224 &2851469755904813414 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1024644351486354377, guid: 77c63b63172bf27458d60c5a4b942fc5,
+    type: 3}
+  m_PrefabInstance: {fileID: 3002265125098719919}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7038875076214348945 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5189602180110669374, guid: 77c63b63172bf27458d60c5a4b942fc5,
@@ -2446,12 +2226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835af8ec40e109d4f85ea7ffb78e07ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &2851469755904813414 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1024644351486354377, guid: 77c63b63172bf27458d60c5a4b942fc5,
-    type: 3}
-  m_PrefabInstance: {fileID: 3002265125098719919}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3727096891636631966
 PrefabInstance:
   m_ObjectHideFlags: 0

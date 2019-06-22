@@ -18,12 +18,19 @@ public class CountDownTimer : MonoBehaviour
     public bool paused = false;
     private bool stopped = false;
 
+    FMOD.Studio.EventInstance instLastMinute;
+    FMOD.Studio.EventInstance instGameMusic;
     [FMODUnity.EventRef] public string lastMinuteMusic;
+    [FMODUnity.EventRef] public string gameMusic;
+    [FMODUnity.EventRef] public string lastTenSeconds;
 
     private bool started;
 
     void Start()
     {
+        instLastMinute = FMODUnity.RuntimeManager.CreateInstance(lastMinuteMusic);
+        instLastMinute = FMODUnity.RuntimeManager.CreateInstance(gameMusic);
+        instLastMinute.start();
         Countdown();
     }
 
@@ -58,18 +65,26 @@ public class CountDownTimer : MonoBehaviour
         //var fraction = (timerCount * 100) % 100;
 
         _countDownText.text = string.Format("{0:0}:{1:00}", Mathf.Floor(minutes), seconds); 
-        if(timerCount < 60)
+        if(timerCount < 53)
         {
             if (!started)
             {
-                FMODUnity.RuntimeManager.PlayOneShot(lastMinuteMusic, transform.position);
+                instLastMinute.start();
                 started = true;
+                instGameMusic.setParameterValue("MusicOn", 0f);
+                instGameMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                instLastMinute.setParameterValue("MusicOn", 1.0f);
             }
             
         }
         if (timerCount < 10)
         {
+            FMODUnity.RuntimeManager.PlayOneShot(lastTenSeconds);
             _countDownText.color = alarmColor;
+        }
+        if(timerCount < 0.1f)
+        {
+            instLastMinute.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);    
         }
     }
 }

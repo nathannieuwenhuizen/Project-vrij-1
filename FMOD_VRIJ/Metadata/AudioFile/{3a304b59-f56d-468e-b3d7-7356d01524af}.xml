@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{3a304b59-f56d-468e-b3d7-7356d01524af}">
+        <property name="assetPath">
+            <value>Interaction/charge attack.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>1.5</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{31b74f43-b0b2-4fde-90b2-8ff261307ce1}</destination>
+        </relationship>
+    </object>
+</objects>

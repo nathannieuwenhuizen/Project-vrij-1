@@ -531,7 +531,6 @@ GameObject:
   - component: {fileID: 2538581115202121843}
   - component: {fileID: 7794953298222388401}
   - component: {fileID: 6111700257971908398}
-  - component: {fileID: 2065374937}
   m_Layer: 0
   m_Name: Melee Character
   m_TagString: Untagged
@@ -616,12 +615,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  rotationSpeedY: 3
-  rotationSpeedX: 2
+  rotationSpeedY: 8
+  rotationSpeedX: 6
   maxDownAngle: 45
   maxUpAngle: 45
   cameraPivot: {fileID: 2538581116282305849}
-  walkSpeed: 20
+  walkSpeed: 15
   jumpForce: 10
   walkSound: event:/Interaction/FootSteps
   jumpSound: 
@@ -651,9 +650,9 @@ MonoBehaviour:
   savePoints: 0
   chargeSpeed: 70000
   maxChargeDuration: 0.5
-  maxForceIncreaseDuration: 1
+  maxForceIncreaseDuration: 1.1
   maxChargeDamage: 50
-  chargeCoolDown: 2
+  chargeCoolDown: 0.5
   chargeParticles: {fileID: 1801432277494328263}
   chargeTrailParticles: {fileID: 1703382577}
   indicationLine: {fileID: 681081575632037740}
@@ -665,7 +664,7 @@ MonoBehaviour:
   swordDamage: 30
   swordPivot: {fileID: 622388376}
   swordHitBox: {fileID: 2034889271}
-  swordCoolDown: 0.5
+  swordCoolDown: 0.3
 --- !u!114 &6111700257971908398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,66 +678,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ListenerNumber: 0
---- !u!114 &2065374937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2538581115202121853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 0}
-  volumeLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  stopNaNPropagation: 1
-  finalBlitToCameraTarget: 1
-  antialiasingMode: 1
-  temporalAntialiasing:
-    jitterSpread: 0.75
-    sharpness: 0.25
-    stationaryBlending: 0.95
-    motionBlending: 0.85
-  subpixelMorphologicalAntialiasing:
-    quality: 2
-  fastApproximateAntialiasing:
-    fastMode: 1
-    keepAlpha: 0
-  fog:
-    enabled: 1
-    excludeSkybox: 1
-  debugLayer:
-    lightMeter:
-      width: 512
-      height: 256
-      showCurves: 1
-    histogram:
-      width: 512
-      height: 256
-      channel: 3
-    waveform:
-      exposure: 0.12
-      height: 256
-    vectorscope:
-      size: 256
-      exposure: 0.12
-    overlaySettings:
-      linearDepth: 0
-      motionColorIntensity: 4
-      motionGridSize: 64
-      colorBlindnessType: 0
-      colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
-  breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
-  m_AfterStackBundles: []
 --- !u!1 &2538581116282305851
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,15 +701,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2538581116282305851}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalRotation: {x: 0, y: -0.08715578, z: 0, w: 0.9961947}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_Children:
   - {fileID: 7794953298024388435}
   - {fileID: 2538581116323133361}
   m_Father: {fileID: 2538581115202121847}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -10, z: 0}
 --- !u!1 &2538581116323133362
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,7 +816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadingOut: 0
-  alphaFadeValue: 0.5
+  alphaFadeValue: 0
   fadeSpeed: 1
   fadingColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1774183780
@@ -3402,12 +3341,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 698bd3845f43c4e4f80846f8bd23c647, type: 3}
---- !u!4 &4465479506468082706 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400102, guid: 698bd3845f43c4e4f80846f8bd23c647,
-    type: 3}
-  m_PrefabInstance: {fileID: 4465479506468474612}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4465479506468082790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400018, guid: 698bd3845f43c4e4f80846f8bd23c647,
@@ -3423,6 +3356,12 @@ Animator:
 --- !u!4 &4465479506468082806 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 698bd3845f43c4e4f80846f8bd23c647,
+    type: 3}
+  m_PrefabInstance: {fileID: 4465479506468474612}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4465479506468082706 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400102, guid: 698bd3845f43c4e4f80846f8bd23c647,
     type: 3}
   m_PrefabInstance: {fileID: 4465479506468474612}
   m_PrefabAsset: {fileID: 0}
@@ -3680,15 +3619,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b89c155ff675194ba9d1ca702bbff94, type: 3}
---- !u!4 &1801432277494328262 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7294605058417439675, guid: 5b89c155ff675194ba9d1ca702bbff94,
-    type: 3}
-  m_PrefabInstance: {fileID: 9062471405119330429}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &1801432277494328263 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7294605058417439674, guid: 5b89c155ff675194ba9d1ca702bbff94,
+    type: 3}
+  m_PrefabInstance: {fileID: 9062471405119330429}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1801432277494328262 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7294605058417439675, guid: 5b89c155ff675194ba9d1ca702bbff94,
     type: 3}
   m_PrefabInstance: {fileID: 9062471405119330429}
   m_PrefabAsset: {fileID: 0}

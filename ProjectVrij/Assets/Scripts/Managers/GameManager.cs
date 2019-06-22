@@ -47,11 +47,15 @@ public class GameManager : MonoBehaviour
     private GameObject playerUIs;
 
     [FMODUnity.EventRef] public string beginGame;
-    [SerializeField] private GameObject countdownSound;
+    [FMODUnity.EventRef] public string countDownSound;
+    FMOD.Studio.EventInstance instCountDownSound;
 
     private List<Character> characters;
     public void Start()
     {
+        instCountDownSound = FMODUnity.RuntimeManager.CreateInstance(countDownSound);
+        instCountDownSound.start();
+
         instance = this; 
 
 
@@ -310,7 +314,7 @@ public class GameManager : MonoBehaviour
         timer.paused = false;
 
         FMODUnity.RuntimeManager.PlayOneShot(beginGame, transform.position);
-        countdownSound.SetActive(false);
+        instCountDownSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
         foreach (Character character in characters)
         {
