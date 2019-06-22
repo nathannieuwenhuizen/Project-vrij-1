@@ -29,6 +29,7 @@ public class Projectile : PoolObject
     private Character characterThatHitYou;
 
     [FMODUnity.EventRef] public string iceHit;
+    [FMODUnity.EventRef] public string fireHit;
 
 
 
@@ -77,10 +78,12 @@ public class Projectile : PoolObject
         if (isSpreadAttack)
         {
             ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileHitFire, transform.position, transform.rotation);
+            FMODUnity.RuntimeManager.PlayOneShot(fireHit);
         }
         else
         {
             ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileHitIce, transform.position, transform.rotation);
+            FMODUnity.RuntimeManager.PlayOneShot(iceHit);
         }
 
         Destroy();

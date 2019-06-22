@@ -22,15 +22,17 @@ public class CountDownTimer : MonoBehaviour
     FMOD.Studio.EventInstance instGameMusic;
     [FMODUnity.EventRef] public string lastMinuteMusic;
     [FMODUnity.EventRef] public string gameMusic;
-    [FMODUnity.EventRef] public string lastTenSeconds;
 
     private bool started;
+    private bool started1;
 
     void Start()
     {
         instLastMinute = FMODUnity.RuntimeManager.CreateInstance(lastMinuteMusic);
-        instLastMinute = FMODUnity.RuntimeManager.CreateInstance(gameMusic);
-        instLastMinute.start();
+        instGameMusic = FMODUnity.RuntimeManager.CreateInstance(gameMusic);
+        instGameMusic.start();
+        instGameMusic.setParameterValue("MusicOn", 1.0f);
+        Debug.Log("start music");
         Countdown();
     }
 
@@ -79,12 +81,15 @@ public class CountDownTimer : MonoBehaviour
         }
         if (timerCount < 10)
         {
-            FMODUnity.RuntimeManager.PlayOneShot(lastTenSeconds);
             _countDownText.color = alarmColor;
+            started1 = true;
+
+
         }
         if(timerCount < 0.1f)
         {
             instLastMinute.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);    
         }
+
     }
 }

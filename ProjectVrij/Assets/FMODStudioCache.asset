@@ -48,12 +48,30 @@ MonoBehaviour:
   - {fileID: 114823573103423094}
   - {fileID: 114928605639805028}
   - {fileID: 114359722889229912}
+  - {fileID: 114854727329154546}
+  - {fileID: 114224818101127030}
   MasterBanks:
   - {fileID: 114019470430868980}
   StringsBanks:
   - {fileID: 114873381230119202}
-  stringsBankWriteTime: 636967978535917420
+  stringsBankWriteTime: 636968440577064920
   cacheVersion: 3
+--- !u!114 &114006710071244468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114019470430868980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,11 +85,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\HkuGames\Project Vrij\FMOD_VRIJ\Build\Desktop\Master Bank.bank
-  lastModified: 636967978535877434
+  lastModified: 636968440576969769
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 14217120
+    Value: 14283680
   Exists: 1
 --- !u!114 &114019857891466256
 MonoBehaviour:
@@ -96,6 +114,22 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1140
+--- !u!114 &114020544132341640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114021268898773000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,7 +250,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114905629481688024}
+  - {fileID: 114963101104388746}
   MinDistance: 0
   MaxDistance: 0
   Length: 53706
@@ -337,6 +371,22 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 650
+--- !u!114 &114153365674172098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114164048215821090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,6 +495,22 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &114185900953842764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114206934991441648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,7 +533,46 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 10109
+--- !u!114 &114224818101127030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Extra/CountdownFast
+  guid: 93983944b55e434da248c0b325241623
+  Banks:
+  - {fileID: 114019470430868980}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1000
 --- !u!114 &114228098728154616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114229146176019936
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -614,6 +719,38 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 978
+--- !u!114 &114322145347491220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114340271394895570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114344762563206956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -703,7 +840,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114145217003551356}
+  - {fileID: 114020544132341640}
   MinDistance: 0
   MaxDistance: 0
   Length: 53706
@@ -1250,6 +1387,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114578708933573202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114579590385099520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1270,7 +1423,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114175277286616908}
+  - {fileID: 114153365674172098}
   MinDistance: 0
   MaxDistance: 0
   Length: 53706
@@ -1556,6 +1709,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114683563695577738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114688272937384558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1656,6 +1825,22 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 132784
+--- !u!114 &114725203450572438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114757430290948390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1770,6 +1955,22 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 978
+--- !u!114 &114775595073599216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114776614620710624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1787,6 +1988,22 @@ MonoBehaviour:
   Max: 1
   Default: 0
 --- !u!114 &114776721600838872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114782490739867344
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1848,6 +2065,22 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2142
+--- !u!114 &114789555897311876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114820518863897236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1931,6 +2164,29 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114854727329154546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Extra/Countdown
+  guid: 55acaa977f696f49b396f035c8da7e31
+  Banks:
+  - {fileID: 114019470430868980}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1200
 --- !u!114 &114858346412341820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2006,11 +2262,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\HkuGames\Project Vrij\FMOD_VRIJ\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636967978535917420
+  lastModified: 636968440577064920
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 2206
+    Value: 2298
   Exists: 1
 --- !u!114 &114877902692338362
 MonoBehaviour:
@@ -2198,6 +2454,22 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 26232
+--- !u!114 &114963101104388746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114967107368503112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2237,3 +2509,19 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &114995916351651166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0

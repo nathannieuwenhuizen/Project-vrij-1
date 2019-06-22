@@ -180,8 +180,9 @@ public class MeleeCharacter : Character
     {
         if (isAttackingWithSword) { return; }
         isAttackingWithSword = true;
-        FMODUnity.RuntimeManager.PlayOneShot(swordSound, transform.position);
+        
         StartCoroutine(SwordAttacking());
+        FMODUnity.RuntimeManager.PlayOneShot(swordSound, transform.position);
     }
     IEnumerator SwordAttacking()
     {

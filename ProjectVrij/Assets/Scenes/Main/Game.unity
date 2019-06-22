@@ -15285,6 +15285,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4393293151688773406, guid: 60876ab1b9191e74e8d681204a27867d,
+        type: 3}
+      propertyPath: countDownSound
+      value: event:/Extra/Countdown
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393293151317831456, guid: 60876ab1b9191e74e8d681204a27867d,
+        type: 3}
+      propertyPath: lastTenSeconds
+      value: event:/Extra/CountdownFast
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60876ab1b9191e74e8d681204a27867d, type: 3}
 --- !u!1 &542154705 stripped
@@ -44390,7 +44400,7 @@ PrefabInstance:
     - target: {fileID: 2202766734784819328, guid: c5491dfdb28c26c47bf11c93d5865f3f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.22699738
+      value: -0.79
       objectReference: {fileID: 0}
     - target: {fileID: 2202766734784819328, guid: c5491dfdb28c26c47bf11c93d5865f3f,
         type: 3}

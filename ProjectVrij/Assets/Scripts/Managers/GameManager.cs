@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
 
     [FMODUnity.EventRef] public string beginGame;
     [FMODUnity.EventRef] public string countDownSound;
+    FMOD.Studio.EventInstance instBeginGame;
     FMOD.Studio.EventInstance instCountDownSound;
 
     private List<Character> characters;
@@ -61,7 +62,9 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 60;
 
         instCountDownSound = FMODUnity.RuntimeManager.CreateInstance(countDownSound);
+        instBeginGame = FMODUnity.RuntimeManager.CreateInstance(beginGame);
         instCountDownSound.start();
+        instBeginGame.start();
     }
 
     public static GameManager instance;
@@ -311,14 +314,13 @@ public class GameManager : MonoBehaviour
         countDownText.text = "go!";
         timer.paused = false;
 
-        FMODUnity.RuntimeManager.PlayOneShot(beginGame, transform.position);
-        instCountDownSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-
         foreach (Character character in characters)
         {
             character.GetComponent<InputHandler>().CanOnlyMoveCamera = false;
         }
         yield return new WaitForSeconds(countDownDurationInSeconds);
         countDownObject.SetActive(false);
+        instCountDownSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+
     }
 }

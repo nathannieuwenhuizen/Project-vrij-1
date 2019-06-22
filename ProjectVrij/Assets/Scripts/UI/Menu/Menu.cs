@@ -21,11 +21,17 @@ public class Menu : MonoBehaviour
     [SerializeField]
     private LoadingScreenController loadScreen;
 
+    [FMODUnity.EventRef] public string mainMenuMusic;
+    FMOD.Studio.EventInstance instMainMenuMusic;
+
     private void Start()
     {
         Time.timeScale = 1;
         UpdatePlayerAmount();
         camFade = FindObjectOfType<CameraFade>();
+        instMainMenuMusic = FMODUnity.RuntimeManager.CreateInstance(mainMenuMusic);
+        instMainMenuMusic.start();
+
     }
     public void UpdatePlayerAmount()
     {
@@ -44,6 +50,7 @@ public class Menu : MonoBehaviour
         {
             //camFade.fadingOut = true;
         }
+        instMainMenuMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         loadScreen.LoadScene(1);
         //StartCoroutine(FadingOut());
     }
