@@ -20,6 +20,8 @@ public class Projectile : PoolObject
 
     [SerializeField]
     private bool pushesPlayerBack = false;
+    [SerializeField]
+    private bool isSpreadAttack = false;
 
     public ParticleSystem trailParticle;
 
@@ -70,10 +72,17 @@ public class Projectile : PoolObject
             Debug.Log("PUSH BAACCCKKK");
             col.gameObject.GetComponent<MeleeCharacter>().KnockBack(10f, 10f, transform.position);
             FMODUnity.RuntimeManager.PlayOneShot(iceHit, transform.position);
-            
         }
 
-        ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileHit, transform.position, transform.rotation);
+        if (isSpreadAttack)
+        {
+            ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileHitFire, transform.position, transform.rotation);
+        }
+        else
+        {
+            ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileHitIce, transform.position, transform.rotation);
+        }
+
         Destroy();
     }
 }

@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 8779370827647754266}
   - component: {fileID: 8779370827647754265}
   - component: {fileID: 8779370827647754264}
+  - component: {fileID: 506033958961738598}
   m_Layer: 0
-  m_Name: Impact
+  m_Name: Impact Ice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4732,8 +4733,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e0316afe56284e4eb970197fff77c8b, type: 2}
-  - {fileID: 2100000, guid: 4e0316afe56284e4eb970197fff77c8b, type: 2}
+  - {fileID: 2100000, guid: a46a14a4f18a6c24bbd4630ab82bb4c7, type: 2}
+  - {fileID: 2100000, guid: a46a14a4f18a6c24bbd4630ab82bb4c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4776,6 +4777,18 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &506033958961738598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779370827647754271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77a2a2c33aa5ba548aede6772416f6b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8779370827848143704
 GameObject:
   m_ObjectHideFlags: 0
@@ -4816,7 +4829,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8779370827848143704}
   serializedVersion: 6
-  lengthInSec: 5
+  lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -9497,8 +9510,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e0316afe56284e4eb970197fff77c8b, type: 2}
-  - {fileID: 2100000, guid: 4e0316afe56284e4eb970197fff77c8b, type: 2}
+  - {fileID: 2100000, guid: a46a14a4f18a6c24bbd4630ab82bb4c7, type: 2}
+  - {fileID: 2100000, guid: a46a14a4f18a6c24bbd4630ab82bb4c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

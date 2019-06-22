@@ -67,7 +67,10 @@ MonoBehaviour:
   forceForward: 0
   forceUp: 0
   pushesPlayerBack: 0
+  isSpreadAttack: 1
+  trailParticle: {fileID: 0}
   playerID: {fileID: 0}
+  iceHit: 
 --- !u!114 &3137482763059432436
 MonoBehaviour:
   m_ObjectHideFlags: 0

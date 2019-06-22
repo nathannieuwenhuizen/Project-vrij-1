@@ -285,7 +285,7 @@ public class Character : Entity
 
         //other player recieves point (MUST BE CHANGED LATER!)
         float spread = 100f;
-
+        characterThatHitYou.Points += 1;
         for (int i = 0; i < Points; i++)
         {
             PointObject point = PoolManager.instance.ReuseObject(pointPrefab, transform.position + new Vector3(0, 2f, 0), Quaternion.identity).GetComponent<PointObject>();
