@@ -125,7 +125,7 @@ public class Character : Entity
         ui.SetPointText(points.ToString());
         Respawn();
         CameraFadeFromBlack();
-
+        Points = 5;
         IsGrounded = false;
 
     }
