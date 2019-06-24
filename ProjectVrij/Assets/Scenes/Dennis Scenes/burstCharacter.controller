@@ -1556,7 +1556,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400022, guid: 6e0e8a5d0e7d8f0409ccb4c3966da98b, type: 3}
+  m_Motion: {fileID: 7400044, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1597,7 +1597,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: HorizontalMovement
-  m_Speed: 1
+  m_Speed: 1.2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101052720237012004}
@@ -1850,7 +1850,7 @@ AnimatorStateMachine:
     m_Position: {x: 336, y: -300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102837569243321476}
-    m_Position: {x: 96, y: -276, z: 0}
+    m_Position: {x: 84, y: -276, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102513148119236446}
     m_Position: {x: 84, y: -156, z: 0}

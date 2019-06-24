@@ -374,6 +374,7 @@ MonoBehaviour:
   respawnParticles: {fileID: 8331674605904865059}
   walkIndex: 0
   footstepSoundSpeed: 250
+  punchCollider: {fileID: 6334588002189427994}
   resultScoreText: {fileID: 6207408483655117631}
   crownSprite: {fileID: 2728113844277355892}
   anim: {fileID: 9017071040668090439}
@@ -554,6 +555,65 @@ Transform:
   m_Father: {fileID: 2834880697019763054}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6334588002189427994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9088693158089054050}
+  - component: {fileID: 6465472904088024175}
+  - component: {fileID: 5745191141867894486}
+  m_Layer: 0
+  m_Name: punchhitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9088693158089054050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6334588002189427994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9017071040675524597}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &6465472904088024175
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6334588002189427994}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.8
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5745191141867894486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6334588002189427994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92cc077fbcda72f41b9dbb30772e5d04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
+  character: {fileID: 8887644919453631777}
 --- !u!1 &7512112291284414027
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,11 +789,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4715624392658470174}
     m_Modifications:
-    - target: {fileID: 8585871269663862217, guid: efae243b46b18c4498c0a5b1a99f25aa,
-        type: 3}
-      propertyPath: m_Name
-      value: Spawn Particle
-      objectReference: {fileID: 0}
     - target: {fileID: 445234846349584306, guid: efae243b46b18c4498c0a5b1a99f25aa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -788,6 +843,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585871269663862217, guid: efae243b46b18c4498c0a5b1a99f25aa,
+        type: 3}
+      propertyPath: m_Name
+      value: Spawn Particle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efae243b46b18c4498c0a5b1a99f25aa, type: 3}
@@ -1030,6 +1090,11 @@ PrefabInstance:
       propertyPath: ShapeModule.arc.mode
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3738234321912678784, guid: 9969f7d048b3c574aa9443d3af209572,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9969f7d048b3c574aa9443d3af209572, type: 3}
 --- !u!4 &7997235564418839388 stripped
@@ -1192,15 +1257,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 9017071040675394855}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &9017071040668090439 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9500000, guid: 6e0e8a5d0e7d8f0409ccb4c3966da98b,
-    type: 3}
-  m_PrefabInstance: {fileID: 9017071040675394855}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9017071040675524597 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400082, guid: 6e0e8a5d0e7d8f0409ccb4c3966da98b,
+    type: 3}
+  m_PrefabInstance: {fileID: 9017071040675394855}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &9017071040668090439 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: 6e0e8a5d0e7d8f0409ccb4c3966da98b,
     type: 3}
   m_PrefabInstance: {fileID: 9017071040675394855}
   m_PrefabAsset: {fileID: 0}
