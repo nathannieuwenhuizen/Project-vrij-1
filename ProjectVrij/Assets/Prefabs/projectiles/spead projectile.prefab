@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3137482763059432436}
   - component: {fileID: 2745488064357180573}
   - component: {fileID: 6248044105615259237}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: spead projectile
   m_TagString: Hitbox
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2430454194037785748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 217.30765, y: 110.50429, z: -10.4520855}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2034841747}
@@ -62,8 +62,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae6342ef0912794ea981dfc69715f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  destroyTime: 0.4
+  speed: 0.7
+  destroyTime: 0.6
   forceForward: 0
   forceUp: 0
   pushesPlayerBack: 0
@@ -71,6 +71,7 @@ MonoBehaviour:
   trailParticle: {fileID: 0}
   playerID: {fileID: 0}
   iceHit: 
+  fireHit: 
 --- !u!114 &3137482763059432436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +217,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fireball
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738234321054747804, guid: 9969f7d048b3c574aa9443d3af209572,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3738234321054747807, guid: 9969f7d048b3c574aa9443d3af209572,
         type: 3}
