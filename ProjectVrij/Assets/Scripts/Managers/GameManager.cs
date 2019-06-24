@@ -219,12 +219,12 @@ public class GameManager : MonoBehaviour
         {
             foreach (Character character in characters)
             {
-                if (character.SavedPoints >= countScore)
+                if (character.AllPoints >= countScore)
                 {
                     character.UpdateResultScoreText(countScore);
                 }
             }
-            yield return new WaitForSeconds(1f / HighestScoredPlayer().SavedPoints);
+            yield return new WaitForSeconds(1f / HighestScoredPlayer().AllPoints);
 
             countScore++;
         }
@@ -274,7 +274,7 @@ public class GameManager : MonoBehaviour
         Character winningChar = chars[0];
         for (int i = 0; i < chars.Length; i++)
         {
-            if (winningChar.SavedPoints < chars[i].SavedPoints)
+            if (winningChar.AllPoints < chars[i].AllPoints)
             {
                 winningChar = chars[i];
             }

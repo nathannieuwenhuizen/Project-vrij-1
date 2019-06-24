@@ -965,6 +965,11 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3738234321054747806, guid: 9969f7d048b3c574aa9443d3af209572,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3738234321912678784, guid: 9969f7d048b3c574aa9443d3af209572,
         type: 3}
       propertyPath: lengthInSec
@@ -1028,6 +1033,11 @@ PrefabInstance:
     - target: {fileID: 3738234321912678784, guid: 9969f7d048b3c574aa9443d3af209572,
         type: 3}
       propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738234321912678784, guid: 9969f7d048b3c574aa9443d3af209572,
+        type: 3}
+      propertyPath: moveWithTransform
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

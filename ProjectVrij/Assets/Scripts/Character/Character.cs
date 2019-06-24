@@ -121,7 +121,7 @@ public class Character : Entity
         ui.SetPointText(points.ToString());
         Respawn();
         CameraFadeFromBlack();
-        Points = 5;
+        //Points = 5;
         IsGrounded = false;
 
         //audiosources are added for the character
@@ -383,6 +383,10 @@ public class Character : Entity
             savePoints = value;
             ui.SetSavedPointText(savePoints.ToString());
         }
+    }
+    public int AllPoints
+    {
+        get { return SavedPoints + Points; }
     }
 
     /// <summary>
