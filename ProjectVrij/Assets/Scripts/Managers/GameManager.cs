@@ -85,7 +85,8 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < characters.Count; i++)
             {
                 characters[i].ui.gameObject.SetActive(false);
-                Destroy(characters[i]);
+                characters[i].gameObject.SetActive(false);
+                Destroy(characters[i].gameObject);
                 characters[i] = null;
             }
             characters = new List<Character> { };
