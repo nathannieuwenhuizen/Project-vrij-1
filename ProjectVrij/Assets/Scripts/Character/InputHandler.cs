@@ -42,28 +42,28 @@ public class InputHandler : MonoBehaviour
         switch (controllerID)
         {
             case 1:
-                baseAttackCode = KeyCode.Joystick1Button3;
+                baseAttackCode = KeyCode.Joystick1Button1;
                 jumpCode = KeyCode.Joystick1Button0;
                 specialAttackCode = KeyCode.Joystick1Button4;
                 specialAttack2Code = KeyCode.Joystick1Button5;
                 startButton = KeyCode.Joystick1Button7;
                 break;
             case 2:
-                baseAttackCode = KeyCode.Joystick2Button3;
+                baseAttackCode = KeyCode.Joystick2Button1;
                 jumpCode = KeyCode.Joystick2Button0;
                 specialAttackCode = KeyCode.Joystick2Button4;
                 specialAttack2Code = KeyCode.Joystick2Button5;
                 startButton = KeyCode.Joystick2Button7;
                 break;
             case 3:
-                baseAttackCode = KeyCode.Joystick3Button3;
+                baseAttackCode = KeyCode.Joystick3Button1;
                 jumpCode = KeyCode.Joystick3Button0;
                 specialAttackCode = KeyCode.Joystick3Button4;
                 specialAttack2Code = KeyCode.Joystick3Button5;
                 startButton = KeyCode.Joystick3Button7;
                 break;
             case 4:
-                baseAttackCode = KeyCode.Joystick4Button3;
+                baseAttackCode = KeyCode.Joystick4Button1;
                 jumpCode = KeyCode.Joystick4Button0;
                 specialAttackCode = KeyCode.Joystick4Button4;
                 specialAttack2Code = KeyCode.Joystick4Button5;
@@ -148,5 +148,6 @@ public class InputHandler : MonoBehaviour
 
         //player movement
         character.Walking(CrossPlatformInputManager.GetAxis("Vertical" + controllerID), -CrossPlatformInputManager.GetAxis("Horizontal" + controllerID));
+        Debug.Log("Rotating and walking");
     }
 }
