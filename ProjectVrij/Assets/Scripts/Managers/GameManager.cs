@@ -85,9 +85,11 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < characters.Count; i++)
             {
                 characters[i].ui.gameObject.SetActive(false);
-                Destroy(characters[i].gameObject);
+                Destroy(characters[i]);
                 characters[i] = null;
             }
+            characters = new List<Character> { };
+
 
             if (amount > 2)
             {
@@ -133,8 +135,8 @@ public class GameManager : MonoBehaviour
             {
                 //playerUis[i].gameObject.SetActive(true);
 
-                Character newCharacter = GameObject.Instantiate(CharacterPrefabs[0], group.transform).GetComponent<Character>();
-                characters.Add(newCharacter);
+                //Character newCharacter = GameObject.Instantiate(CharacterPrefabs[0], group.transform).GetComponent<Character>();
+                //characters.Add(newCharacter);
             }
         }
 
@@ -150,7 +152,7 @@ public class GameManager : MonoBehaviour
             characters[i].ApplyPlayerSetting(i + 1);
 
             //purely for testing
-            //characters[0].ApplyPlayerSetting(0);
+            characters[0].ApplyPlayerSetting(0);
             pointerGroup.transform.GetChild(i).gameObject.SetActive(true);
             Debug.Log("player index: " + i);
             Rect camrect = characters[i].camera.rect;
@@ -161,7 +163,7 @@ public class GameManager : MonoBehaviour
             //new Vector3(characters[i].camera.rect.width / 2f, characters[i].camera.rect.height / 2f);
 
         }
-        Transform.FindObjectOfType<PlayerSpawner>().PositionAllPlayers();
+        Transform.FindObjectOfType<PlayerSpawner>().PositionAllPlayers(characters);
 
     }
 

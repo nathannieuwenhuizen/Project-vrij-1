@@ -22,15 +22,13 @@ public class PlayerSpawner : MonoBehaviour
         
     }
 
-    public void PositionAllPlayers()
+    public void PositionAllPlayers(List<Character> players)
     {
         //setup list
         playerPoses = new List<Transform> { };
 
         //playeposes is located based on finding their script (its used only once)
-        Character[] players = Transform.FindObjectsOfType<Character>();
-        Debug.Log(players.Length);
-        for (int i = 0; i < players.Length; i++)
+        for (int i = 0; i < players.Count; i++)
         {
             playerPoses.Add(players[i].transform);
             RepositionPlayer(playerPoses[i], spawnPoses[i]);
@@ -67,8 +65,11 @@ public class PlayerSpawner : MonoBehaviour
             float minDistance = 10000f; // just a huge number...
             foreach (Transform player in playerPoses)
             {
-                float cDistance = Vector3.Distance(player.position, pos.position);
-                minDistance = Mathf.Min(minDistance, cDistance);
+                if (player)
+                {
+                    float cDistance = Vector3.Distance(player.position, pos.position);
+                    minDistance = Mathf.Min(minDistance, cDistance);
+                }
             }
             if (furthestDistance < minDistance)
             {
