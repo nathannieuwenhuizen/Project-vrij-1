@@ -63,29 +63,28 @@ public class Projectile : PoolObject
     //when it hits something.
     public void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.GetComponent<Projectile>())
+        if (!col.gameObject.GetComponent<Projectile>())
         {
-            //projectile.GetComponent<Character>().KnockBack(forceForward, forceUp);
-            return;
-        }
-        if (col.gameObject.GetComponent<Character>() && pushesPlayerBack)
-        {
-            Debug.Log("PUSH BAACCCKKK");
-            col.gameObject.GetComponent<MeleeCharacter>().KnockBack(10f, 10f, transform.position);
-            FMODUnity.RuntimeManager.PlayOneShot(iceHit, transform.position);
-        }
+            if (col.gameObject.GetComponent<Character>() && pushesPlayerBack)
+            {
+                //Debug.Log("PUSH BAACCCKKK");
+                col.gameObject.GetComponent<MeleeCharacter>().KnockBack(10f, 10f, transform.position);
+                FMODUnity.RuntimeManager.PlayOneShot(iceHit, transform.position);
+            }
 
-        if (isSpreadAttack)
-        {
-            ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileHitFire, transform.position, transform.rotation);
-            FMODUnity.RuntimeManager.PlayOneShot(fireHit);
+            if (isSpreadAttack)
+            {
+                ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileHitFire, transform.position, transform.rotation);
+                FMODUnity.RuntimeManager.PlayOneShot(fireHit);
+            }
+            else
+            {
+                ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileHitIce, transform.position, transform.rotation);
+                FMODUnity.RuntimeManager.PlayOneShot(iceHit);
+            }
+            StopAllCoroutines();
+            Destroy();
         }
-        else
-        {
-            ParticleManager.instance.SpawnParticle(ParticleManager.instance.projectileHitIce, transform.position, transform.rotation);
-            FMODUnity.RuntimeManager.PlayOneShot(iceHit);
-        }
-
-        Destroy();
+        
     }
 }
