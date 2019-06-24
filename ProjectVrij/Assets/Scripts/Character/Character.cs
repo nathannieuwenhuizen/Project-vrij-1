@@ -657,6 +657,8 @@ public class Character : Entity
     {
         CameraFadeFromBlack();
         anim.SetLayerWeight(1, 0);
+
+        cameraPivot.localRotation = Quaternion.Euler(Vector3.zero);
         cameraPivot.Rotate(new Vector3(20, 180, 0));
     }
     public void Result(bool win)
