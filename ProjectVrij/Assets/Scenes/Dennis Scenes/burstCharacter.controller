@@ -652,16 +652,19 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: yawning
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102254753361881634}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 3.0517654
-  m_TransitionOffset: 0
-  m_ExitTime: 0.06287582
+  m_TransitionDuration: 3.0517657
+  m_TransitionOffset: 0.10191976
+  m_ExitTime: 0.022616614
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -749,17 +752,14 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: yawning
-    m_EventTreshold: 0
+  m_Conditions: []
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102714818944352940}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.7620433
+  m_TransitionDuration: 0.32384583
   m_TransitionOffset: 0
   m_ExitTime: 0.017227836
   m_HasExitTime: 0
@@ -1356,7 +1356,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Sitting_idle
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101297363361409176}
@@ -1907,7 +1907,7 @@ AnimatorStateMachine:
     m_Position: {x: 24, y: -108, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102145937109360620}
-    m_Position: {x: -48, y: -180, z: 0}
+    m_Position: {x: -36, y: -180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102254753361881634}
     m_Position: {x: -72, y: -252, z: 0}
