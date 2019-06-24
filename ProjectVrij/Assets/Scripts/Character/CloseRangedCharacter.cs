@@ -6,6 +6,8 @@ using UnityEngine;
 /// </summary>
 public class CloseRangedCharacter : Character
 {
+
+
     [Space]
     [Header("Shoot attack")]
     [SerializeField]

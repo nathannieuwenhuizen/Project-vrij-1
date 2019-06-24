@@ -76,6 +76,11 @@ public class Character : Entity
     private bool playerMoving;
 
     [Space]
+    [Header("Basic attack")]
+    [SerializeField]
+    private GameObject punchCollider;
+
+    [Space]
     [Header("result UI")]
     [SerializeField]
     private TextMesh resultScoreText;
@@ -121,6 +126,7 @@ public class Character : Entity
         ui.SetPointText(points.ToString());
         Respawn();
         CameraFadeFromBlack();
+        punchCollider.SetActive(false);
         //Points = 5;
         IsGrounded = false;
 
@@ -253,6 +259,7 @@ public class Character : Entity
     /// <param name="hit"></param>
     private void  GotHit(Hitbox hit)
     {
+        if (Health == 0) { return; }
         ParticleManager.instance.SpawnParticle(ParticleManager.instance.hitParticle, transform.position + transform.up, transform.rotation);
         camera.GetComponent<CameraShake>().Shake(0.05f);
 
@@ -287,10 +294,9 @@ public class Character : Entity
 
         //other player recieves point (MUST BE CHANGED LATER!)
         float spread = 100f;
-        if(characterThatHitYou != null)
+        if (characterThatHitYou != null)
         {
             characterThatHitYou.Points += 1;
-
         }
         for (int i = 0; i < Points; i++)
         {
@@ -523,10 +529,17 @@ public class Character : Entity
             SetAnimation("isAttacking", true);
             StartCoroutine(SetanimationBoolFalse("isAttacking", 0.5f));
             FMODUnity.RuntimeManager.PlayOneShot(punchSound, transform.position);
+            StartCoroutine(PunchCooldown());
         }
 
     }
-
+    IEnumerator PunchCooldown()
+    {
+        yield return new WaitForSeconds(0.1f);
+        punchCollider.SetActive(true);
+        yield return new WaitForSeconds(0.3f);
+        punchCollider.SetActive(false);
+    }
     /// <summary>
     /// Plays a certain sound to the audioclip with a certain volume.
     /// </summary>
