@@ -191,15 +191,18 @@ public class MeleeCharacter : Character
 
         swordHitBox.gameObject.SetActive(true);
 
+        /*
         swordPivot.Rotate(new Vector3(0,-swordStartAngle, 0));
         while (Mathf.Rad2Deg * swordPivot.localRotation.y < swordEndAngle)
         {
             swordPivot.Rotate(new Vector3(0, swordSpeed, 0));
             yield return new WaitForSeconds(Time.deltaTime);
         }
+        swordPivot.Rotate(new Vector3(0, -swordStartAngle * 2, 0));
+
+        */
         SetAnimation("slashing", false);
 
-        swordPivot.Rotate(new Vector3(0, -swordStartAngle * 2, 0));
         swordHitBox.gameObject.SetActive(false);
 
         ui.CoolDownAttack1(swordCoolDown);
