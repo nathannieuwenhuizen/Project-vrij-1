@@ -388,7 +388,7 @@ MonoBehaviour:
     type: 3}
   shootPosition: {fileID: 7512112291284414026}
   shootSpeed: 0
-  projectileDamage: 30
+  projectileDamage: 50
   spreadProjectilePrefab: {fileID: 2430454194037785748, guid: 09e77625aaacf2f41af27bc7f04648f4,
     type: 3}
   spreadDamage: 20
@@ -729,11 +729,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4715624392658470174}
     m_Modifications:
-    - target: {fileID: 8585871269663862217, guid: efae243b46b18c4498c0a5b1a99f25aa,
-        type: 3}
-      propertyPath: m_Name
-      value: Spawn Particle
-      objectReference: {fileID: 0}
     - target: {fileID: 445234846349584306, guid: efae243b46b18c4498c0a5b1a99f25aa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -788,6 +783,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585871269663862217, guid: efae243b46b18c4498c0a5b1a99f25aa,
+        type: 3}
+      propertyPath: m_Name
+      value: Spawn Particle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efae243b46b18c4498c0a5b1a99f25aa, type: 3}
@@ -1024,6 +1024,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ShapeModule.arc.mode
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738234321912678784, guid: 9969f7d048b3c574aa9443d3af209572,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9969f7d048b3c574aa9443d3af209572, type: 3}
