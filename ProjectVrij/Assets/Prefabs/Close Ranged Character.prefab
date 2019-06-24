@@ -598,7 +598,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5745191141867894486
 MonoBehaviour:
@@ -1189,14 +1189,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2834880697019763054}
     m_Modifications:
-    - target: {fileID: 100004, guid: 6e0e8a5d0e7d8f0409ccb4c3966da98b, type: 3}
-      propertyPath: m_Name
-      value: burstMage
-      objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 6e0e8a5d0e7d8f0409ccb4c3966da98b, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 1769dcc6ff477264899574f00be432f8, type: 2}
+    - target: {fileID: 100004, guid: 6e0e8a5d0e7d8f0409ccb4c3966da98b, type: 3}
+      propertyPath: m_Name
+      value: burstMage
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 6e0e8a5d0e7d8f0409ccb4c3966da98b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

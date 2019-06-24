@@ -102,7 +102,7 @@ public class Character : Entity
     private float walkingSoundSpeed = 0.4f;
     private bool knocked = false;
 
-
+    private bool animationArroundCamera = false;
     private PlayerSpawner ps;
 
     //point information
@@ -423,6 +423,15 @@ public class Character : Entity
 
         //rotates the camera vertically
         RotateCameraVertical(y_input);
+        if (x_input != 0 && Mathf.Abs(rb.velocity.x) < 0.01f && Mathf.Abs(rb.velocity.z) < 0.01f)
+        {
+                anim.SetFloat("hMove", x_input * 0.1f);
+                animationArroundCamera = true;
+        }  else
+        {
+            anim.SetFloat("hMove", 0f);
+            animationArroundCamera = false;
+        }
     }
 
     /// <summary>
@@ -461,8 +470,12 @@ public class Character : Entity
             rb.velocity += transform.forward * y_input * walkSpeed;
             //Debug.Log(rb.velocity);
 
-            anim.SetFloat("hMove", h_input);
+            if (!animationArroundCamera)
+            {
+                anim.SetFloat("hMove", h_input);
+            }
             anim.SetFloat("yMove", y_input);
+
             if (h_input == 0 && y_input == 0)
             {
                 DoesNothing();
@@ -644,6 +657,8 @@ public class Character : Entity
     {
         CameraFadeFromBlack();
         anim.SetLayerWeight(1, 0);
+
+        cameraPivot.localRotation = Quaternion.Euler(Vector3.zero);
         cameraPivot.Rotate(new Vector3(20, 180, 0));
     }
     public void Result(bool win)

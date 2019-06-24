@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
 
     [FMODUnity.EventRef] public string beginGame;
     [FMODUnity.EventRef] public string countDownSound;
+    [FMODUnity.EventRef] public string EndGameMusic;
     FMOD.Studio.EventInstance instBeginGame;
     FMOD.Studio.EventInstance instCountDownSound;
 
@@ -85,7 +86,8 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < characters.Count; i++)
             {
                 characters[i].ui.gameObject.SetActive(false);
-                Destroy(characters[i]);
+                characters[i].gameObject.SetActive(false);
+                Destroy(characters[i].gameObject);
                 characters[i] = null;
             }
             characters = new List<Character> { };
@@ -215,26 +217,31 @@ public class GameManager : MonoBehaviour
         countDownText.text = "Counting points...";
 
         int countScore = 0;
-        while (countScore <= HighestScoredPlayer().SavedPoints)
+        if (HighestScoredPlayer().SavedPoints > 0)
         {
-            foreach (Character character in characters)
+            while (countScore <= HighestScoredPlayer().SavedPoints)
             {
-                if (character.AllPoints >= countScore)
+                foreach (Character character in characters)
                 {
-                    character.UpdateResultScoreText(countScore);
+                    if (character.AllPoints >= countScore)
+                    {
+                        character.UpdateResultScoreText(countScore);
+                    }
                 }
+                yield return new WaitForSeconds(1f / HighestScoredPlayer().AllPoints);
+                countScore++;
             }
-            yield return new WaitForSeconds(1f / HighestScoredPlayer().AllPoints);
-
-            countScore++;
+            countDownText.text = (HighestScoredPlayer().transform.name + " wins!");
+        } else
+        {
+            countDownText.text = "Did you guys even played at all?!";
         }
-        countDownText.text = (HighestScoredPlayer().transform.name + " wins!");
         resultScreen.SetActive(true);
-
         foreach (Character character in characters)
         {
             character.Result(character == HighestScoredPlayer());
         }
+        FMODUnity.RuntimeManager.PlayOneShot(EndGameMusic);
     }
     /// <summary>
     /// Reloads the active scene, will maybe be put in a seperate scene manager class...
