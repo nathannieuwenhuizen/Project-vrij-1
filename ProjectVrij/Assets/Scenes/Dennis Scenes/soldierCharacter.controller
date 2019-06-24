@@ -1303,7 +1303,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SwordSlash
-  m_Speed: 2.5
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101460098700058634}
@@ -1316,7 +1316,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400024, guid: 11c87020cdc823a4aad72563c8ad270c, type: 3}
+  m_Motion: {fileID: 7400000, guid: 39e155fd4abc84646b9d4fbddaded82e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
