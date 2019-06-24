@@ -48,23 +48,17 @@ MonoBehaviour:
       type: 3}
     amount: 4
   landImpactParticle:
-    particlePrefab: {fileID: 6529552903562876723, guid: f397f769efa689b418a7c884c854128b,
+    particlePrefab: {fileID: 3689598821756577368, guid: eb23827524efc2b4a8dd910921ae70b4,
       type: 3}
     amount: 4
   hitParticle:
     particlePrefab: {fileID: 4775286501488895075, guid: fffb34fce76b2ae4cbef0791a13aec0b,
       type: 3}
     amount: 20
-  spawnParticle:
-    particlePrefab: {fileID: 0}
-    amount: 0
   chargeParticles:
     particlePrefab: {fileID: 2042404250214813075, guid: 686425db62e8d944b9b6a22341262787,
       type: 3}
     amount: 10
-  chargeTrailParticles:
-    particlePrefab: {fileID: 0}
-    amount: 0
   spawnPointParticle:
     particlePrefab: {fileID: 3397187423719792841, guid: f2782907473b79d4cb07c18cbda03340,
       type: 3}
@@ -73,8 +67,12 @@ MonoBehaviour:
     particlePrefab: {fileID: 8819308920026463339, guid: 906bc282b74561d4190d165277a86da5,
       type: 3}
     amount: 20
-  projectileHit:
-    particlePrefab: {fileID: 2563894378452002440, guid: 12be719da59b1d240ab097266ec6c78f,
+  projectileHitFire:
+    particlePrefab: {fileID: 8779370827647754271, guid: 92a0a60b6daa20f49826a5e966431421,
+      type: 3}
+    amount: 10
+  projectileHitIce:
+    particlePrefab: {fileID: 8779370827647754271, guid: d77ac27f62aa41e499c6ba72b6d454ee,
       type: 3}
     amount: 10
   projectileSpawn:

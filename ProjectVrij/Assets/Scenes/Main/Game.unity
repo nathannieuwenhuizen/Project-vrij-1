@@ -7220,11 +7220,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Melee Character
       objectReference: {fileID: 0}
-    - target: {fileID: 2538581115202121853, guid: 65b312e2c178e5d45b3d19751febe030,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2538581115202121847, guid: 65b312e2c178e5d45b3d19751febe030,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16586,57 +16581,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5769006981631214420, guid: 84fa906d5d9051f4e915325fe04d40a1,
-        type: 3}
-      propertyPath: landImpactParticle.particlePrefab
-      value: 
-      objectReference: {fileID: 3689598821756577368, guid: eb23827524efc2b4a8dd910921ae70b4,
-        type: 3}
-    - target: {fileID: 5769006981631214420, guid: 84fa906d5d9051f4e915325fe04d40a1,
-        type: 3}
-      propertyPath: projectileHit.particlePrefab
-      value: 
-      objectReference: {fileID: 8779370827647754271, guid: 92a0a60b6daa20f49826a5e966431421,
-        type: 3}
-    - target: {fileID: 5769006981631214420, guid: 84fa906d5d9051f4e915325fe04d40a1,
-        type: 3}
-      propertyPath: spawnParticle.particlePrefab
-      value: 
-      objectReference: {fileID: 8585871269663862217, guid: efae243b46b18c4498c0a5b1a99f25aa,
-        type: 3}
-    - target: {fileID: 5769006981631214420, guid: 84fa906d5d9051f4e915325fe04d40a1,
-        type: 3}
-      propertyPath: chargeTrailParticles.particlePrefab
-      value: 
-      objectReference: {fileID: 3795561387723849895, guid: 1ff149420b89b4c42baead98f20b4802,
-        type: 3}
-    - target: {fileID: 5769006981631214420, guid: 84fa906d5d9051f4e915325fe04d40a1,
-        type: 3}
-      propertyPath: chargeTrailParticles.amount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5769006981631214420, guid: 84fa906d5d9051f4e915325fe04d40a1,
-        type: 3}
-      propertyPath: projectileHitIce.particlePrefab
-      value: 
-      objectReference: {fileID: 8779370827647754271, guid: d77ac27f62aa41e499c6ba72b6d454ee,
-        type: 3}
-    - target: {fileID: 5769006981631214420, guid: 84fa906d5d9051f4e915325fe04d40a1,
-        type: 3}
-      propertyPath: projectileHitFire.particlePrefab
-      value: 
-      objectReference: {fileID: 8779370827647754271, guid: 92a0a60b6daa20f49826a5e966431421,
-        type: 3}
-    - target: {fileID: 5769006981631214420, guid: 84fa906d5d9051f4e915325fe04d40a1,
-        type: 3}
-      propertyPath: projectileHitFire.amount
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5769006981631214420, guid: 84fa906d5d9051f4e915325fe04d40a1,
-        type: 3}
-      propertyPath: projectileHitIce.amount
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84fa906d5d9051f4e915325fe04d40a1, type: 3}

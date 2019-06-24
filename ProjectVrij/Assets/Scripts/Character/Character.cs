@@ -118,15 +118,15 @@ public class Character : Entity
         ps = Transform.FindObjectOfType<PlayerSpawner>();
         rb = GetComponent<Rigidbody>();
 
-        //audiosources are added for the character
-        movementAudioSource = gameObject.AddComponent<AudioSource>();
-        voiceAudioSource = gameObject.AddComponent<AudioSource>();
-
         ui.SetPointText(points.ToString());
         Respawn();
         CameraFadeFromBlack();
         Points = 5;
         IsGrounded = false;
+
+        //audiosources are added for the character
+        movementAudioSource = gameObject.AddComponent<AudioSource>();
+        voiceAudioSource = gameObject.AddComponent<AudioSource>();
 
     }
 
@@ -209,10 +209,10 @@ public class Character : Entity
         else
         {
             knocked = false;
-            FMODUnity.RuntimeManager.PlayOneShot(landingSound, transform.position);
+
             IsGrounded = true;
             ParticleManager.instance.SpawnParticle(ParticleManager.instance.landImpactParticle, transform.position, transform.rotation);
-
+            FMODUnity.RuntimeManager.PlayOneShot(landingSound, transform.position);
         }
     }
     public void OnCollisionStay(Collision collision)
@@ -265,9 +265,10 @@ public class Character : Entity
         StartCoroutine(SetanimationBoolFalse("hitted", 0.2f));
         Debug.Log("GOT HIT");
 
-        FMODUnity.RuntimeManager.PlayOneShot(gotHitSound, transform.position);
         characterThatHitYou = hit.Character;
         Health -= hit.Damage;
+
+        FMODUnity.RuntimeManager.PlayOneShot(gotHitSound, transform.position);
     }
     IEnumerator SetanimationBoolFalse(string val, float duration)
     {
@@ -299,8 +300,7 @@ public class Character : Entity
         //death particle at position and explode.
         ParticleManager.instance.SpawnParticle(ParticleManager.instance.deathParticle, transform.position + new Vector3(0,1.5f,0), transform.rotation);
 
-        //plays death sound
-        FMODUnity.RuntimeManager.PlayOneShot(deathSound, transform.position);
+
 
         //character falls back by changing the force of the rigidbody.
         if (characterThatHitYou != null)
@@ -311,6 +311,9 @@ public class Character : Entity
         }
 
         StartCoroutine(Respawning());
+
+        //plays death sound
+        FMODUnity.RuntimeManager.PlayOneShot(deathSound, transform.position);
     }
 
     public void KnockBack(float force, float forceY, Vector3 hitBoxPos)
@@ -471,10 +474,9 @@ public class Character : Entity
             rb.velocity = jumpVelocity;
 
             IsGrounded = false;
-            FMODUnity.RuntimeManager.PlayOneShot(jumpSound, transform.position);
 
             ParticleManager.instance.SpawnParticle(ParticleManager.instance.landImpactParticle, transform.position, transform.rotation);
-
+            FMODUnity.RuntimeManager.PlayOneShot(jumpSound, transform.position);
         }
     }
 
@@ -510,10 +512,9 @@ public class Character : Entity
     {
         if (state == true)
         {
-            FMODUnity.RuntimeManager.PlayOneShot(punchSound, transform.position);
             SetAnimation("isAttacking", true);
             StartCoroutine(SetanimationBoolFalse("isAttacking", 0.5f));
-
+            FMODUnity.RuntimeManager.PlayOneShot(punchSound, transform.position);
         }
 
     }

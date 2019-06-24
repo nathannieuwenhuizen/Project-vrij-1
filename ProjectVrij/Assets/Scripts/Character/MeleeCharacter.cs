@@ -117,7 +117,7 @@ public class MeleeCharacter : Character
             return;
         }
         instChargeSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        FMODUnity.RuntimeManager.PlayOneShot(chargeAttack); 
+        FMODUnity.RuntimeManager.PlayOneShot(chargeAttack);
         ParticleManager.instance.SpawnParticle(ParticleManager.instance.chargeParticles, transform.position + transform.forward, transform.rotation);
         indicationLine.SetActive(false);
 
