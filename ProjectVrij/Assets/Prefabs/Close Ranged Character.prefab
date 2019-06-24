@@ -170,7 +170,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2834880695915957931}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
@@ -382,7 +382,7 @@ MonoBehaviour:
   pointPrefab: {fileID: 3936667629786671433, guid: 6d0d39a8c272b9c4ba4bf4c59068132e,
     type: 3}
   walkingSoundSpeed: 0.4
-  points: 5
+  points: 0
   savePoints: 0
   projectilePrefab: {fileID: 771861541888416937, guid: e223558a7bb200842b6ca0bd42c5fba7,
     type: 3}
@@ -1030,6 +1030,11 @@ PrefabInstance:
       propertyPath: ShapeModule.arc.mode
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3738234321912678784, guid: 9969f7d048b3c574aa9443d3af209572,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9969f7d048b3c574aa9443d3af209572, type: 3}
 --- !u!4 &7997235564418839388 stripped
@@ -1053,10 +1058,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 1769dcc6ff477264899574f00be432f8, type: 2}
     - target: {fileID: 400002, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1101,6 +1102,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1769dcc6ff477264899574f00be432f8, type: 2}
     - target: {fileID: 13700000, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1124,14 +1129,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2834880697019763054}
     m_Modifications:
-    - target: {fileID: 9500000, guid: 6e0e8a5d0e7d8f0409ccb4c3966da98b, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 1769dcc6ff477264899574f00be432f8, type: 2}
     - target: {fileID: 100004, guid: 6e0e8a5d0e7d8f0409ccb4c3966da98b, type: 3}
       propertyPath: m_Name
       value: burstMage
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 6e0e8a5d0e7d8f0409ccb4c3966da98b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1769dcc6ff477264899574f00be432f8, type: 2}
     - target: {fileID: 400004, guid: 6e0e8a5d0e7d8f0409ccb4c3966da98b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

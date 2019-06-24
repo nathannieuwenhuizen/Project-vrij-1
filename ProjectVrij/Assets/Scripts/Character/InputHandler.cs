@@ -148,5 +148,6 @@ public class InputHandler : MonoBehaviour
 
         //player movement
         character.Walking(CrossPlatformInputManager.GetAxis("Vertical" + controllerID), -CrossPlatformInputManager.GetAxis("Horizontal" + controllerID));
+        Debug.Log("Rotating and walking");
     }
 }
