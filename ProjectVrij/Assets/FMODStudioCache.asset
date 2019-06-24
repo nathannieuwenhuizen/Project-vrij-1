@@ -50,11 +50,12 @@ MonoBehaviour:
   - {fileID: 114359722889229912}
   - {fileID: 114854727329154546}
   - {fileID: 114224818101127030}
+  - {fileID: 114854942145636222}
   MasterBanks:
   - {fileID: 114019470430868980}
   StringsBanks:
   - {fileID: 114873381230119202}
-  stringsBankWriteTime: 636968440577064920
+  stringsBankWriteTime: 636970178288192487
   cacheVersion: 3
 --- !u!114 &114006710071244468
 MonoBehaviour:
@@ -85,11 +86,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\HkuGames\Project Vrij\FMOD_VRIJ\Build\Desktop\Master Bank.bank
-  lastModified: 636968440576969769
+  lastModified: 636970178288122625
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 14283680
+    Value: 14284736
   Exists: 1
 --- !u!114 &114019857891466256
 MonoBehaviour:
@@ -250,7 +251,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114963101104388746}
+  - {fileID: 114936413438227026}
   MinDistance: 0
   MaxDistance: 0
   Length: 53706
@@ -840,7 +841,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114020544132341640}
+  - {fileID: 114815982770621442}
   MinDistance: 0
   MaxDistance: 0
   Length: 53706
@@ -1423,7 +1424,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114153365674172098}
+  - {fileID: 114802395046757988}
   MinDistance: 0
   MaxDistance: 0
   Length: 53706
@@ -2081,6 +2082,38 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114802395046757988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114815982770621442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114820518863897236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2187,6 +2220,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1200
+--- !u!114 &114854942145636222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/EndGameMusic
+  guid: 191704a24bfe974dae00581b67fc494a
+  Banks:
+  - {fileID: 114019470430868980}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 83000
 --- !u!114 &114858346412341820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2262,11 +2318,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\HkuGames\Project Vrij\FMOD_VRIJ\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636968440577064920
+  lastModified: 636970178288192487
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 2298
+    Value: 2342
   Exists: 1
 --- !u!114 &114877902692338362
 MonoBehaviour:
@@ -2392,6 +2448,22 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 54000
+--- !u!114 &114936413438227026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MusicOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114946997650236060
 MonoBehaviour:
   m_ObjectHideFlags: 0

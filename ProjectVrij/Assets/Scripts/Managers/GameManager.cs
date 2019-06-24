@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
 
     [FMODUnity.EventRef] public string beginGame;
     [FMODUnity.EventRef] public string countDownSound;
+    [FMODUnity.EventRef] public string EndGameMusic;
     FMOD.Studio.EventInstance instBeginGame;
     FMOD.Studio.EventInstance instCountDownSound;
 
@@ -240,6 +241,7 @@ public class GameManager : MonoBehaviour
         {
             character.Result(character == HighestScoredPlayer());
         }
+        FMODUnity.RuntimeManager.PlayOneShot(EndGameMusic);
     }
     /// <summary>
     /// Reloads the active scene, will maybe be put in a seperate scene manager class...
