@@ -156,10 +156,14 @@ public class Character : Entity
             }
 
             //tilts the camera a bit
-            Vector3 currentRotation = cameraPivot.localRotation.eulerAngles;
-            currentRotation.z = Mathf.Sin(walkIndex * Mathf.PI * 2);
+            //Vector3 currentRotation = cameraPivot.localRotation.eulerAngles;
+            //currentRotation.z = Mathf.Sin(walkIndex * Mathf.PI * 2);
             //cameraPivot.localRotation = Quaternion.Euler(currentRotation);
         }
+        Vector3 currentRotation = cameraPivot.localRotation.eulerAngles;
+        currentRotation.z = 0;
+        cameraPivot.localRotation = Quaternion.Euler(currentRotation);
+
     }
 
     /// <summary>
