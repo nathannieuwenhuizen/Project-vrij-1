@@ -112,14 +112,19 @@ public class MeleeCharacter : Character
 
     public override void SpecialAttackRelease()
     {
-        if (isCharging || forceDuration == 0 || Health == 0)
+        if (isCharging || forceDuration == 0)
         {
             return;
         }
+        indicationLine.SetActive(false);
+        if (Health == 0)
+        {
+            return;
+        }
+
         instChargeSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         FMODUnity.RuntimeManager.PlayOneShot(chargeAttack);
         ParticleManager.instance.SpawnParticle(ParticleManager.instance.chargeParticles, transform.position + transform.forward, transform.rotation);
-        indicationLine.SetActive(false);
 
         SetAnimation("increasecharge", false);
         SetAnimation("charging", true);
