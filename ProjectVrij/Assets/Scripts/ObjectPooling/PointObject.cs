@@ -9,7 +9,10 @@ public class PointObject : PoolObject
     //my spawnPosition, must be changed to private and a getter/setter must be made later.
     public SpawnPosition myPos;
     private float timer;
-    
+
+    [SerializeField]
+    private bool giveHealth = false;
+
 
     //FMOD
     [FMODUnity.EventRef] public string PointCollect;
@@ -75,9 +78,15 @@ public class PointObject : PoolObject
             //if it isn't dead by fallback;
             if (character.Health != 0)
             {
+                if(giveHealth == true)
+                {
+                    character.Health += 50;
+                }
+                else
+                {
+                    character.Points++;
+                }
                 //player gets score;
-                character.Points++;
-
                 FMODUnity.RuntimeManager.PlayOneShot(PointCollect, this.transform.position);
 
                 StartCoroutine(Collected());

@@ -10,7 +10,7 @@ public class PointSpawner : MonoBehaviour
 {
     //the prefab that will be used for spawning
     [SerializeField]
-    private GameObject pointPrefab;
+    private GameObject[] pointPrefabs;
 
     //how many point objects must be activa at the same time.
     [SerializeField]
@@ -23,7 +23,8 @@ public class PointSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PoolManager.instance.CreatePool(pointPrefab, 30);
+        PoolManager.instance.CreatePool(pointPrefabs[0], 20);
+        PoolManager.instance.CreatePool(pointPrefabs[1], 20);
         for(int i = 0; i < amountOfPointsActive; i++)
         {
             SpawnPoint();
@@ -38,7 +39,7 @@ public class PointSpawner : MonoBehaviour
         randomPos.IsEmpty = false;
 
         //why is this commented?
-        GameObject point = PoolManager.instance.ReuseObject(pointPrefab, randomPos.transform.position, Quaternion.identity);
+        GameObject point = PoolManager.instance.ReuseObject(pointPrefabs[Random.Range(0, pointPrefabs.Length)], randomPos.transform.position, Quaternion.identity);
         point.GetComponent<PointObject>().myPos = randomPos;
         point.GetComponent<PointObject>().Spawn(); // = randomPos;
     }

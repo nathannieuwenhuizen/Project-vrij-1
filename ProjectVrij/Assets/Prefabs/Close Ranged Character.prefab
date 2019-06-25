@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 4932237300317104834}
   m_Layer: 0
   m_Name: Close Ranged Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
