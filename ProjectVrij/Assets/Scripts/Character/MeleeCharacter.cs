@@ -112,7 +112,7 @@ public class MeleeCharacter : Character
 
     public override void SpecialAttackRelease()
     {
-        if (isCharging || forceDuration == 0)
+        if (isCharging || forceDuration == 0 || Health == 0)
         {
             return;
         }

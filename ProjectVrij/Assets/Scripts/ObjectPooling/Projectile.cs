@@ -53,7 +53,8 @@ public class Projectile : PoolObject
     public void Spawn()
     {
         StartCoroutine(Destroying());
-        //GetComponent<Rigidbody>().AddForce(new Vector3(speed, 0, 0));
+
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
     IEnumerator Destroying()
     {
