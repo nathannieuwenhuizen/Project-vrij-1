@@ -291,6 +291,7 @@ public class Character : Entity
         base.Death();
         anim.SetLayerWeight(1, 0);
         SetAnimation("dead", true);
+        GetComponent<InputHandler>().enabled = false;
 
         //other player recieves point (MUST BE CHANGED LATER!)
         float spread = 100f;
@@ -358,6 +359,7 @@ public class Character : Entity
         characterThatHitYou = null;
         ps.RespawnPlayer(this);
 
+        GetComponent<InputHandler>().enabled = true;
         respawnParticles.Play();
     }
     public void CameraFadeToBlack()

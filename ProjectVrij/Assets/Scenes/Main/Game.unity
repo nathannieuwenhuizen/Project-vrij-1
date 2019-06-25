@@ -15328,7 +15328,7 @@ PrefabInstance:
     - target: {fileID: 4393293151317831456, guid: 60876ab1b9191e74e8d681204a27867d,
         type: 3}
       propertyPath: timerCount
-      value: 10
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 9001004481144988875, guid: 60876ab1b9191e74e8d681204a27867d,
         type: 3}
