@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 2834880695915957928}
   - component: {fileID: 2834880695915957934}
   - component: {fileID: 2834880695915957929}
+  - component: {fileID: 8503758559847406765}
   - component: {fileID: 4558372750947174845}
   - component: {fileID: 1168792749}
   - component: {fileID: 2031672911}
@@ -117,6 +118,26 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2834880695915957931}
   m_Enabled: 1
+--- !u!114 &8503758559847406765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834880695915957931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f8978be8ea1c3f4783c8d633d4d47e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mat: {fileID: 2100000, guid: f4a8f662fffbc064abb851a3128407a2, type: 2}
+  _FogStartColor: {r: 1, g: 0.5111066, b: 0.07843137, a: 0}
+  _FogMidColor: {r: 1, g: 0, b: 0.18947029, a: 0}
+  _FogEndColor: {r: 0.8113208, g: 0.36356357, b: 0.6710098, a: 0}
+  _MidStart: 0.35
+  _FogIntensity: 0.28
+  _depthStart: 0
+  _depthDistance: 45.4
 --- !u!114 &4558372750947174845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -789,6 +810,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4715624392658470174}
     m_Modifications:
+    - target: {fileID: 8585871269663862217, guid: efae243b46b18c4498c0a5b1a99f25aa,
+        type: 3}
+      propertyPath: m_Name
+      value: Spawn Particle
+      objectReference: {fileID: 0}
     - target: {fileID: 445234846349584306, guid: efae243b46b18c4498c0a5b1a99f25aa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -844,11 +870,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8585871269663862217, guid: efae243b46b18c4498c0a5b1a99f25aa,
-        type: 3}
-      propertyPath: m_Name
-      value: Spawn Particle
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efae243b46b18c4498c0a5b1a99f25aa, type: 3}
 --- !u!4 &5529945556773802203 stripped
@@ -870,11 +891,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5297079259240773975}
     m_Modifications:
-    - target: {fileID: 3738234321054747804, guid: 9969f7d048b3c574aa9443d3af209572,
-        type: 3}
-      propertyPath: m_Name
-      value: Fireball
-      objectReference: {fileID: 0}
     - target: {fileID: 3738234321054747807, guid: 9969f7d048b3c574aa9443d3af209572,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -944,6 +960,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738234321054747804, guid: 9969f7d048b3c574aa9443d3af209572,
+        type: 3}
+      propertyPath: m_Name
+      value: Fireball
       objectReference: {fileID: 0}
     - target: {fileID: 3738234321912678798, guid: 9969f7d048b3c574aa9443d3af209572,
         type: 3}
@@ -1110,14 +1131,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2834880697019763054}
     m_Modifications:
-    - target: {fileID: 100002, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
-      propertyPath: m_Name
-      value: burstMage old
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1769dcc6ff477264899574f00be432f8, type: 2}
     - target: {fileID: 400002, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1162,10 +1179,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 1769dcc6ff477264899574f00be432f8, type: 2}
+    - target: {fileID: 100002, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
+      propertyPath: m_Name
+      value: burstMage old
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1189,10 +1210,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2834880697019763054}
     m_Modifications:
-    - target: {fileID: 9500000, guid: 6e0e8a5d0e7d8f0409ccb4c3966da98b, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 1769dcc6ff477264899574f00be432f8, type: 2}
     - target: {fileID: 100004, guid: 6e0e8a5d0e7d8f0409ccb4c3966da98b, type: 3}
       propertyPath: m_Name
       value: burstMage
@@ -1241,6 +1258,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 6e0e8a5d0e7d8f0409ccb4c3966da98b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1769dcc6ff477264899574f00be432f8, type: 2}
     - target: {fileID: 13700000, guid: 6e0e8a5d0e7d8f0409ccb4c3966da98b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

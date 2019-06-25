@@ -8,6 +8,8 @@ public class PointObject : PoolObject
 {
     //my spawnPosition, must be changed to private and a getter/setter must be made later.
     public SpawnPosition myPos;
+    private float timer;
+    
 
     //FMOD
     [FMODUnity.EventRef] public string PointCollect;
@@ -16,6 +18,12 @@ public class PointObject : PoolObject
     {
         //a simple rotation flare to catch the players eye.
         transform.Rotate(new Vector3(0, 1f, 0));
+
+        timer += Time.deltaTime;
+        if (timer > 20)
+        {
+            gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 
     public override void OnObjectReuse()
