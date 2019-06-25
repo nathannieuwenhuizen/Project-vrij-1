@@ -13,4 +13,6 @@ public static class GameInformation
     public static List<int> CHOSEN_CHARACTERS;
 
     public static bool FROM_MENU = false;
+
+    public static float CAMERA_SENSITIVITY = 6f;
 }

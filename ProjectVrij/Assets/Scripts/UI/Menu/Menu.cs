@@ -21,6 +21,9 @@ public class Menu : MonoBehaviour
     [SerializeField]
     private LoadingScreenController loadScreen;
 
+    [SerializeField]
+    private Slider cameraSlider;
+
     [FMODUnity.EventRef] public string mainMenuMusic;
     FMOD.Studio.EventInstance instMainMenuMusic;
 
@@ -50,6 +53,7 @@ public class Menu : MonoBehaviour
         {
             //camFade.fadingOut = true;
         }
+        GameInformation.CAMERA_SENSITIVITY = cameraSlider.value;
         instMainMenuMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         loadScreen.LoadScene(1);
         //StartCoroutine(FadingOut());

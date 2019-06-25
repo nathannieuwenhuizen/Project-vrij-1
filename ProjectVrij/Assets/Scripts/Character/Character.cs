@@ -130,6 +130,9 @@ public class Character : Entity
         //Points = 5;
         IsGrounded = false;
 
+        rotationSpeedX = GameInformation.CAMERA_SENSITIVITY;
+        rotationSpeedY = GameInformation.CAMERA_SENSITIVITY;
+
         //audiosources are added for the character
         movementAudioSource = gameObject.AddComponent<AudioSource>();
         voiceAudioSource = gameObject.AddComponent<AudioSource>();
