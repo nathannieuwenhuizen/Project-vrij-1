@@ -31,7 +31,7 @@ Material:
     - _DepthDistance: 45.4
     - _DepthStart: 0
     - _ExponentialDensity: 1.9
-    - _FogIntensity: 0.28
+    - _FogIntensity: 0.1
     - _FogMaxDistance: 26.5
     - _FogMinDistance: 0
     - _FogOpacityMax: 0.32
@@ -41,6 +41,6 @@ Material:
     - _Color: {r: 0, g: 0.6784314, b: 0.6784314, a: 1}
     - _Color01: {r: 1, g: 0.5111066, b: 0.07843137, a: 0}
     - _Color02: {r: 1, g: 0, b: 0.18947029, a: 0}
-    - _Color03: {r: 0.8113208, g: 0.36356357, b: 0.6710098, a: 0}
+    - _Color03: {r: 0.8301887, g: 0.19971518, b: 0.27871767, a: 0}
     - _FogColor: {r: 0, g: 0, b: 0, a: 0}
     - _MidStart: {r: 1, g: 1, b: 1, a: 1}
