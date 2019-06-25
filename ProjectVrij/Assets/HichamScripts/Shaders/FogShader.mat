@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FogShader
+  m_Shader: {fileID: 4800000, guid: 5e1bed962ce569245a2db13cd4358a78, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 84508b93f15f2b64386ec07486afc7a3, type: 3}
+        m_Scale: {x: 28.2, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _StylizedFogTexture:
+        m_Texture: {fileID: 2800000, guid: 84508b93f15f2b64386ec07486afc7a3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _DepthDistance: 45.4
+    - _DepthStart: 0
+    - _ExponentialDensity: 1.9
+    - _FogIntensity: 0.28
+    - _FogMaxDistance: 26.5
+    - _FogMinDistance: 0
+    - _FogOpacityMax: 0.32
+    - _IsExponential: 0
+    - _UseStylizedFogTexture: 0
+    m_Colors:
+    - _Color: {r: 0, g: 0.6784314, b: 0.6784314, a: 1}
+    - _Color01: {r: 1, g: 0.5111066, b: 0.07843137, a: 0}
+    - _Color02: {r: 1, g: 0, b: 0.18947029, a: 0}
+    - _Color03: {r: 0.8113208, g: 0.36356357, b: 0.6710098, a: 0}
+    - _FogColor: {r: 0, g: 0, b: 0, a: 0}
+    - _MidStart: {r: 1, g: 1, b: 1, a: 1}
