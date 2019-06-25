@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     [FMODUnity.EventRef] public string beginGame;
     [FMODUnity.EventRef] public string countDownSound;
     [FMODUnity.EventRef] public string EndGameMusic;
+    FMOD.Studio.EventInstance instEndGameMusic;
     FMOD.Studio.EventInstance instBeginGame;
     FMOD.Studio.EventInstance instCountDownSound;
 
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviour
         Pause(false);
         CountDowStart();
         Application.targetFrameRate = 60;
-
+        instEndGameMusic = FMODUnity.RuntimeManager.CreateInstance(EndGameMusic);
         instCountDownSound = FMODUnity.RuntimeManager.CreateInstance(countDownSound);
         instBeginGame = FMODUnity.RuntimeManager.CreateInstance(beginGame);
         instCountDownSound.start();
@@ -241,13 +242,16 @@ public class GameManager : MonoBehaviour
         {
             character.Result(character == HighestScoredPlayer());
         }
-        FMODUnity.RuntimeManager.PlayOneShot(EndGameMusic);
+        instEndGameMusic.start();
     }
     /// <summary>
     /// Reloads the active scene, will maybe be put in a seperate scene manager class...
     /// </summary>
     public void ReloadScene()
     {
+        timer.StopMusic();
+        instEndGameMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        instBeginGame.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         Scene scene = SceneManager.GetActiveScene();
         Time.timeScale = 1;
         SceneManager.LoadScene(scene.name);
@@ -257,6 +261,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void GoToMenu()
     {
+        timer.StopMusic();
+        instEndGameMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        instBeginGame.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(0);
     }

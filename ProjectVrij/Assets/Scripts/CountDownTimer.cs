@@ -58,6 +58,10 @@ public class CountDownTimer : MonoBehaviour
             Countdown();
         }
  }
+    public void StopMusic()
+    {
+        instGameMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    }
 
     /// <summary>
     /// Updates the timer and shows it on the UI object.
