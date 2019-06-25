@@ -15305,11 +15305,57 @@ PrefabInstance:
       propertyPath: EndGameMusic
       value: event:/Music/EndGameMusic
       objectReference: {fileID: 0}
+    - target: {fileID: 3717970983838204254, guid: 60876ab1b9191e74e8d681204a27867d,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.7176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 3717970983838204254, guid: 60876ab1b9191e74e8d681204a27867d,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.7176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 3717970983838204254, guid: 60876ab1b9191e74e8d681204a27867d,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.7176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393293151317831456, guid: 60876ab1b9191e74e8d681204a27867d,
+        type: 3}
+      propertyPath: FirstObject
+      value: 
+      objectReference: {fileID: 542154706}
+    - target: {fileID: 4393293151317831456, guid: 60876ab1b9191e74e8d681204a27867d,
+        type: 3}
+      propertyPath: timerCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001004481144988875, guid: 60876ab1b9191e74e8d681204a27867d,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.7169812
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001004481144988875, guid: 60876ab1b9191e74e8d681204a27867d,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.7169812
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001004481144988875, guid: 60876ab1b9191e74e8d681204a27867d,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.7169812
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60876ab1b9191e74e8d681204a27867d, type: 3}
 --- !u!1 &542154705 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5694937506966328744, guid: 60876ab1b9191e74e8d681204a27867d,
+    type: 3}
+  m_PrefabInstance: {fileID: 542154704}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &542154706 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8419051056556106116, guid: 60876ab1b9191e74e8d681204a27867d,
     type: 3}
   m_PrefabInstance: {fileID: 542154704}
   m_PrefabAsset: {fileID: 0}
