@@ -133,9 +133,9 @@ MonoBehaviour:
   _mat: {fileID: 2100000, guid: f4a8f662fffbc064abb851a3128407a2, type: 2}
   _FogStartColor: {r: 1, g: 0.5111066, b: 0.07843137, a: 0}
   _FogMidColor: {r: 1, g: 0, b: 0.18947029, a: 0}
-  _FogEndColor: {r: 0.8113208, g: 0.36356357, b: 0.6710098, a: 0}
+  _FogEndColor: {r: 0.8301887, g: 0.19971518, b: 0.27871767, a: 0}
   _MidStart: 0.35
-  _FogIntensity: 0.28
+  _FogIntensity: 0.1
   _depthStart: 0
   _depthDistance: 45.4
 --- !u!114 &4558372750947174845
@@ -891,6 +891,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5297079259240773975}
     m_Modifications:
+    - target: {fileID: 3738234321054747804, guid: 9969f7d048b3c574aa9443d3af209572,
+        type: 3}
+      propertyPath: m_Name
+      value: Fireball
+      objectReference: {fileID: 0}
     - target: {fileID: 3738234321054747807, guid: 9969f7d048b3c574aa9443d3af209572,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -960,11 +965,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3738234321054747804, guid: 9969f7d048b3c574aa9443d3af209572,
-        type: 3}
-      propertyPath: m_Name
-      value: Fireball
       objectReference: {fileID: 0}
     - target: {fileID: 3738234321912678798, guid: 9969f7d048b3c574aa9443d3af209572,
         type: 3}
@@ -1131,10 +1131,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2834880697019763054}
     m_Modifications:
-    - target: {fileID: 9500000, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 1769dcc6ff477264899574f00be432f8, type: 2}
+    - target: {fileID: 100002, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
+      propertyPath: m_Name
+      value: burstMage old
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1179,14 +1183,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
-      propertyPath: m_Name
-      value: burstMage old
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1769dcc6ff477264899574f00be432f8, type: 2}
     - target: {fileID: 13700000, guid: 40bc96a8df9f01b4faa994a5f1fbc405, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1214,6 +1214,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: burstMage
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 6e0e8a5d0e7d8f0409ccb4c3966da98b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1769dcc6ff477264899574f00be432f8, type: 2}
     - target: {fileID: 400004, guid: 6e0e8a5d0e7d8f0409ccb4c3966da98b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1258,10 +1262,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 6e0e8a5d0e7d8f0409ccb4c3966da98b, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 1769dcc6ff477264899574f00be432f8, type: 2}
     - target: {fileID: 13700000, guid: 6e0e8a5d0e7d8f0409ccb4c3966da98b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
