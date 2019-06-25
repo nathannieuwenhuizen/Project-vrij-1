@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using System.Collections;
 
 /// <summary>
@@ -23,6 +24,8 @@ public class CountDownTimer : MonoBehaviour
     [FMODUnity.EventRef] public string lastMinuteMusic;
     [FMODUnity.EventRef] public string gameMusic;
 
+    public GameObject FirstObject;
+
     private bool started;
     private bool started1;
 
@@ -45,6 +48,7 @@ public class CountDownTimer : MonoBehaviour
         {
             //Hier stopt de game.
             _countDownText.text = "00:00";
+            GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(FirstObject, null);
             stopped = true;
             //fires the event
             OnZero?.Invoke();

@@ -986,10 +986,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _countDownText: {fileID: 4393293151317831471}
-  timerCount: 300
+  timerCount: 360
   paused: 0
   lastMinuteMusic: event:/Music/FastDrum2
   gameMusic: event:/Music/MainDrums
+  FirstObject: {fileID: 8419051056556106116}
 --- !u!114 &4393293151317831457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1070,6 +1071,7 @@ MonoBehaviour:
   playerUIs: {fileID: 6083763670546309750}
   beginGame: event:/Music/Duduk
   countDownSound: event:/Extra/Countdown
+  EndGameMusic: event:/Music/EndGameMusic
 --- !u!1 &4644010096255059549
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,6 +2065,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4565185350795659140, guid: 1bab15949d9ce894a90ed66bb84a09e6,
         type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.7176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 4565185350795659140, guid: 1bab15949d9ce894a90ed66bb84a09e6,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.7176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 4565185350795659140, guid: 1bab15949d9ce894a90ed66bb84a09e6,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.7176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 4565185350795659140, guid: 1bab15949d9ce894a90ed66bb84a09e6,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4393293151688773406}
@@ -2652,6 +2669,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4565185350795659140, guid: 1bab15949d9ce894a90ed66bb84a09e6,
         type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.7169812
+      objectReference: {fileID: 0}
+    - target: {fileID: 4565185350795659140, guid: 1bab15949d9ce894a90ed66bb84a09e6,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.7169812
+      objectReference: {fileID: 0}
+    - target: {fileID: 4565185350795659140, guid: 1bab15949d9ce894a90ed66bb84a09e6,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.7169812
+      objectReference: {fileID: 0}
+    - target: {fileID: 4565185350795659140, guid: 1bab15949d9ce894a90ed66bb84a09e6,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4393293151688773406}
@@ -2672,6 +2704,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bab15949d9ce894a90ed66bb84a09e6, type: 3}
+--- !u!1 &8419051056556106116 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3991680572895380171, guid: 1bab15949d9ce894a90ed66bb84a09e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4878302201436873551}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &6417035941118612752 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1927208802666198623, guid: 1bab15949d9ce894a90ed66bb84a09e6,
