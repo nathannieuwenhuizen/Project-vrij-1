@@ -497,7 +497,7 @@ public class Character : Entity
     /// </summary>
     public virtual void Jump()
     {
-        if (IsGrounded == true)
+        if (!anim.GetBool("isJumpingUp") == true)
         {
 
             //changes the y velocity
@@ -630,7 +630,6 @@ public class Character : Entity
         get { return isGrounded; }
         set {
             isGrounded = value;
-
             SetAnimation("isJumpingUp", !isGrounded);
         }
     }

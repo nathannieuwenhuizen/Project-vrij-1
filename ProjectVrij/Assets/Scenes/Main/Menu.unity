@@ -25422,7 +25422,7 @@ MonoBehaviour:
   text: {fileID: 1600962174}
   playText: {fileID: 399256589}
   loadScreen: {fileID: 1436138302}
-  cameraSlider: {fileID: 0}
+  cameraSlider: {fileID: 105099917}
   mainMenuMusic: event:/Music/MainMenuMusic
 --- !u!1001 &834094566
 PrefabInstance:

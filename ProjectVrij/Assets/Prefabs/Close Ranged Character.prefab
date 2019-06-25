@@ -378,7 +378,7 @@ MonoBehaviour:
   maxUpAngle: 45
   cameraPivot: {fileID: 2834880695952720928}
   walkSpeed: 15
-  jumpForce: 10
+  jumpForce: 14
   walkSound: event:/Interaction/FootSteps
   jumpSound: 
   landingSound: event:/PlaceHolder/SandLand
